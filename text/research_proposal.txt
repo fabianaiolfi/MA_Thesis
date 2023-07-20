@@ -1,0 +1,47 @@
+# Research Proposal
+
+## Research Question
+- Why do regions have different political reactions to emigration?
+- Why do political outcomes vary across regions affected by emigration?
+- Why do voters that are affected by emigration, react differently to emigration?
+
+## Theory
+- Exit, voice, loyalty
+
+## Hypothesis
+- 2022 Dancygier shows how population decline, spurred on by emigration, negatively affect public services in a region.
+- This then decreases the overall quality of life in a region.
+- The population, unhappy with this development, develops grievances
+- Voters hold incumbents accountable for this decrease in quality of life and punish them at the polls
+- 2022 Dancygier shows how populist radical right parties profit when incumbents are punished
+
+- However, 2022 Dancygier does not uncover possible causal mechanisms between emigration and voting for PRR parties
+- also, prr parties only profit if they position themselves accordingly. what if they don’t, i.e. if they’re not at the right place at the right time? perhaps also other parties profit from this?
+
+
+- Emigration, a slow yet steady attrition of a region or community, carries a significant societal impact that largely goes unnoticed due to its gradual nature.
+- Those who choose to remain in their original areas often remain oblivious to the impacts until a certain tipping point, or 'watershed moment,' is reached.
+
+- These watershed moments are critical turning points in the lives of the remaining population
+- They can lead to a sentiment of dissatisfaction with existing conditions and a sense of reduced community belonging.
+- This has political implications.
+
+- I aim to analyze three possible watershed moments that can significantly influence the voting behavior of the remaining residents and their sense of community.
+- These moments include the closing of local schools, the closing of hospitals and finally the closing of public speres that act as “third places” such as cafés, bars or restaurants.
+
+- This is why I pick these watershed moments
+- The closure of schools, according to Sageman (2022) and possibly Dancygier (2022, p. 33), is believed to contribute to the reduction of community feeling. 
+- The shuttering of hospitals may cause distress among the remaining voters, particularly the elderly who are more likely to be reliant on these facilities, potentially as per Dancygier (2022, p. 33).
+	- remaining voters tend to be older and thus more interested if their local hospital closes
+- The closure of public spaces, a focal point for community interaction and belonging as per Bolet (2021), also contributes to the erosion of a communal sense of belonging
+
+- The context in which these closures occur is also significant. For instance, the impacts of these closures are expected to vary depending on the region's overall socioeconomic climate.
+
+- I intend to isolate distinct causal mechanisms to better understand how emigration-induced service reductions influence the success of different political parties.
+- By identifying these specific factors, I aim to provide deeper insights into the dynamics between emigration, community disintegration, and political outcomes
+
+
+## Data
+- school closings
+	- croatia: croatian bureau of statistics (https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/)
+- NUTS3 level electoral results: EU-NED European NUTS-Level Election Dataset (https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5)
