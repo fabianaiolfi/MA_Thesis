@@ -4,41 +4,50 @@
 - Why do regions have different political reactions to emigration?
 - Why do political outcomes vary across regions affected by emigration?
 - Why do voters that are affected by emigration, react differently to emigration?
+- Why do emigration-induced grievances …
+- Which political parties profit from emigration?
+- Why do voters that are hit by emigration
+- Why does emigration lead to grievances among the remaining population, and how do these grievances contribute to the success of opposition and populist parties?
+- Why does emigration lead to grievances among the remaining population, and how do these grievances affect voting behavior?
 
 ## Theory
 - Exit, voice, loyalty
 
 ## Introduction
 - 2022 Dancygier uncovers a link between emigration and the rise of Populists Radical Parties (PRR).
-- 2022 Dancygier suggests that emigration decreases an area’s quality of life (e.g., through cuts in public services), creating grievences amongst voters.
-- These unhappy voters thus change their political preferences. They turn against incumbents and vote for PRR parties
-- However, Dancygier does not specifically uncover possible causal mechanisms. They suggest that future research should look at which service cuts caused by emigration lead to a rise of PRR parties (p. 35)
-- aim to build upon this paper and apply its findings to central and eastern european EU member states, who are hit particularly hard by emigration that has been further facilitated by the EU’s freedom of movement
-- I aim to broaden this question by including all parties and not focusing specifically on PRR parites. PRR parties are only successful if they recognise and take advantage of these grievences. I assume there are situations where there is not a PRR party that can spring into action in all circumstances.
+- 2022 Dancygier suggests that emigration decreases an area’s quality of life (e.g., through cuts in public services). This creates grievences amongst voters.
+- These grievances can change a voter’s voting behavior. They turn against incumbents and vote for PRR parties
+- However, Dancygier does not uncover specific causal mechanisms. They suggest that future research should look into how emigration causes service cuts and decrease quality of life, which in turn leads to grievences that finally leads to a change in voting behavior (p. 35)
+
+- I aim to take the idea of emigration causing grievences and apply it to voters changing their voting behavior in Central and Eastern European EU member states.
+- I pick these countries because they are stronlgy affected by emigration, which has been facilitated by the EU’s freedom of movement
+- If the available data allows, I will study voting behaviour at the lowest possible level, i.e. NUTS3.
+- I want to test if Dancygier’s assumption holds that PRR parties profit from emigration, or if the opposition benefits from voter’s grievances. I assume that there are electoral situations where a PRR party does not exist or is not established enough to gain power.
 
 ## Hypothesis
 - In order to uncover possible causations of emigration-induced grievences, I suggest the following approach.
 - I argue that emigration is a slow yet steady attrition of a region or community. Due to its gradual nature, it goes largely unnoticed to the people who choose to remain. 
-- However, there comes a point where the impact of emigration on a region reaches a certain tipping point, or watershed moment
+- However, there comes a point where the impact of emigration on a region reaches a certain tipping point or watershed moment
 - In this watershed moment, the people who remained in the region suddenly realise the impact emigration is having on their region
 - I regard these watershed moments as critical turning points in the lives of the remaining population
-- They can lead to a sentiment of dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their political preferences.
+- They can lead to a sentiment of dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behavior
 
-- I aim to analyze three possible watershed moments that can significantly influence the voting behavior of the remaining residents and their sense of community.
-- These moments include the closing of local schools, the closing of hospitals and finally the closing of public spheres that act as “third places” such as cafés, bars or restaurants.
+- I will analyze three possible watershed moments that I believe significantly influence the voting behavior of the remaining residents
 
-- This is why I pick these watershed moments
-- The closure of schools, according to Sageman (2022) and possibly Dancygier (2022, p. 33), is believed to contribute to the reduction of community feeling. 
+- The first moment is the closing of local schools.
+	- The closure of schools, according to Sageman (2022) and possibly Dancygier (2022, p. 33), is believed to contribute to the reduction of community feeling.
 
-- The closing of hospitals may cause distress among the remaining voters, who may tend to be older and thus more reliant to hospitals (maybe: Dancygier (2022, p. 33))
+- The second moment is the closing of hospitals.
+	- The closing of hospitals may cause distress among the remaining voters, who may tend to be older and thus more reliant to hospitals (maybe: Dancygier (2022, p. 33))
 
-- The closure of public spaces, a focal point for community interaction and belonging as per Bolet (2021), also contributes to the erosion of a communal sense of belonging
+- The third and final moment is the closing of public spaces that act as “third places”, e.g., cafés, bars or restaurants.
+	- The closure of public spaces, a focal point for community interaction and belonging as per Bolet (2021), also contributes to the erosion of a communal sense of belonging
 
-- The context in which these closures occur is also significant. For instance, the impacts of these closures are expected to vary depending on the region's overall socioeconomic climate.
+- A region’s overall socioeconomic climate will impact the perception of these moments.
 - I assume that a person living in an area that is well off will better cope with, say, a local café closing.
 - However, if an area is suffereing an economic depression, then a closure of a voter’s favourite restaurant will cause greater grievances
 
-- I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of different political parties.
+- In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties.
 - By doing this, I aim to provide further insights into the dynamics between emigration spurred on by the EU’s Freedom of Movement, community disintegration and political outcomes
 
 
