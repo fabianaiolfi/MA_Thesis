@@ -1,0 +1,66 @@
+---
+title: "Research Proposal MA Thesis (Work in Progress)"
+author: "Fabian Aiolfi"
+date: "`r Sys.Date()`"
+output: pdf_document
+bibliography: references.bib
+classoption: a4paper
+header-includes:
+   - \usepackage{hyperref}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Research Question
+
+How do emigration-induced service cuts affect voting behaviour in CEE EU member states?
+
+## Introduction
+
+@dancygierEmigrationRadicalRight2022 uncovers a correlation between emigration and the rise of Populists Radical Parties (PRR). The authors suggest that emigration decreases an area's quality of life (e.g., through cuts in public services) which then creates grievances amongst voters. These grievances affect voting behaviour whereby voters turn against incumbents and vote for PRR parties.
+
+Causal mechanism according to @dancygierEmigrationRadicalRight2022:
+
+$$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Change \; in \; Voting \; Behaviour$$
+
+However, @dancygierEmigrationRadicalRight2022 do not show what exactly causes a change in voting behaviour. They suggest that future research should look into what type of service cuts lead to PRR voting [@dancygierEmigrationRadicalRight2022, p. 35].
+
+I aim to take @dancygierEmigrationRadicalRight2022's idea of emigration causing grievances and apply it to voters changing their voting behaviour in Central and Eastern European (CEE) EU member states. I pick these countries because they are strongly affected by emigration, which has also been spurred on by the EU's freedom of movement. Available data permitting, I will examine voting behaviour at the NUTS3 level.
+
+I want to test if @dancygierEmigrationRadicalRight2022's assumption holds. Do PRR parties profit from emigration? Or do opposition parties also benefit from voter's grievances? I assume there to be electoral situations where a non-populist or opposition party wins elections due to emigration-induced grievances.
+
+## Service Cuts Causing Grievances
+
+In order to uncover possible causations of emigration-induced grievances, I suggest the following approach. Emigration is a slow yet steady attrition of a region. Due to its gradual nature, it goes largely unnoticed to the people who remain. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the people who remained in the region suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
+
+I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. The first moment is the closing of local schools. Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. These must travel further to reach their next school or must put up with classes that have increased in size due to the consolidation of schools.
+
+The second watershed moment is the closing of hospitals. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023, p. 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population.
+
+Schools and hospitals closing in emigration-hit regions in Sweden are topics that newspapers reported on [@dancygierEmigrationRadicalRight2022, p. 32]. This indicates that there may exist a link between these closures and grievances.
+
+The third and final watershed moment is the decrease in the number of public spaces that act as "third places". These are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999, p. 16], e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021].
+
+In addition to these three watershed moments, I assume that a region's overall socioeconomic climate will impact the perception of the described closures. Inhabitants of a region that is worse off will develop stronger grievances due to the watershed moments described above. This in turn will have a stronger affect on voting behaviour. I intend on factoring in the socioeconomic climate when modelling the causal mechanism.
+
+In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes.
+
+## In Development
+
+### Theory
+
+I am currently considering two theories to help answer my research question. The first is the political opportunity theory. @eisingerConditionsProtestBehavior1973 explains why riots in the US in the 1960s varied between cities. He concludes that some citizens were unable to voice their complaints legally because they lacked political opportunity. These people were thus more likely to riot. Applied to my research question, this theory would help explain which parties a voter would turn to if the voter is unhappy with the incumbent. Opposition and populist parties could capitalise on a voter's grievances and present themselves as alternatives to the status quo.
+
+The second possible theory is issue voting. @keyResponsibleElectorateRationality1966a describes how voting behaviour is influenced by salient issues. I expect the aforementioned watershed moments to be of high salience for voters, thus influencing their vote choice.
+
+### Data
+
+NUTS3 level electoral results are provided by the \underline{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5}{EU-NED European NUTS-Level Election Dataset}}.
+
+Data on school closings is available through the \underline{\href{https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/}{Croatian Bureau of Statistics}}.
+
+\newpage
+
+## References
