@@ -28,23 +28,18 @@ Dancygier 2022 show that newspapers report about schools and hospitals closing i
 
 The third and final watershed moment is the decrease in the number of public spaces that act as “third places”. These are local “informal public gathering places” that foster community building (1989 Oldenburg, p. 16), e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties (Bolet 2021).
 
-	- The closure of public spaces, a focal point for community interaction and belonging as per Bolet (2021), also contributes to the erosion of a communal sense of belonging
+In addition to these three watershed moments, I assume that a region’s overall socioeconomic climate will impact the perception of the described closures. Inhabitants of a region that is worse off will develop stronger grievances due to the watershed moments described above. This in turn will have a stronger affect on voting behaviour. I intend on factoring in the socioeconomic climate when modelling the causal mechanism.
 
-- A region’s overall socioeconomic climate will impact the perception of these watershed moments.
-- Inhabitants of a region that is worse off will develop stronger grievances by the closures described above, thus having a stronger affect on voting behaviour.
-- I intend on factoring in the socioeconomic climate when modelling the causal mechanism
-
-- In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties.
-- By doing this, I aim to provide further insights into the dynamics between emigration spurred on by the EU’s Freedom of Movement, community disintegration and political outcomes
+In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU’s freedom of movement, community disintegration and political outcomes.
 
 ## In Development
 
 ### Theory
-- Exit, voice, loyalty
-- Political Opportunity Structure: Emigration alters the political opportunity structure of a region. “Emigration of a significant portion of the population may alter the political opportunity structure in the region. Emigration can lead to economic and social challenges, causing grievances amongst the remaining population. Opposition and populist parties can capitalize on these grievances, providing a voice to those disaffected by presenting themselves as an alternative to the status quo.”
-- Issue voting, retrospective voting, prospective voting
+I am currently considering two theories to help answer my research question. The first is the political opportunity theory. 1973 Eisinger explains why riots in the US in the 1960s varied between cities. He concludes that some citizens were unable to voice their complaints legally because they lacked political opportunity. These people were thus more likely to riot. Applied to my research question, this theory would help explain which parties a voter would turn to if the voter is unhappy with the incumbent. Opposition and populist parties could capitalise on a voter’s grievances and present themselves as alternatives to the status quo.
+
+The second possible theory is issue voting. Key 1966 describes how voting behaviour is influenced by salient issues. I expect the aforementioned watershed moments to be of high salience for voters, thus influencing their vote choice.
 
 ### Data
-- school closings
-	- croatia: croatian bureau of statistics (https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/)
-- NUTS3 level electoral results: EU-NED European NUTS-Level Election Dataset (https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5)
+NUTS3 level electoral results are provided by the [EU-NED European NUTS-Level Election Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5).
+
+Data on school closings is available through the [Croatian Bureau of Statistics](https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/).
