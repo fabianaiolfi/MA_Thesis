@@ -19,8 +19,8 @@ year_cols <- paste0("year_", 2000:2021)
 net_migr_nuts3_pp <- net_migr_nuts3_pp %>% 
   mutate_at(.vars = year_cols, .funs = list(fct = ~cut(
     .,
-    breaks = c(-Inf, -20, -10, 0, 10, 20, Inf),
-    labels = c("<20%", "-20-10%", "-10-0%", "0-10%", "10-20%", ">20%"),
+    breaks = c(-Inf, -15, -5, 0, 5, 15, Inf),
+    labels = c("< -15%", "-15% -- -5%", "-5% -- 0%", "0% -- +5%", "+5 -- +15% ", "> +15%"),
     include.lowest = TRUE,
     right = FALSE,
     ordered_result = TRUE
