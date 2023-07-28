@@ -13,7 +13,7 @@ merged_data <- left_join(nuts3_shape, net_migr_nuts3_pp, by = c("NUTS_ID" = "nut
 
 # Create the map
 ggplot() +
-  geom_sf(data = merged_data, aes(fill = avg_fct, color = "#333333", lwd = 0.1)) +
+  geom_sf(data = merged_data, aes(fill = avg_fct), color = "#333333", lwd = 0.1) +
   geom_sf(data = nuts0_shape, fill = NA, color = "black", lwd = 0.6) +  # highlight national borders
   #coord_sf(xlim = c(-10, 44), ylim = c(35, 70)) + # Coordinate reference system:	4326
   coord_sf(xlim = c(2500000, 7100000), ylim = c(1500000, 5300000)) + # Coordinate reference system:	3035
