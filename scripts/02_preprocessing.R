@@ -1,6 +1,7 @@
 
 # Preprocessing -------------------------------------------------------------
 
+# Clean DF
 net_migr_nuts3_pp <- net_migr_nuts3 %>% 
   select(-c(`2022`)) %>% # Remove 2022 as it only contains NAs
   # Clean up column names
@@ -8,7 +9,8 @@ net_migr_nuts3_pp <- net_migr_nuts3 %>%
   rename(nuts3_name = `GEO (Labels)`) %>% 
   rename_with(~ ifelse(. %in% c("nuts3", "nuts3_name"), ., paste0("year_", .))) %>% 
   dplyr::filter(nuts3 != "") %>% # Remove empty rows
-  dplyr::filter(nchar(nuts3) == 5) # Only keep NUTS3 regions
+  dplyr::filter(nchar(nuts3) == 5) %>%  # Only keep NUTS3 regions
+  mutate(country = substr(nuts3, start = 1, stop = 2)) # Add country to DF
 
 
 # Create Average -------------------------------------------------------------
