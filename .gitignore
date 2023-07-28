@@ -37,3 +37,4 @@ rsconnect/
 # Custom
 *.Rproj
 /data
+*.png
