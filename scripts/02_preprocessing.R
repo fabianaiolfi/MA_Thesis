@@ -34,4 +34,6 @@ net_migr_nuts3_pp <- net_migr_nuts3_pp %>%
     include.lowest = TRUE,
     right = FALSE,
     ordered_result = TRUE
-  )))
+  ))) %>% 
+  rename_at(vars(ends_with("_fct")), ~sub("year_(.*)fct", "fct_year_\\1", .))
+
