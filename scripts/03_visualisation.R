@@ -73,7 +73,6 @@ nuts3_on_border <- country_intersections_edit$NUTS_ID
 net_migr_nuts3_pp <- net_migr_nuts3_pp %>% 
   mutate(on_border = if_else(nuts3 %in% nuts3_on_border, TRUE, FALSE))
 
-
 # Line Plots --------------------------------------------------------------------
 
 # Filter CEE
@@ -136,9 +135,10 @@ long_data %>% dplyr::filter(on_border == F) %>%
 # Averages of Typologies (urban, intermediate, rural, bordering, interior)
 
 net_migr_nuts3_pp_cee_avg <- net_migr_nuts3_pp_cee %>% 
-  select(country, `Rural - urban typology`, year_2000:year_2021) %>% 
-  group_by(country, `Rural - urban typology`) %>% 
-  summarise_at(vars(starts_with("year_")), mean, na.rm = TRUE) %>%
+  select(country, `Rural - urban typology`, year_2000:year_2021, on_border) %>% 
+  # group_by(country, `Rural - urban typology`) %>%
+  group_by(country, on_border) %>%
+  summarise_at(vars(starts_with("year_")), mean) %>% # na.rm = TRUE
   ungroup() %>% 
   mutate(across(starts_with("year_"), ~replace(., is.nan(.), NA)))
 
@@ -148,7 +148,8 @@ long_data <- net_migr_nuts3_pp_cee_avg %>%
 long_data$Year <- gsub('year_', '', long_data$Year)
 long_data$Year <- as.numeric(long_data$Year)
 
-long_data %>% dplyr::filter(`Rural - urban typology` == "Rural region") %>%
+# long_data %>% dplyr::filter(`Rural - urban typology` == "Rural region") %>%
+long_data %>% dplyr::filter(on_border == F) %>%
   ggplot(aes(x = Year, y = Value)) + 
   geom_bar(aes(fill = Value > 0), stat="identity", show.legend = F) +
   scale_fill_manual(values = c("TRUE" = "light green", "FALSE" = "red")) +
@@ -157,7 +158,8 @@ long_data %>% dplyr::filter(`Rural - urban typology` == "Rural region") %>%
   coord_cartesian(ylim = c(-20, 20)) + # Limit y-axis but larger bars are still displayed
   theme(panel.grid.minor = element_blank()) +
   labs(x = "Year", y = "Change in %",
-       title = "Average Net Migration in NUTS3 Rural Regions")
+       # title = "Average Net Migration in NUTS3 Rural Regions")
+       title = "Average Net Migration in NUTS3 Interior Regions")
 
 
 
