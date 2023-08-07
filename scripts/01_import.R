@@ -13,3 +13,7 @@ net_migr_nuts3 <- read_csv(here("data", "demo_r_gind3_spreadsheet_sheet_2.csv"),
 # NUTS3 Typologies
 # https://ec.europa.eu/eurostat/documents/345175/6807882/Ttypologies+and+local+information+corresponding+to+NUTS3.xls
 nuts3_typologies <- read_csv(here("data", "nuts3_typologies.csv"))
+
+
+# EU Accession Dates
+eu_accession <- read_csv(here("data", "eu_accession.csv"))

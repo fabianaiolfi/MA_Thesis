@@ -148,21 +148,19 @@ long_data <- net_migr_nuts3_pp_cee_avg %>%
 long_data$Year <- gsub('year_', '', long_data$Year)
 long_data$Year <- as.numeric(long_data$Year)
 
-# long_data %>% dplyr::filter(`Rural - urban typology` == "Rural region") %>%
-long_data %>% dplyr::filter(on_border == F) %>%
+long_data <- long_data %>% 
+  left_join(eu_accession, by = c("country" = "Country Code"))
+
+# long_data %>% dplyr::filter(`Rural - urban typology` == "Urban region") %>%
+long_data %>% dplyr::filter(on_border == T) %>%
   ggplot(aes(x = Year, y = Value)) + 
   geom_bar(aes(fill = Value > 0), stat="identity", show.legend = F) +
+  geom_vline(aes(xintercept = year(`Accession Date`)), linetype="dashed") +
   scale_fill_manual(values = c("TRUE" = "light green", "FALSE" = "red")) +
   facet_wrap(~ country) +
   theme_minimal() +
   coord_cartesian(ylim = c(-20, 20)) + # Limit y-axis but larger bars are still displayed
   theme(panel.grid.minor = element_blank()) +
   labs(x = "Year", y = "Change in %",
-       # title = "Average Net Migration in NUTS3 Rural Regions")
-       title = "Average Net Migration in NUTS3 Interior Regions")
-
-
-
-
-
-
+       # title = "Average Net Migration in NUTS3 Urban Regions")
+       title = "Average Net Migration in NUTS3 Border Regions")
