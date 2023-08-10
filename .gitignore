@@ -37,3 +37,4 @@ rsconnect/
 *.Rproj
 /data
 *.png
+/data Backup alias
