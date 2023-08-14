@@ -10,9 +10,9 @@ net_migr_nuts3 <- read_csv(here("data", "demo_r_gind3_spreadsheet_sheet_2.csv"),
                            show_col_types = FALSE)
 
 
-# NUTS3 Typologies
+# NUTS3 (2010) Typologies
 # https://ec.europa.eu/eurostat/documents/345175/6807882/Ttypologies+and+local+information+corresponding+to+NUTS3.xls
-nuts3_typologies <- read_csv(here("data", "nuts3_typologies.csv"))
+nuts3_typologies <- read_csv(here("data", "nuts3_2010_typologies.csv"))
 
 
 # EU Accession Dates
