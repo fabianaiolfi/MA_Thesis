@@ -26,7 +26,6 @@ ees_cee_nuts3 <- ees %>%
   mutate_at(vars(q10_1:q10_10), ~ifelse(. %in% c(96, 97, 98), NA, .)) # Replace refusal, don't know with NAs
 
 # Retrieve party voter will most likely to vote for
-# To Do: If voter gives two or more parties the same value, then the first party on the list is picked. Should be optimised if one of the parties is the party the voter last voted for.
 ees_cee_nuts3 <- ees_cee_nuts3 %>%
   rowwise() %>%
   mutate(q10_max = list(names(select(ees_cee_nuts3, q10_1:q10_10))[which.max(c_across(q10_1:q10_10))])) %>%
