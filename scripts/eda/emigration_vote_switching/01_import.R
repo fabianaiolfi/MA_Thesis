@@ -4,6 +4,7 @@
 # European Election Studies (EES)
 ees <- read_dta(here("data", "ZA7581_v2-0-1.dta"))
 
+
 # Crude rate of net migration plus statistical adjustment [CNMIGRATRT]
 # https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7029377/default/table?lang=en
 # https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_gind3_esms.htm
@@ -11,3 +12,8 @@ ees <- read_dta(here("data", "ZA7581_v2-0-1.dta"))
 migr <- read_csv(here("data", "demo_r_gind3_spreadsheet_sheet_2.csv"),
                            na = ":",
                            show_col_types = FALSE)
+
+
+# NUTS3 (2010) 
+# https://ec.europa.eu/eurostat/web/nuts/history
+nuts3_2010 <- read.csv(here("data", "NUTS_2010_2013.csv"), skip = 1)

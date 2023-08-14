@@ -1,8 +1,8 @@
 
 # Preprocessing -------------------------------------------------------------
 
-# Prepare EES Data -------------------------------------------------------------
 
+# Prepare EES Data -------------------------------------------------------------
 # Only keep CEE observations that have NUTS3 value
 
 cee <- c(1110, #"Bulgaria",
@@ -42,17 +42,32 @@ ees_cee_nuts3 <- ees_cee_nuts3 %>%
   select(region_NUTS3, switcher)
   
 
+# Fix avg NAs -------------------------------------------------------------
+# LT and SI use NUTS3 from 2010
+
+nuts3_2010_clean <- nuts3_2010 %>% 
+  dplyr::filter(level == 3) %>% 
+  select(Code.2010, NUTS.level.3)
+
+migr <- migr %>% 
+  left_join(nuts3_2010_clean, by = c("GEO (Labels)" = "NUTS.level.3"))
+
+# Replace Lithuanian and Slovenian NUTS3 Codes
+migr <- migr %>%
+  mutate(`GEO (Codes)` = ifelse(startsWith(`GEO (Codes)`, "LT"), `Code.2010`, `GEO (Codes)`)) %>% 
+  mutate(`GEO (Codes)` = ifelse(startsWith(`GEO (Codes)`, "SI"), `Code.2010`, `GEO (Codes)`))
+
+
 # Prepare NUTS3 Migration Data -------------------------------------------------------------
 
 net_migr_nuts3 <- migr %>% 
-  select(`GEO (Codes)`, `2015`:`2019`) %>% 
+  select(`GEO (Codes)`, `2009`:`2019`) %>% 
   # Timeframe can be questioned here
-  mutate(avg = rowMeans(select(., `2015`:`2019`), na.rm = TRUE)) %>% 
-  select(`GEO (Codes)`, avg)
+  mutate(avg_migr = rowMeans(select(., `2009`:`2019`), na.rm = TRUE)) %>% 
+  select(`GEO (Codes)`, avg_migr)
+
 
 # Merge Switchers with NUTS3 Migration -------------------------------------------------------------
 
 ees_cee_nuts3 <- ees_cee_nuts3 %>% 
   left_join(net_migr_nuts3, by = c("region_NUTS3" = "GEO (Codes)"))
-
-
