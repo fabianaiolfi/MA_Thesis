@@ -1,5 +1,5 @@
 ---
-title: "Research Proposal MA Thesis (Work in Progress)"
+title: "Research Proposal MA Thesis: Emigration and Voting Behaviour in Central and Eastern European EU Member States"
 author: "Fabian Aiolfi"
 date: "`r Sys.Date()`"
 output: 
@@ -18,11 +18,57 @@ header-includes:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Research Question
+## Abstract
+[1000 characters]
 
-How do emigration-induced service cuts affect voting behaviour in CEE EU member states?
+## RQ
+Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?
+
+###############
 
 ## Introduction
+```
+- Why?
+- Central problem / puzzle that thesis will address
+- Describe causal mechanism
+- Why is it worth studying? include paper saying that it hasnt been studied much
+- caveats / limitations
+```
+
+## The state of the field
+```
+- Present and discuss the answers that the available literature offers to your RQ
+- 1. what we already know and what we do not yet know about your research question
+- 2. how your work will build on previous research
+```
+
+## The project description (what?)
+```
+- hypotheses as a general answer to the puzzle
+- define key terms
+- Operationalize key terms / indicators
+- Make explicit the causal mechanism
+- list of “control variables”
+- intervening conditions?
+```
+
+## The research design (how, where and when?)
+```
+- List research operations: Why are they best to tackle RQ?
+- justify case selection of geographical and temporal span: what's their logic and are there disadvantages?
+- methodology
+- data
+```
+
+## Conclusion
+```
+- alluding to the original research question, reminding the reader about the main theoretical claim (in normative works)/falsifiable hypothesis (in empirical ones)
+- speculating on the final product of the thesis: what kind of impact could your research have if it is successful?
+```
+
+
+#################
+
 
 @dancygierEmigrationRadicalRight2022 uncovers a correlation between emigration and the rise of Populist Radical Parties (PRR). The authors suggest that emigration decreases an area's quality of life (e.g., through cuts in public services) which then creates grievances amongst voters. These grievances affect voting behaviour: Voters turn against incumbents and cast a ballot for PRR parties.
 
