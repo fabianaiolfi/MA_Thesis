@@ -29,11 +29,32 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 ## Introduction
 ```
 - Why?
-- Central problem / puzzle that thesis will address
-- Describe causal mechanism
-- Why is it worth studying? include paper saying that it hasnt been studied much
-- caveats / limitations
 ```
+
+`Central problem / puzzle that thesis will address`
+- CEE countries show high levels of emigration (numbers, source)
+- Emigration has profound effects in the sending countries. E.g. lack of labour, population decline
+- The EU’s freedom of movement makes emigration easier, magnifying the effects of emigration
+- How does emigration effect the people left behind? Does emigration change their voting behaviour?
+- There exists a correlation between emigration and vote switching
+	- [Display data and findings]
+- RQ: Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?
+
+`Describe causal mechanism`
+- @dancygierEmigrationRadicalRight2022
+	- emigration → service cuts → grievances → voting behaviour
+- [@dancygierEmigrationRadicalRight2022, p. 35]: do not show what exactly causes a change in voting behaviour; future research should look into what type of service cuts lead to PRR voting
+- [briefly describe watershed moments; also add EU ascension as furhter watershed moment, or rather when CEE citizens were allowed to work/live in other EU MS]
+
+
+`Why is it worth studying?`
+- migration has been studied at the receiving end, but the sending end hasn’t been studied enough yet (2022 Kyriazi)
+- understanding political behaviour on a national and supranational level
+	- how does voting change in CEE affected by emigration?
+	- freedom of movement as a foundational aspect of European integration. What are the political effects of FoM for the EU?
+
+`caveats / limitations`
+- approximation of effect on voting behaviour
 
 ## The state of the field
 ```
@@ -47,10 +68,18 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 - hypotheses as a general answer to the puzzle
 - define key terms
 - Operationalize key terms / indicators
-- Make explicit the causal mechanism
 - list of “control variables”
 - intervening conditions?
 ```
+
+`Make explicit the causal mechanism`
+@dancygierEmigrationRadicalRight2022 uncovers a correlation between emigration and the rise of Populist Radical Parties (PRR). The authors suggest that emigration decreases an area's quality of life (e.g., through cuts in public services) which then creates grievances amongst voters. These grievances affect voting behaviour: Voters turn against incumbents and cast a ballot for PRR parties.
+The causal mechanism according to @dancygierEmigrationRadicalRight2022 can be summarised as follows:
+$$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Change \; in \; Voting \; Behaviour$$
+However, the authors do not show what exactly causes a change in voting behaviour. They suggest that future research should look into what type of service cuts lead to PRR voting [@dancygierEmigrationRadicalRight2022, p. 35].
+I aim to take Dancygier et al.'s idea of emigration causing grievances and apply it to voters changing their voting behaviour in Central and Eastern European (CEE) EU member states. I pick these countries because they are strongly affected by emigration, which has also been spurred on by the EU's freedom of movement. If the available data permits, I will examine voting behaviour at the NUTS3 level.
+I want to test if Dancygier et al.'s assumption holds. Do PRR parties in CEE EU member states profit from emigration? Or do opposition parties also benefit from voter's grievances? I assume there to be electoral situations where a non-populist or opposition party wins elections due to emigration-induced grievances.
+
 
 ## The research design (how, where and when?)
 ```
@@ -60,30 +89,28 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 - data
 ```
 
+- differentiate between internal and external migration: external migration linked to EU through FoM
+
+Data
+- NUTS3 level electoral results are provided by the \underline{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5}{EU-NED European NUTS-Level Election Dataset}}.
+- Data on school closings is available through the \underline{\href{https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/}{Croatian Bureau of Statistics}}.
+
 ## Conclusion
 ```
 - alluding to the original research question, reminding the reader about the main theoretical claim (in normative works)/falsifiable hypothesis (in empirical ones)
 - speculating on the final product of the thesis: what kind of impact could your research have if it is successful?
 ```
 
+In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes.
+
+
 
 #################
 
 
-@dancygierEmigrationRadicalRight2022 uncovers a correlation between emigration and the rise of Populist Radical Parties (PRR). The authors suggest that emigration decreases an area's quality of life (e.g., through cuts in public services) which then creates grievances amongst voters. These grievances affect voting behaviour: Voters turn against incumbents and cast a ballot for PRR parties.
 
-The causal mechanism according to @dancygierEmigrationRadicalRight2022 can be summarised as follows:
-
-$$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Change \; in \; Voting \; Behaviour$$
-
-However, the authors do not show what exactly causes a change in voting behaviour. They suggest that future research should look into what type of service cuts lead to PRR voting [@dancygierEmigrationRadicalRight2022, p. 35].
-
-I aim to take Dancygier et al.'s idea of emigration causing grievances and apply it to voters changing their voting behaviour in Central and Eastern European (CEE) EU member states. I pick these countries because they are strongly affected by emigration, which has also been spurred on by the EU's freedom of movement. If the available data permits, I will examine voting behaviour at the NUTS3 level.
-
-I want to test if Dancygier et al.'s assumption holds. Do PRR parties in CEE EU member states profit from emigration? Or do opposition parties also benefit from voter's grievances? I assume there to be electoral situations where a non-populist or opposition party wins elections due to emigration-induced grievances.
 
 ## Service Cuts Causing Grievances
-
 In order to uncover possible causations of emigration-induced grievances, I suggest the following approach. Emigration is a slow yet steady attrition of a region. Due to its gradual nature, it goes largely unnoticed to the people who remain. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the people who have remained suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
 
 I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. The first moment is the closing of local schools. Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
@@ -96,7 +123,7 @@ The third and final watershed moment is the decrease in the number of public spa
 
 In addition to these three watershed moments, I assume that a region's overall socioeconomic climate will impact the perception of the described closures. Inhabitants of a region that is worse off will develop stronger grievances due to the watershed moments described above. This in turn will have a stronger affect on voting behaviour. I intend on factoring in the socioeconomic climate when modelling the causal mechanism.
 
-In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes.
+
 
 ## In Development
 
@@ -106,12 +133,11 @@ I am currently considering two theories to help answer my research question. The
 
 The second possible theory is issue voting. @keyResponsibleElectorateRationality1966a describes how voting behaviour is influenced by salient issues. I expect the aforementioned watershed moments to be of high salience for voters, thus influencing their vote choice.
 
-### Data
 
-NUTS3 level electoral results are provided by the \underline{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5}{EU-NED European NUTS-Level Election Dataset}}.
-
-Data on school closings is available through the \underline{\href{https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/}{Croatian Bureau of Statistics}}.
 
 \newpage
 
 ## References
+```
+This should be focused and updated but sufficiently comprehensive and grounded in classics.
+```
