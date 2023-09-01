@@ -189,6 +189,7 @@ H3: A higher ratio of people to cafés in a region leads to vote switching in th
 …
 
 `data`
+- nuts level migration data: CNMIGRATRT: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en
 - NUTS3 level electoral results are provided by the \underline{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5}{EU-NED European NUTS-Level Election Dataset}}. → perhaps add a table showing how many missing values there are, showing how “unbalanced” the data is?
 - Data on school closings is available through the \underline{\href{https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/}{Croatian Bureau of Statistics}}.
 - internal and external migration: national stats websites
