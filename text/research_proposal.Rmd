@@ -46,7 +46,7 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 
 `Describe causal mechanism`
 - @dancygierEmigrationRadicalRight2022
-	- ==emigration → service cuts → grievances → voting behaviour==
+	- ==emigration → service cuts → grievances → PRR voting==
 - [@dancygierEmigrationRadicalRight2022, p. 35]: do not show what exactly causes a change in voting behaviour; future research should look into what type of service cuts lead to PRR voting
 - [briefly describe watershed moments; also add EU ascension as further watershed moment, or rather when CEE citizens were allowed to work/live in other EU MS]
 	- [describe updated causal mechanism? with “watershed moment” after “service cuts”]
@@ -67,42 +67,52 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 
 ## The state of the field
 
+==Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?==
+
 `Present and discuss the answers that the available literature offers to your RQ`
 
-- in general: emigration affects voting behaviour and electoral outcomes; as a global phenomena, over different time periods
-	- 2017 Barsbai: significant and robust negative effect of emigration to the West on the share of votes for the Communist Party in the Moldovan elections of 2009–2010
-	- 2022 lim: emigrants from Central and Eastern Europe are disproportionately more from politically progressive populations, and the level of support for far-right parties is higher in regions with large levels of emigration → Lim focuses on the change of the electorate (emigration leads to less young, cosmopolitan electorate). however, Lim does not look into how emigration affects the people left behind (2022 lim, p. 46), which I intend on looking at
-	- through remittances in mexico (?) (2014 pfutze)
-	- 2017 karadja in 19th century Sweden
-	- emigration causes a decrease in political interest
-		- 2008 Goodman / Bravo, Jorge, 2007: citizens in high migration towns become less engaged in their formal political system → less civic engagement
-		- 2019 Sellars: Less political mobilisation and collective action
-		- 2022 Kyriazi
-		- 2017 Anelli: Less political change
-		- 2022 Peters: emigration produces quiescent populations; also takes authoritarian states into account
-		- foundations of european politics / Keleman: Domestic opposition is weakened
-		- 2022 Lim: Loss in political actors
-		- 2021 Lockhart: emigration lowers the demand for democratic reforms
-	- maybe also: 2011 docquier, p. 5
+- Emigration affects voting behaviour and electoral outcomes in various spatial and temporal contexts: From 19th century Sweden (2017 Karadja) to Mexico at the start of the 21st century (2014 Pfutze).
 
-@dancygierEmigrationRadicalRight2022 uncovers a correlation between emigration and the rise of Populist Radical Parties (PRR). The authors suggest that emigration decreases an area's quality of life, e.g., through cuts in public services. These cuts create grievances amongst voters. These grievances then affect voting behaviour: Voters turn against incumbents and cast a ballot for PRR parties.
+- Emigration can affect electoral outcomes in two ways.
+- First, emigration can change the composition of the electorate. 2022 Lim shows that emigrants from CEE are disproportionately younger, cosmopolitan and politically progressive populations, resulting in a remaining population that is older and more conservative. They then vote accordingly.
 
-The causal mechanism according to @dancygierEmigrationRadicalRight2022 can be summarised as follows:
+- Second, emigration can affect the electoral preferences and the voting behaviour and thus trigger vote switching of the people left behind.
+
+- it can affect political behaviour indirectly
+- emigration cause grievances and depression amongst the people left behind
+- 2018 Nikolova shows that people left behind have a higher life satisfaction and budget easing through remittances, but suffer from more depression and stress 
+
+→ how does this influence the causal mechanism? can i assume that service cuts cause more/different grievances, that can be directed more at the government, unlike family-caused grievances?
+
+- Emigration of family members or neighbors leaves psychological distress to those who remain behind (Marchetti-Mercer 2012 in 2022 lim)
+
+- it can affect political behaviour directly
+- A wide range of literature explains how emigration causes a decrease in political interest. This can be caused by a decrease in political mobilisation and collective action (2019 Sellars), a decrease in civic engagement (2008 Goodman / Bravo, Jorge, 2007), opposing voices leaving and thus resulting in a quiescent electorate (2022 Peters) or through a loss of political actors (2022 Lim).
+- Despite this decrease in political interest, some remainers still vote. If the number of people voting shrinks, then it becomes all the more important that we understand how the remaining voters are affected by emigration and how they thus cast their ballot, because a smaller electorate wields more power (?)
+
+- Why it is important is shown e.g. by 2017 Barsbai, who reveals a negative effect between emigration and votes for the Communist Party in the Moldovan elections of 2009 and 2010. Elections during those years brought significant political change to the ex-soviet country (2017 Barsbai, p. 41), because voters switched away from the Communist Party, who had gained electoral power in previous elections. Voters switched because western social norms and political preferences diffused amongst the electorate through emigration (p. 66).
+
+- Another reason why emigration is important is because some research uncovers links between emigration and voters switching to populist and radical parties (@dancygierEmigrationRadicalRight2022, 2022 Lim, 2020 Otteni), although results are mixed and support for these parties is only given under certain conditions (2020 Mercator, 2023 Schütze)
+- However, there is a point to be made that non-extreme parties, e.g. a mainstream opposition party, may also benefit from emigration.
+- A voter does not necessarily have to cast a ballot for an extreme party. Instead they can simply critique the incumbent government or status quo parties if emigration becomes politicised (mercator 2020)
+- Voters receive remittances which realigns their party preferences closer to their personal ideological preferences (2012 pfutze). This does not necessarily have to be an extreme party. 
+- People will not cast a vote for a extreme party if there is no extreme party on the ballot.
+- In a specific case, 2023 Schütze shows how regional out-migration does not lead to a higher voting preference for the AfD, a German right-wing populist party.
+- For these reasons and due to the mixed empirical results, I will look into vote switching in general and not focus on voting for radical right parties
+
+- @dancygierEmigrationRadicalRight2022 uncovers a correlation between emigration and the rise of Populist Radical Parties (PRR). The authors suggest that emigration decreases an area's quality of life, e.g., through cuts in public services. These cuts create grievances amongst voters. These grievances then affect voting behaviour: Voters turn against incumbents and cast a ballot for PRR parties.
+
+- The causal mechanism according to @dancygierEmigrationRadicalRight2022 can be summarised as follows:
 
 $$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote \; for \; PRR$$
 
-However, the authors do not show what type of service cuts finally lead to PRR voting [@dancygierEmigrationRadicalRight2022, p. 35] and leave this aspect open for future research.
+- However, the authors do not show what type of service cuts finally lead to PRR voting [@dancygierEmigrationRadicalRight2022, p. 35] and leave this aspect open for future research.
 
-- @dancygierEmigrationRadicalRight2022 and others (2022 Lim, …) uncover links between emigration and rise in populist and radical parties
-- However, there is a point to be made that non-extreme parties, e.g. a mainstream opposition party, may also benefit from emigration
-	- emigration is not politicised, and if it is, then it is used to critique the incumbent government and status quo parties (mercator 2020)
-	- Voters receive remittances which realigns their party preferences closer to their personal ideological preferences (2012 pfutze), which does not have to be an extreme party
-	- No extreme party on the ballot.
-	- there are also specific cases, where an extreme party does not benefit from emigration is 2023 Schütze: regional out-migration does not lead to a higher voting preference for the AfD. however, this paper only looks at internal east-west German migration, which does not take the EU’s FoM into account
-
-- grievances and depression
-	- 2018 Nikolova: higher life satisfaction and budget easing through remittances, but more depression and stress → how does this influence the causal mechanism? can i assume that service cuts cause more/different grievances, that can be directed more at the government, unlike family-caused grievances?
-	- Emigration of family members or neighbors leaves psychological distress to those who remain behind (Marchetti-Mercer 2012 in 2022 lim)
+*
+- reason for emigration is important (2014 Kapur)
+- in cee it is primarily an economic reason
+- this reason influences the people left behind (kapur?)
+*
 
 `1. what we already know and what we do not yet know about your research question`
 what we know
@@ -112,9 +122,9 @@ what we do not know
 - effects of emigration in CEE
 	- 2012 pfutze looks at mexico, but can the same results be expected in EU?
 	- 2017 Barsbai looks at moldova, but moldova is not in the EU thus emigration has a different backdrop
-	- 2022 lim: bases research in the change of the electorate, only touching on how emigration changes voting behaviour of the people left behind
+	- 2022 lim: bases research in the change of the electorate, only touching on how emigration changes voting behaviour of the people left behind; Lim does not look into how emigration affects the people left behind (2022 lim, p. 46), which I intend on looking at
 - unclear which service cuts cause grievances (affect voting behaviour)
-
+- effect of the EU’s FoM on emigration and voting: 2023 Schütze only looks at internal east-west German migration, which does not take the EU’s FoM into account
 
 `2. how your work will build on previous research`
 - basic assumption that emigration causes vote switching
