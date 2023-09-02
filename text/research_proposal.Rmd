@@ -31,8 +31,9 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 - CEE countries show high levels of emigration (numbers, source)
 	- 2017 Ubareviciene: Since the 1990s, lithuania lost almost one-quarter of its population, and some regions within the coun- try lost more than 50% of their residents. 
 	- 2018 Vasilopoulou: The key drivers of intra-EU migration were economic, related to labour market factors, with EU migrants moving abroad to seek better job opportunities
-	- Potential exploration: is there a correlation between end of Freedom of Movement-transitional period and increase in external migration? → if yes, this would help this thesis’ case of the EU’s effect on emigration in CEE → see job vacancy stats https://ec.europa.eu/eurostat/web/labour-market/database; see also employment rate https://ec.europa.eu/eurostat/web/lfs/database; perhaps use GDP per capita and then control for unemployment rate, social welfare benefits index, quality of life index, political stability (via ChatGPT); https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary
-		- panel data model? https://towardsdatascience.com/a-guide-to-panel-data-regression-theoretics-and-implementation-with-python-4c84c5055cf8; https://www.youtube.com/watch?v=T7Dmp8a7IU0
+	- Potential preliminary explorations
+		- is there a correlation between end of Freedom of Movement-transitional period and increase in external migration? → if yes, this would help this thesis’ case of the EU’s effect on emigration in CEE → see job vacancy stats https://ec.europa.eu/eurostat/web/labour-market/database; see also employment rate https://ec.europa.eu/eurostat/web/lfs/database; perhaps use GDP per capita and then control for unemployment rate, social welfare benefits index, quality of life index, political stability (via ChatGPT); https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary; panel data model? https://towardsdatascience.com/a-guide-to-panel-data-regression-theoretics-and-implementation-with-python-4c84c5055cf8; https://www.youtube.com/watch?v=T7Dmp8a7IU0
+
 	- also 2016 FT
 - Emigration has profound effects in the sending countries. E.g. lack of labour, population decline;
 	- also affects individuals, e.g. through a sense of loss, anger or distress (2012 Marchetti‐Mercer); 2019 Ivlevs: We also document that having household members abroad is linked with increased stress and depression, which are not offset by remittances → In short: emigration leaves no one indifferent
@@ -126,21 +127,46 @@ $$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote
 
 `Make explicit the causal mechanism`
 
-**Service Cuts Causing Grievances**
-- Which service cuts create grievances, that then lead to a change in voting behaviour?
-In order to uncover possible causations of emigration-induced grievances, I suggest the following approach. Emigration is a slow yet steady attrition of a region. Due to its gradual nature, it goes largely unnoticed to the people who remain. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the people who have remained suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
+- Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances that then lead to PRR voting, this thesis asks the following question: Which emigration induced service cuts cause grievances?
 
-I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. The first moment is the closing of local schools. Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
+- preliminary exploration: measure grievances through ESS5, 9: How happy are you? → correlation between happiness and emigration → are people from emigration-high regions generally unhappier?
 
-The second watershed moment is the closing of hospitals. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023, p. 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population.
+- To answer this question, I suggest the following approach
+- Emigration is a slow yet steady attrition of a region. Due to its gradual nature, it goes largely unnoticed to the people who remain. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the people who have remained suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
 
-Schools and hospitals closing in emigration-hit regions in Sweden are topics that newspapers reported on [@dancygierEmigrationRadicalRight2022, p. 32]. This indicates that there may exist a link between these closures and grievances.
+- I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. 
 
-The third and final watershed moment is the decrease in the number of public spaces that act as "third places". These are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999, p. 16], e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021].
+- The first moment is the closing of local primary and secondary schools.
+- Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
+
+- The second watershed moment is the closing of hospitals. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023, p. 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population.
+- hospital closings and emigration are also linked: emigration of medical doctors and other healthcare professionals is a problem in CEE (2020 Mercator, https://www.theguardian.com/world/2019/apr/21/romanian-hospitals-in-crisis-as-emigration-take-its-toll)
+- Schools and hospitals closing in emigration-hit regions in Sweden are topics that newspapers reported on [@dancygierEmigrationRadicalRight2022, p. 32]. This indicates that there may exist a link between these closures and grievances.
+
+- Schools and hospitals closings are services made available by the state. In contrast, the third and final watershed moment will look at a service cut in the private sector, namels the decrease in the number of public spaces that act as "third places".
+- These are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999, p. 16], e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021].
 
 
-`Operationalize key terms / indicators`
-- watershed moments as a ratio crossing a certain threshold
+```
+Operationalize key terms by defining them in terms that can be measured or observed. Good (maybe not ideal) indicators are those available, close to the concept you want to measure, and widely accepted. The more indicators you have, the more solid your proposal will be.
+```
+
+Based on this causal chain of events:
+Emigration → Service Cuts → Grievances → Vote Switching
+
+I set up this regression formula:
+Share of Vote Switchers = Service Cuts + [External Emigration + Grievances + Economic Factors + Remittances]
+- A variable always depicts a NUTS3 region in 1 year (e.g. HR035 in 2014)
+- Service Cuts is the main independent variable, all other variables are control variables
+- Service Cuts are operationalised as ratios to its target audience:
+	- number of schools to number of children in a region
+	- number of hospitals to population size in a region
+	- number of third places (cafés, bars, restaurants) to population size in a region
+- Share of vote switchers: Proportion of voters who switched their vote from on party to another between two national elections compared to all voters
+- external emigration from a region = international emigration
+
+→ a higher ratio (more children in one school, more people for one hospital, more people for one third place) leads to higher vote switching
+
 
 
 
@@ -149,14 +175,14 @@ The third and final watershed moment is the decrease in the number of public spa
 place theory here? what would be expect based on the theory?
 
 **Public service cuts**
-H1: A higher ratio of children to schools in a region leads to vote switching in that region
+H1: A higher ratio of children to schools in a region leads to a higher likelihood of vote switching in that region.
 *Emigration → Change in age distribution*
 
-H2: A higher ratio of seniors to hospitals in a region leads to vote switching in that region
+H2: A higher ratio of seniors to hospitals in a region leads to a higher likelihood of vote switching in that region.
 *Emigration → Population decline, labour shortage*
 
 **Private service cuts**
-H3: A higher ratio of people to cafés in a region leads to vote switching in that region
+H3: A higher ratio of people to third places in a region leads to a higher likelihood of vote switching in that region.
 *Emigration → Population decline, labour shortage*
 
 
