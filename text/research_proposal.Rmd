@@ -31,8 +31,24 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 - CEE countries show high levels of emigration (numbers, source)
 	- 2017 Ubareviciene: Since the 1990s, lithuania lost almost one-quarter of its population, and some regions within the coun- try lost more than 50% of their residents. 
 	- 2018 Vasilopoulou: The key drivers of intra-EU migration were economic, related to labour market factors, with EU migrants moving abroad to seek better job opportunities
+
 	- Potential preliminary explorations
 		- is there a correlation between end of Freedom of Movement-transitional period and increase in external migration? → if yes, this would help this thesis’ case of the EU’s effect on emigration in CEE → see job vacancy stats https://ec.europa.eu/eurostat/web/labour-market/database; see also employment rate https://ec.europa.eu/eurostat/web/lfs/database; perhaps use GDP per capita and then control for unemployment rate, social welfare benefits index, quality of life index, political stability (via ChatGPT); also take into account distance between countries (see 2001 Gleditsch); https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary; panel data model? https://towardsdatascience.com/a-guide-to-panel-data-regression-theoretics-and-implementation-with-python-4c84c5055cf8; https://www.youtube.com/watch?v=T7Dmp8a7IU0
+
+International Emigration and EU Accession (select countries)
+![](documentation/international_emigration_eu_accession.png)
+- does EU accession and with it the EU’s freedom of Movement have an effect on emigration numbers?
+- Figure X displays a simple visualisation of a select few countries that had readily available data of international emigration. Figure displays all data points (ie years) that were retrievable
+- Blue line represents the country’s accession into the EU.
+- Chow test for each individual country reveals that, apart for the Czech Republic, accession creates a break in the emigration series (p<0.05). The time span covers, when data is available, 10 years before and 10 years after accession.
+- FoM transitional period is not taken into account here
+- Because of these breaks in the emigration series, we can assume that there is a link between a country’s accession to the EU and the number of people leaving. This is because a country’s membership in the EU makes emigration easier.
+- Sources:
+	- Croatia: https://podaci.dzs.hr/2021/en/10485, https://podaci.dzs.hr/2022/en/29029, https://podaci.dzs.hr/2023/en/58062 (retrieved 3 September 2023)
+	- Czech Republic: https://vdb.czso.cz/vdbvo2/faces/en/index.jsf?page=vystup-objekt&pvo=DEM11D&z=T&f=TABULKA&katalog=all&c=v3~8__RP2002&&str=v66 (retrieved 3 September 2023)
+	- Poland: https://stat.gov.pl/download/gfx/portalinformacyjny/en/defaultaktualnosci/3289/2/2/1/main_directions_of_emigration_and_immigration_in_the_years_1966-2020_for__permanent_residence.xlsx (retrieved 3 September 2023)
+	- Romania: http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table → emigrants with a change of permanent address (definitive emigrants) → POP309A (retrieved 3 September 2023)
+	- Slovenia: https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05N1042S.px/table/tableViewLayout2/ → International migration by citizenship, statistical regions, Slovenia, annually → Citizens of RS (retrieved 3 September 2023)
 
 	- also 2016 FT
 - Emigration has profound effects in the sending countries. E.g. lack of labour, population decline;
