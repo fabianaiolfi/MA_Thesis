@@ -6,4 +6,5 @@ ggplot(net_int_migration, aes(y = Emigration, x = Year)) +
   facet_wrap(vars(Country), scales = "free_y") +
   geom_vline(aes(xintercept = EU_Accession), color = "blue", size = 1) +
   ylab("Net Migration") +
+  ggtitle("International Emigration and EU Accession") +
   theme_minimal()
