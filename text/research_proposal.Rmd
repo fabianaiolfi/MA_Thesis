@@ -32,7 +32,7 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 	- 2017 Ubareviciene: Since the 1990s, lithuania lost almost one-quarter of its population, and some regions within the coun- try lost more than 50% of their residents. 
 	- 2018 Vasilopoulou: The key drivers of intra-EU migration were economic, related to labour market factors, with EU migrants moving abroad to seek better job opportunities
 	- Potential preliminary explorations
-		- is there a correlation between end of Freedom of Movement-transitional period and increase in external migration? → if yes, this would help this thesis’ case of the EU’s effect on emigration in CEE → see job vacancy stats https://ec.europa.eu/eurostat/web/labour-market/database; see also employment rate https://ec.europa.eu/eurostat/web/lfs/database; perhaps use GDP per capita and then control for unemployment rate, social welfare benefits index, quality of life index, political stability (via ChatGPT); https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary; panel data model? https://towardsdatascience.com/a-guide-to-panel-data-regression-theoretics-and-implementation-with-python-4c84c5055cf8; https://www.youtube.com/watch?v=T7Dmp8a7IU0
+		- is there a correlation between end of Freedom of Movement-transitional period and increase in external migration? → if yes, this would help this thesis’ case of the EU’s effect on emigration in CEE → see job vacancy stats https://ec.europa.eu/eurostat/web/labour-market/database; see also employment rate https://ec.europa.eu/eurostat/web/lfs/database; perhaps use GDP per capita and then control for unemployment rate, social welfare benefits index, quality of life index, political stability (via ChatGPT); also take into account distance between countries (see 2001 Gleditsch); https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary; panel data model? https://towardsdatascience.com/a-guide-to-panel-data-regression-theoretics-and-implementation-with-python-4c84c5055cf8; https://www.youtube.com/watch?v=T7Dmp8a7IU0
 
 	- also 2016 FT
 - Emigration has profound effects in the sending countries. E.g. lack of labour, population decline;
@@ -83,7 +83,7 @@ Present and discuss the answers that the available literature offers to your RQ
 - I’m working under the basic assumption that emigration causes vote switching
 - the following literature shows this
 
-- Emigration affects voting behaviour and electoral outcomes in various spatial and temporal contexts: From 19th century Sweden (2017 Karadja) to Mexico at the start of the 21st century (2014 Pfutze).
+- Emigration has been shown to affect voting behaviour and electoral outcomes in a wide range of spatial and temporal contexts: From 19th century Sweden (2017 Karadja) to Mexico at the start of the 21st century (2014 Pfutze).
 
 - Emigration can affect electoral outcomes in two ways.
 - First, emigration can change the composition of the electorate. 2022 Lim shows that emigrants from CEE are disproportionately younger, cosmopolitan and politically progressive populations, resulting in a remaining population that is older and more conservative. They then vote accordingly. However, with respect to my research question, this does not necessarily *change* their voting behaviour, it only makes their voting more common.
@@ -131,8 +131,13 @@ $$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote
 
 - preliminary exploration: measure grievances through ESS5, 9: How happy are you? → correlation between happiness and emigration → are people from emigration-high regions generally unhappier?
 
+- preliminary exploration: demographic change in emigration hit regions → less younger, more older → less schools, less hospitals
+
+- preliminary exploration: grievances and vote switching? is there a correlation between the two in general, and more so in the actual regions that are hit by emigration? → might be difficult because EES does not ask about happiness → combine EES and ESS?; or maybe Q20 “And over the next 12 months, how do you think the general economic situation in Ireland will be?”
+
 - To answer this question, I suggest the following approach
-- Emigration is a slow yet steady attrition of a region. Due to its gradual nature, it goes largely unnoticed to the people who remain. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the people who have remained suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
+- As the figures from the preliminary exploration `02_fom_emigration` show,  emigration is a slow yet steady attrition of a country, that started long before a country’s accession to the EU.
+- Due to the gradual nature of steady emigration, it goes largely unnoticed to the individual who remains. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the people who have remained suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
 
 - I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. 
 
@@ -146,6 +151,30 @@ $$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote
 - Schools and hospitals closings are services made available by the state. In contrast, the third and final watershed moment will look at a service cut in the private sector, namels the decrease in the number of public spaces that act as "third places".
 - These are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999, p. 16], e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021].
 
+==Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?==
+
+`theory: what would we expect to happen based on theory?`
+
+Why does emigration cause vote switching?
+Emigration → Service Cuts → Grievances → Vote Switching
+
+- Voters evaluate a government’s past performance and their policy outcomes (1966 Key, p. 9, p. 58-59, p. 61). They vote retrospectively.
+- Cuts to public services will give the incumbent government a poor performance record in the eyes of the voter.
+- This will increase the likelihood that the voter switches party, away from the incumbent, towards another party.
+
+- If a voter experiences a watershed moment described above, they will percieve this as a negative policy outcome. This negative perception will make them turn against the incumbent party and will make them switch parties in the next election.
+- They appraise the incumbent’s government actions since the last election, which then influences their voting behaviour (p. 58-59).
+- If a voter is unhappy with the incumbent’s performance, Key suggests that the voter will then switch party
+
+- A voter who has experienced a watershed moment caused by public service cuts will have a negative perception of the incumbent government. 
+- 
+
+- v. o. key: responsible electorate (1966)
+	- voters are retrospective (p. 9): what has government done or not done in the past years?
+
+- Voters are concerned with policy outcomes. This makes them retrospective. Watershed realisations caused because of public service cuts are linked to the incumbent government; voters have a negative image of the incumbent if they link the watershed moment to incumbent’s policies. This will lead the voter to cross over party lines i.e. switch party in the next election
+→ voters look back at watershed moments, which struck them hard, and vote accordingly
+
 
 ```
 Operationalize key terms by defining them in terms that can be measured or observed. Good (maybe not ideal) indicators are those available, close to the concept you want to measure, and widely accepted. The more indicators you have, the more solid your proposal will be.
@@ -156,23 +185,31 @@ Emigration → Service Cuts → Grievances → Vote Switching
 
 I set up this regression formula:
 Share of Vote Switchers = Service Cuts + [External Emigration + Grievances + Economic Factors + Remittances]
-- A variable always depicts a NUTS3 region in 1 year (e.g. HR035 in 2014)
-- Service Cuts is the main independent variable, all other variables are control variables
-- Service Cuts are operationalised as ratios to its target audience:
-	- number of schools to number of children in a region
-	- number of hospitals to population size in a region
+
+- A variable always covers a NUTS3 region in 1 year (e.g. HR035 in 2014)
+- Share of vote switchers: Proportion of voters who “moved across party lines” (1966 Key, p. 16) between two national elections compared to all voters
+- Service Cuts, the main independent variable, are operationalised as ratios to its target audience:
+	- number of children to schools in a region
+	- population size to number of hospitals in a region
 	- number of third places (cafés, bars, restaurants) to population size in a region
-- Share of vote switchers: Proportion of voters who switched their vote from on party to another between two national elections compared to all voters
-- external emigration from a region = international emigration
 
-→ a higher ratio (more children in one school, more people for one hospital, more people for one third place) leads to higher vote switching
-
-
+**Control Variables**
+- external emigration from a region = international emigration (spurred on by FoM? depends on results from preliminary exploration)
+- received remittances in a region (see 2012 Pfutze)
+- economic factors, e.g. unemployment, nuts3 gdp per capita
+	- I assume that a region's overall socioeconomic climate will impact the perception of the described closures. Inhabitants of a region that is worse off will develop stronger grievances due to the watershed moments described above. This in turn will have a stronger affect on voting behaviour.
+- other / TBD
+	- transitional period between EU accession and end of FoM transitional period (https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary); unclear how to measure this: number of countries won’t do it, somehow measure economic attractiveness / pull of a country?
 
 
 `hypotheses as a general answer to the puzzle`
 
-place theory here? what would be expect based on the theory?
+→ in general: a higher ratio (more children in one school, more people for one hospital, more people for one third place) leads to higher vote switching
+
+
+
+
+
 
 **Public service cuts**
 H1: A higher ratio of children to schools in a region leads to a higher likelihood of vote switching in that region.
@@ -190,11 +227,7 @@ H3: A higher ratio of people to third places in a region leads to a higher likel
 - …
 
 
-`list of “control variables”`
-- transitional period between EU accession and end of FoM transitional period (https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary); unclear how to measure this: number of countries won’t do it, somehow measure economic attractiveness / pull of a country?
-- received remittances in a region (see 2012 Pfutze)
-- economic factors, e.g. unemployment, nuts3 gdp per capita
-	- In addition to these three watershed moments, I assume that a region's overall socioeconomic climate will impact the perception of the described closures. Inhabitants of a region that is worse off will develop stronger grievances due to the watershed moments described above. This in turn will have a stronger affect on voting behaviour. I intend on factoring in the socioeconomic climate when modelling the causal mechanism.
+
 
 `intervening conditions?`
 `We would also strongly recommend that you explicitly specify the existence of any intervening conditions that - at the very least - change the production of the expected effects and - at most - need to be present for the hypothesized relations to hold.`
