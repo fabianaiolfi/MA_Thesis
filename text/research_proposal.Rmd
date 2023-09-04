@@ -58,6 +58,7 @@ International Emigration and EU Accession (select countries)
 - How does emigration effect the people left behind? Does emigration change their voting behaviour?
 - Emigration correlates with vote switching → There exists a negative significant (p<0.05) correlation between average migration and vote switching: The lower the average migration, the more vote switchers in the NUTS3 region
 	- [Display data and findings]
+	- Caveat: migration numbers do not differentiate between internal and external migration
 - RQ:
 	- ==Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?==
 	- Why does international emigration from CEE EU MS cause vote switching amgonst voters in sending countries?
@@ -186,6 +187,10 @@ Share of Vote Switchers = Service Cuts + [External Emigration + Grievances + Eco
 
 - A variable always covers a NUTS3 region in 1 year (e.g. HR035 in 2014)
 - Share of vote switchers: Proportion of voters who “moved across party lines” (1966 Key, p. 16) between two national elections compared to all voters
+	- I will measure individual level vote switching using EES data. If a respondent’s answer to question 9 and 10 are not the same party, then they are labelled a vote switcher
+		- From the European Parliament Election Study 2019 Irish Country Questionnaire:
+		- Question 9: “Which party did you vote for at the Irish General Election of 2016?” 
+		- Question 10: “We have a number of parties in Ireland each of which would like to get your vote. How probable is it that you will ever vote for the following parties? Please answer on a scale where 0 means "not at all probable" and 10 means "very probable”.”
 - Service Cuts, the main independent variable, are operationalised as ratios to its target audience:
 	- number of children to schools in a region
 	- population size to number of hospitals in a region
@@ -236,18 +241,28 @@ H3: A higher ratio of people to third places in a region leads to a higher likel
 
 `justify case selection of geographical and temporal span: what's their logic and are there disadvantages?`
 - I select Central and Eastern European (CEE) EU member states because they are strongly affected by emigration, which has also been spurred on by the EU's freedom of movement (see figure international_emigration_eu_accession.png)
+	- Footnote: Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia
 - I will focus on a time span around the country’s accession to the EU in order to measure an effect of the country joining the EU, e.g. 10 years before and after joining the EU, data availability permitting.
 - The examined time span will only go up to and include the year 2019, because the COVID-19 pandemic will influence emigration starting 2020.
+- Disadvantages: Lack of data
 
 `methodology`
+- quantitative approach
 - Binary logistic regression, with the voter either being or not being a switcher
 
-
 `data`
-- nuts level migration data: CNMIGRATRT: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en
-- NUTS3 level electoral results are provided by the \underline{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5}{EU-NED European NUTS-Level Election Dataset}}. → perhaps add a table showing how many missing values there are, showing how “unbalanced” the data is?
-- Data on school closings is available through the \underline{\href{https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/}{Croatian Bureau of Statistics}}.
-- internal and external migration: national stats websites
+- NUTS3 level migration data is probided by Eurostat. However, this data does not differentiate between internal and external migration.
+	- Variable: CNMIGRATRT
+	- Online data code: DEMO_R_GIND3
+	- Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)
+- Data that does differentiate between internal and external emigration is provided by different national statistics agencies (see sources for figure international_emigration_eu_accession.png)
+- Data on individual level vote switching is provided by EES (source). Around 2700 respondents from CEE countries are assigned to a NUTS3 region.
+- Data on school closings in Croatia is available through the \underline{\href{https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/}{Croatian Bureau of Statistics}}.
+
+
+`possible further developments`
+- which parties profit from emigration? who do the switchers switch to?
+	- NUTS3 level electoral results are provided by the \underline{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5}{EU-NED European NUTS-Level Election Dataset}}.
 
 
 ## Conclusion
