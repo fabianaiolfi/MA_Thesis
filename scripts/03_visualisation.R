@@ -25,7 +25,7 @@ ggplot() +
   theme(panel.grid = element_blank(), # remove grid
         axis.title = element_blank(), # remove axis labels
         axis.text = element_blank()) +  # remove axis text
-  labs(title = "Average Net Migration 2000–2021 at NUTS3 Level", fill = "Net Migration")
+  labs(title = "Average Net (Internal and External) Migration 2000–2021 at NUTS3 Level", fill = "Net Migration")
 
 # Plot Map Over Time
 for (year in 2000:2021) {
