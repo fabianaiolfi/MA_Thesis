@@ -142,9 +142,10 @@ $$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote
 ## The project description (what?)
 
 `theory: what would we expect to happen based on theory?`
-- Voters evaluate a government’s past performance and their policy outcomes (1966 Key, p. 9, p. 58-59, p. 61). They vote retrospectively.
+- Voters evaluate a government’s past performance and their policy outcomes (1966 @keyResponsibleElectorateRationality1966a, p. 9, p. 58-59, p. 61). They vote retrospectively and their voting behaviour is influenced by salient issues (p. ?), such as the described service cuts.
 - Service cuts, especially public ones, will give the incumbent government a poor performance record in the eyes of the voter.
 - This will increase the likelihood that the voter switches party, away from the incumbent, towards another party.
+
 
 `Make explicit the causal mechanism`
 
@@ -203,11 +204,6 @@ Share of Vote Switchers = Service Cuts + [External Emigration + Grievances + Eco
 
 → in general: a higher ratio (more children in one school, more people for one hospital, more people for one third place) leads to higher vote switching
 
-
-
-
-
-
 **Public service cuts**
 H1: A higher ratio of children to schools in a region leads to a higher likelihood of vote switching in that region.
 *Emigration → Change in age distribution*
@@ -219,30 +215,33 @@ H2: A higher ratio of seniors to hospitals in a region leads to a higher likelih
 H3: A higher ratio of people to third places in a region leads to a higher likelihood of vote switching in that region.
 *Emigration → Population decline, labour shortage*
 
-
-`define key terms`
-- …
-
-
-
+<!--
+`define key terms (or use concepts that everyone in political science uses)`
+- watershed moment
+- ?
 
 `intervening conditions?`
 `We would also strongly recommend that you explicitly specify the existence of any intervening conditions that - at the very least - change the production of the expected effects and - at most - need to be present for the hypothesized relations to hold.`
-
+-->
 
 
 ## The research design (how, where and when?)
 
 `List research operations: Why are they best to tackle RQ?`
-- …
-- differentiate between internal and external migration: external migration linked to EU through FoM
+- I will measure the effect of service cuts on a subnational, NUTS3 level. I do this because:
+	- it provides more detail when measuring the effect of service cuts
+	- Regions have different levels of emigration (see map of average emigration rate over last 20 years); emigration can affect different regions differently
+	- The service cuts described above affect individuals on a local level
+- I will differentiate between internal and external migration and focus on the latter, as I am interested in the effect of the EU’s FoM on emigration.
 
 `justify case selection of geographical and temporal span: what's their logic and are there disadvantages?`
-- I aim to take Dancygier et al.'s idea of emigration causing grievances and apply it to voters changing their voting behaviour in Central and Eastern European (CEE) EU member states. I pick these countries because they are strongly affected by emigration, which has also been spurred on by the EU's freedom of movement (→ check if assumption holds!)
-- aim: examine voting behaviour at NUTS3 level, as different regions are affected differently by emigraiton
+- I select Central and Eastern European (CEE) EU member states because they are strongly affected by emigration, which has also been spurred on by the EU's freedom of movement (see figure international_emigration_eu_accession.png)
+- I will focus on a time span around the country’s accession to the EU in order to measure an effect of the country joining the EU, e.g. 10 years before and after joining the EU, data availability permitting.
+- The examined time span will only go up to and include the year 2019, because the COVID-19 pandemic will influence emigration starting 2020.
 
 `methodology`
-…
+- Binary logistic regression, with the voter either being or not being a switcher
+
 
 `data`
 - nuts level migration data: CNMIGRATRT: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en
@@ -259,19 +258,6 @@ H3: A higher ratio of people to third places in a region leads to a higher likel
 
 In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes.
 
-
-
-#################
-
-
-
-## In Development
-
-### Theory
-
-I am currently considering two theories to help answer my research question. The first is the political opportunity theory. @eisingerConditionsProtestBehavior1973 explains why riots in the US in the 1960s varied between cities. He concludes that some citizens were unable to voice their complaints legally because they lacked political opportunity. These people were thus more likely to riot. Applied to my research question, this theory would help explain which parties a voter would turn to if the voter is unhappy with the incumbent. Opposition and populist parties could capitalise on a voter's grievances and present themselves as alternatives to the status quo.
-
-The second possible theory is issue voting. @keyResponsibleElectorateRationality1966a describes how voting behaviour is influenced by salient issues. I expect the aforementioned watershed moments to be of high salience for voters, thus influencing their vote choice.
 
 \newpage
 
