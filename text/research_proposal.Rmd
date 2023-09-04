@@ -87,15 +87,15 @@ International Emigration and EU Accession (select countries)
 	- lack/not a lot of individual level data
 
 
-## The state of the field
+## State of the Field
 
+<!--
 ==Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?==
 
-```
 Present and discuss the answers that the available literature offers to your RQ
 1. what we already know and what we do not yet know about your research question
 2. how your work will build on previous research
-```
+-->
 
 Emigration has affected vote switching and electoral outcomes. This at different times in different places, ranging from 19th century Sweden (2017 Karadja) to Mexico at the start of the 21st century (2014 Pfutze).
 
@@ -111,11 +111,11 @@ Despite this decrease in political interest, some remainers still vote. If the n
 
 One concrete example why this is important is shown by 2017 Barsbai, who reveals a negative effect between emigration and votes for the Communist Party in the Moldovan elections of 2009 and 2010. Elections during those years brought significant political change to the ex-soviet country (2017 Barsbai, p. 41), because voters switched away from the Communist Party, who had gained electoral power in previous elections. Voters switched because returning emigrants brought western social norms and political preferences to Moldova (p. 66). These preferences then diffused amongst the electorate.
 
- Another reason why emigration is important is because some research uncovers links between emigration and voters switching to populist and radical parties (@dancygierEmigrationRadicalRight2022, 2022 Lim, 2020 Otteni). However, there are two reasons why this link between emigration and radical parties can be questioned.
+Another reason why emigration is important is because some research uncovers links between emigration and voters switching to populist and radical parties (@dancygierEmigrationRadicalRight2022, 2022 Lim, 2020 Otteni). However, there are two reasons why this link between emigration and radical parties can be questioned.
  
- First, 2020 Mercator and 2023 Schütze provide mixed results of this claim, showing that emigration induced support for these parties is only given under certain conditions, or look at country-specific cases such as intra-German migration from east to west (2023 Schütze).
+First, 2020 Mercator and 2023 Schütze provide mixed results of this claim, showing that emigration induced support for these parties is only given under certain conditions, or look at country-specific cases such as intra-German migration from east to west (2023 Schütze).
  
- Second, there are three points to be made that non-extreme parties, e.g. a mainstream opposition party, may also benefit from emigration. One, a voter does not necessarily have to cast a ballot for an extreme party. Instead they can simply critique the incumbent government or status quo parties if emigration becomes politicised (mercator 2020). Two, voters receive remittances which realigns their party preferences closer to their personal ideological preferences (2012 pfutze). This does not necessarily have to be an extreme party. Three, voters will not cast a vote for a extreme party if there is no extreme party on the ballot. For these three reasons and due to the mixed empirical results, I will look into vote switching in general and not focus on voting for radical right parties.
+Second, there are three points to be made that non-extreme parties, e.g. a mainstream opposition party, may also benefit from emigration. One, a voter does not necessarily have to cast a ballot for an extreme party. Instead they can simply critique the incumbent government or status quo parties if emigration becomes politicised (mercator 2020). Two, voters receive remittances which realigns their party preferences closer to their personal ideological preferences (2012 pfutze). This does not necessarily have to be an extreme party. Three, voters will not cast a vote for a extreme party if there is no extreme party on the ballot. For these three reasons and due to the mixed empirical results, I will look into vote switching in general and not focus on voting for radical right parties.
 
 @dancygierEmigrationRadicalRight2022 uncover a correlation between emigration and the rise of Populist Radical Parties (PRR). The authors suggest that emigration decreases an area's quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. These grievances then affect voting behaviour. Voters turn against incumbents and cast a ballot for PRR parties.
 
@@ -128,71 +128,67 @@ $$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote
 However, the authors do not show which service cuts lead to cause grievances, thus influencing a voter’s behaviour that leads them to cast a vote for PRR parties [@dancygierEmigrationRadicalRight2022, p. 35]. They leave this aspect open for future research. This thesis sets out to detect which emigration induced service cuts cause vote switching and will not focus soley on PRR parties and all available parties.
 
 
-## The project description (what?)
+## Project Description
 
-`theory: what would we expect to happen based on theory?`
-- Voters evaluate a government’s past performance and their policy outcomes (1966 @keyResponsibleElectorateRationality1966a, p. 9, p. 58-59, p. 61). They vote retrospectively and their voting behaviour is influenced by salient issues (p. ?), such as the described service cuts.
-- Service cuts, especially public ones, will give the incumbent government a poor performance record in the eyes of the voter.
-- This will increase the likelihood that the voter switches party, away from the incumbent, towards another party.
+<!-- theory: what would we expect to happen based on theory? -->
 
+@keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes (1966 @keyResponsibleElectorateRationality1966a, p. 9, p. 58-59, p. 61). They vote retrospectively and their voting behaviour is influenced by salient issues (p. ?), such as the described service cuts. Service cuts, especially cuts to public services, will give the incumbent government a poor performance record in the eyes of the voter. This will increase the likelihood that the voter switches party, away from the incumbent, towards another party.
 
-`Make explicit the causal mechanism`
+<!-- Make explicit the causal mechanism -->
 
-- Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances that then lead to PRR voting, this thesis asks the following question: Which emigration induced service cuts cause grievances?
+Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances which then lead to PRR voting, this thesis asks the following question: Which emigration induced service cuts cause grievances?
 
-- preliminary exploration: measure grievances through ESS5, 9: How happy are you? → correlation between happiness and emigration → are people from emigration-high regions generally unhappier?
+<!--
+preliminary exploration: measure grievances through ESS5, 9: How happy are you? → correlation between happiness and emigration → are people from emigration-high regions generally unhappier?
 
 - preliminary exploration: demographic change in emigration hit regions → less younger, more older → less schools, less hospitals
 
 - preliminary exploration: grievances and vote switching? is there a correlation between the two in general, and more so in the actual regions that are hit by emigration? → might be difficult because EES does not ask about happiness → combine EES and ESS?; or maybe Q20 “And over the next 12 months, how do you think the general economic situation in Ireland will be?”
+-->
 
-- To answer this question, I suggest the following approach
-- As the figures from the preliminary exploration `02_fom_emigration` show,  emigration is a slow yet steady attrition of a country, that started long before a country’s accession to the EU.
-- Due to the gradual nature of steady emigration, it goes largely unnoticed to the individual who remains. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the people who have remained suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
+To answer this question, I suggest the following approach. As international_emigration_eu_accession.png shows, emigration existed before a country’s accession to the EU and have a gradual nature across most countries. Due to this steady attrition of a country’s population, emigration goes largely unnoticed to the individual who remains. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the remaining people suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
 
-- I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. 
+I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. The first moment is the closing of local primary and secondary schools. Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
 
-- The first moment is the closing of local primary and secondary schools.
-- Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
+The second watershed moment is the closing of hospitals. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023, p. 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population. Hospitals closures in CEE are spurred on by the emigration of medical professionals (2020 Mercator, https://www.theguardian.com/world/2019/apr/21/romanian-hospitals-in-crisis-as-emigration-take-its-toll). 
 
-- The second watershed moment is the closing of hospitals. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023, p. 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population.
-- hospital closings and emigration are also linked: emigration of medical doctors and other healthcare professionals is a problem in CEE (2020 Mercator, https://www.theguardian.com/world/2019/apr/21/romanian-hospitals-in-crisis-as-emigration-take-its-toll)
-- Schools and hospitals closing in emigration-hit regions in Sweden are topics that newspapers reported on [@dancygierEmigrationRadicalRight2022, p. 32]. This indicates that there may exist a link between these closures and grievances.
+<!-- preliminary exploration: change of demographics in emigration hit regions --> 
 
-- Schools and hospitals closings are services made available by the state. In contrast, the third and final watershed moment will look at a service cut in the private sector, namels the decrease in the number of public spaces that act as "third places".
-- These are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999, p. 16], e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021].
+To underline the importance of these two watershed moments, [@dancygierEmigrationRadicalRight2022, p. 32] shows how newspapers report on schools and hospitals closing in Swedish emigration-hit regions. This indicates that there may exist a link between these closures and grievances.
 
+Schools and hospitals closings are services made available by the state. In contrast, the third and final watershed moment I will examine is a service cut in the private sector, namely the decrease in the number of public spaces that act as "third places". These are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999, p. 16], e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021].
 
-```
-Operationalize key terms by defining them in terms that can be measured or observed. Good (maybe not ideal) indicators are those available, close to the concept you want to measure, and widely accepted. The more indicators you have, the more solid your proposal will be.
-```
+<!-- operationalisation, model specification --> 
 
-Based on this causal chain of events:
-Emigration → Service Cuts → Grievances → Vote Switching
+Based on causal chain of events put forward by @dancygierEmigrationRadicalRight2022 (reference to formula number), I set up the following empirical specification:
 
-I set up this regression formula:
-Share of Vote Switchers = Service Cuts + [External Emigration + Grievances + Economic Factors + Remittances]
+<!-- 
+\begin{equation}
+\begin{aligned}
+Switcher \; Share_{i,j} = \beta_0 & + \beta_1Service \; Cuts_{i,j} \\
+      & + \beta_2External \; Emigration_{i,j} \\
+      & + \beta_3Economic \; Factors_{i,j} \\
+      & + \beta_4Remittances_{i,j} \\
+      & + \varepsilon 
+\end{aligned}
+\end{equation}
+https://latexeditor.lagrida.com/
+ --> 
+ 
+ ![](model_spec.png)
 
-- A variable always covers a NUTS3 region in 1 year (e.g. HR035 in 2014)
-- Share of vote switchers: Proportion of voters who “moved across party lines” (1966 Key, p. 16) between two national elections compared to all voters
-	- I will measure individual level vote switching using EES data. If a respondent’s answer to question 9 and 10 are not the same party, then they are labelled a vote switcher
-		- From the European Parliament Election Study 2019 Irish Country Questionnaire:
-		- Question 9: “Which party did you vote for at the Irish General Election of 2016?” 
-		- Question 10: “We have a number of parties in Ireland each of which would like to get your vote. How probable is it that you will ever vote for the following parties? Please answer on a scale where 0 means "not at all probable" and 10 means "very probable”.”
-- Service Cuts, the main independent variable, are operationalised as ratios to its target audience:
-	- number of children to schools in a region
-	- population size to number of hospitals in a region
-	- number of third places (cafés, bars, restaurants) to population size in a region
+i indexes a NUTS3 region in year j. The dependent variable is the share of vote switchers in the electorate who “moved across party lines” (1966 Key, p. 16), i.e., switched from one party to another, between two national elections. 
 
-**Control Variables**
-- external emigration from a region: crude number of citizens who emigrate from the country to another country (spurred on by FoM? depends on results from preliminary exploration)
-- received remittances in a region (see 2012 Pfutze)
-- economic factors, e.g. unemployment, nuts3 gdp per capita
-	- I assume that a region's overall socioeconomic climate will impact the perception of the described closures. Inhabitants of a region that is worse off will develop stronger grievances due to the watershed moments described above. This in turn will have a stronger affect on voting behaviour.
-- other / TBD
-	- transitional period between EU accession and end of FoM transitional period (https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary); unclear how to measure this: number of countries won’t do it, somehow measure economic attractiveness / pull of a country?
+I will measure individual level vote switching using EES data (source). If a respondent’s answer to question 9 is not the same party as the highest rated party in question 10, then they are labelled a vote switcher.^[From the European Parliament Election Study 2019 Irish Country Questionnaire (source):
+Question 9: “Which party did you vote for at the Irish General Election of 2016?” 
+Question 10: “We have a number of parties in Ireland each of which would like to get your vote. How probable is it that you will ever vote for the following parties? Please answer on a scale where 0 means "not at all probable" and 10 means "very probable”.”]
 
-`hypotheses as a general answer to the puzzle`
+Service Cuts, the main independent variable, are operationalised as ratios to its respective target audience. There is one service cut for each watershed moment described above. The first are the number of children to schools in a region. The second is the population size to number of hospitals in a region. The third is the number of third places (cafés, bars, restaurants) to population size in a region.
+
+<!-- Control Variables --> 
+I will control for the following variables. First, external emigration from a region, which entails the crude number of citizens emigrating abroad from the region. Second, I take the inflow of  remittances in a region (see 2012 Pfutze). Third, I take economic factors, e.g. unemployment, GDP per capita, into account. I do this because I assume that a region's overall socioeconomic climate will impact the perception of the described watershed moments. Inhabitants of a region that is worse off will develop stronger grievances if schools, hospitals and third places close. This in turn will have a stronger affect on voting behaviour.
+
+<!-- hypotheses as a general answer to the puzzle --> 
 
 → in general: a higher ratio (more children in one school, more people for one hospital, more people for one third place) leads to higher vote switching
 
@@ -250,6 +246,7 @@ H3: A higher ratio of people to third places in a region leads to a higher likel
 `possible further developments`
 - which parties profit from emigration? who do the switchers switch to?
 	- NUTS3 level electoral results are provided by the \underline{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5}{EU-NED European NUTS-Level Election Dataset}}.
+- compare to non-EU CEE country, like Albania, Moldova, Serbia, Montenegro
 
 
 ## Conclusion
