@@ -197,13 +197,12 @@ Share of Vote Switchers = Service Cuts + [External Emigration + Grievances + Eco
 	- number of third places (cafés, bars, restaurants) to population size in a region
 
 **Control Variables**
-- external emigration from a region = international emigration (spurred on by FoM? depends on results from preliminary exploration)
+- external emigration from a region: crude number of citizens who emigrate from the country to another country (spurred on by FoM? depends on results from preliminary exploration)
 - received remittances in a region (see 2012 Pfutze)
 - economic factors, e.g. unemployment, nuts3 gdp per capita
 	- I assume that a region's overall socioeconomic climate will impact the perception of the described closures. Inhabitants of a region that is worse off will develop stronger grievances due to the watershed moments described above. This in turn will have a stronger affect on voting behaviour.
 - other / TBD
 	- transitional period between EU accession and end of FoM transitional period (https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary); unclear how to measure this: number of countries won’t do it, somehow measure economic attractiveness / pull of a country?
-
 
 `hypotheses as a general answer to the puzzle`
 
@@ -240,7 +239,7 @@ H3: A higher ratio of people to third places in a region leads to a higher likel
 - I will differentiate between internal and external migration and focus on the latter, as I am interested in the effect of the EU’s FoM on emigration.
 
 `justify case selection of geographical and temporal span: what's their logic and are there disadvantages?`
-- I select Central and Eastern European (CEE) EU member states because they are strongly affected by emigration, which has also been spurred on by the EU's freedom of movement (see figure international_emigration_eu_accession.png)
+- I select Central and Eastern European (CEE) EU member states because they are strongly affected by emigration, which has also been spurred on by the EU's freedom of movement (see figure international_emigration_eu_accession.png and other sources in the introduction)
 	- Footnote: Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia
 - I will focus on a time span around the country’s accession to the EU in order to measure an effect of the country joining the EU, e.g. 10 years before and after joining the EU, data availability permitting.
 - The examined time span will only go up to and include the year 2019, because the COVID-19 pandemic will influence emigration starting 2020.
@@ -248,7 +247,7 @@ H3: A higher ratio of people to third places in a region leads to a higher likel
 
 `methodology`
 - quantitative approach
-- Binary logistic regression, with the voter either being or not being a switcher
+- Linear regression, with the DV being the share of vote switchers amongst all voters in a NUTS3 region and the IV being the crude emigration of a region
 
 `data`
 - NUTS3 level migration data is probided by Eurostat. However, this data does not differentiate between internal and external migration.
