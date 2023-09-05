@@ -19,31 +19,27 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Abstract
-[1000 characters]
+…
 
-## RQ
-Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?
-
-###############
 
 ## Introduction
-`Central problem / puzzle that thesis will address`
-- CEE EU member states countries show high levels of emigration (numbers, source)
-	- Footnote: Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia
-	- 2017 Ubareviciene: Since the 1990s, lithuania lost almost one-quarter of its population, and some regions within the coun- try lost more than 50% of their residents. 
-	- 2018 Vasilopoulou: The key drivers of intra-EU migration were economic, related to labour market factors, with EU migrants moving abroad to seek better job opportunities
+<!-- Central problem / puzzle that thesis will address -->
 
-	- Potential preliminary explorations
-		- is there a correlation between end of Freedom of Movement-transitional period and increase in external migration? → if yes, this would help this thesis’ case of the EU’s effect on emigration in CEE → see job vacancy stats https://ec.europa.eu/eurostat/web/labour-market/database; see also employment rate https://ec.europa.eu/eurostat/web/lfs/database; perhaps use GDP per capita and then control for unemployment rate, social welfare benefits index, quality of life index, political stability (via ChatGPT); also take into account distance between countries (see 2001 Gleditsch); https://en.wikipedia.org/wiki/Freedom_of_movement_for_workers_in_the_European_Union#Summary; panel data model? https://towardsdatascience.com/a-guide-to-panel-data-regression-theoretics-and-implementation-with-python-4c84c5055cf8; https://www.youtube.com/watch?v=T7Dmp8a7IU0
+Central and Eastern European (CEE) EU member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] show high levels of emigration. Figure X provides an overview of migration levels across Europe. It shows that emigration has been generally higher in CEE regions compared to other parts of Europe.
+
+![](../documentation/01_average_net_migration_map.png)
+
+The United Nations estimate a population decline of 18 million people in Eastern Europe between the early 1990s and 2015, with emigration being the main reason for the decline (2016 FT). In one concrete example, Lithuania has lost a quarter of its population, with certain regions losing over 50% of residents (2017 Ubareviciene). Emigration within the EU are driven by economic and labour market factors, as people emigrate to look for better job opportunities (2018 Vasilopoulou).
 
 International Emigration and EU Accession (select countries)
-![](documentation/international_emigration_eu_accession.png)
-- does EU accession and with it the EU’s freedom of Movement have an effect on emigration numbers?
-- Figure X displays a simple visualisation of a select few countries that had readily available data of international emigration. Figure displays all data points (ie years) that were retrievable
-- Blue line represents the country’s accession into the EU.
-- Chow test for each individual country reveals that, apart for the Czech Republic, accession creates a break in the emigration series (p<0.05). The time span covers, when data is available, 10 years before and 10 years after accession.
+![](../documentation/international_emigration_eu_accession.png)
+
+Does a country’s accession to the EU, and with it gaining access to the EU’s Freedom of Movement (FoM), have an effect on emigration rates? Figure X displays a simple visualisation of a selection of countries that provided data on international emigration around the country’s accession. Figure X displays all years that were retrievable. The vertical blue line represents when the country joined the EU.
+
+I perform a Chow test for each individual country to examine if EU accession creates a break in the time series. The results show that, apart from the Czech Republic, EU accession does create a break in the time series with conventional significance ($p < 0.05$). The time span covers, when data is available, 10 years before and 10 years after accession.
+
 - FoM transitional period is not taken into account here
-- Because of these breaks in the emigration series, we can assume that there is a link between a country’s accession to the EU and the number of people leaving. This is because a country’s membership in the EU makes emigration easier.
+- Because of these breaks in the emigration series, we can assume that there is a link between a country’s accession to the EU and emigration rate. This is because a country’s membership in the EU makes emigration easier.
 - Sources:
 	- Croatia: https://podaci.dzs.hr/2021/en/10485, https://podaci.dzs.hr/2022/en/29029, https://podaci.dzs.hr/2023/en/58062 (retrieved 3 September 2023)
 	- Czech Republic: https://vdb.czso.cz/vdbvo2/faces/en/index.jsf?page=vystup-objekt&pvo=DEM11D&z=T&f=TABULKA&katalog=all&c=v3~8__RP2002&&str=v66 (retrieved 3 September 2023)
@@ -51,7 +47,7 @@ International Emigration and EU Accession (select countries)
 	- Romania: http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table → emigrants with a change of permanent address (definitive emigrants) → POP309A (retrieved 3 September 2023)
 	- Slovenia: https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05N1042S.px/table/tableViewLayout2/ → International migration by citizenship, statistical regions, Slovenia, annually → Citizens of RS (retrieved 3 September 2023)
 
-	- also 2016 FT
+
 - Emigration has profound effects in the sending countries. E.g. lack of labour, population decline;
 	- also affects individuals, e.g. through a sense of loss, anger or distress (2012 Marchetti‐Mercer); 2019 Ivlevs: We also document that having household members abroad is linked with increased stress and depression, which are not offset by remittances → In short: emigration leaves no one indifferent
 	- 2009 Thaut for specific country case
@@ -64,14 +60,14 @@ International Emigration and EU Accession (select countries)
 	- ==Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?==
 	- Why does international emigration from CEE EU MS cause vote switching amgonst voters in sending countries?
 
-`Describe causal mechanism`
+<!-- Describe causal mechanism -->
 - @dancygierEmigrationRadicalRight2022
 	- ==emigration → service cuts → grievances → PRR voting==
 - [@dancygierEmigrationRadicalRight2022, p. 35]: do not show what exactly causes a change in voting behaviour; future research should look into what type of service cuts lead to PRR voting
 - [briefly describe watershed moments; also add EU ascension as further watershed moment, or rather when CEE citizens were allowed to work/live in other EU MS]
 	- [describe updated causal mechanism? with “watershed moment” after “service cuts”]
 
-`Why is it worth studying?`
+<!-- Why is it worth studying? -->
 - migration has been studied at the receiving end, but the sending end hasn’t been studied enough yet (2022 Kyriazi)
 	- 2012 Marchetti‐Mercer p. 378: “Toyota, Yeoh, and Nguyen (2007) argue that globally far more people are “left behind” than emigrate, but those left behind are often forgotten by research.”
 	- 2020 bruzelius p. 2: “FoM not just involves the right to enter, but also the right to exit” 
@@ -81,8 +77,9 @@ International Emigration and EU Accession (select countries)
 - effects of FoM in CEE is understudied
 	- 2012 pfutze looks at mexico, but can the same results be expected in EU?
 	- 2017 Barsbai looks at moldova, but moldova is not in the EU thus emigration has a different backdrop
+- also: what does this mean for potential expansion of the EU in the future, e.g. Ukraine?
 
-`caveats / limitations`
+<!-- caveats / limitations -->
 - approximation of effect on voting behaviour
 	- difficulty of disentangling individual voting behaviour affected by emigration; 
 	- lack/not a lot of individual level data
@@ -231,27 +228,23 @@ A potential disadvante of the case selection could be cultural differences withi
 I will use a quantitative approach to answer my research question. I will start by building a linear regression model, with the dependent variable being the share of vote switchers and the independent variable being service cuts.
 
 <!-- Data -->
-- NUTS3 level migration data is probided by Eurostat. However, this data does not differentiate between internal and external migration.
-	- Variable: CNMIGRATRT
-	- Online data code: DEMO_R_GIND3
-	- Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)
-- Data that does differentiate between internal and external emigration is provided by different national statistics agencies (see sources for figure international_emigration_eu_accession.png)
-- Data on individual level vote switching is provided by EES (source). Around 2700 respondents from CEE countries are assigned to a NUTS3 region.
-- Data on school closings in Croatia is available through the \underline{\href{https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/}{Croatian Bureau of Statistics}}.
+NUTS3 level migration data is provided by Eurostat.^[Variable: CNMIGRATRT; Online data code: DEMO_R_GIND3; Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)] However, these data do not differentiate between internal and external migration. Data that do make this differentiation are provided by the national statistics agencies of the countries in the selection (see sources for figure international_emigration_eu_accession.png).
 
+Data on individual level vote switching is provided by the European Election Study (EES, source). Of the around 7300 respondents from CEE countries, about 2700, or roughly a third, are assigned to a NUTS3 region. Data on individual level well-being (happiness, grievances) is provided by the European Social Survey (ESS, source) and the European Values Study (EVS, source). Data on school closings in Croatia is available through the Croatian Bureau of Statistics.^[https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/ (5 September 2023: site can’t be reached)]
 
-`possible further developments`
-- which parties profit from emigration? who do the switchers switch to?
-	- NUTS3 level electoral results are provided by the \underline{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5}{EU-NED European NUTS-Level Election Dataset}}.
-- take regional elections into account (closer to NUTS3)
-- compare to non-EU CEE country, like Albania, Moldova, Serbia, Montenegro
+<!-- Possible further developments -->
+The thesis can be expanded in the following three ways. First, going beyond vote switching, which parties explicitly profit from emigration? Which parties do the switchers switch to? NUTS3 level electoral results are provided by the EU-NED European NUTS-Level Election Dataset^[https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5, (retrieved 5 September 2023)]. Individual level data from Poland provided by the Polish Panel Survey (POLPAN, https://polpan.org/en/, (retrieved 5 September 2023)) can also help expand on this question.
+
+Second, regional elections can be taken into account. I am currently examining vote switching between parties in national election. However, it may also make sense to take regional elections into account, as these are closer to NUTS3 regions and thus more directly affected by emigration from a region.
+
+A third expansion could take a non-EU CEE country, like Albania, Moldova, Serbia or Montenegro, into account. This can potentially help measure the impact of EU accession on emigration.
 
 
 ## Conclusion
-```
+<!--
 - alluding to the original research question, reminding the reader about the main theoretical claim (in normative works)/falsifiable hypothesis (in empirical ones)
 - speculating on the final product of the thesis: what kind of impact could your research have if it is successful?
-```
+-->
 
 In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes.
 
@@ -259,6 +252,4 @@ In sum, I aim to isolate specific causal mechanisms to better understand how emi
 \newpage
 
 ## References
-```
-This should be focused and updated but sufficiently comprehensive and grounded in classics.
-```
+<!-- This should be focused and updated but sufficiently comprehensive and grounded in classics. -->
