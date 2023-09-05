@@ -31,34 +31,17 @@ Central and Eastern European (CEE) EU member states^[Bulgaria, Croatia, Czech Re
 
 The United Nations estimate a population decline of 18 million people in Eastern Europe between the early 1990s and 2015, with emigration being the main reason for the decline (2016 FT). In one concrete example, Lithuania has lost a quarter of its population, with certain regions losing over 50% of residents (2017 Ubareviciene). Emigration within the EU are driven by economic and labour market factors, as people emigrate to look for better job opportunities (2018 Vasilopoulou).
 
-International Emigration and EU Accession (select countries)
-![](../documentation/international_emigration_eu_accession.png)
+Does a country’s accession to the EU, and with it gaining access to the EU’s Freedom of Movement (FoM), have an effect on emigration rates? Figure X displays a simple visualisation of a selection of countries that provided data on international emigration around the country’s accession. Figure X displays all years that were retrievable. The vertical blue line represents when the country joined the EU. The time span covers, when data is available, 10 years before and 10 years after accession. The FoM transition period, that all EU member states were allowed to implement in order adjust for immigrants from new member states, is not taken into account here.
 
-Does a country’s accession to the EU, and with it gaining access to the EU’s Freedom of Movement (FoM), have an effect on emigration rates? Figure X displays a simple visualisation of a selection of countries that provided data on international emigration around the country’s accession. Figure X displays all years that were retrievable. The vertical blue line represents when the country joined the EU.
+I perform a Chow test for each individual country to examine if EU accession creates a break in the time series. The results show that, apart from the Czech Republic, EU accession does create a break in the time series with conventional significance ($p < 0.05$). Because of these breaks in the emigration rates, we can assume that there is a link between a country’s accession to the EU and a change in emigration rate. This is because a country’s membership in the EU makes emigration easier, so FoM increases the effects of emigration.
 
-I perform a Chow test for each individual country to examine if EU accession creates a break in the time series. The results show that, apart from the Czech Republic, EU accession does create a break in the time series with conventional significance ($p < 0.05$). The time span covers, when data is available, 10 years before and 10 years after accession.
+![International Emigration and EU Accession (select countries). Sources: See appendix](../documentation/international_emigration_eu_accession.png)
 
-- FoM transitional period is not taken into account here
-- Because of these breaks in the emigration series, we can assume that there is a link between a country’s accession to the EU and emigration rate. This is because a country’s membership in the EU makes emigration easier.
-- Sources:
-	- Croatia: https://podaci.dzs.hr/2021/en/10485, https://podaci.dzs.hr/2022/en/29029, https://podaci.dzs.hr/2023/en/58062 (retrieved 3 September 2023)
-	- Czech Republic: https://vdb.czso.cz/vdbvo2/faces/en/index.jsf?page=vystup-objekt&pvo=DEM11D&z=T&f=TABULKA&katalog=all&c=v3~8__RP2002&&str=v66 (retrieved 3 September 2023)
-	- Poland: https://stat.gov.pl/download/gfx/portalinformacyjny/en/defaultaktualnosci/3289/2/2/1/main_directions_of_emigration_and_immigration_in_the_years_1966-2020_for__permanent_residence.xlsx (retrieved 3 September 2023)
-	- Romania: http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table → emigrants with a change of permanent address (definitive emigrants) → POP309A (retrieved 3 September 2023)
-	- Slovenia: https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05N1042S.px/table/tableViewLayout2/ → International migration by citizenship, statistical regions, Slovenia, annually → Citizens of RS (retrieved 3 September 2023)
+Emigration has profound impacts on the sending countries, e.g., population decline, lack of labour (2009 Thaut, 2021 Roos) or a change in the population’s ethnic profile (2020 Mercator p. 51). Emigration affects individuals through a sense of loss or by causing anger, distress and depression (2012 Marchetti‐Mercer, 2019 Ivlevs).
 
+Does emigration change the voting behaviour of the people left behind? There exists a correlation between emigration rates and vote switching.  There is a negative significant ($p < 0.05$) correlation between average migration rate and vote switching: The lower the average migration, the more vote switchers in the NUTS3 region. [Display data and findings]. However, this correlation contains the following caveat. The migration numbers used do not differentiate between internal and external migration.
 
-- Emigration has profound effects in the sending countries. E.g. lack of labour, population decline;
-	- also affects individuals, e.g. through a sense of loss, anger or distress (2012 Marchetti‐Mercer); 2019 Ivlevs: We also document that having household members abroad is linked with increased stress and depression, which are not offset by remittances → In short: emigration leaves no one indifferent
-	- 2009 Thaut for specific country case
-- The EU’s freedom of movement makes emigration easier, magnifying the effects of emigration
-- How does emigration effect the people left behind? Does emigration change their voting behaviour?
-- Emigration correlates with vote switching → There exists a negative significant (p<0.05) correlation between average migration and vote switching: The lower the average migration, the more vote switchers in the NUTS3 region
-	- [Display data and findings]
-	- Caveat: migration numbers do not differentiate between internal and external migration
-- RQ:
-	- ==Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?==
-	- Why does international emigration from CEE EU MS cause vote switching amgonst voters in sending countries?
+Despite the caveat, this thesis will ask the following research question. Why does international emigration from CEE EU member states cause vote switching amongst the voters left behind?
 
 <!-- Describe causal mechanism -->
 - @dancygierEmigrationRadicalRight2022
@@ -248,6 +231,15 @@ A third expansion could take a non-EU CEE country, like Albania, Moldova, Serbia
 
 In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes.
 
+\newpage
+
+## Appendix
+Sources of international_emigration_eu_accession.png
+- Croatia: https://podaci.dzs.hr/2021/en/10485, https://podaci.dzs.hr/2022/en/29029, https://podaci.dzs.hr/2023/en/58062 (retrieved 3 September 2023)
+- Czech Republic: https://vdb.czso.cz/vdbvo2/faces/en/index.jsf?page=vystup-objekt&pvo=DEM11D&z=T&f=TABULKA&katalog=all&c=v3~8__RP2002&&str=v66 (retrieved 3 September 2023)
+- Poland: https://stat.gov.pl/download/gfx/portalinformacyjny/en/defaultaktualnosci/3289/2/2/1/main_directions_of_emigration_and_immigration_in_the_years_1966-2020_for__permanent_residence.xlsx (retrieved 3 September 2023)
+- Romania: http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table → emigrants with a change of permanent address (definitive emigrants) → POP309A (retrieved 3 September 2023)
+- Slovenia: https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05N1042S.px/table/tableViewLayout2/ → International migration by citizenship, statistical regions, Slovenia, annually → Citizens of RS (retrieved 3 September 2023)
 
 \newpage
 
