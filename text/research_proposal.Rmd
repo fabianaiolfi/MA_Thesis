@@ -28,7 +28,8 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 
 ## Introduction
 `Central problem / puzzle that thesis will address`
-- CEE countries show high levels of emigration (numbers, source)
+- CEE EU member states countries show high levels of emigration (numbers, source)
+	- Footnote: Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia
 	- 2017 Ubareviciene: Since the 1990s, lithuania lost almost one-quarter of its population, and some regions within the coun- try lost more than 50% of their residents. 
 	- 2018 Vasilopoulou: The key drivers of intra-EU migration were economic, related to labour market factors, with EU migrants moving abroad to seek better job opportunities
 
@@ -186,22 +187,21 @@ Question 10: “We have a number of parties in Ireland each of which would like 
 Service Cuts, the main independent variable, are operationalised as ratios to its respective target audience. There is one service cut for each watershed moment described above. The first are the number of children to schools in a region. The second is the population size to number of hospitals in a region. The third is the number of third places (cafés, bars, restaurants) to population size in a region.
 
 <!-- Control Variables --> 
-I will control for the following variables. First, external emigration from a region, which entails the crude number of citizens emigrating abroad from the region. Second, I take the inflow of  remittances in a region (see 2012 Pfutze). Third, I take economic factors, e.g. unemployment, GDP per capita, into account. I do this because I assume that a region's overall socioeconomic climate will impact the perception of the described watershed moments. Inhabitants of a region that is worse off will develop stronger grievances if schools, hospitals and third places close. This in turn will have a stronger affect on voting behaviour.
+I will control for the following variables. First, external emigration from a region, which entails the crude number of citizens emigrating abroad from the region. Second, I take the inflow of remittances in a region, because remittances can realign a voter’s party preferences in favor of ideological preferences, thus changing their voting behaviour (2012 Pfutze). Third, I take a region’s economic factors, e.g. unemployment or GDP per capita, into account. I do this because I assume that a region's overall socioeconomic climate will impact the perception of the described watershed moments. Inhabitants of a region that is worse off will develop stronger grievances if schools, hospitals and third places close down. This in turn will have a stronger affect on voting behaviour.
 
-<!-- hypotheses as a general answer to the puzzle --> 
+<!-- Hypotheses as a general answer to the puzzle --> 
+As a general relation between dependent and independent variable, I assume a higher ratio in service cuts, e.g., more children per school, leads to a higher share of vote switchers.
 
-→ in general: a higher ratio (more children in one school, more people for one hospital, more people for one third place) leads to higher vote switching
+<!-- Public service cuts --> 
+<!-- Emigration → Change in age distribution --> 
+**H1**: A higher ratio of children to schools in a region leads to a higher share of vote switchers in that region.
 
-**Public service cuts**
-H1: A higher ratio of children to schools in a region leads to a higher likelihood of vote switching in that region.
-*Emigration → Change in age distribution*
+<!-- Emigration → Population decline, labour shortage -->
+**H2**: A higher ratio of seniors to hospitals in a region leads to a higher share of vote switchers in that region.
 
-H2: A higher ratio of seniors to hospitals in a region leads to a higher likelihood of vote switching in that region.
-*Emigration → Population decline, labour shortage*
-
-**Private service cuts**
-H3: A higher ratio of people to third places in a region leads to a higher likelihood of vote switching in that region.
-*Emigration → Population decline, labour shortage*
+<!-- Private service cuts -->
+<!-- Emigration → Population decline, labour shortage -->
+**H3**: A higher ratio of people to third places in a region leads to a higher share of vote switchers in that region.
 
 <!--
 `define key terms (or use concepts that everyone in political science uses)`
@@ -213,27 +213,24 @@ H3: A higher ratio of people to third places in a region leads to a higher likel
 -->
 
 
-## The research design (how, where and when?)
+## Research Design
+<!-- The research design (how, where and when?) -->
+<!-- List research operations: Why are they best to tackle RQ? -->
 
-`List research operations: Why are they best to tackle RQ?`
-- I will measure the effect of service cuts on a subnational, NUTS3 level. I do this because:
-	- it provides more detail when measuring the effect of service cuts
-	- Regions have different levels of emigration (see map of average emigration rate over last 20 years); emigration can affect different regions differently
-	- The service cuts described above affect individuals on a local level
-- I will differentiate between internal and external migration and focus on the latter, as I am interested in the effect of the EU’s FoM on emigration.
+I differentiate between internal and external migration and focus on the latter, as I want to examine the effect of the EU’s Freedom of Movement on emigration.
 
-`justify case selection of geographical and temporal span: what's their logic and are there disadvantages?`
-- I select Central and Eastern European (CEE) EU member states because they are strongly affected by emigration, which has also been spurred on by the EU's freedom of movement (see figure international_emigration_eu_accession.png and other sources in the introduction)
-	- Footnote: Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia
-- I will focus on a time span around the country’s accession to the EU in order to measure an effect of the country joining the EU, e.g. 10 years before and after joining the EU, data availability permitting.
-- The examined time span will only go up to and include the year 2019, because the COVID-19 pandemic will influence emigration starting 2020.
-- Disadvantages: Lack of data
+I will measure the effect of service cuts on a subnational level. Specifically NUTS3 level, data permitting. I do this for the following two reasons. First, a higher sample size provides more accurate results when measuring the effect of service cuts. Second, regions have different levels of emigration (see map of average emigration rate over last 20 years). This results in regions being affected in different ways. 
 
-`methodology`
-- quantitative approach
-- Linear regression, with the DV being the share of vote switchers amongst all voters in a NUTS3 region and the IV being the crude emigration of a region
+<!-- justify case selection of geographical and temporal span: what's their logic and are there disadvantages? -->
 
-`data`
+I will examine CEE EU member states because they are strongly affected by emigration, which I assume to have been amplified by the EU’s Freedom of Movement (see figure international_emigration_eu_accession.png and other sources in the introduction). In order to measure an effect of a country joining the EU, I will focues on a time span around the country’s accession. E.g., ten years before and after joining, if data is available for the time span. The time span will only go up to and include the year 2019, because I assume the COVID-19 pandemic to have a strong influence on emigration in 2020 and beyond.
+
+A potential disadvante of the case selection could be cultural differences within CEE EU member states, leading to inaccurate results. I have chosen a very broad definition of CEE countries, possibly making a comparison between regions difficult. It may make sense to narrow down the selection, e.g., by excluding the three Baltic states. A further disadvantage is missing data in emigration time series and a lack of individual level data at NUTS3 level.
+
+<!-- Methodology -->
+I will use a quantitative approach to answer my research question. I will start by building a linear regression model, with the dependent variable being the share of vote switchers and the independent variable being service cuts.
+
+<!-- Data -->
 - NUTS3 level migration data is probided by Eurostat. However, this data does not differentiate between internal and external migration.
 	- Variable: CNMIGRATRT
 	- Online data code: DEMO_R_GIND3
@@ -246,6 +243,7 @@ H3: A higher ratio of people to third places in a region leads to a higher likel
 `possible further developments`
 - which parties profit from emigration? who do the switchers switch to?
 	- NUTS3 level electoral results are provided by the \underline{\href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5}{EU-NED European NUTS-Level Election Dataset}}.
+- take regional elections into account (closer to NUTS3)
 - compare to non-EU CEE country, like Albania, Moldova, Serbia, Montenegro
 
 
