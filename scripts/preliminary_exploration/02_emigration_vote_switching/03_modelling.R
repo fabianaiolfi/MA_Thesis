@@ -16,14 +16,19 @@ model_df <- ees_cee_nuts3 %>%
 # Plot model dataframe
 ggplot(model_df, aes(avg_migr, switcher_share)) +
   geom_point() +
+  geom_vline(xintercept = 0, linetype="dashed", color = "black", linewidth = .25) +
+  annotate("text", x = -0.5, y = 42, label = "← More Emigration", hjust = 1) +
+  annotate("text", x = 0.5, y = 42, label = "More Immigration →", hjust = 0) +
   stat_smooth(method = "lm",
               formula = y ~ x,
               geom = "smooth") +
-  xlim(-20, 12) +
-  ylim(0, 50) +
-  ylab("% Switchers in NUTS3") +
-  xlab("Average Migration in %") +
-  theme_minimal()
+  xlim(-16, 10) +
+  ylim(0, 42) +
+  ylab("% Switchers in NUTS3 Region (2019)") +
+  xlab("Average Migration between 2009–2019 (% of Population)") +
+  ggtitle("Migration and Vote Switching in Select NUTS3 Regions") +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank())
 
 model <- lm(switcher_share ~ avg_migr, model_df)
 summary(model)
