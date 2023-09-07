@@ -198,7 +198,11 @@ I will examine CEE EU member states because they are strongly affected by emigra
 A potential disadvante of the case selection could be cultural differences within CEE EU member states, leading to inaccurate results. I have chosen a very broad definition of CEE countries, possibly making a comparison between regions difficult. It may make sense to narrow down the selection, e.g., by excluding the three Baltic states. A further disadvantage is missing data in emigration time series and a lack of individual level data at NUTS3 level.
 
 <!-- Methodology -->
-I will use a quantitative approach to answer my research question. I will start by building a linear regression model, with the dependent variable being the share of vote switchers and the independent variable being service cuts.
+I will use quantitative methods to answer my research question. In order to gain a general overview, I will perform a subgroup analysis, e.g., by analysing NUTS3 regions within a country. For starters, I will build simple regression models that uncover a potential correlation between emigration and vote switching. Data quality permitting, I can focus on regions that show promising results.
+
+Such a focus may involve mediation analysis. Due to the chain of causal events described in XXX, Service Cuts act as a mediator between Emigration and Vote Switching. This analysis can help explain how the three service cuts influence vote switching in different ways.
+
+A further deep dive could be using the Regression Discontinuity Design method in order to compare regions across EU and non-EU countries. This would use EU accession as the treatment and would allow to measure the effect of introducing FoM.
 
 <!-- Data -->
 NUTS3 level migration data is provided by Eurostat.^[Variable: CNMIGRATRT; Online data code: DEMO_R_GIND3; Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)] However, these data do not differentiate between internal and external migration. Data that do make this differentiation are provided by the national statistics agencies of the countries in the selection (see sources for figure international_emigration_eu_accession.png).
@@ -214,12 +218,13 @@ A third expansion could take a non-EU CEE country, like Albania, Moldova, Serbia
 
 
 ## Conclusion
+…
 <!--
 - alluding to the original research question, reminding the reader about the main theoretical claim (in normative works)/falsifiable hypothesis (in empirical ones)
 - speculating on the final product of the thesis: what kind of impact could your research have if it is successful?
--->
+- -->
 
-In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes.
+<!-- In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes. -->
 
 \newpage
 
