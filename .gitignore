@@ -40,3 +40,4 @@ rsconnect/
 /data Backup alias
 99_sandbox.R
 *.pdf
+*.log
