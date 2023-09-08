@@ -6,8 +6,10 @@ output:
   pdf_document:
     latex_engine: xelatex
     extra_dependencies: "microtype"
+    # citation_package: natbib
 mainfont: Times New Roman
 bibliography: references.bib
+csl: american-journal-of-political-science.csl
 classoption: a4paper
 lang: en-UK
 header-includes:
@@ -23,6 +25,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Abstract
 <!-- 1000 characters -->
 …
+
+## citation test
+ous aoudo ausd [@limElectoralConsequencesInternational2023, p. 39] sad ouasd ou @limElectoralConsequencesInternational2023 saddouodu 
 
 
 ## Introduction
@@ -40,7 +45,7 @@ I perform a Chow test for each individual country to examine if EU accession cre
 
 ![International Emigration and EU Accession (select countries). Blue line represents country’s year of EU accession. Sources: See appendix](../documentation/international_emigration_eu_accession.png)
 
-Emigration has profound impacts on the sending countries, e.g., population decline, lack of labour (@thautEUIntegrationEmigration2009a, p. 220; @roosCompensatingEffectsEmigration2023a, p. 187) or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021, p. 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression (@marchetti-mercerThoseEasilyForgotten2012a, p. 388; @ivlevsEmigrationRemittancesSubjective2019, p. 135).
+Emigration has profound impacts on the sending countries, e.g., population decline, lack of labour [@thautEUIntegrationEmigration2009a 220; @roosCompensatingEffectsEmigration2023a 187] or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021, p. 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression [@marchetti-mercerThoseEasilyForgotten2012a 388; @ivlevsEmigrationRemittancesSubjective2019 135].
 
 Does emigration change the voting behaviour of the people left behind? There exists a correlation between emigration rates and vote switching. There is a negative significant ($p < 0.05$) correlation between average migration rate and vote switching: The higher the average emigration rate, the higher the number of vote switchers in the NUTS3 region (see Figure X for details). The rate of change is substantial: A 10% increase in emigration is associated with an increase of switchers by roughly 3.6%, enough to sway an election. However, this correlation contains a caveat. The migration data do not differentiate between internal and external migration, thus the effect of EU accession cannot be shown here directly.
 
@@ -80,13 +85,13 @@ Second, emigration can affect the electoral preferences of the people left behin
 
 The indirect effect is when emigration alters a voter’s overall wellbeing. Family members or neighbours of emigrants have a higher life satisfaction and budget easing through remittances, but suffer from more depression and stress [@ivlevsEmigrationRemittancesSubjective2019, p. 135] and are more prone to anger and distress [@marchetti-mercerThoseEasilyForgotten2012a, p. 388], caused by people close to them who have left.
 
-There are multiple direct effects of emigration on political behaviour. A wide range of literature explains how emigration causes a decrease in political interest. This can be caused by a decrease in political mobilisation and collective action [@sellarsEmigrationCollectiveAction2019a, p. 1220], a decrease in civic engagement (@goodmanExitLeavingPolitical2008, p. 172; @bravoEmigrationPoliticalEngagement2009), opposing voices leaving and thus resulting in a more supportive electorate [@petersEmigrationPoliticalContestation2022a, p. 14] or through a loss of political actors [@limElectoralConsequencesInternational2023, p. 44].
+There are multiple direct effects of emigration on political behaviour. A wide range of literature explains how emigration causes a decrease in political interest. This can be caused by a decrease in political mobilisation and collective action [@sellarsEmigrationCollectiveAction2019a, p. 1220], a decrease in civic engagement [@goodmanExitLeavingPolitical2008 172; @bravoEmigrationPoliticalEngagement2009], opposing voices leaving and thus resulting in a more supportive electorate [@petersEmigrationPoliticalContestation2022a, p. 14] or through a loss of political actors [@limElectoralConsequencesInternational2023, p. 44].
 
 Despite this decrease in political interest, some remainers still vote. If the number of people voting shrinks, then it becomes all the more important to understand how the remaining voters are affected by emigration and how they thus cast their ballot.
 
 One concrete example why this is important is shown by @barsbaiEffectLaborMigration2017a (p. 36), who reveals a negative effect between emigration and votes for the Communist Party in the Moldovan elections of 2009 and 2010. Elections during those years brought significant political change to the ex-soviet country [@barsbaiEffectLaborMigration2017a, p. 41], because voters switched away from the Communist Party, who had gained electoral power in previous elections. Voters switched because returning emigrants brought western social norms and political preferences to Moldova [@barsbaiEffectLaborMigration2017a, p. 66]. These preferences then diffused amongst the electorate.
 
-Another reason why emigration is important is because some research uncovers links between emigration and voters switching to populist and radical right parties (@dancygierEmigrationRadicalRight2022, p. 34; @limElectoralConsequencesInternational2023, p. 56; @heroldSchrumpfendeRegionenFrustrierte2020, p. 19). However, there are two reasons why this link between emigration and radical parties can be questioned.
+Another reason why emigration is important is because some research uncovers links between emigration and voters switching to populist and radical right parties [@dancygierEmigrationRadicalRight2022 34; @limElectoralConsequencesInternational2023 56; @heroldSchrumpfendeRegionenFrustrierte2020 19]. However, there are two reasons why this link between emigration and radical parties can be questioned.
  
 First, @vorlanderMIDEM2021Emigration2021 (p. 33) and @schutzeLeftTogetherVoting2023 (p. 9) provide mixed results of this claim, showing that emigration induced support for these parties is only given under certain conditions, or look at country-specific cases such as intra-German migration from east to west [@schutzeLeftTogetherVoting2023, p. 2].
  
@@ -115,7 +120,7 @@ To answer this question, I suggest the following approach. As international_emig
 
 I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. The first moment is the closing of local primary and secondary schools. Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022, p. 964]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
 
-The second watershed moment is the closing of hospitals. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023, p. 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population. Hospitals closures in CEE are spurred on by the emigration of medical professionals (@vorlanderMIDEM2021Emigration2021, p. 13; @walkerRomanianHospitalsCrisis2019). 
+The second watershed moment is the closing of hospitals. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023, p. 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population. Hospitals closures in CEE are spurred on by the emigration of medical professionals [@vorlanderMIDEM2021Emigration2021 13; @walkerRomanianHospitalsCrisis2019]. 
 
 <!-- preliminary exploration: change of demographics in emigration hit regions --> 
 To underline the importance of these two watershed moments, [@dancygierEmigrationRadicalRight2022, p. 32] shows how newspapers report on schools and hospitals closing in Swedish emigration-heavy regions. This indicates that there may exist a link between these closures and grievances.
