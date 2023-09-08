@@ -111,14 +111,6 @@ However, the authors do not show which service cuts lead to cause grievances, th
 <!-- Make explicit the causal mechanism -->
 Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances which then lead to PRR voting, this thesis asks the following question: Which emigration induced service cuts cause grievances?
 
-<!--
-preliminary exploration: measure grievances through ESS5, 9: How happy are you? → correlation between happiness and emigration → are people from emigration-high regions generally unhappier?
-
-- preliminary exploration: demographic change in emigration hit regions → less younger, more older → less schools, less hospitals
-
-- preliminary exploration: grievances and vote switching? is there a correlation between the two in general, and more so in the actual regions that are hit by emigration? → might be difficult because EES does not ask about happiness → combine EES and ESS?; or maybe Q20 “And over the next 12 months, how do you think the general economic situation in Ireland will be?”
--->
-
 To answer this question, I suggest the following approach. As international_emigration_eu_accession.png shows, emigration existed before a country’s accession to the EU and has a gradual nature across most countries. Due to this steady attrition of a country’s population, I expect that the big picture surrounding emigration goes largely unnoticed to the individuals who remain. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the remaining people suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
 
 I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. The first moment is the closing of local primary and secondary schools. Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022, p. 964]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
