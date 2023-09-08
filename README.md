@@ -1,1 +1,6 @@
-# MA_Thesis
+# MA Thesis
+
+## Research Proposal
+
+**To Do**
+- [ ] Abstract
