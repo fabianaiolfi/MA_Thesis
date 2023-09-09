@@ -5,8 +5,7 @@
 **To Do**
 - [ ] Abstract
 - [ ] Conclusion
-- [ ] Sources
-	- [ ] Deal with multiple sources in one parathenses; multiple sources in parentheses still include `p. `
+- [x] Deal with multiple sources in one parathenses; multiple sources in parentheses still include `p. `
 - [ ] Figures
 	- [ ] Title in caption?
 	- [ ] Place all figures at top of page
