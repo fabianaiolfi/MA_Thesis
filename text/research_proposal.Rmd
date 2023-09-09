@@ -35,7 +35,7 @@ ous aoudo ausd [@limElectoralConsequencesInternational2023 39] sad ouasd ou @lim
 
 Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] have shown high levels of emigration in the past 20 years. Figure X provides an overview of migration levels across Europe. It shows that emigration has been generally higher in CEE regions compared to other parts of Europe.
 
-![](../documentation/01_average_net_migration_map.png)
+![**Average Net Migration 2000--2021 at NUTS3 Level.** Source: Eurostat](../documentation/01_average_net_migration_map.png)
 
 The United Nations estimate a population decline of 18 million people in Eastern Europe between the early 1990s and 2015, with emigration being the main reason for the decline [@romeiEasternEuropeHas2016]. In one concrete example, Lithuania has lost a quarter of its population, with certain regions losing over 50% of residents [@ubarevicienePopulationDeclineLithuania2017a 58]. Intra-EU emigration is driven by economic and labour market factors, as people emigrate to look for better job opportunities [@vasilopoulouOpportunityThreatPublic2019a 810].
 
@@ -43,13 +43,13 @@ Does a country’s accession to the EU, and with it gaining access to the EU’s
 
 I perform a Chow test for each individual country to examine if EU accession creates a break in the rate of emigration over time. The results show that, apart from the Czech Republic, EU accession does create a break in the time series with conventional significance ($p < 0.05$). Because of these breaks in the emigration rates, we can assume that there is a link between a country’s accession to the EU and a change in emigration rate. This is because a country’s membership in the EU makes emigration easier, so FoM increases the effects of emigration.
 
-![International Emigration and EU Accession (select countries). Blue line represents country’s year of EU accession. Sources: See appendix](../documentation/international_emigration_eu_accession.png)
+![**International Emigration and EU Accession (select countries).** Blue line represents country’s year of EU accession. Sources: See appendix](../documentation/international_emigration_eu_accession.png)
 
 Emigration has profound impacts on the sending countries, e.g., population decline, lack of labour [@thautEUIntegrationEmigration2009a 220; @roosCompensatingEffectsEmigration2023a 187] or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression [@marchetti-mercerThoseEasilyForgotten2012a 388; @ivlevsEmigrationRemittancesSubjective2019 135].
 
 Does emigration change the voting behaviour of the people left behind? There exists a correlation between emigration rates and vote switching. There is a negative significant ($p < 0.05$) correlation between average migration rate and vote switching: The higher the average emigration rate, the higher the number of vote switchers in the NUTS3 region (see Figure X for details). The rate of change is substantial: A 10% increase in emigration is associated with an increase of switchers by roughly 3.6%, enough to sway an election. However, this correlation contains a caveat. The migration data do not differentiate between internal and external migration, thus the effect of EU accession cannot be shown here directly.
 
-![An increase of average migration by 1\% leads to a decrease of a region’s share of switchers by $-0.3641%$ ($p = 0.0305$). A negative migration rate means the region has experienced more emigration than immigration. Adjusted R-squared: $0.1146$; $N = 33$ Sources: @ZA7581 for vote switching; Eurostat’s CNMIGRATRT variable for crude rate of net migration plus statistical adjustment.](../documentation/migr_and_switching.png)
+![**Migration and Vote Switching in select NUTS3 Regions.** An increase of average migration by 1\% leads to a decrease of a region’s share of switchers by $-0.3641%$ ($p = 0.0305$). A negative migration rate means the region has experienced more emigration than immigration. Adjusted R-squared: $0.1146$; $N = 33$ Sources: @ZA7581 for vote switching; Eurostat’s CNMIGRATRT variable for crude rate of net migration plus statistical adjustment.](../documentation/migr_and_switching.png)
 
 Despite the caveat, this thesis will ask the following research question. Why does international emigration from CEE EU member states cause vote switching amongst the voters left behind?
 
@@ -103,7 +103,9 @@ I argue that these grievances are different to the ones described by @ivlevsEmig
 
 The causal mechanism according to @dancygierEmigrationRadicalRight2022 can be summarised as follows:
 
+\begin{equation}
 $$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote \; for \; PRR$$
+\end{equation}
 
 However, the authors do not show which service cuts lead to cause grievances, thus influencing a voter’s behaviour that leads them to cast a vote for PRR parties [@dancygierEmigrationRadicalRight2022 35]. They leave this aspect open for future research. This thesis sets out to detect which emigration induced service cuts cause vote switching, taking all available parties into account.
 
@@ -129,12 +131,13 @@ Schools and hospitals closings are services made available by the state. In cont
 
 This is the updated chain of events, based on @dancygierEmigrationRadicalRight2022 (refer to chain of events further up)
 
-Emigration → Service Cuts → Watershed Moment → Grievances → Vote Switching
+\begin{equation}
+$$Emigration \rightarrow Service \; Cuts \rightarrow Watershed \; Moment \rightarrow Grievances \rightarrow Vote \; Switching$$
+\end{equation}
 
 <!-- operationalisation, model specification --> 
 Based on this causal chain of events, I set up the following empirical specification:
 
-<!-- 
 \begin{equation}
 \begin{aligned}
 Switcher \; Share_{i,j} = \beta_0 & + \beta_1Service \; Cuts_{i,j} \\
@@ -144,10 +147,8 @@ Switcher \; Share_{i,j} = \beta_0 & + \beta_1Service \; Cuts_{i,j} \\
       & + \varepsilon 
 \end{aligned}
 \end{equation}
-https://latexeditor.lagrida.com/
- --> 
- 
- ![](model_spec.png)
+<!-- https://latexeditor.lagrida.com/ --> 
+<!-- ![](model_spec.png) --> 
 
 i indexes a NUTS3 region in year j. The dependent variable is the share of vote switchers in the electorate who “moved across party lines” [@keyResponsibleElectorateRationality1966a 16], i.e., switched from one party to another, between two national elections. 
 
