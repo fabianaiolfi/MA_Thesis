@@ -7,10 +7,10 @@
 - [ ] Conclusion
 - [x] Deal with multiple sources in one parathenses; multiple sources in parentheses still include `p. `
 - [ ] Figures
-	- [ ] Title in caption?
+	- [x] Title in caption
 	- [ ] Place all figures at top of page
 	- [ ] Map
-		- [ ] Add caption
+		- [x] Add caption
 		- [ ] Smaller?
 	- [ ] International Emigration and EU Accession
 		- [ ] Y-axis label correct?
@@ -20,9 +20,9 @@
 		- [ ] Add title to caption
 		- [ ] Plot labels larger
 		- [ ] Insert newlines in caption?
-- [ ] Add number to Dancygier causal mechanism
-- [ ] Latex-ify updated chain of events (p. 7)
-- [ ] Latex-ify empirical specification
+- [x] Add number to Dancygier causal mechanism
+- [x] Latex-ify updated chain of events (p. 7)
+- [x] Latex-ify empirical specification
 - [ ] Spell check
 - [ ] Clean up References
 - [ ] Remove contractions
