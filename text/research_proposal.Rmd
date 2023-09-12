@@ -141,7 +141,6 @@ I will examine three possible watershed moments that I believe significantly inf
 
 The second watershed moment is the closing of hospitals. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population. Hospitals closures in CEE are spurred on by the emigration of medical professionals [@vorlanderMIDEM2021Emigration2021 13; @walkerRomanianHospitalsCrisis2019]. 
 
-<!-- preliminary exploration: change of demographics in emigration hit regions --> 
 To underline the importance of these two watershed moments, [@dancygierEmigrationRadicalRight2022 32] shows how newspapers report on schools and hospitals closing in Swedish emigration-heavy regions. This indicates that there may exist a link between these closures and grievances.
 
 Schools and hospitals closings are services made available by the state. In contrast, the third and final watershed moment I will examine is a service cut in the private sector, namely the decrease in the number of public spaces that act as "third places". These are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999 16], e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021 1653].
