@@ -25,7 +25,7 @@
 - [x] Latex-ify empirical specification
 - [x] Spell check
 - [ ] Clean up References
-- [ ] Remove contractions
+- [x] Remove contractions
 - [x] Check if double line spacing is working
 - [ ] Check that links work / don’t go off page (see FT article in References)
 - [x] Check all references to figures and formulas
