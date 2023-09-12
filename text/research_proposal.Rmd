@@ -6,7 +6,6 @@ output:
   pdf_document:
     latex_engine: xelatex
     extra_dependencies: "microtype"
-    # citation_package: natbib
 mainfont: Times New Roman
 bibliography: references.bib
 csl: american-journal-of-political-science.csl
@@ -38,7 +37,7 @@ Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, 
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{../documentation/01_average_net_migration_map.png}
+  \includegraphics[width=\textwidth]{../documentation/01_average_net_migration_map.png}
   \caption{**Average Net Migration 2000--2021 at NUTS3 Level.** Source: Eurostat}
   \label{fig:net_migration_map}
 \end{figure}
@@ -52,7 +51,7 @@ I perform a Chow-Test [@chowTestsEqualitySets1960] for each individual country t
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{../documentation/international_emigration_eu_accession.png}
+  \includegraphics[width=\textwidth]{../documentation/international_emigration_eu_accession.png}
   \caption{**International Emigration and EU Accession (select countries).** Blue line represents country’s year of EU accession. Sources: See appendix}
   \label{fig:migr_accession_bar}
 \end{figure}
@@ -63,7 +62,7 @@ Does emigration change the voting behaviour of the people left behind? There exi
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{../documentation/migr_and_switching.png}
+  \includegraphics[width=\textwidth]{../documentation/migr_and_switching.png}
   \caption{**Migration and Vote Switching in select NUTS3 Regions.** An increase of average migration by 1\% leads to a decrease of a region’s share of switchers by $-0.3641\%$ ($p = 0.0305$). A negative migration rate means the region has experienced more emigration than immigration. Adjusted R-squared: $0.1146$; $N = 33$ Sources: @ZA7581 for vote switching; Eurostat’s CNMIGRATRT variable for crude rate of net migration plus statistical adjustment.}
   \label{fig:migr_switching_plot}
 \end{figure}
