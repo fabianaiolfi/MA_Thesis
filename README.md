@@ -9,17 +9,17 @@
 - [ ] Figures
 	- [x] Title in caption
 	- [x] Place all figures at top of page
-	- [ ] Map
+	- [x] Map
 		- [x] Add caption
-		- [ ] Smaller?
+		- [x] Smaller?
 	- [ ] International Emigration and EU Accession
 		- [x] Y-axis label correct?
-		- [ ] Place sources in footnote? → If yes, then remove appendix
+		- [x] Place sources in footnote? → If yes, then remove appendix
 		- [ ] Make country names bigger
 	- [ ] Correlation Plot
-		- [ ] Add title to caption
+		- [x] Add title to caption
 		- [ ] Plot labels larger
-		- [ ] Insert newlines in caption?
+		- [x] Insert newlines in caption?
 - [x] Add number to Dancygier causal mechanism
 - [x] Latex-ify updated chain of events (p. 7)
 - [x] Latex-ify empirical specification
