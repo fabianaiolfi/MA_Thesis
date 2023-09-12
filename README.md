@@ -23,7 +23,7 @@
 - [x] Add number to Dancygier causal mechanism
 - [x] Latex-ify updated chain of events (p. 7)
 - [x] Latex-ify empirical specification
-- [ ] Spell check
+- [x] Spell check
 - [ ] Clean up References
 - [ ] Remove contractions
 - [x] Check if double line spacing is working
