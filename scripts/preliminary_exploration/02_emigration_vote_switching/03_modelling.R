@@ -26,7 +26,7 @@ ggplot(model_df, aes(avg_migr, switcher_share)) +
   ylim(0, 42) +
   ylab("% Switchers in NUTS3 Region (2019)") +
   xlab("Average Migration between 2009–2019 (% of Population)") +
-  ggtitle("Migration and Vote Switching in Select NUTS3 Regions") +
+  #ggtitle("Migration and Vote Switching in Select NUTS3 Regions") +
   theme_minimal() +
   theme(panel.grid.minor = element_blank())
 

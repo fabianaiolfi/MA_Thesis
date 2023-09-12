@@ -24,8 +24,13 @@ ggplot() +
   theme_minimal() +
   theme(panel.grid = element_blank(), # remove grid
         axis.title = element_blank(), # remove axis labels
-        axis.text = element_blank()) +  # remove axis text
-  labs(title = "Average Net (Internal and External) Migration 2000–2021 at NUTS3 Level", fill = "Net Migration")
+        axis.text = element_blank(),  # remove axis text
+        legend.position = c(0, 0),  # x, y coordinates for legend. Ranges from 0 to 1.
+        legend.text = element_text(size = 14),  # Increase the font size for legend items
+        legend.title = element_text(size = 16, face = "bold")  # Increase the font size for the legend title
+        ) +
+  labs(fill = "Net Migration")
+  #labs(title = "Average Net (Internal and External) Migration 2000–2021 at NUTS3 Level", fill = "Net Migration")
 
 # Plot Map Over Time
 for (year in 2000:2021) {
