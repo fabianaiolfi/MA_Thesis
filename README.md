@@ -8,7 +8,7 @@
 - [x] Deal with multiple sources in one parathenses; multiple sources in parentheses still include `p. `
 - [ ] Figures
 	- [x] Title in caption
-	- [ ] Place all figures at top of page
+	- [x] Place all figures at top of page
 	- [ ] Map
 		- [x] Add caption
 		- [ ] Smaller?
@@ -28,7 +28,7 @@
 - [ ] Remove contractions
 - [ ] Check if double line spacing is working
 - [ ] Check that links work / don’t go off page (see FT article in References)
-- [ ] Check all references to figures and formulas
+- [x] Check all references to figures and formulas
 ---
 - [ ] Preliminary Explorations
 	- [x] NUTS3 emigration map

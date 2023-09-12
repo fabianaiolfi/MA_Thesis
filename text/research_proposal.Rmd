@@ -34,23 +34,39 @@ ous aoudo ausd [@limElectoralConsequencesInternational2023 39] sad ouasd ou @lim
 ## Introduction
 <!-- Central problem / puzzle that thesis will address -->
 
-Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] have shown high levels of emigration in the past 20 years. Figure X provides an overview of migration levels across Europe at NUTS3 level. It shows that emigration has been generally higher in regions across CEE countries compared to other parts of Europe.
+Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] have shown high levels of emigration in the past 20 years. Figure \ref{fig:net_migration_map} provides an overview of migration levels across Europe at NUTS3 level. It shows that emigration has been generally higher in regions across CEE countries compared to other parts of Europe.
 
-![**Average Net Migration 2000--2021 at NUTS3 Level.** Source: Eurostat](../documentation/01_average_net_migration_map.png)
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../documentation/01_average_net_migration_map.png}
+  \caption{**Average Net Migration 2000--2021 at NUTS3 Level.** Source: Eurostat}
+  \label{fig:net_migration_map}
+\end{figure}
+
 
 The United Nations estimated a population decline of 18 million people in Eastern Europe between the early 1990s and 2015, with emigration being the main reason for the decline [@romeiEasternEuropeHas2016]. In one concrete example, Lithuania has lost a quarter of its population, with certain regions losing over 50% of residents [@ubarevicienePopulationDeclineLithuania2017a 58]. Intra-EU emigration is driven by economic and labour market factors, as people emigrate to look for better job opportunities [@vasilopoulouOpportunityThreatPublic2019a 810].
 
-Does a country’s accession to the EU, and with it gaining access to the EU’s Freedom of Movement (FoM), have an effect on emigration rates? Figure X displays a simple visualisation of a selection of countries that provided data on international emigration before and after the country’s accession. The vertical blue line represents when the country joined the EU. The time span covers, when data are available, 10 years before and 10 years after accession.
+Does a country’s accession to the EU, and with it gaining access to the EU’s Freedom of Movement (FoM), have an effect on emigration rates? Figure \ref{fig:migr_accession_bar} displays a simple visualisation of a selection of countries that provided data on international emigration before and after the country’s accession. The vertical blue line represents when the country joined the EU. The time span covers, when data are available, 10 years before and 10 years after accession.
 
 I perform a Chow-Test [@chowTestsEqualitySets1960] for each individual country to examine if EU accession creates a break in the rate of emigration over time. The results show that, apart from the Czech Republic, EU accession does create a break in the time series with conventional significance ($p < 0.05$). Because of these breaks in the emigration rates, I assume that there is a link between a country’s accession to the EU and a change in emigration rate. This is because a country’s membership in the EU makes emigration easier, due to the EU’s FoM. The FoM transition period, that all EU member states were allowed to implement in order adjust for immigrants from new member states, is not taken into account here.
 
-![**International Emigration and EU Accession (select countries).** Blue line represents country’s year of EU accession. Sources: See appendix](../documentation/international_emigration_eu_accession.png)
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../documentation/international_emigration_eu_accession.png}
+  \caption{**International Emigration and EU Accession (select countries).** Blue line represents country’s year of EU accession. Sources: See appendix}
+  \label{fig:migr_accession_bar}
+\end{figure}
 
 Emigration has profound impacts on the sending countries, e.g., population decline, lack of labour [@thautEUIntegrationEmigration2009a 220; @roosCompensatingEffectsEmigration2023a 187] or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression [@marchetti-mercerThoseEasilyForgotten2012a 388; @ivlevsEmigrationRemittancesSubjective2019 135].
 
-Does emigration change the voting behaviour of the people left behind? There exists a correlation between emigration rates and vote switching. There is a negative significant ($p < 0.05$) correlation between average migration rate and vote switching: The higher the average emigration rate, the higher the number of vote switchers in the NUTS3 region (see Figure X for details). The rate of change is substantial: A 10% increase in emigration is associated with an increase of switchers by roughly 3.6%. This is enough to sway an election. However, this correlation contains a caveat. The migration data do not differentiate between internal and external migration, thus the effect of EU accession cannot be shown here directly.
+Does emigration change the voting behaviour of the people left behind? There exists a correlation between emigration rates and vote switching. There is a negative significant ($p < 0.05$) correlation between average migration rate and vote switching: The higher the average emigration rate, the higher the number of vote switchers in the NUTS3 region (see Figure \ref{fig:migr_switching_plot} for details). The rate of change is substantial: A 10% increase in emigration is associated with an increase of switchers by roughly 3.6%. This is enough to sway an election. However, this correlation contains a caveat. The migration data do not differentiate between internal and external migration, thus the effect of EU accession cannot be shown here directly.
 
-![**Migration and Vote Switching in select NUTS3 Regions.** An increase of average migration by 1\% leads to a decrease of a region’s share of switchers by $-0.3641\%$ ($p = 0.0305$). A negative migration rate means the region has experienced more emigration than immigration. Adjusted R-squared: $0.1146$; $N = 33$ Sources: @ZA7581 for vote switching; Eurostat’s CNMIGRATRT variable for crude rate of net migration plus statistical adjustment.](../documentation/migr_and_switching.png)
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../documentation/migr_and_switching.png}
+  \caption{**Migration and Vote Switching in select NUTS3 Regions.** An increase of average migration by 1\% leads to a decrease of a region’s share of switchers by $-0.3641\%$ ($p = 0.0305$). A negative migration rate means the region has experienced more emigration than immigration. Adjusted R-squared: $0.1146$; $N = 33$ Sources: @ZA7581 for vote switching; Eurostat’s CNMIGRATRT variable for crude rate of net migration plus statistical adjustment.}
+  \label{fig:migr_switching_plot}
+\end{figure}
 
 Despite the caveat, this thesis will ask the following research question. Why does international emigration from CEE EU member states cause vote switching amongst the voters left behind?
 
@@ -105,7 +121,8 @@ I argue that these grievances are different to the ones described by @ivlevsEmig
 The causal mechanism according to @dancygierEmigrationRadicalRight2022 can be summarised as follows:
 
 \begin{equation}
-$$Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote \; for \; PRR$$
+Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote \; for \; PRR 
+\label{eq:cm_dancygier}
 \end{equation}
 
 However, the authors do not show which service cuts cause grievances [@dancygierEmigrationRadicalRight2022 35]. They leave this aspect open for future research. This thesis sets out to detect which emigration induced service cuts cause vote switching.
@@ -119,7 +136,7 @@ However, the authors do not show which service cuts cause grievances [@dancygier
 <!-- Make explicit the causal mechanism -->
 Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances which then lead to PRR voting, this thesis asks the following question: Which emigration induced service cuts cause grievances?
 
-To answer this question, I suggest the following approach. As international_emigration_eu_accession.png shows, emigration existed before a country’s accession to the EU and has a gradual nature across most countries. Due to this steady attrition of a country’s population, I expect that the big picture surrounding emigration goes largely unnoticed to the individuals who remain. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the remaining people suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
+To answer this question, I suggest the following approach. As Figure \ref{fig:migr_accession_bar} shows, emigration existed before a country’s accession to the EU and has a gradual nature across most countries. Due to this steady attrition of a country’s population, I expect that the big picture surrounding emigration goes largely unnoticed to the individuals who remain. However, there comes a point where the impact of emigration on a region reaches a tipping point, causing a watershed moment amongst its inhabitants. In this watershed moment, the remaining people suddenly realise the impact emigration is having on their region. I regard these watershed moments as critical turning points in the lives of the remaining population. They can lead to dissatisfaction with existing conditions and a sense of reduced community belonging, leading to a change in their voting behaviour.
 
 I will examine three possible watershed moments that I believe significantly influence the voting behaviour of the remaining residents. The first moment is the closing of local primary and secondary schools. Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022 964]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
 
@@ -130,10 +147,11 @@ To underline the importance of these two watershed moments, [@dancygierEmigratio
 
 Schools and hospitals closings are services made available by the state. In contrast, the third and final watershed moment I will examine is a service cut in the private sector, namely the decrease in the number of public spaces that act as "third places". These are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999 16], e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021 1653].
 
-This is the updated causal chain of events, based on @dancygierEmigrationRadicalRight2022 (refer to chain of events further up)
+This is the updated causal chain of events, based on the causal chain displayed in (\ref{eq:cm_dancygier}):
 
 \begin{equation}
-$$Emigration \rightarrow Service \; Cuts \rightarrow Watershed \; Moment \rightarrow Grievances \rightarrow Vote \; Switching$$
+Emigration \rightarrow Service \; Cuts \rightarrow Watershed \; Moment \rightarrow Grievances \rightarrow Vote \; Switching
+\label{eq:cm_updated}
 \end{equation}
 
 <!-- operationalisation, model specification --> 
@@ -151,9 +169,7 @@ Switcher \; Share_{i,j} = \beta_0 & + \beta_1Service \; Cuts_{i,j} \\
 <!-- https://latexeditor.lagrida.com/ --> 
 <!-- ![](model_spec.png) --> 
 
-i indexes a NUTS3 region in year j. The dependent variable is the share of vote switchers in the electorate who “moved across party lines” [@keyResponsibleElectorateRationality1966a 16], i.e., switched from one party to another, between two national elections. 
-
-I will measure individual level vote switching using the European Election Study (EES, @ZA7581). If a respondent’s answer to question 9 is not the same party as the highest rated party in question 10, then they are labelled a vote switcher.^[From the European Parliament Election Study 2019 Irish Country Questionnaire [@ZA7581]:
+$i$ indexes a NUTS3 region in year $j$. The dependent variable is the share of vote switchers in the electorate who “moved across party lines” [@keyResponsibleElectorateRationality1966a 16], i.e., switched from one party to another, between two national elections. I will measure individual level vote switching using the European Election Study (EES, @ZA7581). If a respondent’s answer to question 9 is not the same party as the highest rated party in question 10, then they are labelled a vote switcher.^[From the European Parliament Election Study 2019 Irish Country Questionnaire [@ZA7581]:
 Question 9: “Which party did you vote for at the Irish General Election of 2016?” 
 Question 10: “We have a number of parties in Ireland each of which would like to get your vote. How probable is it that you will ever vote for the following parties? Please answer on a scale where 0 means “not at all probable” and 10 means “very probable”.”]
 
@@ -192,23 +208,23 @@ As a general relation between dependent and independent variable, I assume a hig
 
 I differentiate between internal and external migration and focus on the latter, as I want to examine the effect of the EU’s Freedom of Movement on emigration and voting behaviour.
 
-I will measure the effect of service cuts on a subnational level. Specifically NUTS3 level, data permitting. I do this for the following two reasons. First, measuring subnational regions instead of countries will increase sample size und thus provide more accurate results. Second, regions have different levels of emigration (see map of average emigration rate over last 20 years), allowing to measure the effects of different emigration levels.
+I will measure the effect of service cuts on a subnational level. Specifically NUTS3 level, data permitting. I do this for the following two reasons. First, measuring subnational regions instead of countries will increase sample size und thus provide more accurate results. Second, regions have different levels of emigration (see Figure {fig:net_migration_map}), allowing to measure the effects of different emigration levels.
 
 <!-- justify case selection of geographical and temporal span: what's their logic and are there disadvantages? -->
 
-I will examine CEE EU member states because emigration in this region has not been studied in detail and because I see an opportunity to measure the impact of FoM on the region (see figure international_emigration_eu_accession.png). In order to measure an effect of a country joining the EU, I will focues on a time span around the country’s accession, e.g., ten years before and after joining, if data is available for the time span. The time span will only go up to and include the year 2019, because I assume the COVID-19 pandemic to have a strong influence on emigration in 2020 and beyond.
+I will examine CEE EU member states because emigration in this region has not been studied in detail and because I see an opportunity to measure the impact of FoM on the region (see Figure \ref{fig:migr_accession_bar}). In order to measure an effect of a country joining the EU, I will focues on a time span around the country’s accession, e.g., ten years before and after joining, if data is available for the time span. The time span will only go up to and include the year 2019, because I assume the COVID-19 pandemic to have a strong influence on emigration in 2020 and beyond.
 
 A potential disadvante of the case selection could be cultural differences between CEE EU member state NUTS3 regions, leading to inaccurate results. I have chosen a very broad definition of CEE countries, possibly making a comparison between regions difficult. It may make sense to narrow down the selection, e.g., by excluding the three Baltic states. A further disadvantage is missing data in emigration time series and a lack of individual level data at NUTS3 level.
 
 <!-- Methodology -->
 I will use quantitative methods to answer my research question. In order to gain a general overview, I will perform a subgroup analysis, e.g., by analysing NUTS3 regions within a country. I will then build simple regression models that uncover potential correlations between emigration and vote switching. Data quality permitting, I can then focus on regions that show promising results.
 
-Such a focus may involve mediation analysis. Due to the chain of causal events described in XXX, service cuts act as a mediator between emigration and vote switching. This analysis can help explain how the three service cuts influence vote switching in different ways.
+Such a focus may involve mediation analysis. Due to the chain of causal events described in (\ref{eq:cm_updated}), service cuts act as a mediator between emigration and vote switching. This analysis can help explain how the three service cuts influence vote switching in different ways.
 
 A further deep dive could be using the Regression Discontinuity Design method in order to compare regions in EU and non-EU countries. This would use EU accession as the treatment and would allow to measure the effect of introducing FoM.
 
 <!-- Data -->
-NUTS3 level international emigration data are provided by the national statistics agencies of the countries in the selection (see sources for figure international_emigration_eu_accession.png). As a fallback, NUTS3 level migration data is also provided by Eurostat.^[Variable: CNMIGRATRT; Online data code: DEMO_R_GIND3; Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)] However, these data do not differentiate between internal and external migration.
+NUTS3 level international emigration data are provided by the national statistics agencies of the respective countries.^[See sources for Figure \ref{fig:migr_accession_bar})] As a fallback, NUTS3 level migration data is also provided by Eurostat.^[Variable: CNMIGRATRT; Online data code: DEMO_R_GIND3; Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)] However, these data do not differentiate between internal and external migration.
 
 Data on individual level vote switching is provided by EES [@ZA7581]. Of the around 7300 respondents from CEE countries, about 2700, or roughly a third, are assigned to a NUTS3 region. Data on individual level well-being (happiness, grievances) is provided by the European Social Survey (ESS, @EuropeanSocialSurvey2020) and the European Values Study (EVS, @ZA7505). Data on school closings in Croatia is available through the Croatian Bureau of Statistics.^[https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/ (retrieved 7 September 2023)]
 
@@ -229,7 +245,7 @@ Second, regional elections can be taken into account. I am currently examining v
 \newpage
 
 ## Appendix
-Sources of international_emigration_eu_accession.png
+Sources of Figure \ref{fig:migr_accession_bar})
 - Croatia: https://podaci.dzs.hr/2021/en/10485, https://podaci.dzs.hr/2022/en/29029, https://podaci.dzs.hr/2023/en/58062 (retrieved 3 September 2023)
 - Czech Republic: https://vdb.czso.cz/vdbvo2/faces/en/index.jsf?page=vystup-objekt&pvo=DEM11D&z=T&f=TABULKA&katalog=all&c=v3~8__RP2002&&str=v66 (retrieved 3 September 2023)
 - Poland: https://stat.gov.pl/download/gfx/portalinformacyjny/en/defaultaktualnosci/3289/2/2/1/main_directions_of_emigration_and_immigration_in_the_years_1966-2020_for__permanent_residence.xlsx (retrieved 3 September 2023)
