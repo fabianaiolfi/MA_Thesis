@@ -13,7 +13,7 @@
 		- [x] Add caption
 		- [ ] Smaller?
 	- [ ] International Emigration and EU Accession
-		- [ ] Y-axis label correct?
+		- [x] Y-axis label correct?
 		- [ ] Place sources in footnote? → If yes, then remove appendix
 		- [ ] Make country names bigger
 	- [ ] Correlation Plot
