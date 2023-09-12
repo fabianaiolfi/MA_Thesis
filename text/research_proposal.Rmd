@@ -38,7 +38,7 @@ Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{../documentation/01_average_net_migration_map.png}
-  \caption{**Average Net Migration 2000--2021 at NUTS3 Level.** Source: Eurostat}
+  \caption{\textbf{Average Net Migration 2000--2021 at NUTS3 Level.} Source: Eurostat's CNMIGRATRT variable.}
   \label{fig:net_migration_map}
 \end{figure}
 
@@ -52,7 +52,7 @@ I perform a Chow-Test [@chowTestsEqualitySets1960] for each individual country t
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{../documentation/international_emigration_eu_accession.png}
-  \caption{**International Emigration and EU Accession (select countries).** Blue line represents country’s year of EU accession. Sources: See appendix}
+  \caption{\textbf{International Emigration and EU Accession (selected countries).} Blue line represents country’s year of EU accession. See appendix for sources.}
   \label{fig:migr_accession_bar}
 \end{figure}
 
@@ -63,7 +63,7 @@ Does emigration change the voting behaviour of the people left behind? There exi
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{../documentation/migr_and_switching.png}
-  \caption{**Migration and Vote Switching in select NUTS3 Regions.** An increase of average migration by 1\% leads to a decrease of a region’s share of switchers by $-0.3641\%$ ($p = 0.0305$). A negative migration rate means the region has experienced more emigration than immigration. Adjusted R-squared: $0.1146$; $N = 33$ Sources: @ZA7581 for vote switching; Eurostat’s CNMIGRATRT variable for crude rate of net migration plus statistical adjustment.}
+  \caption{\textbf{Migration and Vote Switching in selected NUTS3 Regions.} An increase of average migration by 1\% leads to a decrease of a region’s share of switchers by $-0.3641\%$ ($p = 0.0305$). A negative migration rate means the region has experienced more emigration than immigration. Adjusted R-squared: $0.1146$; $N = 33$ \protect \\ Sources: Schmitt et al. 2022 for vote switching; Eurostat’s CNMIGRATRT variable for average migration.}
   \label{fig:migr_switching_plot}
 \end{figure}
 
@@ -223,12 +223,12 @@ Such a focus may involve mediation analysis. Due to the chain of causal events d
 A further deep dive could be using the Regression Discontinuity Design method in order to compare regions in EU and non-EU countries. This would use EU accession as the treatment and would allow to measure the effect of introducing FoM.
 
 <!-- Data -->
-NUTS3 level international emigration data are provided by the national statistics agencies of the respective countries.^[See sources for Figure \ref{fig:migr_accession_bar})] As a fallback, NUTS3 level migration data is also provided by Eurostat.^[Variable: CNMIGRATRT; Online data code: DEMO_R_GIND3; Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)] However, these data do not differentiate between internal and external migration.
+NUTS3 level international emigration data are provided by the national statistics agencies of the respective countries.^[See sources of Figure \ref{fig:migr_accession_bar} in the Appendix] As a fallback, NUTS3 level migration data is also provided by Eurostat.^[Variable: CNMIGRATRT; Online data code: DEMO_R_GIND3; Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)] However, these data do not differentiate between internal and external migration.
 
 Data on individual level vote switching is provided by EES [@ZA7581]. Of the around 7300 respondents from CEE countries, about 2700, or roughly a third, are assigned to a NUTS3 region. Data on individual level well-being (happiness, grievances) is provided by the European Social Survey (ESS, @EuropeanSocialSurvey2020) and the European Values Study (EVS, @ZA7505). Data on school closings in Croatia is available through the Croatian Bureau of Statistics.^[https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/ (retrieved 7 September 2023)]
 
 <!-- Possible further developments -->
-The thesis can be expanded in the following ways. First, going beyond vote switching, which parties explicitly profit from emigration? Which parties do the switchers switch to? NUTS3 level electoral results are provided by the EU-NED European NUTS-Level Election Dataset.^[https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5, (retrieved 5 September 2023)] Individual level data from Poland, provided by the Polish Panel Survey (POLPAN, https://polpan.org/en/, (retrieved 5 September 2023); @tomescu-dubrowPolishPanelSurvey2021), can also help expand on the question of who the switchers turn to.
+The thesis can be expanded in the following ways. First, going beyond vote switching, which parties explicitly profit from emigration? Which parties do the switchers switch to? NUTS3 level electoral results are provided by the EU-NED European NUTS-Level Election Dataset.^[https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5 (retrieved 5 September 2023)] Individual level data from Poland, provided by the Polish Panel Survey^[https://polpan.org/en/ (retrieved 5 September 2023)] can also help expand on the question of who the switchers turn to.
 
 Second, regional elections can be taken into account. I am currently examining vote switching between parties in national elections. However, it may also make sense to take regional elections into account, as these are closer to NUTS3 regions and thus more directly affected by emigration from a region.
 
@@ -244,12 +244,20 @@ Second, regional elections can be taken into account. I am currently examining v
 \newpage
 
 ## Appendix
-Sources of Figure \ref{fig:migr_accession_bar})
-- Croatia: https://podaci.dzs.hr/2021/en/10485, https://podaci.dzs.hr/2022/en/29029, https://podaci.dzs.hr/2023/en/58062 (retrieved 3 September 2023)
-- Czech Republic: https://vdb.czso.cz/vdbvo2/faces/en/index.jsf?page=vystup-objekt&pvo=DEM11D&z=T&f=TABULKA&katalog=all&c=v3~8__RP2002&&str=v66 (retrieved 3 September 2023)
-- Poland: https://stat.gov.pl/download/gfx/portalinformacyjny/en/defaultaktualnosci/3289/2/2/1/main_directions_of_emigration_and_immigration_in_the_years_1966-2020_for__permanent_residence.xlsx (retrieved 3 September 2023)
-- Romania: http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table → emigrants with a change of permanent address (definitive emigrants) → POP309A (retrieved 3 September 2023)
-- Slovenia: https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05N1042S.px/table/tableViewLayout2/ → International migration by citizenship, statistical regions, Slovenia, annually → Citizens of RS (retrieved 3 September 2023)
+Sources of Figure \ref{fig:migr_accession_bar}
+
+* **Croatia**
+  * https://podaci.dzs.hr/2021/en/10485 (retrieved 3 September 2023)
+  * https://podaci.dzs.hr/2022/en/29029 (retrieved 3 September 2023)
+  * https://podaci.dzs.hr/2023/en/58062 (retrieved 3 September 2023)
+* **Czech Republic**
+  * https://vdb.czso.cz/vdbvo2/faces/en/index.jsf?page=vystup-objekt&pvo=DEM11D&z=T&f=TABULKA&katalog=all&c=v3~8__RP2002&&str=v66 (retrieved 3 September 2023)
+* **Poland**
+  * https://stat.gov.pl/download/gfx/portalinformacyjny/en/defaultaktualnosci/3289/2/2/1/main_directions_of_emigration_and_immigration_in_the_years_1966-2020_for__permanent_residence.xlsx (retrieved 3 September 2023)
+* **Romania**
+  * http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table → emigrants with a change of permanent address (definitive emigrants) → POP309A (retrieved 3 September 2023)
+* **Slovenia**
+  * https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05N1042S.px/table/tableViewLayout2/ → International migration by citizenship, statistical regions, Slovenia, annually → Citizens of RS (retrieved 3 September 2023)
 
 \newpage
 
