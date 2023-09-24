@@ -39,5 +39,5 @@ rsconnect/
 *.png
 /data Backup alias
 99_sandbox.R
-*.pdf
+research_proposal.pdf
 *.log
