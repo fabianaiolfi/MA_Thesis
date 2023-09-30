@@ -83,7 +83,12 @@ A caveat of this thesis will be the difficulty of disentangling the effect of em
 <!--
 Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?
 
-==Why does higher emigration lead to lower incumbent vote share?== but it doesn’t
+==Why does higher emigration lead to lower incumbent vote share?== but does it?
+
+alt. RQ
+- how does emigration influence incumbent vote?
+- why does emigration increase/decrease incumbent vote?
+
 
 
 Present and discuss the answers that the available literature offers to your RQ
