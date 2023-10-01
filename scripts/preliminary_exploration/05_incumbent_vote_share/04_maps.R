@@ -17,8 +17,8 @@ merged_data$incumbent_change_factor <- cut(merged_data$incumbent_change, breaks 
 ggplot() +
   geom_sf(data = merged_data, aes(fill = incumbent_change_factor), color = "#333333", lwd = 0.1) +
   geom_sf(data = nuts0_shape, fill = NA, color = "black", lwd = 0.3) +
-  #coord_sf(xlim = c(5000000, 6000000), ylim = c(2400000, 3000000)) + # Coordinate reference system:	3035
-  coord_sf(xlim = c(2500000, 7100000), ylim = c(1500000, 5300000)) + # Coordinate reference system:	3035
+  #coord_sf(xlim = c(5000000, 6000000), ylim = c(2400000, 3000000)) + # Only show Romania # Coordinate reference system: 3035
+  coord_sf(xlim = c(2500000, 7100000), ylim = c(1500000, 5300000)) + # Show Europe # Coordinate reference system: 3035
   scale_fill_brewer(palette = "Spectral") + # Discrete scale
   theme_minimal() +
   theme(panel.grid = element_blank(), # remove grid
