@@ -37,3 +37,6 @@
 	- [ ] Measure grievances through ESS5 and ESS9: How happy are you? → correlation between happiness and emigration → are people from emigration-high regions generally unhappier?
 	- [ ] Is there demographic change in emigration hit regions? Are there less younger and more older people? Does this correlate with less schools and less hospitals?
 	- [ ] Grievances and vote switching: Is there a correlation between the two in general, and more so in the actual regions that are hit by emigration? → might be difficult because EES does not ask about happiness → combine EES and ESS?; or maybe Q20 “And over the next 12 months, how do you think the general economic situation in Ireland will be?”
+
+## Preliminary Explorations
+- 05_incumbent_vote_share: Is there a correlation between NUTS3 international emigration and vote share of the incumbent party?
