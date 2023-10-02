@@ -157,3 +157,101 @@ Election_PL_2015_2019_t1 <- ned %>%
 Election_PL_2015_2019 <- Election_PL_2015_2019_t0 %>% 
   left_join(Election_PL_2015_2019_t1, by = "nuts2016") %>% 
   mutate(incumbent_change = incumbent_share_2019 - incumbent_share_2015)
+
+
+## Bulgaria ---------------
+
+df <- ned %>% 
+  dplyr::filter(country == "Bulgaria") %>% 
+  dplyr::filter(type == "Parliament")
+unique(df$year)
+# [1] 2005 2009 2013 2014 2017
+
+### 2009 --------------
+
+Election_BG_2005_2009_t0 <- ned %>% 
+  dplyr::filter(type == "Parliament") %>% 
+  dplyr::filter(nuts2016 != "BGZZZ") %>% 
+  dplyr::filter(year == 2005) %>% 
+  dplyr::filter(party_abbreviation == "KB") %>% 
+  select(nuts2016, party_share) %>% 
+  rename(incumbent_share_2005 = party_share)
+
+Election_BG_2005_2009_t1 <- ned %>% 
+  dplyr::filter(type == "Parliament") %>%
+  dplyr::filter(nuts2016 != "BGZZZ") %>% 
+  dplyr::filter(year == 2009) %>% 
+  dplyr::filter(party_abbreviation == "KB") %>% 
+  select(nuts2016, party_share) %>% 
+  rename(incumbent_share_2009 = party_share)
+
+Election_BG_2005_2009 <- Election_BG_2005_2009_t0 %>% 
+  left_join(Election_BG_2005_2009_t1, by = "nuts2016") %>% 
+  mutate(incumbent_change = incumbent_share_2009 - incumbent_share_2005)
+
+
+### 2013 --------------
+
+Election_BG_2009_2013_t0 <- ned %>% 
+  dplyr::filter(type == "Parliament") %>% 
+  dplyr::filter(nuts2016 != "BGZZZ") %>% 
+  dplyr::filter(year == 2009) %>% 
+  dplyr::filter(party_abbreviation == "GERB") %>% 
+  select(nuts2016, party_share) %>% 
+  rename(incumbent_share_2009 = party_share)
+
+Election_BG_2009_2013_t1 <- ned %>% 
+  dplyr::filter(type == "Parliament") %>%
+  dplyr::filter(nuts2016 != "BGZZZ") %>% 
+  dplyr::filter(year == 2013) %>% 
+  dplyr::filter(party_abbreviation == "GERB") %>% 
+  select(nuts2016, party_share) %>% 
+  rename(incumbent_share_2013 = party_share)
+
+Election_BG_2009_2013 <- Election_BG_2009_2013_t0 %>% 
+  left_join(Election_BG_2009_2013_t1, by = "nuts2016") %>% 
+  mutate(incumbent_change = incumbent_share_2013 - incumbent_share_2009)
+
+### 2014 --------------
+
+Election_BG_2013_2014_t0 <- ned %>% 
+  dplyr::filter(type == "Parliament") %>% 
+  dplyr::filter(nuts2016 != "BGZZZ") %>% 
+  dplyr::filter(year == 2013) %>% 
+  dplyr::filter(party_abbreviation == "KB") %>% 
+  select(nuts2016, party_share) %>% 
+  rename(incumbent_share_2013 = party_share)
+
+Election_BG_2013_2014_t1 <- ned %>% 
+  dplyr::filter(type == "Parliament") %>%
+  dplyr::filter(nuts2016 != "BGZZZ") %>% 
+  dplyr::filter(year == 2014) %>% 
+  dplyr::filter(party_abbreviation == "KB") %>% 
+  select(nuts2016, party_share) %>% 
+  rename(incumbent_share_2014 = party_share)
+
+Election_BG_2013_2014 <- Election_BG_2013_2014_t0 %>% 
+  left_join(Election_BG_2013_2014_t1, by = "nuts2016") %>% 
+  mutate(incumbent_change = incumbent_share_2014 - incumbent_share_2013)
+
+### 2017 --------------
+
+Election_BG_2014_2017_t0 <- ned %>% 
+  dplyr::filter(type == "Parliament") %>% 
+  dplyr::filter(nuts2016 != "BGZZZ") %>% 
+  dplyr::filter(year == 2014) %>% 
+  dplyr::filter(party_abbreviation == "GERB") %>% 
+  select(nuts2016, party_share) %>% 
+  rename(incumbent_share_2014 = party_share)
+
+Election_BG_2014_2017_t1 <- ned %>% 
+  dplyr::filter(type == "Parliament") %>%
+  dplyr::filter(nuts2016 != "BGZZZ") %>% 
+  dplyr::filter(year == 2017) %>% 
+  dplyr::filter(party_abbreviation == "GERB") %>% 
+  select(nuts2016, party_share) %>% 
+  rename(incumbent_share_2017 = party_share)
+
+Election_BG_2014_2017 <- Election_BG_2014_2017_t0 %>% 
+  left_join(Election_BG_2014_2017_t1, by = "nuts2016") %>% 
+  mutate(incumbent_change = incumbent_share_2017 - incumbent_share_2014)

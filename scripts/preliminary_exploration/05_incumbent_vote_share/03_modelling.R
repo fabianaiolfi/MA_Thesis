@@ -172,3 +172,74 @@ model_pl_2019 <- emigration_pl_2019 %>%
 
 plot(model_pl_2019$average_emigration, model_pl_2019$incumbent_change)
 summary(lm(model_pl_2019$incumbent_change ~ model_pl_2019$average_emigration))
+
+
+## Bulgaria -------------------------------
+
+### 2009 -------------------------------
+
+emigration_bg_2009 <- net_migr_nuts3 %>% 
+  dplyr::filter(str_detect(`GEO (Codes)`, "^BG")) %>% 
+  dplyr::filter(str_length(`GEO (Codes)`) == 5) %>% 
+  select(`GEO (Codes)`, `GEO (Labels)`, `2005`, `2006`, `2007`, `2008`) %>% 
+  rowwise() %>%
+  mutate(average_emigration = mean(c_across(-c(`GEO (Codes)`, `GEO (Labels)`)), na.rm = TRUE)) %>%
+  ungroup()
+
+model_bg_2009 <- emigration_bg_2009 %>% 
+  select(`GEO (Codes)`, average_emigration) %>% 
+  left_join(select(Election_BG_2005_2009, nuts2016, incumbent_change), by = c("GEO (Codes)" = "nuts2016"))
+
+plot(model_bg_2009$average_emigration, model_bg_2009$incumbent_change)
+summary(lm(model_bg_2009$incumbent_change ~ model_bg_2009$average_emigration))
+
+### 2013 -------------------------------
+
+emigration_bg_2013 <- net_migr_nuts3 %>% 
+  dplyr::filter(str_detect(`GEO (Codes)`, "^BG")) %>% 
+  dplyr::filter(str_length(`GEO (Codes)`) == 5) %>% 
+  select(`GEO (Codes)`, `GEO (Labels)`, `2009`, `2010`, `2011`, `2012`) %>% 
+  rowwise() %>%
+  mutate(average_emigration = mean(c_across(-c(`GEO (Codes)`, `GEO (Labels)`)), na.rm = TRUE)) %>%
+  ungroup()
+
+model_bg_2013 <- emigration_bg_2013 %>% 
+  select(`GEO (Codes)`, average_emigration) %>% 
+  left_join(select(Election_BG_2009_2013, nuts2016, incumbent_change), by = c("GEO (Codes)" = "nuts2016"))
+
+plot(model_bg_2013$average_emigration, model_bg_2013$incumbent_change)
+summary(lm(model_bg_2013$incumbent_change ~ model_bg_2013$average_emigration))
+
+### 2014 -------------------------------
+
+emigration_bg_2014 <- net_migr_nuts3 %>% 
+  dplyr::filter(str_detect(`GEO (Codes)`, "^BG")) %>% 
+  dplyr::filter(str_length(`GEO (Codes)`) == 5) %>% 
+  select(`GEO (Codes)`, `GEO (Labels)`, `2013`) %>% 
+  rowwise() %>%
+  mutate(average_emigration = mean(c_across(-c(`GEO (Codes)`, `GEO (Labels)`)), na.rm = TRUE)) %>%
+  ungroup()
+
+model_bg_2014 <- emigration_bg_2014 %>% 
+  select(`GEO (Codes)`, average_emigration) %>% 
+  left_join(select(Election_BG_2013_2014, nuts2016, incumbent_change), by = c("GEO (Codes)" = "nuts2016"))
+
+plot(model_bg_2014$average_emigration, model_bg_2014$incumbent_change)
+summary(lm(model_bg_2014$incumbent_change ~ model_bg_2014$average_emigration))
+
+### 2017 -------------------------------
+
+emigration_bg_2017 <- net_migr_nuts3 %>% 
+  dplyr::filter(str_detect(`GEO (Codes)`, "^BG")) %>% 
+  dplyr::filter(str_length(`GEO (Codes)`) == 5) %>% 
+  select(`GEO (Codes)`, `GEO (Labels)`, `2014`, `2015`, `2016`) %>% 
+  rowwise() %>%
+  mutate(average_emigration = mean(c_across(-c(`GEO (Codes)`, `GEO (Labels)`)), na.rm = TRUE)) %>%
+  ungroup()
+
+model_bg_2017 <- emigration_bg_2017 %>% 
+  select(`GEO (Codes)`, average_emigration) %>% 
+  left_join(select(Election_BG_2014_2017, nuts2016, incumbent_change), by = c("GEO (Codes)" = "nuts2016"))
+
+plot(model_bg_2017$average_emigration, model_bg_2017$incumbent_change)
+summary(lm(model_bg_2017$incumbent_change ~ model_bg_2017$average_emigration))
