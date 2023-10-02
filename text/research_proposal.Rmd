@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Introduction
 <!-- Central problem / puzzle that thesis will address -->
 
-Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] have shown high levels of emigration in the past 20 years. Figure \ref{fig:net_migration_map} provides an overview of migration levels across Europe at NUTS3 level. It shows that emigration has been generally higher in regions across CEE countries compared to other parts of Europe.
+Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] have shown high levels of emigration in the past 20 years (see Figure \ref{fig:net_migration_map}). Their accession to the EU has spurred on emigration, facilitated by the EU’s Freedom of Movement (FoM). How does emigration affect political behaviour in sending countries? This question is relevant for two reasons. First, emigration has a profound impact on sending countries and their citizens. Second, the effects of emigration on CEE EU member states is a blind spot in political science research.
 
 \begin{figure}[t]
   \centering
@@ -36,7 +36,6 @@ Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, 
   \caption{\textbf{Average Net Migration 2000--2021 at NUTS3 Level.} Source: Eurostat's CNMIGRATRT variable.}
   \label{fig:net_migration_map}
 \end{figure}
-
 
 The United Nations estimated a population decline of 18 million people in Eastern Europe between the early 1990s and 2015, with emigration being the main reason for the decline [@romeiEasternEuropeHas2016]. In one concrete example, Lithuania has lost a quarter of its population, with certain regions losing over 50% of residents [@ubarevicienePopulationDeclineLithuania2017a 58]. Intra-EU migration is driven by economic and labour market factors, as people emigrate to look for better job opportunities [@vasilopoulouOpportunityThreatPublic2019a 810].
 
@@ -51,9 +50,17 @@ I perform a Chow-Test [@chowTestsEqualitySets1960] for each individual country t
   \label{fig:migr_accession_bar}
 \end{figure}
 
-Emigration has profound impacts on the sending countries, e.g., population decline, lack of labour [@thautEUIntegrationEmigration2009a 220; @roosCompensatingEffectsEmigration2023a 187] or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression [@marchetti-mercerThoseEasilyForgotten2012a 388; @ivlevsEmigrationRemittancesSubjective2019 135].
+Emigration has profound impacts on sending countries, e.g., population decline, lack of labour [@thautEUIntegrationEmigration2009a 220; @roosCompensatingEffectsEmigration2023a 187] or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression [@marchetti-mercerThoseEasilyForgotten2012a 388; @ivlevsEmigrationRemittancesSubjective2019 135].
 
-Does emigration change the voting behaviour of the people left behind? There exists a correlation between emigration rates and vote switching. There is a negative significant ($p < 0.05$) correlation between average migration rate and vote switching: The higher the average emigration rate, the higher the number of vote switchers in the NUTS3 region (see Figure \ref{fig:migr_switching_plot} for details). The rate of change is substantial: A 10% increase in emigration is associated with an increase of switchers by roughly 3.6%. This is enough to sway an election. However, this correlation contains a caveat. The migration data do not differentiate between internal and external migration, thus the effect of EU accession cannot be shown here directly.
+- Does emigration change the voting behaviour of the people left behind?
+- Theory tells us that emigration makes remaining voters unhappy (source?) and that unhappy voters cast a ballot against the incumbent (1992 Bowler, p. 489)
+- Thus, a region with a high level of emigration should show a high level of anti-incumbent voting
+- A brief analysis shows that this is sometimes the case in Romania, Bulgaria and Poland, but not in Croatia 
+	- show results table
+- 
+
+<!--
+There exists a correlation between emigration rates and vote switching. There is a negative significant ($p < 0.05$) correlation between average migration rate and vote switching: The higher the average emigration rate, the higher the number of vote switchers in the NUTS3 region (see Figure \ref{fig:migr_switching_plot} for details). The rate of change is substantial: A 10% increase in emigration is associated with an increase of switchers by roughly 3.6%. This is enough to sway an election. However, this correlation contains a caveat. The migration data do not differentiate between internal and external migration, thus the effect of EU accession cannot be shown here directly.
 
 \begin{figure}[t]
   \centering
@@ -61,13 +68,14 @@ Does emigration change the voting behaviour of the people left behind? There exi
   \caption{\textbf{Migration and Vote Switching in selected NUTS3 Regions.} An increase of average migration by 1\% leads to a decrease of a region’s share of switchers by $-0.3641\%$ ($p = 0.0305$). A negative migration rate means the region has experienced more emigration than immigration. Adjusted R-squared: $0.1146$; $N = 33$ \protect \\ Sources: Schmitt et al. 2022 for vote switching; Eurostat’s CNMIGRATRT variable for average migration.}
   \label{fig:migr_switching_plot}
 \end{figure}
+-->
 
-Despite the caveat, this thesis will ask the following research question. Why does international emigration from CEE EU member states cause vote switching amongst the voters left behind?
+This thesis will ask the following research question: Why does international emigration from CEE EU member states have a varying impact on the incumbent’s vote share?
 
 <!-- Describe causal mechanism -->
 @dancygierEmigrationRadicalRight2022 describe how emigration leads to voting for populist and radical right (PRR) parties: Regions hit by high emigration are prone to service cuts. These cuts cause grievances amongst the people left behind, who react by voting for PRR parties [@dancygierEmigrationRadicalRight2022, 2]. However, the authors do not show what exactly causes a change in voting behaviour and suggest that future research should look into what type of service cuts eventually lead to PRR voting [@dancygierEmigrationRadicalRight2022, 35].
 
-This thesis will examine three types of emigration induced service cuts that can cause grievances. These cuts are school closures, hospital closures and closures of “third places” [@oldenburgGreatGoodPlace1999 16], such as cafés and restaurants. I put forward the idea that these service cuts occur gradually, unbeknownst to the population who do not emigrate. The cuts build up until reaching a tipping point, when an individual experiences a watershed moment, realising how emigration has had a negative impact on their surroundings. This watershed moment leads to grievances that in turn alter an individual’s voting behaviour.
+This thesis will examine three types of emigration induced service cuts that can cause grievances. These cuts are school closures, hospital closures and closures of “third places” [@oldenburgGreatGoodPlace1999 16], such as cafés and restaurants. I put forward the idea that these service cuts occur gradually, unbeknownst to the population who do not emigrate. The cuts build up until reaching a tipping point, when an individual experiences a watershed moment, realising how emigration has had a negative impact on their surroundings. This watershed moment leads to grievances that in turn lead to a vote against the incumbent.
 
 <!-- Why is it worth studying? -->
 There is a research gap when it comes to understanding the political repercussions of emigration on sending regions [@kyriaziPoliticsEmigrationEurope2023a 564]. This despite the fact that, globally seen, the people who do *not* emigrate outnumber the people who do [@marchetti-mercerThoseEasilyForgotten2012a 378]. In the specific case of the EU, the FoM should be studied not only from the view of a right to enter, but also as a right to exit [@bruzeliusTakingEmigrationSeriously2021a 35].
@@ -88,6 +96,7 @@ Why does emigration from CEE EU member states cause vote switching amongst the v
 alt. RQ
 - how does emigration influence incumbent vote?
 - why does emigration increase/decrease incumbent vote?
+	- Why does emigration have a varying impact on the incumbent’s vote share?
 
 
 
@@ -96,11 +105,11 @@ Present and discuss the answers that the available literature offers to your RQ
 2. how your work will build on previous research
 -->
 
-The impact of emigration on vote switching and electoral outcomes varies by time and location. Studies have explored this phenomenon, ranging from 19th-century Sweden [@karadjaExitVoicePolitical2019 2] to early 21st-century Mexico [@pfutzeClientelismSocialLearning2014a 295].
+The impact of emigration on voting behaviour and electoral outcomes varies by time and location. Studies have explored this phenomenon, ranging from 19th-century Sweden [@karadjaExitVoicePolitical2019 2] to early 21st-century Mexico [@pfutzeClientelismSocialLearning2014a 295].
 
 Emigration can affect electoral outcomes in two ways. First, emigration can change the composition of the electorate. @limElectoralConsequencesInternational2023 [39] shows that emigrants from CEE are disproportionately younger, cosmopolitan and politically progressive, resulting in a remaining population that is older and more conservative. As a result, electoral results are more likely to be conservative.
 
-Second, emigration can affect the electoral preferences of the people left behind. Altering their voting behaviour can trigger vote switching. Emigration can have an indirect and a direct effect on a voter’s political behaviour.
+Second, emigration can affect the voting behaviour of the people left behind. This effect can be indirect and also direct.
 
 The indirect effect occurs when emigration alters a voter’s overall wellbeing. Family members or neighbours of emigrants have a higher life satisfaction and budget easing through remittances, but suffer from more depression and stress [@ivlevsEmigrationRemittancesSubjective2019 135] and are more prone to anger and distress [@marchetti-mercerThoseEasilyForgotten2012a 388], caused by people close to them who have left.
 
@@ -108,13 +117,13 @@ There are multiple direct effects of emigration on political behaviour. A wide r
 
 Despite this decrease in political interest, some remainers still vote. If the number of people casting their ballot decreases, then it becomes all the more important to understand how the remaining voters are affected by emigration and how they thus cast their ballot.
 
-One concrete example why this is important is shown by @barsbaiEffectLaborMigration2017a [36], who reveal a negative effect between emigration and votes for the Communist Party in the Moldovan elections of 2009 and 2010. Elections during those years brought significant political change to the ex-soviet country [@barsbaiEffectLaborMigration2017a 41], because voters switched away from the Communist Party, who had gained electoral power in previous elections. Voters switched because returning emigrants brought western social norms and political preferences to Moldova [@barsbaiEffectLaborMigration2017a 66]. These preferences then diffused amongst the electorate.
+One concrete example why this is important is shown by @barsbaiEffectLaborMigration2017a [36], who reveal a negative effect between emigration and votes for the Communist Party in the Moldovan elections of 2009 and 2010. Elections during those years brought significant political change to the ex-soviet country [@barsbaiEffectLaborMigration2017a 41], because voters cast a ballot against the Communist Party, who had gained electoral power in previous elections. Voters turned against the Communist Party because returning emigrants brought western social norms and political preferences to Moldova [@barsbaiEffectLaborMigration2017a 66]. These preferences then diffused amongst the electorate.
 
 A further reason why the effects of emigration on voting behaviour is important is its implications on voting for populist and radical right parties [@dancygierEmigrationRadicalRight2022 34; @limElectoralConsequencesInternational2023 56; @heroldSchrumpfendeRegionenFrustrierte2020 19]. However, there are two reasons why this link between emigration and radical parties can be questioned.
  
 First, @vorlanderMIDEM2021Emigration2021 [33] and @schutzeLeftTogetherVoting2023 [9] provide mixed results of this claim, showing that emigration induced support for these parties is only given under certain conditions, or look at country-specific cases such as intra-German migration from east to west [@schutzeLeftTogetherVoting2023 2].
  
-Second, there are three points to be made that non-extreme parties, e.g., a mainstream opposition party, may also benefit from emigration. One, a voter does not necessarily have to cast a ballot for an extreme party. Instead they can simply critique the incumbent government or status quo parties if emigration becomes politicised [@vorlanderMIDEM2021Emigration2021 91]. Two, voters receive remittances which realigns their party preferences closer to their personal ideological preferences [@pfutzeDoesMigrationPromote2012a 161]. This realignment does not necessarily have to lead to voting for an extreme party. Three, voters cannot cast a vote for an extreme party if there is no such party on the ballot. For these three reasons and due to the mixed empirical results, I will look into vote switching in general and not focus on voting for radical right parties.
+Second, there are three points to be made that non-extreme parties, e.g., a mainstream opposition party, may also benefit from emigration. One, a voter does not necessarily have to cast a ballot for an extreme party. Instead they can simply critique the incumbent government or status quo parties if emigration becomes politicised [@vorlanderMIDEM2021Emigration2021 91]. Two, voters receive remittances which realigns their party preferences closer to their personal ideological preferences [@pfutzeDoesMigrationPromote2012a 161]. This realignment does not necessarily have to lead to voting for an extreme party. Three, voters cannot cast a vote for an extreme party if there is no such party on the ballot. For these three reasons and due to the mixed empirical results, I will look into general anti-incumbent votes and not focus on voting for radical right parties.
 
 @dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of Populist Radical Parties (PRR). The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. These grievances then affect voting behaviour. Voters turn against incumbents and cast a ballot for PRR parties.
 
@@ -127,13 +136,20 @@ Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote \
 \label{eq:cm_dancygier}
 \end{equation}
 
-However, the authors do not show which service cuts cause grievances [@dancygierEmigrationRadicalRight2022 35]. They leave this aspect open for future research. This thesis sets out to detect which emigration induced service cuts cause vote switching.
+However, the authors do not show which service cuts cause grievances [@dancygierEmigrationRadicalRight2022 35]. They leave this aspect open for future research. This thesis sets out to detect which emigration induced service cuts cause grievances and thus anti-incumbent votes.
 
 
 ## Project Description
 
 <!-- theory: what would we expect to happen based on theory? -->
-@keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts, especially cuts to public services, will give the incumbent government a poor performance record in the eyes of the voter. This will increase the likelihood that the voter switches party, away from the incumbent, towards another party.
+@keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts, especially cuts to public services, will give the incumbent party a poor performance record in the eyes of the voter. This will increase the likelihood that the electorate will vote against the incumbent party.
+
+
+- Electoral volatility is high in CEE (2019 Bochsler, p. 1-2)
+- This volatility is caused by several aspects: SOURCES
+	- Voting behaviour is linked to a voter’s “socioeconomic position” (2019 Bochsler, p. 2) and the government’s output (2019 Bochsler, p. 2)
+- How does emigration influence volatility? How much of volatility can be explained through emigration?
+
 
 <!-- Make explicit the causal mechanism -->
 Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances which then lead to PRR voting, this thesis asks the following question: Which emigration induced service cuts cause grievances?
@@ -153,16 +169,17 @@ Schools and hospital closings are services made available by the state. In contr
 This is the updated causal chain of events, based on the causal chain displayed in (\ref{eq:cm_dancygier}):
 
 \begin{equation}
-Emigration \rightarrow Service \; Cuts \rightarrow Watershed \; Moment \rightarrow Grievances \rightarrow Vote \; Switching
+Emigration \rightarrow Service \; Cuts \rightarrow Watershed \; Moment \rightarrow Grievances \rightarrow Anti-Incumbent \; Vote
 \label{eq:cm_updated}
 \end{equation}
 
 <!-- operationalisation, model specification --> 
 Based on this causal chain, I set up the following empirical specification:
-
+…
+<!--
 \begin{equation}
 \begin{aligned}
-Switcher \; Share_{i,j} = \beta_0 & + \beta_1Service \; Cuts_{i,j} \\
+Incumbent \; Vote \; Change_{i,j} = \beta_0 & + \beta_1Service \; Cuts_{i,j} \\
       & + \beta_2External \; Emigration_{i,j} \\
       & + \beta_3Economic \; Factors_{i,j} \\
       & + \beta_4Remittances_{i,j} \\
@@ -170,11 +187,12 @@ Switcher \; Share_{i,j} = \beta_0 & + \beta_1Service \; Cuts_{i,j} \\
 \end{aligned}
 \end{equation}
 <!-- https://latexeditor.lagrida.com/ --> 
-<!-- ![](model_spec.png) --> 
 
+<!-- adjust t1 and t0 years here, $j$ doesn't work anymore. also includes vote switching  --> 
 $i$ indexes a NUTS3 region in the year $j$. The dependent variable is the share of vote switchers in the electorate who “moved across party lines” [@keyResponsibleElectorateRationality1966a 16], i.e., switched from one party to another, between two national elections. I will measure individual level vote switching using the European Election Study (EES, @ZA7581).^[If a respondent’s answer to question 9 is not the same party as the highest rated party in question 10, then they are labelled a vote switcher. From the European Parliament Election Study 2019 Irish Country Questionnaire [@ZA7581]:
 Question 9: “Which party did you vote for at the Irish General Election of 2016?” 
 Question 10: “We have a number of parties in Ireland each of which would like to get your vote. How probable is it that you will ever vote for the following parties? Please answer on a scale where 0 means “not at all probable” and 10 means “very probable”.”]
+--> 
 
 Service Cuts, the main independent variable, are operationalised as ratios to their respective target audiences. There is one service cut for each watershed moment described above. The first is the ratio of children per school in a region. The second is the ratio of people to hospitals in a region. The third is the ratio of people to third places (cafés, bars, restaurants) in a region.
 
@@ -182,18 +200,18 @@ Service Cuts, the main independent variable, are operationalised as ratios to th
 I will control for the following variables. First, external emigration from a region, which entails the crude number of citizens emigrating abroad from the region. Second, I take the inflow of remittances in a region, because remittances can realign a voter’s party preferences in favour of ideological preferences, thus changing their voting behaviour [@pfutzeDoesMigrationPromote2012a 161]. Third, I take a region’s economic factors, e.g., unemployment or GDP per capita, into account. I do this because I assume that a region’s overall economic climate will impact the perception of the described watershed moments. Inhabitants of a region that is worse off will develop stronger grievances if schools, hospitals and third places close down. This in turn will have a stronger effect on voting behaviour.
 
 <!-- Hypotheses as a general answer to the puzzle --> 
-As a general relation between dependent and independent variables, I assume a higher ratio in service cuts, e.g., more children per school, leads to a higher share of vote switchers. I define the following three hypotheses:
+As a general relation between dependent and independent variables, I assume a higher ratio in service cuts, e.g., more children per school, leads to a higher share of anti-incumbent votes. I define the following three hypotheses:
 
 <!-- Public service cuts --> 
 <!-- Emigration → Change in age distribution --> 
-**H1**: A higher ratio of children to schools in a region leads to a higher share of vote switchers in that region.
+**H1**: A higher ratio of children to schools in a region leads to a higher share of anti-incumbent votes in that region.
 
 <!-- Emigration → Population decline, labour shortage -->
-**H2**: A higher ratio of seniors to hospitals in a region leads to a higher share of vote switchers in that region.
+**H2**: A higher ratio of seniors to hospitals in a region leads to a higher share of anti-incumbent votes in that region.
 
 <!-- Private service cuts -->
 <!-- Emigration → Population decline, labour shortage -->
-**H3**: A higher ratio of people to third places in a region leads to a higher share of vote switchers in that region.
+**H3**: A higher ratio of people to third places in a region leads to a higher share of anti-incumbent votes in that region.
 
 <!--
 `define key terms (or use concepts that everyone in political science uses)`
@@ -215,24 +233,27 @@ I will measure the effect of service cuts on a subnational, NUTS3 level, data pe
 
 <!-- justify case selection of geographical and temporal span: what's their logic and are there disadvantages? -->
 
-I will examine CEE EU member states because emigration in this region has not been studied in detail and because I see an opportunity to measure the impact of FoM on the region. In order to measure an effect of a country joining the EU, I will focus on a time span around the country’s accession, e.g., ten years before and after joining, if data is available for the time span. The time span will only go up to and include the year 2019, because I assume the COVID-19 pandemic to have a strong influence on emigration in 2020 and beyond.
+I will examine CEE EU member states because emigration in this region has not been studied in detail and because I see an opportunity to measure the political impact of FoM on the region. In order to measure an effect of a country joining the EU, I will focus on a time span around the country’s accession, e.g., ten years before and after joining, if data is available for the time span. The time span will only go up to and include the year 2019, because I assume the COVID-19 pandemic to have a strong influence on emigration in 2020 and beyond.
 
 A potential disadvantage of the case selection could be cultural differences between CEE EU member state NUTS3 regions, leading to inaccurate results. I have chosen a very broad definition of CEE countries, possibly making a comparison between regions difficult. It may make sense to narrow down the selection, e.g., by excluding the three Baltic states. A further disadvantage is missing data in emigration time series and a lack of individual level data at NUTS3 level.
 
 <!-- Methodology -->
-I will use quantitative methods to answer my research question. In order to gain a general overview, I will perform a subgroup analysis, e.g., by analysing NUTS3 regions within a country. I will then build simple regression models that uncover potential correlations between emigration and vote switching. Data quality permitting, I can then focus on regions that show promising results.
+I will use quantitative methods to answer my research question. In order to gain a general overview, I will perform a subgroup analysis, e.g., by analysing NUTS3 regions within a country. I will then build simple regression models that uncover potential correlations between emigration and anti-incumbent voting. Data quality permitting, I can then focus on regions that show promising results.
 
-Such a focus may involve mediation analysis. Due to the chain of causal events described in (\ref{eq:cm_updated}), service cuts act as a mediator between emigration and vote switching. This analysis can help explain how the three service cuts influence vote switching in different ways.
+Such a focus may involve mediation analysis. Due to the chain of causal events described in (\ref{eq:cm_updated}), service cuts act as a mediator between emigration and anti-incumbent voting. This analysis can help explain how the three service cuts influence anti-incumbent voting in different ways.
 
 A further deep dive will involve the Regression Discontinuity Design method in order to compare regions in EU and non-EU countries. This uses EU accession as the treatment and allows to measure the effect of introducing FoM.
 
 <!-- Data -->
 NUTS3 level international emigration data are provided by the national statistics agencies of the respective countries.^[See sources of Figure \ref{fig:migr_accession_bar} in the Appendix] As a fallback, NUTS3 level migration data is also provided by Eurostat.^[Variable: CNMIGRATRT; Online data code: DEMO_R_GIND3; Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)] However, these data do not differentiate between internal and external migration.
 
+<!-- Maybe replace this section with NED dataset? -->
+<!--
 Data on individual level vote switching are provided by EES [@ZA7581]. Of the around 7300 respondents from CEE countries, about 2700, or roughly a third, are assigned to a NUTS3 region. Data on individual level well-being (happiness, grievances) are provided by the European Social Survey (ESS, @EuropeanSocialSurvey2020) and the European Values Study (EVS, @ZA7505). Data on school closings in Croatia are available through the Croatian Bureau of Statistics.^[https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/ (retrieved 7 September 2023)]
+-->
 
 <!-- Possible further developments -->
-The thesis can be expanded in the following ways. First, going beyond vote switching, which parties explicitly profit from emigration? Which parties do the switchers switch to? NUTS3 level electoral results are provided by the EU-NED European NUTS-Level Election Dataset.^[https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5 (retrieved 5 September 2023)] Individual level data from Poland, provided by the Polish Panel Survey^[https://polpan.org/en/ (retrieved 5 September 2023)] can also help expand on the question of who the switchers turn to.
+The thesis can be expanded in the following ways. First, going beyond anti-incumbent voting, which parties explicitly profit from emigration? NUTS3 level electoral results are provided by the EU-NED European NUTS-Level Election Dataset.^[https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5 (retrieved 5 September 2023)] Individual level data from Poland, provided by the Polish Panel Survey^[https://polpan.org/en/ (retrieved 5 September 2023)] can also help expand on the question of who the switchers turn to.
 
 <!-- Maybe add to second point: 2022 Dancygier p. 8: "voters who are exposed to the consequences of emigration voice their discontent about specific policy failures in their localities for which they hold incumbents to account." this is very much on the local level! -->
 Second, regional elections can be taken into account. I am currently examining vote switching between parties in national elections. However, it may also make sense to take regional elections into account, as these are closer to NUTS3 regions and thus more directly affected by emigration from a region.
