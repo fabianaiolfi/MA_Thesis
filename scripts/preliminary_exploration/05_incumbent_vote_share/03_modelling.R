@@ -52,7 +52,6 @@ model_hr_2020 <- emigration_hr_2020 %>%
 plot(model_hr_2020$average_emigration, model_hr_2020$incumbent_change)
 summary(lm(model_hr_2020$incumbent_change ~ model_hr_2020$average_emigration))
 
-
 ## Romania -------------------------------
 
 ### 2008 -------------------------------
@@ -184,6 +183,7 @@ emigration_bg_2009 <- net_migr_nuts3 %>%
   select(`GEO (Codes)`, `GEO (Labels)`, `2005`, `2006`, `2007`, `2008`) %>% 
   rowwise() %>%
   mutate(average_emigration = mean(c_across(-c(`GEO (Codes)`, `GEO (Labels)`)), na.rm = TRUE)) %>%
+  mutate(average_emigration = average_emigration * -1) %>% 
   ungroup()
 
 model_bg_2009 <- emigration_bg_2009 %>% 
@@ -193,6 +193,7 @@ model_bg_2009 <- emigration_bg_2009 %>%
 plot(model_bg_2009$average_emigration, model_bg_2009$incumbent_change)
 summary(lm(model_bg_2009$incumbent_change ~ model_bg_2009$average_emigration))
 
+
 ### 2013 -------------------------------
 
 emigration_bg_2013 <- net_migr_nuts3 %>% 
@@ -201,6 +202,7 @@ emigration_bg_2013 <- net_migr_nuts3 %>%
   select(`GEO (Codes)`, `GEO (Labels)`, `2009`, `2010`, `2011`, `2012`) %>% 
   rowwise() %>%
   mutate(average_emigration = mean(c_across(-c(`GEO (Codes)`, `GEO (Labels)`)), na.rm = TRUE)) %>%
+  mutate(average_emigration = average_emigration * -1) %>% 
   ungroup()
 
 model_bg_2013 <- emigration_bg_2013 %>% 
@@ -218,6 +220,7 @@ emigration_bg_2014 <- net_migr_nuts3 %>%
   select(`GEO (Codes)`, `GEO (Labels)`, `2013`) %>% 
   rowwise() %>%
   mutate(average_emigration = mean(c_across(-c(`GEO (Codes)`, `GEO (Labels)`)), na.rm = TRUE)) %>%
+  mutate(average_emigration = average_emigration * -1) %>% 
   ungroup()
 
 model_bg_2014 <- emigration_bg_2014 %>% 
@@ -235,6 +238,7 @@ emigration_bg_2017 <- net_migr_nuts3 %>%
   select(`GEO (Codes)`, `GEO (Labels)`, `2014`, `2015`, `2016`) %>% 
   rowwise() %>%
   mutate(average_emigration = mean(c_across(-c(`GEO (Codes)`, `GEO (Labels)`)), na.rm = TRUE)) %>%
+  mutate(average_emigration = average_emigration * -1) %>% 
   ungroup()
 
 model_bg_2017 <- emigration_bg_2017 %>% 
