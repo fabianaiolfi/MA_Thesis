@@ -52,12 +52,35 @@ I perform a Chow-Test [@chowTestsEqualitySets1960] for each individual country t
 
 Emigration has profound impacts on sending countries, e.g., population decline, lack of labour [@thautEUIntegrationEmigration2009a 220; @roosCompensatingEffectsEmigration2023a 187] or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression [@marchetti-mercerThoseEasilyForgotten2012a 388; @ivlevsEmigrationRemittancesSubjective2019 135].
 
-- Does emigration change the voting behaviour of the people left behind?
-- Theory tells us that emigration makes remaining voters unhappy (source?) and that unhappy voters cast a ballot against the incumbent (1992 Bowler, p. 489)
-- Thus, a region with a high level of emigration should show a high level of anti-incumbent voting
-- A brief analysis shows that this is sometimes the case in Romania, Bulgaria and Poland, but not in Croatia 
-	- show results table
-- 
+Does emigration change the voting behaviour of the people left behind? Theory tells us that emigration creates grievances amongst the remaining voters [@dancygierEmigrationRadicalRight2022, 2]. Grieving, dissatisfied voters are prone to casting a ballot against the incumbent [@bowlerStrategicProtestVoting, 489]. Therefore, a correlation between a region’s emigration rate and change in incumbent vote share should exist. In other words, a region with a high level of emigration should show a drop in incumbent support. A brief analysis of select CEE EU member states shows that all national parliamentary elections in Poland and Romania display negative coefficients, which means that higher emigration rates correlate with less incumbent support in the respective country’s NUTS3 region (see Table \ref{tab:incumbent_vote_share} for details).
+
+\begin{table}[]
+\centering
+\begin{tabular}{lllll}
+\textbf{Country} & \textbf{Election} & \textbf{Coefficient Average Emigration} & \textbf{p} & \textbf{} \\
+Bulgaria & 2009 & -0.08496 & 0.478    &     \\
+Bulgaria & 2013 & 0.1691   & 0.367    &     \\
+Bulgaria & 2014 & 0.006887 & 0.95     &     \\
+Bulgaria & 2017 & 0.28995  & 0.0368   & *   \\
+Croatia  & 2015 & 4.239    & 0.5576   &     \\
+Croatia  & 2016 & 3.302    & 0.185    &     \\
+Croatia  & 2020 & 0.1624   & 0.931    &     \\
+Poland   & 2007 & -31.09   & 0.075597 & .   \\
+Poland   & 2011 & -2.1865  & 0.639592 &     \\
+Poland   & 2015 & -42.9    & 0.00417  &     \\
+Poland   & 2019 & -7.988   & 0.757    &     \\
+Romania  & 2008 & -142.141 & 0.0021   & **  \\
+Romania  & 2012 & -35.711  & 0.335    &     \\
+Romania  & 2016 & -134.553 & 0.00021  & ***
+\end{tabular}
+\caption{Dependent variable: Incumbent vote share change between winning election and following election (Source: EU-NED European NUTS-Level Election Dataset). Independent variable: Average migration rate (\% of population) between winning election and following election (Sources: Statistical offices of respective countries). Bulgarian emigration data also include internal migration. Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1}
+\label{tab:incumbent_vote_share}
+\end{table}
+<!-- https://www.tablesgenerator.com/ -->
+
+<!-- However, Croatia displays an opposite trend. Higher levels of emigration tend to correlate with higher incumbent support (but not always statistically significant) -->
+
+Therefore, this thesis asks the following research question: Why does international emigration from CEE EU member states have a negative impact on the sending country’s incumbent vote share?
 
 <!--
 There exists a correlation between emigration rates and vote switching. There is a negative significant ($p < 0.05$) correlation between average migration rate and vote switching: The higher the average emigration rate, the higher the number of vote switchers in the NUTS3 region (see Figure \ref{fig:migr_switching_plot} for details). The rate of change is substantial: A 10% increase in emigration is associated with an increase of switchers by roughly 3.6%. This is enough to sway an election. However, this correlation contains a caveat. The migration data do not differentiate between internal and external migration, thus the effect of EU accession cannot be shown here directly.
@@ -69,8 +92,6 @@ There exists a correlation between emigration rates and vote switching. There is
   \label{fig:migr_switching_plot}
 \end{figure}
 -->
-
-This thesis will ask the following research question: Why does international emigration from CEE EU member states have a varying impact on the incumbent’s vote share?
 
 <!-- Describe causal mechanism -->
 @dancygierEmigrationRadicalRight2022 describe how emigration leads to voting for populist and radical right (PRR) parties: Regions hit by high emigration are prone to service cuts. These cuts cause grievances amongst the people left behind, who react by voting for PRR parties [@dancygierEmigrationRadicalRight2022, 2]. However, the authors do not show what exactly causes a change in voting behaviour and suggest that future research should look into what type of service cuts eventually lead to PRR voting [@dancygierEmigrationRadicalRight2022, 35].
@@ -97,8 +118,6 @@ alt. RQ
 - how does emigration influence incumbent vote?
 - why does emigration increase/decrease incumbent vote?
 	- Why does emigration have a varying impact on the incumbent’s vote share?
-
-
 
 Present and discuss the answers that the available literature offers to your RQ
 1. what we already know and what we do not yet know about your research question
@@ -253,10 +272,10 @@ Data on individual level vote switching are provided by EES [@ZA7581]. Of the ar
 -->
 
 <!-- Possible further developments -->
-The thesis can be expanded in the following ways. First, going beyond anti-incumbent voting, which parties explicitly profit from emigration? NUTS3 level electoral results are provided by the EU-NED European NUTS-Level Election Dataset.^[https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5 (retrieved 5 September 2023)] Individual level data from Poland, provided by the Polish Panel Survey^[https://polpan.org/en/ (retrieved 5 September 2023)] can also help expand on the question of who the switchers turn to.
+The thesis can be expanded in the following ways. First, going beyond anti-incumbent voting, which parties explicitly profit from emigration? NUTS3 level electoral results are provided by the EU-NED European NUTS-Level Election Dataset.^[https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5 (retrieved 5 September 2023)] Individual level data from Poland, provided by the Polish Panel Survey^[https://polpan.org/en/ (retrieved 5 September 2023)] can also help expand on the question of who these specific voters turn to.
 
 <!-- Maybe add to second point: 2022 Dancygier p. 8: "voters who are exposed to the consequences of emigration voice their discontent about specific policy failures in their localities for which they hold incumbents to account." this is very much on the local level! -->
-Second, regional elections can be taken into account. I am currently examining vote switching between parties in national elections. However, it may also make sense to take regional elections into account, as these are closer to NUTS3 regions and thus more directly affected by emigration from a region.
+Second, regional elections can be taken into account. I am currently examining voting behaviour in national elections. However, it may also make sense to take regional elections into account, as these are closer to NUTS3 regions and thus more directly affected by emigration.
 
 ## Conclusion
 …
