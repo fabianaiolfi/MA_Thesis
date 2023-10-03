@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Introduction
 <!-- Central problem / puzzle that thesis will address -->
 
-Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] have shown high levels of emigration in the past 20 years (see Figure \ref{fig:net_migration_map}). Their accession to the EU has spurred on emigration, facilitated by the EU’s Freedom of Movement (FoM). How does emigration affect political behaviour in sending countries? This question is relevant for two reasons. First, emigration has a profound impact on sending countries and their citizens. Second, the effects of emigration on CEE EU member states is a blind spot in political science research.
+Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] have shown high levels of emigration in the past 20 years (see Figure \ref{fig:net_migration_map}). Their accession to the EU has spurred on emigration, facilitated by the EU’s Freedom of Movement (FoM). How does emigration affect political behaviour in sending countries? More specifically, why does international emigration from CEE EU member states have a negative impact on the sending country’s incumbent vote share? This question is relevant for two reasons. First, emigration has a profound impact on sending countries and their citizens, contributing to population decline, lack of labour and grievances amongst individuals. Second, the effects of emigration on CEE EU member states is a blind spot in political science research.
 
 \begin{figure}[t]
   \centering
@@ -52,6 +52,7 @@ I perform a Chow-Test [@chowTestsEqualitySets1960] for each individual country t
 
 Emigration has profound impacts on sending countries, e.g., population decline, lack of labour [@thautEUIntegrationEmigration2009a 220; @roosCompensatingEffectsEmigration2023a 187] or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression [@marchetti-mercerThoseEasilyForgotten2012a 388; @ivlevsEmigrationRemittancesSubjective2019 135].
 
+<!-- define grievances here somewhere, maybe based on dancygier -->
 Does emigration change the voting behaviour of the people left behind? Theory tells us that emigration creates grievances amongst the remaining voters [@dancygierEmigrationRadicalRight2022, 2]. Grieving, dissatisfied voters are prone to casting a ballot against the incumbent [@bowlerStrategicProtestVoting, 489]. Therefore, a correlation between a region’s emigration rate and change in incumbent vote share should exist. In other words, a region with a high level of emigration should show a drop in incumbent support. A brief analysis of select CEE EU member states shows that all national parliamentary elections in Poland and Romania display negative coefficients, which means that higher emigration rates correlate with less incumbent support in the respective country’s NUTS3 region (see Table \ref{tab:incumbent_vote_share} for details).
 
 \begin{table}[]
@@ -109,16 +110,9 @@ A caveat of this thesis will be the difficulty of disentangling the effect of em
 
 ## State of the Field
 
+<!-- Why does international emigration from CEE EU member states have a negative impact on the sending country’s incumbent vote share? -->
+
 <!--
-Why does emigration from CEE EU member states cause vote switching amongst the voters left behind?
-
-==Why does higher emigration lead to lower incumbent vote share?== but does it?
-
-alt. RQ
-- how does emigration influence incumbent vote?
-- why does emigration increase/decrease incumbent vote?
-	- Why does emigration have a varying impact on the incumbent’s vote share?
-
 Present and discuss the answers that the available literature offers to your RQ
 1. what we already know and what we do not yet know about your research question
 2. how your work will build on previous research
@@ -161,8 +155,9 @@ However, the authors do not show which service cuts cause grievances [@dancygier
 ## Project Description
 
 <!-- theory: what would we expect to happen based on theory? -->
-@keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts, especially cuts to public services, will give the incumbent party a poor performance record in the eyes of the voter. This will increase the likelihood that the electorate will vote against the incumbent party.
+@keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts affect citizens’ daily lives and cause grievances. 
 
+These cuts, especially cuts to public services, cause grievances amongst voters and will give the incumbent party a poor performance record. Grieving voters that are dissatisfied with the incumbent party will not support them in the next election [@bowlerStrategicProtestVoting, 489].
 
 - Electoral volatility is high in CEE (2019 Bochsler, p. 1-2)
 - This volatility is caused by several aspects: SOURCES
@@ -185,6 +180,13 @@ To underline the importance of these two watershed moments, @dancygierEmigration
 
 Schools and hospital closings are services made available by the state. In contrast, the third and final watershed moment I will examine is a service cut in the private sector, namely the decrease in the number of public spaces that act as "third places". These are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999 16], e.g., cafés, bars and restaurants. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021 1653].
 
+- are these service cuts linked to emigration?
+- these service cuts can also be due to austerity or neo-liberal tendencies
+- exploratory data analysis showing that service cuts are emigration induced!
+	- Deskriptive Analyse?
+	- Bivariater Zusammenhang zwischen Emigration und Rückgang von öffentlichen Diensten wie Schul- und Spitalschliessungen
+	- Z.B. Anzahl Ärzte, Anzahl Kinder
+
 This is the updated causal chain of events, based on the causal chain displayed in (\ref{eq:cm_dancygier}):
 
 \begin{equation}
@@ -195,6 +197,7 @@ Emigration \rightarrow Service \; Cuts \rightarrow Watershed \; Moment \rightarr
 <!-- operationalisation, model specification --> 
 Based on this causal chain, I set up the following empirical specification:
 …
+
 <!--
 \begin{equation}
 \begin{aligned}
@@ -208,7 +211,8 @@ Incumbent \; Vote \; Change_{i,j} = \beta_0 & + \beta_1Service \; Cuts_{i,j} \\
 <!-- https://latexeditor.lagrida.com/ --> 
 
 <!-- adjust t1 and t0 years here, $j$ doesn't work anymore. also includes vote switching  --> 
-$i$ indexes a NUTS3 region in the year $j$. The dependent variable is the share of vote switchers in the electorate who “moved across party lines” [@keyResponsibleElectorateRationality1966a 16], i.e., switched from one party to another, between two national elections. I will measure individual level vote switching using the European Election Study (EES, @ZA7581).^[If a respondent’s answer to question 9 is not the same party as the highest rated party in question 10, then they are labelled a vote switcher. From the European Parliament Election Study 2019 Irish Country Questionnaire [@ZA7581]:
+- $i$ indexes a NUTS3 region in the year $j$. The dependent variable is the change in vote share between two national elections.
+- I will measure individual level vote switching using the European Election Study (EES, @ZA7581).^[If a respondent’s answer to question 9 is not the same party as the highest rated party in question 10, then they are labelled a vote switcher. From the European Parliament Election Study 2019 Irish Country Questionnaire [@ZA7581]:
 Question 9: “Which party did you vote for at the Irish General Election of 2016?” 
 Question 10: “We have a number of parties in Ireland each of which would like to get your vote. How probable is it that you will ever vote for the following parties? Please answer on a scale where 0 means “not at all probable” and 10 means “very probable”.”]
 --> 
