@@ -159,10 +159,7 @@ However, the authors do not show which service cuts cause grievances [@dancygier
 
 These cuts, especially cuts to public services, cause grievances amongst voters and will give the incumbent party a poor performance record. Grieving voters that are dissatisfied with the incumbent party will not support them in the next election [@bowlerStrategicProtestVoting, 489].
 
-- Electoral volatility is high in CEE (2019 Bochsler, p. 1-2)
-- This volatility is caused by several aspects: SOURCES
-	- Voting behaviour is linked to a voter’s “socioeconomic position” (2019 Bochsler, p. 2) and the government’s output (2019 Bochsler, p. 2)
-- How does emigration influence volatility? How much of volatility can be explained through emigration?
+
 
 
 <!-- Make explicit the causal mechanism -->
@@ -221,6 +218,14 @@ Service Cuts, the main independent variable, are operationalised as ratios to th
 
 <!-- Control Variables --> 
 I will control for the following variables. First, external emigration from a region, which entails the crude number of citizens emigrating abroad from the region. Second, I take the inflow of remittances in a region, because remittances can realign a voter’s party preferences in favour of ideological preferences, thus changing their voting behaviour [@pfutzeDoesMigrationPromote2012a 161]. Third, I take a region’s economic factors, e.g., unemployment or GDP per capita, into account. I do this because I assume that a region’s overall economic climate will impact the perception of the described watershed moments. Inhabitants of a region that is worse off will develop stronger grievances if schools, hospitals and third places close down. This in turn will have a stronger effect on voting behaviour.
+
+- Electoral volatility is high in CEE (2019 Bochsler, p. 1-2; 2011 Epperly, p. 831)
+- This volatility is caused by several aspects: SOURCES
+	- Voting behaviour is linked to a voter’s “socioeconomic position” (2019 Bochsler, p. 2) and the government’s output (2019 Bochsler, p. 2)
+- How does emigration influence volatility? How much of volatility can be explained through emigration?
+- 2022 Bertus p. 77: in smaller (rural?) settlements electoral volatility is because of socioeconomic factors and labour market conditions → by just looking at rural regions, can I control for socioeconomic factors and unemployment and see then the effect of emigration on anti-incumbent vote?
+	- So this results in only looking at rural regions? Maybe, but there should be more rural than urban regions. Plus I assume that emigration from rural regions has a bigger impact on the causal chain of events than emigration from an urban region
+	- 2014 Powell p. 143: “the worse the economy is performing relative to where it was at the start of the transition, the more likely Type A volatility is to be high.”
 
 <!-- Hypotheses as a general answer to the puzzle --> 
 As a general relation between dependent and independent variables, I assume a higher ratio in service cuts, e.g., more children per school, leads to a higher share of anti-incumbent votes. I define the following three hypotheses:
