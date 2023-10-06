@@ -259,7 +259,8 @@ I will use quantitative methods to answer my research question. In order to gain
 
 Such a focus may involve mediation analysis. Due to the chain of causal events described in (\ref{eq:cm_updated}), service cuts act as a mediator between emigration and anti-incumbent voting. This analysis can help explain how the three service cuts influence anti-incumbent voting in different ways.
 
-A further deep dive will involve the Regression Discontinuity Design method in order to compare regions in EU and non-EU countries. This uses EU accession as the treatment and allows to measure the effect of introducing FoM.
+A further deep dive will involve applying the Regression Discontinuity Design method in order to compare regions in EU member states with regions in non-EU states, such as Albania, Bosnia and Herzegovina, Kosovo, Moldova, Montenegro, North Macedonia or Serbia. Using EU accession as the treament, this allows to measure the impact of FoM on emigration and the subsequent effects on anti-incumbent voting.
+<!-- Explicitly state for which non-EU MS you have data --> 
 
 <!-- Data -->
 NUTS3 level international emigration data are provided by the national statistics agencies of the respective countries.^[See sources of Figure \ref{fig:migr_accession_bar} in the Appendix] As a fallback, NUTS3 level migration data is also provided by Eurostat.^[Variable: CNMIGRATRT; Online data code: DEMO_R_GIND3; Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)] However, these data do not differentiate between internal and external migration.
@@ -268,12 +269,16 @@ NUTS3 level international emigration data are provided by the national statistic
 <!--
 Data on individual level vote switching are provided by EES [@ZA7581]. Of the around 7300 respondents from CEE countries, about 2700, or roughly a third, are assigned to a NUTS3 region. Data on individual level well-being (happiness, grievances) are provided by the European Social Survey (ESS, @EuropeanSocialSurvey2020) and the European Values Study (EVS, @ZA7505). Data on school closings in Croatia are available through the Croatian Bureau of Statistics.^[https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/ (retrieved 7 September 2023)]
 -->
+<!-- Feedback Christian 230918: 2700 in EES enough data points? -->
 
 <!-- Possible further developments -->
+<!--
 The thesis can be expanded in the following ways. First, going beyond anti-incumbent voting, which parties explicitly profit from emigration? NUTS3 level electoral results are provided by the EU-NED European NUTS-Level Election Dataset.^[https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5 (retrieved 5 September 2023)] Individual level data from Poland, provided by the Polish Panel Survey^[https://polpan.org/en/ (retrieved 5 September 2023)] can also help expand on the question of who these specific voters turn to.
 
 <!-- Maybe add to second point: 2022 Dancygier p. 8: "voters who are exposed to the consequences of emigration voice their discontent about specific policy failures in their localities for which they hold incumbents to account." this is very much on the local level! -->
 Second, regional elections can be taken into account. I am currently examining voting behaviour in national elections. However, it may also make sense to take regional elections into account, as these are closer to NUTS3 regions and thus more directly affected by emigration.
+-->
+
 
 ## Conclusion
 …
