@@ -219,13 +219,20 @@ Service Cuts, the main independent variable, are operationalised as ratios to th
 <!-- Control Variables --> 
 I will control for the following variables. First, external emigration from a region, which entails the crude number of citizens emigrating abroad from the region. Second, I take the inflow of remittances in a region, because remittances can realign a voter’s party preferences in favour of ideological preferences, thus changing their voting behaviour [@pfutzeDoesMigrationPromote2012a 161]. Third, I take a region’s economic factors, e.g., unemployment or GDP per capita, into account. I do this because I assume that a region’s overall economic climate will impact the perception of the described watershed moments. Inhabitants of a region that is worse off will develop stronger grievances if schools, hospitals and third places close down. This in turn will have a stronger effect on voting behaviour.
 
-- Electoral volatility is high in CEE (2019 Bochsler, p. 1-2; 2011 Epperly, p. 831)
+- CEE states show high levels of electoral volatility since gaining access to democratic elections. This volatility hits incumbent government parties (2019 Bochsler, p. 1).
+- Electoral volatility is higher compared to elections in Western Europe, Latin America and the United States (2011 Epperly, p. 831).
+- When modelling the effect of emigration on anti-incumbent voting, I have to take this general volatility into account
+- 2014 Powell finds that poor economic performance, i.e., GDP change since the fall of Communism, leads to a higher likelihood of the electorate switching to a new party (p. 139, 143). This is supported by 2022 Bertus, who finds that socioeconomic factors and labour market conditions explain electoral volatility in smaller Hungarian settlements (2022 Bertus p. 77)
+- This is why I will control for economic performance, with the aim of singleing out the effect of emigration on anti-incumbent voting
+
+CEE states show higher levels of electoral volatility that states in Western Europe, Latin America or the United States (Epperly, 2011, p. 831). This volatility most often hits incumbent parties in government (Bochsler, 2019, p. 1). To understand emigration's influence on anti-incumbent voting, I must account for this volatility. Powell (2014, p. 139, 143) shows that economic downturns, specifically shifts in GDP since the fall of Communism, lead to a higher likelihood of the electorate switching to a new party. This observation aligns with Bertus's 2022 study, highlighting that in smaller Hungarian settlements, socioeconomic dynamics and labor market conditions explain electoral shifts (p. 77). Therefore I will incorporate controls for economic performance to single out the impact of emigration on anti-incumbent voting.
+
 - This volatility is caused by several aspects: SOURCES
 	- Voting behaviour is linked to a voter’s “socioeconomic position” (2019 Bochsler, p. 2) and the government’s output (2019 Bochsler, p. 2)
 - How does emigration influence volatility? How much of volatility can be explained through emigration?
 - 2022 Bertus p. 77: in smaller (rural?) settlements electoral volatility is because of socioeconomic factors and labour market conditions → by just looking at rural regions, can I control for socioeconomic factors and unemployment and see then the effect of emigration on anti-incumbent vote?
 	- So this results in only looking at rural regions? Maybe, but there should be more rural than urban regions. Plus I assume that emigration from rural regions has a bigger impact on the causal chain of events than emigration from an urban region
-	- 2014 Powell p. 143: “the worse the economy is performing relative to where it was at the start of the transition, the more likely Type A volatility is to be high.”
+	- 2014 Powell p. 143: “the worse the economy is performing relative to where it was at the start of the transition (→ “GDP change since the collapse of communism”, p. 139), the more likely Type A volatility is to be high.”
 
 <!-- Hypotheses as a general answer to the puzzle --> 
 As a general relation between dependent and independent variables, I assume a higher ratio in service cuts, e.g., more children per school, leads to a higher share of anti-incumbent votes. I define the following three hypotheses:
