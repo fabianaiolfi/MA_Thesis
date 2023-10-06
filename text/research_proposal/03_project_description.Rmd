@@ -3,14 +3,14 @@
 <!-- theory: what would we expect to happen based on theory? -->
 @keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts affect citizens’ daily lives and cause grievances. 
 
-These cuts, especially cuts to public services, cause grievances amongst voters and will give the incumbent party a poor performance record. Grieving voters that are dissatisfied with the incumbent party will not support them in the next election [@bowlerStrategicProtestVoting, 489].
+Such cuts, especially cuts to public services, cause grievances amongst voters and will give the incumbent party a poor performance record. Grieving voters that are dissatisfied with the incumbent party will not support them in the next election [@bowlerStrategicProtestVoting, 489].
 
 <!-- Make explicit the causal mechanism -->
 Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances which then lead to PRR voting, this thesis asks the following question: Which emigration induced service cuts cause grievances?
 
 <!-- Insert somewhere here: 2022 Dancygier p. 2: Emigration can thus adversely affect public and private services, leading to school and business closures and straining the viability of public transport and healthcare systems. Additionally, those who remain may suffer psycho- logically, feeling that emigration devalues the status of their hometowns and communities. The accompanying decline in services and gathering places further saps community spirit. See also p. 7! -->
 
-I assume that population decline has a negative effect on the number of schools, the number of hospitals and the number of “third places”^[“Third places” are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999 16], e.g., cafés, bars and restaurants.] I argue that a decrease in the number of these institutions causes grievances amongst the remaining population.
+@dancygierEmigrationRadicalRight2022 [2] state that emigration-induced service cuts are linked to schools and business closures, and strains on the healthcare system. Based on this, I assume that emigration has a negative effect on the number of schools, the number of hospitals and the number of “third places”^[“Third places” are local "informal public gathering places" that foster community building [@oldenburgGreatGoodPlace1999 16], e.g., cafés, bars and restaurants.] Following @dancygierEmigrationRadicalRight2022’s theory, I assume that a decrease in the number of these institutions causes grievances amongst the remaining population for the following reasons.
 
 Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022 964]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
 
