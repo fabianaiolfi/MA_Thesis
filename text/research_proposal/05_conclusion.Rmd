@@ -1,0 +1,8 @@
+## Conclusion
+…
+<!--
+- alluding to the original research question, reminding the reader about the main theoretical claim (in normative works)/falsifiable hypothesis (in empirical ones)
+- speculating on the final product of the thesis: what kind of impact could your research have if it is successful?
+- -->
+
+<!-- In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes. -->

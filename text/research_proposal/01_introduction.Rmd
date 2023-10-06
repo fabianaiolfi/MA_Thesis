@@ -1,0 +1,81 @@
+## Introduction
+<!-- Central problem / puzzle that thesis will address -->
+
+Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] have shown high levels of emigration in the past 20 years (see Figure \ref{fig:net_migration_map}). Their accession to the EU has spurred on emigration, facilitated by the EU’s Freedom of Movement (FoM). How does emigration affect political behaviour in sending countries? More specifically, why does international emigration from CEE EU member states have a negative impact on the sending country’s incumbent vote share? This question is relevant for two reasons. First, emigration has a profound impact on sending countries and their citizens, contributing to population decline, lack of labour and grievances amongst individuals. Second, the effects of emigration on CEE EU member states is a blind spot in political science research.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{../documentation/01_average_net_migration_map.png}
+  \caption{\textbf{Average Net Migration 2000--2021 at NUTS3 Level.} Source: Eurostat's CNMIGRATRT variable.}
+  \label{fig:net_migration_map}
+\end{figure}
+
+The United Nations estimated a population decline of 18 million people in Eastern Europe between the early 1990s and 2015, with emigration being the main reason for the decline [@romeiEasternEuropeHas2016]. In one concrete example, Lithuania has lost a quarter of its population, with certain regions losing over 50% of residents [@ubarevicienePopulationDeclineLithuania2017a 58]. Intra-EU migration is driven by economic and labour market factors, as people emigrate to look for better job opportunities [@vasilopoulouOpportunityThreatPublic2019a 810].
+
+Does a country’s accession to the EU, and with it gaining access to the EU’s Freedom of Movement (FoM), have an effect on emigration rates? Figure \ref{fig:migr_accession_bar} displays a simple visualisation of a selection of countries that provided data on international emigration before and after the country’s accession. The vertical blue line represents when the country joined the EU. The time span covers, when data are available, ten years before and after accession.
+
+I perform a Chow-Test [@chowTestsEqualitySets1960] for each individual country to examine if EU accession creates a break in the rate of emigration over time. The results show that, apart from the Czech Republic, EU accession does create a break in the time series with conventional significance ($p < 0.05$). Because of these breaks in the emigration rates, I assume that there is a link between a country’s accession to the EU and a change in emigration rate. This is because a country’s membership in the EU makes emigration easier, due to the EU’s FoM. The FoM transition period, that all EU member states were allowed to implement in order to adjust for immigrants from new member states, is not taken into account here.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{../documentation/international_emigration_eu_accession.png}
+  \caption{\textbf{International Emigration and EU Accession (selected countries).} Blue line represents the country's year of EU accession. See appendix for sources.}
+  \label{fig:migr_accession_bar}
+\end{figure}
+
+Emigration has profound impacts on sending countries, e.g., population decline, lack of labour [@thautEUIntegrationEmigration2009a 220; @roosCompensatingEffectsEmigration2023a 187] or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression [@marchetti-mercerThoseEasilyForgotten2012a 388; @ivlevsEmigrationRemittancesSubjective2019 135].
+
+<!-- define grievances here somewhere, maybe based on dancygier -->
+Does emigration change the voting behaviour of the people left behind? Theory tells us that emigration creates grievances amongst the remaining voters [@dancygierEmigrationRadicalRight2022, 2]. Grieving, dissatisfied voters are prone to casting a ballot against the incumbent [@bowlerStrategicProtestVoting, 489]. Therefore, a correlation between a region’s emigration rate and change in incumbent vote share should exist. In other words, a region with a high level of emigration should show a drop in incumbent support. A brief analysis of select CEE EU member states shows that all national parliamentary elections in Poland and Romania display negative coefficients, which means that higher emigration rates correlate with less incumbent support in the respective country’s NUTS3 region (see Table \ref{tab:incumbent_vote_share} for details).
+
+\begin{table}[]
+\centering
+\begin{tabular}{lllll}
+\textbf{Country} & \textbf{Election} & \textbf{Coefficient Average Emigration} & \textbf{p} & \textbf{} \\
+Bulgaria & 2009 & -0.08496 & 0.478    &     \\
+Bulgaria & 2013 & 0.1691   & 0.367    &     \\
+Bulgaria & 2014 & 0.006887 & 0.95     &     \\
+Bulgaria & 2017 & 0.28995  & 0.0368   & *   \\
+Croatia  & 2015 & 4.239    & 0.5576   &     \\
+Croatia  & 2016 & 3.302    & 0.185    &     \\
+Croatia  & 2020 & 0.1624   & 0.931    &     \\
+Poland   & 2007 & -31.09   & 0.075597 & .   \\
+Poland   & 2011 & -2.1865  & 0.639592 &     \\
+Poland   & 2015 & -42.9    & 0.00417  &     \\
+Poland   & 2019 & -7.988   & 0.757    &     \\
+Romania  & 2008 & -142.141 & 0.0021   & **  \\
+Romania  & 2012 & -35.711  & 0.335    &     \\
+Romania  & 2016 & -134.553 & 0.00021  & ***
+\end{tabular}
+\caption{Dependent variable: Incumbent vote share change between winning election and following election (Source: EU-NED European NUTS-Level Election Dataset). Independent variable: Average migration rate (\% of population) between winning election and following election (Sources: Statistical offices of respective countries). Bulgarian emigration data also include internal migration. Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1}
+\label{tab:incumbent_vote_share}
+\end{table}
+<!-- https://www.tablesgenerator.com/ -->
+
+<!-- However, Croatia displays an opposite trend. Higher levels of emigration tend to correlate with higher incumbent support (but not always statistically significant) -->
+
+Therefore, this thesis asks the following research question: Why does international emigration from CEE EU member states have a negative impact on the sending country’s incumbent vote share?
+
+<!--
+There exists a correlation between emigration rates and vote switching. There is a negative significant ($p < 0.05$) correlation between average migration rate and vote switching: The higher the average emigration rate, the higher the number of vote switchers in the NUTS3 region (see Figure \ref{fig:migr_switching_plot} for details). The rate of change is substantial: A 10% increase in emigration is associated with an increase of switchers by roughly 3.6%. This is enough to sway an election. However, this correlation contains a caveat. The migration data do not differentiate between internal and external migration, thus the effect of EU accession cannot be shown here directly.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{../documentation/migr_and_switching.png}
+  \caption{\textbf{Migration and Vote Switching in selected NUTS3 Regions.} An increase of average migration by 1\% leads to a decrease of a region’s share of switchers by $-0.3641\%$ ($p = 0.0305$). A negative migration rate means the region has experienced more emigration than immigration. Adjusted R-squared: $0.1146$; $N = 33$ \protect \\ Sources: Schmitt et al. 2022 for vote switching; Eurostat’s CNMIGRATRT variable for average migration.}
+  \label{fig:migr_switching_plot}
+\end{figure}
+-->
+
+<!-- Describe causal mechanism -->
+@dancygierEmigrationRadicalRight2022 describe how emigration leads to voting for populist and radical right (PRR) parties: Regions hit by high emigration are prone to service cuts. These cuts cause grievances amongst the people left behind, who react by voting for PRR parties [@dancygierEmigrationRadicalRight2022, 2]. However, the authors do not show what exactly causes a change in voting behaviour and suggest that future research should look into what type of service cuts eventually lead to PRR voting [@dancygierEmigrationRadicalRight2022, 35].
+
+This thesis will examine three types of emigration induced service cuts that can cause grievances. These cuts are school closures, hospital closures and closures of “third places” [@oldenburgGreatGoodPlace1999 16], such as cafés and restaurants. I put forward the idea that these service cuts cause grievances that in turn lead to a vote against the incumbent.
+
+<!-- Why is it worth studying? -->
+There is a research gap when it comes to understanding the political repercussions of emigration on sending regions [@kyriaziPoliticsEmigrationEurope2023a 564]. This despite the fact that, globally seen, the people who do *not* emigrate outnumber the people who do [@marchetti-mercerThoseEasilyForgotten2012a 378]. In the specific case of the EU, the FoM should be studied not only from the view of a right to enter, but also as a right to exit [@bruzeliusTakingEmigrationSeriously2021a 35].
+
+FoM, a foundational aspect of the EU, affects voting behaviour in all member states, regardless if they are sending or receiving migrants. Understanding how FoM alters voting behaviour in emigration-hit regions will help understand the effects of future European integration, e.g., when further Balkan states or the Ukraine join the EU.^[Live: 2023 State of Union address by EU Commission President Ursula von der Leyen | DW News at 1:05:41 (https://www.youtube.com/live/3CodB7iohUI?si=xe06mS4q8qjeJYpi&t=3941, retrieved 6 October 2023)]
+
+<!-- caveats / limitations -->
+A caveat of this thesis will be the difficulty of disentangling the effect of emigration on individual voting behaviour. This problem is linked to a potential lack of individual level data, which may result in resorting to aggregated data, such as electoral results, which will lead to less accurate results.

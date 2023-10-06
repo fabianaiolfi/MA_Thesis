@@ -1,0 +1,15 @@
+## Appendix
+Sources of Figure \ref{fig:migr_accession_bar}
+
+* **Croatia**
+  * https://podaci.dzs.hr/2021/en/10485 (retrieved 3 September 2023)
+  * https://podaci.dzs.hr/2022/en/29029 (retrieved 3 September 2023)
+  * https://podaci.dzs.hr/2023/en/58062 (retrieved 3 September 2023)
+* **Czech Republic**
+  * https://vdb.czso.cz/vdbvo2/faces/en/index.jsf?page=vystup-objekt&pvo=DEM11D&z=T&f=TABULKA&katalog=all&c=v3~8__RP2002&&str=v66 (retrieved 3 September 2023)
+* **Poland**
+  * https://stat.gov.pl/download/gfx/portalinformacyjny/en/defaultaktualnosci/3289/2/2/1/main_directions_of_emigration_and_immigration_in_the_years_1966-2020_for__permanent_residence.xlsx (retrieved 3 September 2023)
+* **Romania**
+  * http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table → emigrants with a change of permanent address (definitive emigrants) → POP309A (retrieved 3 September 2023)
+* **Slovenia**
+  * https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05N1042S.px/table/tableViewLayout2/ → International migration by citizenship, statistical regions, Slovenia, annually → Citizens of RS (retrieved 3 September 2023)

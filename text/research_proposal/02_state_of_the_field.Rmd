@@ -1,0 +1,42 @@
+## State of the Field
+
+<!-- Why does international emigration from CEE EU member states have a negative impact on the sending country’s incumbent vote share? -->
+
+<!--
+Present and discuss the answers that the available literature offers to your RQ
+1. what we already know and what we do not yet know about your research question
+2. how your work will build on previous research
+-->
+
+The impact of emigration on voting behaviour and electoral outcomes varies by time and location. Studies have explored this phenomenon, ranging from 19th-century Sweden [@karadjaExitVoicePolitical2019 2] to early 21st-century Mexico [@pfutzeClientelismSocialLearning2014a 295].
+
+Emigration can affect electoral outcomes in two ways. First, emigration can change the composition of the electorate. @limElectoralConsequencesInternational2023 [39] shows that emigrants from CEE are disproportionately younger, cosmopolitan and politically progressive, resulting in a remaining population that is older and more conservative. As a result, electoral results are more likely to be conservative.
+
+Second, emigration can affect the voting behaviour of the people left behind. This effect can be indirect and also direct.
+
+The indirect effect occurs when emigration alters a voter’s overall wellbeing. Family members or neighbours of emigrants have a higher life satisfaction and budget easing through remittances, but suffer from more depression and stress [@ivlevsEmigrationRemittancesSubjective2019 135] and are more prone to anger and distress [@marchetti-mercerThoseEasilyForgotten2012a 388], caused by people close to them who have left.
+
+There are multiple direct effects of emigration on political behaviour. A wide range of literature explains how emigration causes a decrease in political interest. This can be caused by a decrease in political mobilisation and collective action [@sellarsEmigrationCollectiveAction2019a 1220], a decrease in civic engagement [@goodmanExitLeavingPolitical2008 172; @bravoEmigrationPoliticalEngagement2009], opposing voices leaving and thus resulting in a more supportive electorate [@petersEmigrationPoliticalContestation2022a 14] or through a loss of political actors [@limElectoralConsequencesInternational2023 44].
+
+Despite this decrease in political interest, some remainers still vote. If the number of people casting their ballot decreases, then it becomes all the more important to understand how the remaining voters are affected by emigration and how they thus cast their ballot.
+
+One concrete example why this is important is shown by @barsbaiEffectLaborMigration2017a [36], who reveal a negative effect between emigration and votes for the Communist Party in the Moldovan elections of 2009 and 2010. Elections during those years brought significant political change to the ex-soviet country [@barsbaiEffectLaborMigration2017a 41], because voters cast a ballot against the Communist Party, who had gained electoral power in previous elections. Voters turned against the Communist Party because returning emigrants brought western social norms and political preferences to Moldova [@barsbaiEffectLaborMigration2017a 66]. These preferences then diffused amongst the electorate.
+
+A further reason why the effects of emigration on voting behaviour is important is its implications on voting for populist and radical right parties [@dancygierEmigrationRadicalRight2022 34; @limElectoralConsequencesInternational2023 56; @heroldSchrumpfendeRegionenFrustrierte2020 19]. However, there are two reasons why this link between emigration and radical parties can be questioned.
+ 
+First, @vorlanderMIDEM2021Emigration2021 shows that far-right parties only profit from emigration in economically weak regions [36].
+<!-- preliminary exploration: how high is emigration in economically strong regions? if there is also emigration in those reasons, i can say that people emigrate even in economically strong regions --> 
+Second, there are three points to be made that non-extreme parties, e.g., a mainstream opposition party, may also benefit from emigration. One, a voter does not necessarily have to cast a ballot for an extreme party. Instead they can simply critique the incumbent government or status quo parties if emigration becomes politicised [@vorlanderMIDEM2021Emigration2021 91]. Two, voters receive remittances which realigns their party preferences closer to their personal ideological preferences [@pfutzeDoesMigrationPromote2012a 161]. This realignment does not necessarily have to lead to voting for an extreme party. Three, voters cannot cast a vote for an extreme party if there is no such party on the ballot. For these three reasons and due to the mixed empirical results, I will look into general anti-incumbent votes and not focus on voting for radical right parties.
+
+@dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of Populist Radical Parties (PRR). The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. These grievances then affect voting behaviour. Voters turn against incumbents and cast a ballot for PRR parties.
+
+I argue that these grievances are different to the ones described by @ivlevsEmigrationRemittancesSubjective2019 [135]. @ivlevsEmigrationRemittancesSubjective2019’s grievances are more personal and intimate, caused by family matters. @dancygierEmigrationRadicalRight2022’s grievances are less intimate and of more general and economic nature. Because they are less intimate, I argue that a person is more likely to voice them in public, e.g., by changing their voting behaviour. This claim is supported by @kapurPoliticalEffectsInternational2014a [488], who underlines the importance of understanding the reason behind a person’s emigration when examining the impact of emigration in the sending country. Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810], thus I assume the grievances of the people left behind to be closely linked to economic factors and less to family matters.
+
+The causal mechanism according to @dancygierEmigrationRadicalRight2022 can be summarised as follows:
+
+\begin{equation}
+Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote \; for \; PRR 
+\label{eq:cm_dancygier}
+\end{equation}
+
+However, the authors do not show which service cuts cause grievances [@dancygierEmigrationRadicalRight2022 35]. They leave this aspect open for future research. This thesis sets out to detect which emigration induced service cuts cause grievances and thus anti-incumbent votes.

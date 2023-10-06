@@ -1,0 +1,38 @@
+## Research Design
+<!-- The research design (how, where and when?) -->
+<!-- List research operations: Why are they best to tackle RQ? -->
+
+I differentiate between internal and external migration and focus on the latter, as I want to examine the effect of FoM on emigration and voting behaviour.
+
+I will measure the effect of service cuts on a subnational, NUTS3 level, data permitting. I do this for the following two reasons. First, measuring subnational regions instead of countries will increase sample size and thus provide more accurate results. Second, regions within countries have different levels of emigration (see Figure \ref{fig:net_migration_map}), allowing us to make differentiated measurements.
+
+<!-- justify case selection of geographical and temporal span: what's their logic and are there disadvantages? -->
+
+I will examine CEE EU member states because emigration in this region has not been studied in detail and because I see an opportunity to measure the political impact of FoM on the region. In order to measure an effect of a country joining the EU, I will focus on a time span around the country’s accession, e.g., ten years before and after joining, if data is available for the time span. The time span will only go up to and include the year 2019, because I assume the COVID-19 pandemic to have a strong influence on emigration in 2020 and beyond.
+
+A potential disadvantage of the case selection could be cultural differences between CEE EU member state NUTS3 regions, leading to inaccurate results. I have chosen a very broad definition of CEE countries, possibly making a comparison between regions difficult. It may make sense to narrow down the selection, e.g., by excluding the three Baltic states. A further disadvantage is missing data in emigration time series and a lack of individual level data at NUTS3 level.
+
+<!-- Methodology -->
+I will use quantitative methods to answer my research question. In order to gain a general overview, I will perform a subgroup analysis, e.g., by analysing NUTS3 regions within a country. I will then build simple regression models that uncover potential correlations between emigration and anti-incumbent voting. Data quality permitting, I can then focus on regions that show promising results.
+
+Such a focus may involve mediation analysis. Due to the chain of causal events described in (\ref{eq:cm_updated}), service cuts act as a mediator between emigration and anti-incumbent voting. This analysis can help explain how the three service cuts influence anti-incumbent voting in different ways.
+
+A further deep dive will involve applying the Regression Discontinuity Design method in order to compare regions in EU member states with regions in non-EU states, such as Albania, Bosnia and Herzegovina, Kosovo, Moldova, Montenegro, North Macedonia or Serbia. Using EU accession as the treament, this allows to measure the impact of FoM on emigration and the subsequent effects on anti-incumbent voting.
+<!-- Explicitly state for which non-EU MS you have data --> 
+
+<!-- Data -->
+NUTS3 level international emigration data are provided by the national statistics agencies of the respective countries.^[See sources of Figure \ref{fig:migr_accession_bar} in the Appendix] As a fallback, NUTS3 level migration data is also provided by Eurostat.^[Variable: CNMIGRATRT; Online data code: DEMO_R_GIND3; Link: https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7113680/default/table?lang=en (retrieved 4 September 2023)] However, these data do not differentiate between internal and external migration.
+
+<!-- Maybe replace this section with NED dataset? -->
+<!--
+Data on individual level vote switching are provided by EES [@ZA7581]. Of the around 7300 respondents from CEE countries, about 2700, or roughly a third, are assigned to a NUTS3 region. Data on individual level well-being (happiness, grievances) are provided by the European Social Survey (ESS, @EuropeanSocialSurvey2020) and the European Values Study (EVS, @ZA7505). Data on school closings in Croatia are available through the Croatian Bureau of Statistics.^[https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools/ (retrieved 7 September 2023)]
+-->
+<!-- Feedback Christian 230918: 2700 in EES enough data points? -->
+
+<!-- Possible further developments -->
+<!--
+The thesis can be expanded in the following ways. First, going beyond anti-incumbent voting, which parties explicitly profit from emigration? NUTS3 level electoral results are provided by the EU-NED European NUTS-Level Election Dataset.^[https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IQRYP5 (retrieved 5 September 2023)] Individual level data from Poland, provided by the Polish Panel Survey^[https://polpan.org/en/ (retrieved 5 September 2023)] can also help expand on the question of who these specific voters turn to.
+
+<!-- Maybe add to second point: 2022 Dancygier p. 8: "voters who are exposed to the consequences of emigration voice their discontent about specific policy failures in their localities for which they hold incumbents to account." this is very much on the local level! -->
+Second, regional elections can be taken into account. I am currently examining voting behaviour in national elections. However, it may also make sense to take regional elections into account, as these are closer to NUTS3 regions and thus more directly affected by emigration.
+-->
