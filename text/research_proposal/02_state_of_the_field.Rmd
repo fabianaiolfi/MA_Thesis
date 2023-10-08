@@ -1,6 +1,6 @@
 ## State of the Field
 
-<!-- Why does international emigration from CEE EU member states have a negative impact on the sending country’s incumbent vote share? -->
+<!-- Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share? -->
 
 <!--
 Present and discuss the answers that the available literature offers to your RQ
@@ -28,7 +28,7 @@ First, @vorlanderMIDEM2021Emigration2021 shows that far-right parties only profi
 <!-- preliminary exploration: how high is emigration in economically strong regions? if there is also emigration in those reasons, i can say that people emigrate even in economically strong regions --> 
 Second, there are three points to be made that non-extreme parties, e.g., a mainstream opposition party, may also benefit from emigration. One, a voter does not necessarily have to cast a ballot for an extreme party. Instead they can simply critique the incumbent government or status quo parties if emigration becomes politicised [@vorlanderMIDEM2021Emigration2021 91]. Two, voters receive remittances which realigns their party preferences closer to their personal ideological preferences [@pfutzeDoesMigrationPromote2012a 161]. This realignment does not necessarily have to lead to voting for an extreme party. Three, voters cannot cast a vote for an extreme party if there is no such party on the ballot. For these three reasons and due to the mixed empirical results, I will examine anti-incumbent voting in general and not focus on voting for radical right parties.
 
-@dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of Populist Radical Parties (PRR). The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. These grievances then affect voting behaviour. Voters turn against incumbents and cast a ballot for PRR parties.
+@dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of PRR parties. The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. These grievances then affect voting behaviour. Voters turn against incumbents and cast a ballot for PRR parties.
 
 The causal mechanism according to @dancygierEmigrationRadicalRight2022 can be summarised as follows:
 
@@ -39,4 +39,4 @@ Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Vote \
 
 I argue that @dancygierEmigrationRadicalRight2022’s grievances are different to the ones described by @ivlevsEmigrationRemittancesSubjective2019 [135]. @ivlevsEmigrationRemittancesSubjective2019’s grievances are more personal and intimate, caused by family matters. @dancygierEmigrationRadicalRight2022’s grievances are less intimate and of more general and economic nature. Because they are less intimate, I argue that a person is more likely to voice them in public, e.g., by changing their voting behaviour. This claim is supported by @kapurPoliticalEffectsInternational2014a [488], who underlines the importance of understanding the reason behind a person’s emigration when examining the impact of emigration in the sending country. Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810], thus I assume the grievances of the people left behind to be closely linked to economic factors and less to family matters.
 
-However, it remains unclear which service cuts cause grievances [@dancygierEmigrationRadicalRight2022 35]. The authors leave this aspect open for future research. This thesis sets out to detect which emigration induced service cuts cause grievances and thus anti-incumbent votes.
+However, it remains unclear which service cuts cause voting behaviour-alterin grievances [@dancygierEmigrationRadicalRight2022 35]. The authors leave this aspect open for future research. This thesis sets out to detect which emigration induced service cuts cause grievances and thus anti-incumbent votes.
