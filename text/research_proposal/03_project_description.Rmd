@@ -31,6 +31,8 @@ Figure \ref{fig:young_vs_old_population} shows a general decline in the younger 
 
 I then model the effect of emigration on service cuts at the NUTS3 level. Using linear regression models and panel data, I measure the association between net migration and number of primary schools in Croatia, the number of hospital beds in Romania and the number of “third places” in the Czech Republic. All three models are significant at conventional levels and show a positive coefficient for lagged net migration. This means that negative net migration, i.e., emigration, is associated with a decrease in the number of schools, hospital beds and “third places”. This decrease is lagged by several years, because I assume that emigration does not have an immediate effect. See Appendix 2 for details.
 
+Further following @dancygierEmigrationRadicalRight2022’s causal chain, emigration should (indirectly) cause grievances. I use the European Social Survey [@EuropeanSocialSurvey2020] to measure happiness levels in NUTS3 regions and correlate them with net migration rates. Results point towards a positive correlation between the two. A decrease in net migration, i.e., an increase in emigration, is associated with a decrease in a region’s happiness. Three of the four models show significant results at conventinal levels. See Appendix 3 for details.
+
 This is the updated causal chain of events, based on the causal chain displayed in (\ref{eq:cm_dancygier}):
 
 \begin{equation}

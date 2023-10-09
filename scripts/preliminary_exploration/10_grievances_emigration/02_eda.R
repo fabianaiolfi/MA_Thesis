@@ -36,7 +36,17 @@ plot(ess_eda_2017$avg_migration, ess_eda_2017$weighted_avg)
 plot(ess_eda_2019$avg_migration, ess_eda_2019$weighted_avg)
 plot(ess_eda_2021$avg_migration, ess_eda_2021$weighted_avg)
 
-summary(lm(weighted_avg ~ avg_migration, data = ess_eda_2013))
-summary(lm(weighted_avg ~ avg_migration, data = ess_eda_2017))
-summary(lm(weighted_avg ~ avg_migration, data = ess_eda_2019))
-summary(lm(weighted_avg ~ avg_migration, data = ess_eda_2021))
+
+## Models -------------------------------------------------------------------
+
+lm_2013 <- lm(weighted_avg ~ avg_migration, data = ess_eda_2013)
+stargazer(lm_2013)
+
+lm_2017 <- lm(weighted_avg ~ avg_migration, data = ess_eda_2017)
+stargazer(lm_2017)
+
+lm_2019 <- lm(weighted_avg ~ avg_migration, data = ess_eda_2019)
+stargazer(lm_2019)
+
+lm_2021 <- lm(weighted_avg ~ avg_migration, data = ess_eda_2021)
+stargazer(lm_2021)

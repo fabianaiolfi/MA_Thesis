@@ -110,3 +110,123 @@ F Statistic & 6.908$^{**}$ (df = 1; 55) \\
 * Number of “third places”: Eurostat's SBS_R_NUTS06_R2 variable, filtered for “Food and beverage service activities”^[https://ec.europa.eu/eurostat/databrowser/view/SBS_R_NUTS06_R2__custom_7738572/default/table?lang=en (retrieved 9 October 2023)]
 
 **Note**: Lag is set to two years.
+
+\pagebreak
+
+## Appendix 3: Grievances and Emigration Regression Results
+
+### Sources for all models
+* Net migration: Eurostat's CNMIGRATRT variable^[https://ec.europa.eu/eurostat/databrowser/view/DEMO_GIND/default/table?lang=en (retrieved 9 October 2023)]
+* Variable “happy” from European Social Survey Rounds 1--10 [@EuropeanSocialSurvey2020]
+
+\begin{table}[!htbp] \centering 
+  \caption{ESS 6 (2013)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & weighted\_avg \\ 
+\hline \\[-1.8ex] 
+ Net Migration 2012 & 0.111$^{***}$ \\ 
+  & (0.035) \\ 
+  & \\ 
+ Constant & 6.334$^{***}$ \\ 
+  & (0.114) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 83 \\ 
+R$^{2}$ & 0.113 \\ 
+Adjusted R$^{2}$ & 0.102 \\ 
+Residual Std. Error & 0.984 (df = 81) \\ 
+F Statistic & 10.291$^{***}$ (df = 1; 81) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+\begin{table}[!htbp] \centering 
+  \caption{ESS 8 (2017)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & weighted\_avg \\ 
+\hline \\[-1.8ex] 
+ Net Migration 2016 & 0.058$^{***}$ \\ 
+  & (0.021) \\ 
+  & \\ 
+ Constant & 7.031$^{***}$ \\ 
+  & (0.077) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 47 \\ 
+R$^{2}$ & 0.140 \\ 
+Adjusted R$^{2}$ & 0.121 \\ 
+Residual Std. Error & 0.517 (df = 45) \\ 
+F Statistic & 7.324$^{***}$ (df = 1; 45) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+\begin{table}[!htbp] \centering 
+  \caption{ESS 9 (2019)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & weighted\_avg \\ 
+\hline \\[-1.8ex] 
+ Net Migration 2018 & 0.018 \\ 
+  & (0.013) \\ 
+  & \\ 
+ Constant & 6.785$^{***}$ \\ 
+  & (0.081) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 112 \\ 
+R$^{2}$ & 0.017 \\ 
+Adjusted R$^{2}$ & 0.008 \\ 
+Residual Std. Error & 0.850 (df = 110) \\ 
+F Statistic & 1.947 (df = 1; 110) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+\begin{table}[!htbp] \centering 
+  \caption{ESS 10 (2021)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & weighted\_avg \\ 
+\hline \\[-1.8ex] 
+ Net Migration 2019 & 0.019$^{**}$ \\ 
+  & (0.010) \\ 
+  & \\ 
+ Constant & 6.926$^{***}$ \\ 
+  & (0.058) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 137 \\ 
+R$^{2}$ & 0.028 \\ 
+Adjusted R$^{2}$ & 0.021 \\ 
+Residual Std. Error & 0.680 (df = 135) \\ 
+F Statistic & 3.951$^{**}$ (df = 1; 135) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
