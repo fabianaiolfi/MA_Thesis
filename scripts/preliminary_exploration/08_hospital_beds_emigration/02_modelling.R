@@ -20,6 +20,7 @@ plm_model <- plm(nr_of_beds ~ net_migration_lag,
                  data = ro_hospital_beds_emigration_pdata,
                  model = "within")
 summary(plm_model)
+stargazer(plm_model)
 
 
 # Plots -------------------------------------------------------------------

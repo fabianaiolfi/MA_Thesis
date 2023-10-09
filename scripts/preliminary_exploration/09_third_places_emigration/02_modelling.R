@@ -36,7 +36,8 @@ plot(as.numeric(df_plot$net_migration_lag), as.numeric(df_plot$OBS_VALUE))
 # Remove outliers
 cz_merge <- cz_merge %>% 
   dplyr::filter(NUTS2 != "CZZZ") %>%
-  dplyr::filter(year < 2020)
+  #dplyr::filter(year < 2020)
+  dplyr::filter(year > 2009 & year < 2020)
 
 # Ordinary Least Squares: Naive Approach
 ols <- lm(OBS_VALUE ~ net_migration, cz_merge)
@@ -44,12 +45,13 @@ summary(ols)
 
 # Lagged Panel Data
 cz_third_places_emigration_pdata <- pdata.frame(cz_merge, index = c("NUTS2", "year"))
-cz_third_places_emigration_pdata$net_migration_lag <- lag(cz_third_places_emigration_pdata$net_migration, 4)
+cz_third_places_emigration_pdata$net_migration_lag <- lag(cz_third_places_emigration_pdata$net_migration, 2)
 
 plm_model <- plm(OBS_VALUE ~ net_migration_lag,
                  data = cz_third_places_emigration_pdata,
                  model = "within")
 summary(plm_model)
+stargazer(plm_model)
 
 
 ### Plots -------------------------------------------------------------------
@@ -67,5 +69,5 @@ ggplot(df_plot, aes(net_migration_lag, OBS_VALUE)) +
               formula = y ~ x, 
               geom = "smooth") +
   ylab("Number of Food and Beverage Service Locations in NUTS3 Region") +
-  xlab("Net Migration in NUTS3 Region (Lag: 4 years)") +
+  xlab("Net Migration in NUTS3 Region (Lag: 2 years)") +
   theme_minimal()

@@ -13,6 +13,7 @@ plm_model <- plm(schools ~ net_migration_lag,
                  data = hr_schools_emigration_pdata,
                  model = "within")
 summary(plm_model)
+stargazer(plm_model)
 
 
 # Plots -------------------------------------------------------------------
