@@ -1,6 +1,4 @@
 
-
-
 # Data Import and Preprocessing -------------------------------------------------------------
 
 # Crude rate of net migration plus statistical adjustment [CNMIGRATRT]
