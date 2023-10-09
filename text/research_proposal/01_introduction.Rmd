@@ -20,7 +20,7 @@ I perform a Chow-Test [@chowTestsEqualitySets1960] for each individual country t
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{../documentation/international_emigration_eu_accession.png}
-  \caption{\textbf{International Emigration and EU Accession (selected countries).} Blue line represents the country's year of EU accession. See appendix for sources.}
+  \caption{\textbf{International Emigration and EU Accession (selected countries).} Blue line represents the country's year of EU accession. See Appendix 1 for sources.}
   \label{fig:migr_accession_bar}
 \end{figure}
 

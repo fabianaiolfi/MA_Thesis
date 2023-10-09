@@ -1,5 +1,4 @@
-## Appendix
-Sources of Figure \ref{fig:migr_accession_bar}
+## Appendix 1: Sources of Figure \ref{fig:migr_accession_bar}
 
 * **Croatia**
   * https://podaci.dzs.hr/2021/en/10485 (retrieved 3 September 2023)
@@ -13,3 +12,101 @@ Sources of Figure \ref{fig:migr_accession_bar}
   * http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table → emigrants with a change of permanent address (definitive emigrants) → POP309A (retrieved 3 September 2023)
 * **Slovenia**
   * https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05N1042S.px/table/tableViewLayout2/ → International migration by citizenship, statistical regions, Slovenia, annually → Citizens of RS (retrieved 3 September 2023)
+
+\pagebreak
+
+## Appendix 2: Service Cuts and Emigration Panel Data Regression Results
+
+\begin{table}[!htbp] \centering 
+  \caption{Net Migration and Number of Primary Schools at NUTS3 Level in Croatia (2005--2019)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Primary Schools \\ 
+\hline \\[-1.8ex] 
+ Net Migration (Lagged) & 0.105$^{**}$ \\ 
+  & (0.051) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 147 \\ 
+R$^{2}$ & 0.033 \\ 
+Adjusted R$^{2}$ & $-$0.129 \\ 
+F Statistic & 4.293$^{**}$ (df = 1; 125) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+### Sources
+* Net migration: Eurostat's CNMIGRATRT variable^[https://ec.europa.eu/eurostat/databrowser/view/DEMO_GIND/default/table?lang=en (retrieved 9 October 2023)]
+* Number of primary schools: Croatian Bureau of Statistics^[https://podaci.dzs.hr/en/statistics/education/basic-and-upper-secondary-schools (retrieved 9 October 2023)]
+
+**Note**: Lag is set to eight years, as this is the duration of primary school in Croatia.^[https://web.archive.org/web/20100625203546/http://www.ecml.at/documents/members/CroatiaNR.pdf (retrieved 9 October 2023)]
+
+\pagebreak
+
+\begin{table}[!htbp] \centering 
+  \caption{Net Migration and Number of Hospital Beds at NUTS3 Level in Romania (2011--2019)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Number of Hospital Beds \\ 
+\hline \\[-1.8ex] 
+ Net Migration (Lagged) & 1.804$^{**}$ \\ 
+  & (0.780) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 328 \\ 
+R$^{2}$ & 0.018 \\ 
+Adjusted R$^{2}$ & $-$0.122 \\ 
+F Statistic & 5.344$^{**}$ (df = 1; 286) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+### Sources
+* Net migration: Eurostat's CNMIGRATRT variable^[https://ec.europa.eu/eurostat/databrowser/view/DEMO_GIND/default/table?lang=en (retrieved 9 October 2023)]
+* Number of hospital beds: National Institute for Statistics - ROMANIA^[http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table Infrastructure of Health → SAN102C (retrieved 9 October 2023)]
+
+**Note**: Lag is set to one year.
+
+\pagebreak
+
+\begin{table}[!htbp] \centering 
+  \caption{Net Migration and Number of “Third Places” at NUTS2 Level in the Czech Republic (2010--2019)}
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Number of Third Places \\ 
+\hline \\[-1.8ex] 
+ Net Migration (Lagged) & 58.783$^{**}$ \\ 
+  & (22.366) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 64 \\ 
+R$^{2}$ & 0.112 \\ 
+Adjusted R$^{2}$ & $-$0.018 \\ 
+F Statistic & 6.908$^{**}$ (df = 1; 55) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+### Sources
+* Net migration: Eurostat's CNMIGRATRT variable^[https://ec.europa.eu/eurostat/databrowser/view/DEMO_GIND/default/table?lang=en (retrieved 9 October 2023)]
+* Number of “third places”: Eurostat's SBS_R_NUTS06_R2 variable, filtered for “Food and beverage service activities”^[https://ec.europa.eu/eurostat/databrowser/view/SBS_R_NUTS06_R2__custom_7738572/default/table?lang=en (retrieved 9 October 2023)]
+
+**Note**: Lag is set to two years.
