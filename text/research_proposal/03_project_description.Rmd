@@ -18,28 +18,18 @@ To underline the importance of school and hospital closings, @dancygierEmigratio
 
 Schools and hospital closings are services made available by the state. In contrast, “third places” are supplied by the private sector. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021 1653].
 
-Does emigration cause these service cuts? In order to show that these cuts are not only due to austerity measures or a state’s neo-liberal tendencies, I perform a exploratory data analysis showing that emigration and the three mentioned service cuts correlate.
+Does emigration cause these service cuts? I perform a brief analysis on exemplary CEE EU member states to uncover a potential correlation between these service cuts and emigration.
 
 First, Figure \ref{fig:young_vs_old_population} shows a general decrease of the young population and a general increase of the older population in CEE EU member states since 1990.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{../documentation/young_vs_old_population.png}
-  \caption{\textbf{Population size by age at country level, 1990--2019.} Source: Eurostat's DEMO_R_PJANAGGR3 variable.}
+  \caption{\textbf{Population size by age at country level, 1990--2019.} Source: Eurostat’s DEMO\_R\_PJANAGGR3 variable.}
   \label{fig:young_vs_old_population}
 \end{figure}
 
-- correlation between schools in croatia and lagged emigration
-- correlation between hospital beds in romania and lagged emigration
-
-<!-- preliminary exploration
-- correlation between emigration and these service cuts
-	- number of school children (under 16)
-	- number of seniors (60+)
-	- Deskriptive Analyse?
-	- Bivariater Zusammenhang zwischen Emigration und Rückgang von öffentlichen Diensten wie Schul- und Spitalschliessungen
-	- Z.B. Anzahl Ärzte, Anzahl Kinder
---> 
+Second, I model the effect of emigration on service cuts at the subnational (NUTS3) level. Using linear regression models and panel data, I measure the association between net migration and number of primary schools in Croatia, the number of hospital beds in Romania and the number of third places in the Czech Republic. All three models show a positive coefficient for lagged net migration. This means that a decrease in net migration, i.e., emigration, is associated with a decrease in the number of schools, hospital beds and third places. This decrease is lagged by several years, because I assume that emigration does not have an immediate effect. The Croatian and Romanian models are significant at conventional levels, however the Czech model is not. See Appendix for details.
 
 This is the updated causal chain of events, based on the causal chain displayed in (\ref{eq:cm_dancygier}):
 
