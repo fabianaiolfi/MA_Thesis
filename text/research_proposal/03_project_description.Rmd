@@ -12,7 +12,7 @@ Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts l
 
 Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022 964]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
 
-Hospitals are important for populaiton who do not emigrate. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population. Hospitals closures in CEE are spurred on by the emigration of medical professionals [@vorlanderMIDEM2021Emigration2021 13; @walkerRomanianHospitalsCrisis2019]. 
+Hospitals are important for the population who do not emigrate. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population. Hospitals closures in CEE are spurred on by the emigration of medical professionals [@vorlanderMIDEM2021Emigration2021 13; @walkerRomanianHospitalsCrisis2019]. 
 
 To underline the importance of school and hospital closings, @dancygierEmigrationRadicalRight2022 [32] show how newspapers report on such closings in Swedish emigration-heavy regions. This indicates that there may exist a link between these closures and grievances.
 
@@ -28,6 +28,9 @@ First, Figure \ref{fig:young_vs_old_population} shows a general decrease of the 
   \caption{\textbf{Population size by age at country level, 1990--2019.} Source: Eurostat's DEMO_R_PJANAGGR3 variable.}
   \label{fig:young_vs_old_population}
 \end{figure}
+
+- correlation between schools in croatia and lagged emigration
+- correlation between hospital beds in romania and lagged emigration
 
 <!-- preliminary exploration
 - correlation between emigration and these service cuts
