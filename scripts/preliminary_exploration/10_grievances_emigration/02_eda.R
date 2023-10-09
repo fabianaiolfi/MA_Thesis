@@ -14,19 +14,20 @@ ess_eda <- ess_subset %>%
 
 ess_eda_2013 <- ess_eda %>% 
   dplyr::filter(year == 2013) %>% 
-  left_join(net_migr_nuts3_2008_2012, by = c("region" = "nuts"))
+  left_join(net_migr_nuts3_2012, by = c("region" = "nuts"))
 
 ess_eda_2017 <- ess_eda %>% 
   dplyr::filter(year == 2017) %>% 
-  left_join(net_migr_nuts3_2012_2016, by = c("region" = "nuts"))
+  left_join(net_migr_nuts3_2016, by = c("region" = "nuts"))
 
 ess_eda_2019 <- ess_eda %>% 
   dplyr::filter(year == 2019) %>% 
-  left_join(net_migr_nuts3_2014_2018, by = c("region" = "nuts"))
+  left_join(net_migr_nuts3_2018, by = c("region" = "nuts"))
 
 ess_eda_2021 <- ess_eda %>% 
   dplyr::filter(year == 2021) %>% 
-  left_join(net_migr_nuts3_2016_2020, by = c("region" = "nuts"))
+  left_join(net_migr_nuts3_2019, by = c("region" = "nuts")) %>% 
+  dplyr::filter(avg_migration < 30) # Remove outlier
 
 ## Plots -------------------------------------------------------------------
 
@@ -39,8 +40,3 @@ summary(lm(weighted_avg ~ avg_migration, data = ess_eda_2013))
 summary(lm(weighted_avg ~ avg_migration, data = ess_eda_2017))
 summary(lm(weighted_avg ~ avg_migration, data = ess_eda_2019))
 summary(lm(weighted_avg ~ avg_migration, data = ess_eda_2021))
-
-sum(is.na(ess_eda_2021$avg_migration))
-
-# to do
-# - missing nuts values
