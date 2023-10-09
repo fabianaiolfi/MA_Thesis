@@ -40,3 +40,7 @@
 
 ## Preliminary Explorations
 - 05_incumbent_vote_share: Is there a correlation between NUTS3 international emigration and vote share of the incumbent party?
+- 06_age_demographics: Create plot showing below 15y/o and over 65y/o population number in CEE
+- 07_schools_emigration: Model correlation between number of schools and net migration
+- 08_hospital_beds_emigration: Model correlation between number of hospital beds and net migration
+- 09_third_places_emigration: Model correlation between number of third places and net migration
