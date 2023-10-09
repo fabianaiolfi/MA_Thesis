@@ -30,3 +30,13 @@ plot(ro_merge$net_migration, ro_merge$nr_of_beds)
 # Lagged Panel Data
 df_plot <- as.data.frame(ro_hospital_beds_emigration_pdata)
 plot(as.numeric(df_plot$net_migration_lag), as.numeric(df_plot$nr_of_beds))
+
+ggplot(df_plot, aes(net_migration_lag, nr_of_beds)) +            
+  geom_point() +
+  stat_smooth(method = "lm", 
+              formula = y ~ x, 
+              geom = "smooth") +
+  ylab("Number of Hospital Beds in NUTS3 Region") +
+  xlab("Net Migration in NUTS3 Region (Lag: 1 year)") +
+  theme_minimal()
+
