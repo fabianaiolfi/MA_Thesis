@@ -1,8 +1,7 @@
 ## Conclusion
-…
-<!--
-- alluding to the original research question, reminding the reader about the main theoretical claim (in normative works)/falsifiable hypothesis (in empirical ones)
-- speculating on the final product of the thesis: what kind of impact could your research have if it is successful?
-- -->
 
-<!-- In sum, I aim to isolate specific causal mechanisms to better understand how emigration-induced service reductions influence the success of political parties. By doing this, I will provide further insights into the dynamics between emigration spurred on by the EU's freedom of movement, community disintegration and political outcomes. -->
+This thesis sets out to explore the effect of emigration on voting behaviour in CEE EU member states. @dancygierEmigrationRadicalRight2022 show how emigration-induced service cuts lead to grievances in regions with high levels of emigration in Sweden. These grievances then turn into a vote for a PRR party. Based on these findings, this thesis will attempt to uncover which emigration-induced service cuts lead to an anti-incumbent vote in CEE EU member states.
+
+Three types of service cuts are examined: School closings, hospital closings and closings of “third places”, such as bars, cafés and restaurants. Based on panel data provided by the national statistical offices of CEE EU member states and Eurostat, I build regression models to approximate the effect of these service cuts on anti-incumbent voting.
+
+If successful, this thesis will provide further insights into the dynamics between emigration spurred on by the EU's FoM, community disintegration and political outcomes. It can also contribute to understanding how future EU enlargements will affect the voting behaviour of citizens in new member states.
