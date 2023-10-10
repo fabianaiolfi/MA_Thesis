@@ -47,7 +47,7 @@ F Statistic & 4.293$^{**}$ (df = 1; 125) \\
 
 **Note**: Lag is set to eight years, as this is the duration of primary school in Croatia.^[https://web.archive.org/web/20100625203546/http://www.ecml.at/documents/members/CroatiaNR.pdf (retrieved 9 October 2023)]
 
-\pagebreak
+---
 
 \begin{table}[!htbp] \centering 
   \caption{Net Migration and Number of Hospital Beds at NUTS3 Level in Romania (2011--2019)} 
@@ -79,7 +79,7 @@ F Statistic & 5.344$^{**}$ (df = 1; 286) \\
 
 **Note**: Lag is set to one year.
 
-\pagebreak
+---
 
 \begin{table}[!htbp] \centering 
   \caption{Net Migration and Number of “Third Places” at NUTS2 Level in the Czech Republic (2010--2019)}
@@ -147,6 +147,8 @@ F Statistic & 10.291$^{***}$ (df = 1; 81) \\
 \end{tabular} 
 \end{table} 
 
+---
+
 \begin{table}[!htbp] \centering 
   \caption{ESS 8 (2017)} 
   \label{} 
@@ -175,6 +177,8 @@ F Statistic & 7.324$^{***}$ (df = 1; 45) \\
 \end{tabular} 
 \end{table} 
 
+---
+
 \begin{table}[!htbp] \centering 
   \caption{ESS 9 (2019)} 
   \label{} 
@@ -202,6 +206,8 @@ F Statistic & 1.947 (df = 1; 110) \\
 \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
 \end{tabular} 
 \end{table}
+
+---
 
 \begin{table}[!htbp] \centering 
   \caption{ESS 10 (2021)} 

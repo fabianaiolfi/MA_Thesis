@@ -1,7 +1,7 @@
 ## Project Description
 
 <!-- theory: what would we expect to happen based on theory? -->
-@keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts affect citizens’ daily lives and cause grievances. Such grievances will give the incumbent party a poor performance record. Grieving voters that are dissatisfied with the incumbent party will not support them in the next election [@bowlerStrategicProtestVoting, 489].
+@keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts affect citizens’ daily lives and cause grievances. Such grievances will give the incumbent party a poor performance record. Grieving voters that are dissatisfied with the incumbent party will not support them in the next election [@bowlerStrategicProtestVoting1992, 489].
 
 <!-- Make explicit the causal mechanism -->
 Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances which then lead to PRR voting, this thesis asks the following question: Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share?
