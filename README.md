@@ -3,33 +3,6 @@
 ## Research Proposal
 
 **To Do**
-- [ ] Abstract
-- [ ] Conclusion
-- [x] Deal with multiple sources in one parathenses; multiple sources in parentheses still include `p. `
-- [ ] Figures
-	- [x] Title in caption
-	- [x] Place all figures at top of page
-	- [x] Map
-		- [x] Add caption
-		- [x] Smaller?
-	- [ ] International Emigration and EU Accession
-		- [x] Y-axis label correct?
-		- [x] Place sources in footnote? → If yes, then remove appendix
-		- [ ] Make country names bigger
-	- [ ] Correlation Plot
-		- [x] Add title to caption
-		- [ ] Plot labels larger
-		- [x] Insert newlines in caption?
-- [x] Add number to Dancygier causal mechanism
-- [x] Latex-ify updated chain of events (p. 7)
-- [x] Latex-ify empirical specification
-- [x] Spell check
-- [ ] Clean up References
-- [x] Remove contractions
-- [x] Check if double line spacing is working
-- [ ] Check that links work / don’t go off page (see FT article in References)
-- [x] Check all references to figures and formulas
----
 - [ ] Preliminary Explorations
 	- [x] NUTS3 emigration map
 	- [x] Model emigration and vote switching
