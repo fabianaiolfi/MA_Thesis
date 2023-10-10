@@ -15,7 +15,7 @@
 
 \pagebreak
 
-## Appendix 2: Service Cuts and Emigration Panel Data Regression Results
+## Appendix 2: Service Cuts and Emigration in CEE EU Member States Panel Data Regression Results
 
 \begin{table}[!htbp] \centering 
   \caption{Net Migration and Number of Primary Schools at NUTS3 Level in Croatia (2005--2019)} 
@@ -113,7 +113,7 @@ F Statistic & 6.908$^{**}$ (df = 1; 55) \\
 
 \pagebreak
 
-## Appendix 3: Grievances and Emigration Regression Results
+## Appendix 3: Grievances and Emigration in CEE EU Member States Regression Results
 
 ### Sources for all models
 * Net migration: Eurostat's CNMIGRATRT variable^[https://ec.europa.eu/eurostat/databrowser/view/DEMO_GIND/default/table?lang=en (retrieved 9 October 2023)]

@@ -1,14 +1,12 @@
 ## Project Description
 
 <!-- theory: what would we expect to happen based on theory? -->
-@keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts affect citizens’ daily lives and cause grievances. 
-
-Such cuts, especially cuts to public services, cause grievances amongst voters and will give the incumbent party a poor performance record. Grieving voters that are dissatisfied with the incumbent party will not support them in the next election [@bowlerStrategicProtestVoting, 489].
+@keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts affect citizens’ daily lives and cause grievances. Such grievances will give the incumbent party a poor performance record. Grieving voters that are dissatisfied with the incumbent party will not support them in the next election [@bowlerStrategicProtestVoting, 489].
 
 <!-- Make explicit the causal mechanism -->
 Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances which then lead to PRR voting, this thesis asks the following question: Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share?
 
-@dancygierEmigrationRadicalRight2022 [2] state that emigration is linked to service cuts such as schools and business closures. Also, emigration strains the healthcare system. Based on this, I assume that emigration has a negative effect on the number of schools, the number of hospitals and the number of “third places”, i.e., local "informal public gathering places" such as cafés, bars and restaurants that foster community building [@oldenburgGreatGoodPlace1999 16]. Following @dancygierEmigrationRadicalRight2022’s theory, I assume that a decrease in the number of these institutions causes grievances amongst the remaining population for the following reasons.
+@dancygierEmigrationRadicalRight2022 [2] state that emigration is linked to service cuts such as schools and business closures. Also, emigration strains the healthcare system. Based on this, I assume that emigration has a negative effect on the number of schools, the number of hospitals and the number of “third places”, i.e., local "informal public gathering places" such as cafés, bars and restaurants that foster community building [@oldenburgGreatGoodPlace1999 16]. Following @dancygierEmigrationRadicalRight2022’s theory, a decrease in the number of these institutions will cause grievances amongst the remaining population for the following reasons.
 
 Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022 964]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
 
@@ -20,7 +18,7 @@ Schools and hospital closings are services made available by the state. In contr
 
 Does emigration cause these service cuts? I perform a brief analysis on exemplary CEE EU member states to uncover a potential correlation between these service cuts and emigration.
 
-Figure \ref{fig:young_vs_old_population} shows a general decline in the younger population and a corresponding rise in the older population within CEE EU member states from 1990 to 2019. This supports my notion that this change in demographics can lead to school closures and increase the importance of hospitals for the remaining population.
+Figure \ref{fig:young_vs_old_population} shows a general decline in the younger population and a corresponding rise in the older population within CEE EU member states from 1990 to 2019. This supports my approach that the demographic composition of CEE EU member states has changed towards an older population, where the demand for schools may decrease and the demand for hospitals may increase.
 
 \begin{figure}[t]
   \centering
@@ -29,9 +27,9 @@ Figure \ref{fig:young_vs_old_population} shows a general decline in the younger 
   \label{fig:young_vs_old_population}
 \end{figure}
 
-I then model the effect of emigration on service cuts at the NUTS3 level. Using linear regression models and panel data, I measure the association between net migration and number of primary schools in Croatia, the number of hospital beds in Romania and the number of “third places” in the Czech Republic. All three models are significant at conventional levels and show a positive coefficient for lagged net migration. This means that negative net migration, i.e., emigration, is associated with a decrease in the number of schools, hospital beds and “third places”. This decrease is lagged by several years, because I assume that emigration does not have an immediate effect. See Appendix 2 for details.
+I model the effect of emigration on service cuts at the NUTS3 level. Using linear regression models and panel data, I measure the association between net migration and number of primary schools in Croatia, the number of hospital beds in Romania and the number of “third places” in the Czech Republic. All three models are significant at conventional levels and show a positive coefficient for lagged net migration. This means that negative net migration, i.e., emigration, is associated with a decrease in the number of schools, hospital beds and “third places”. This decrease is lagged by several years, under the assumption that emigration does not have an immediate effect. See Appendix 2 for details.
 
-Further following @dancygierEmigrationRadicalRight2022’s causal chain, emigration should (indirectly) cause grievances. I use the European Social Survey [@EuropeanSocialSurvey2020] to measure happiness levels in NUTS3 regions and correlate them with net migration rates. Results point towards a positive correlation between the two. A decrease in net migration, i.e., an increase in emigration, is associated with a decrease in a region’s happiness. Three of the four models show significant results at conventinal levels. See Appendix 3 for details.
+Further following @dancygierEmigrationRadicalRight2022’s causal chain, emigration should (indirectly) cause grievances. I use the European Social Survey [@EuropeanSocialSurvey2020] to measure happiness levels in NUTS3 regions and correlate them with net migration rates. Results point towards a positive correlation between the two. A decrease in net migration, i.e., an increase in emigration, is associated with a decrease in a region’s happiness. Three of the four models show significant results at conventional levels. See Appendix 3 for details.
 
 This is the updated causal chain of events, based on the causal chain displayed in (\ref{eq:cm_dancygier}):
 
@@ -41,7 +39,7 @@ Emigration \rightarrow Service \; Cuts \rightarrow Grievances \rightarrow Anti{\
 \end{equation}
 
 <!-- model specification --> 
-Based on this causal chain, I set up the following empirical specification:
+Using this causal chain as a reference, I set up the following empirical specification:
 
 \begin{equation}
 \begin{aligned}
