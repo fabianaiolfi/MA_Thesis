@@ -4,4 +4,4 @@ This thesis sets out to explore the effect of emigration on voting behaviour in 
 
 Three types of service cuts are examined: School closings, hospital closings and closings of “third places”, such as bars, cafés and restaurants. Based on panel data provided by the national statistical offices of CEE EU member states and Eurostat, I build regression models to approximate the effect of these service cuts on anti-incumbent voting.
 
-If successful, this thesis will provide further insights into the dynamics between emigration spurred on by the EU's FoM, community disintegration and political outcomes. It can also contribute to understanding how future EU enlargements will affect the voting behaviour of citizens in new member states.
+If successful, this thesis will provide further insights into the dynamics between migration spurred on by the EU's FoM, community disintegration and political outcomes. It can also contribute to understanding how future EU enlargements will affect the voting behaviour of citizens in new member states.
