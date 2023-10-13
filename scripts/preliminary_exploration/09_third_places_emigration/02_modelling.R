@@ -52,22 +52,3 @@ plm_model <- plm(OBS_VALUE ~ net_migration_lag,
                  model = "within")
 summary(plm_model)
 stargazer(plm_model)
-
-
-### Plots -------------------------------------------------------------------
-
-# OLS
-plot(cz_merge$net_migration, cz_merge$OBS_VALUE)
-
-# Lagged Panel Data
-df_plot <- as.data.frame(cz_third_places_emigration_pdata)
-plot(as.numeric(df_plot$net_migration_lag), as.numeric(df_plot$OBS_VALUE))
-
-ggplot(df_plot, aes(net_migration_lag, OBS_VALUE)) +            
-  geom_point() +
-  stat_smooth(method = "lm", 
-              formula = y ~ x, 
-              geom = "smooth") +
-  ylab("Number of Food and Beverage Service Locations in NUTS3 Region") +
-  xlab("Net Migration in NUTS3 Region (Lag: 2 years)") +
-  theme_minimal()

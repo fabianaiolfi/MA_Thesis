@@ -29,13 +29,6 @@ ess_eda_2021 <- ess_eda %>%
   left_join(net_migr_nuts3_2019, by = c("region" = "nuts")) %>% 
   dplyr::filter(avg_migration < 30) # Remove outlier
 
-## Plots -------------------------------------------------------------------
-
-plot(ess_eda_2013$avg_migration, ess_eda_2013$weighted_avg)
-plot(ess_eda_2017$avg_migration, ess_eda_2017$weighted_avg)
-plot(ess_eda_2019$avg_migration, ess_eda_2019$weighted_avg)
-plot(ess_eda_2021$avg_migration, ess_eda_2021$weighted_avg)
-
 
 ## Models -------------------------------------------------------------------
 
