@@ -20,4 +20,4 @@
 - 10_grievances_emigration: Model correlation between happiness and net migration
 
 ## Scripts
-- 01_incumbent_parties: Create dataframe of incumbent and incumbent-supporting parties in CEE since 2000
+- 01_anti_incumbent_vote: Calculate anti-incumbent vote
