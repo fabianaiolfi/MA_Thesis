@@ -18,3 +18,6 @@
 - 08_hospital_beds_emigration: Model correlation between number of hospital beds and net migration
 - 09_third_places_emigration: Model correlation between number of third places and net migration
 - 10_grievances_emigration: Model correlation between happiness and net migration
+
+## Scripts
+- 01_incumbent_parties: Create dataframe of incumbent and incumbent-supporting parties in CEE since 2000
