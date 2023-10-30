@@ -17,11 +17,6 @@ v_dem_cee <- v_dem %>%
 # Manually add rows, due to mismatch in `year`
 source(here("scripts", "01_anti_incumbent_vote", "02_1_manual_adjustment.R"))
 
-# Problem:
-# incumbent column has to provide information about incumbant status *of previous election*,
-# i.e., "was party incumbent after last election?"
-# This means column should read something like "incumbent_last_election" and should probably be country specific, as every country has different voting intervalls
-
 # Was party incumbent in previous election?
 v_dem_cee <- v_dem_cee %>%
   arrange(year, pf_party_id) %>%
@@ -89,17 +84,15 @@ ned_cee <- ned_cee %>%
 
 ned_v_dem_cee <- ned_cee %>% 
   # Merge dataframes
-  left_join(select(v_dem_cee, year, pf_party_id, prev_incumbent),#, v2paenname),
+  left_join(select(v_dem_cee, year, pf_party_id, prev_incumbent),
             by = c("year" = "year",
-                   "unique_party_id" = "pf_party_id"#,
-                   #"party_abbreviation" = "v2paenname"
-                   )) %>% 
+                   "unique_party_id" = "pf_party_id")) %>% 
   # Turn prev_incumbent into binary variable
   mutate(prev_incumbent = case_when(prev_incumbent == "Temp NA" ~ NA,
                                     is.na(prev_incumbent) == T ~ NA,
                                     prev_incumbent == "TRUE" ~ T,
                                     prev_incumbent == "FALSE" ~ F)) %>% 
-  # Hack to prevent 3918 rows from appearing twice
+  # Hack to prevent party id 3918 from appearing twice
   distinct(unique_party_id, vote_share, .keep_all = T)
 
 # Keep your eye out for these parties
@@ -111,8 +104,16 @@ missing_rows <- anti_join(v_dem_cee, v_dem_cee_distinct)
 
 # t-test -----------------------------------------------------------
 
-ggplot(ned_v_dem_cee, aes(x = prev_incumbent, y = vote_change)) +
-  geom_boxplot()
+ned_v_dem_cee %>% 
+  drop_na(vote_change, prev_incumbent) %>% 
+  ggplot(aes(x = prev_incumbent, y = vote_change)) +
+  geom_boxplot() +
+  xlab("") +
+  ggtitle(label = "Was Party in Power in Previous Election?",
+          subtitle = "11 CEE EU Member States, NUTS2/3, 1994–2019") +
+  ylab("Change in Vote Share") +
+  scale_x_discrete(labels = c("No", "Yes")) +
+  theme_minimal()
 
 # Split the scores based on the binary_var
 group_true <- ned_v_dem_cee$vote_change[ned_v_dem_cee$prev_incumbent == TRUE]

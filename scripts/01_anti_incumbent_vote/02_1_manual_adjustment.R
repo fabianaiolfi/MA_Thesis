@@ -409,3 +409,5 @@ v_dem_cee <- rbind(v_dem_cee, new_row)
 # Assuming that independents are never incumbents
 new_row <- data.frame(year = NA, country_name = "Romania", v2paenname = NA, pf_party_id = NA, v2pashname = "INDEPENDENT", v2pagovsup = NA, incumbent = "FALSE")
 v_dem_cee <- rbind(v_dem_cee, new_row)
+
+rm(new_row)
