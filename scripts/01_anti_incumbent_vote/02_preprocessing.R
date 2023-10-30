@@ -14,7 +14,13 @@ v_dem_cee <- v_dem %>%
                                v2pagovsup == 4 ~ "Temp NA",
                                is.na(v2pagovsup) == T ~ "Temp NA"))
 
-# Manually add rows, due to mismatch in `year`
+# Manually add rows, due to mismatch in `year`.
+# Government support leading up to an election is coded as "incumbent", thus "TRUE"
+# (e.g., `pf_party_id = 96` and https://en.wikipedia.org/wiki/Slovenian_National_Party#Electoral_results).
+# (e.g., `pf_party_id = 1305` and https://en.wikipedia.org/wiki/Greater_Romania_Party#Electoral_history).
+# Limited to:
+# `vote_share` >= 4
+# `vote_change` >= |1|
 
 # Party information retrieved via https://partyfacts.herokuapp.com/data/partycodes/[pf_party_id]
 # https://en.wikipedia.org/wiki/Croatian_Democratic_Alliance_of_Slavonia_and_Baranja
@@ -255,8 +261,141 @@ v_dem_cee <- rbind(v_dem_cee, new_row)
 new_row <- data.frame(year = 2010, country_name = "Czechia", v2paenname = NA, pf_party_id = 676, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
 v_dem_cee <- rbind(v_dem_cee, new_row)
 
+# https://en.wikipedia.org/wiki/2016_Croatian_parliamentary_election#Results
+new_row <- data.frame(year = 2016, country_name = "Croatia", v2paenname = NA, pf_party_id = NA, v2pashname = "EVEN STRONGER ISTRIA", v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
 
-#na_check %>% arrange(vote_change)
+# https://en.wikipedia.org/wiki/2015_Croatian_parliamentary_election#Results
+new_row <- data.frame(year = 2015, country_name = "Croatia", v2paenname = NA, pf_party_id = 2650, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/New_Hope_(Poland)#Election_results
+new_row <- data.frame(year = 2019, country_name = "Poland", v2paenname = NA, pf_party_id = 4629, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/New_Hope_(Poland)#Election_results
+new_row <- data.frame(year = 2018, country_name = "Slovenia", v2paenname = NA, pf_party_id = 96, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Green_Party_(Czech_Republic)#Election_results
+new_row <- data.frame(year = 2013, country_name = "Czechia", v2paenname = NA, pf_party_id = 1554, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/New_Slovenia#Electoral_results
+new_row <- data.frame(year = 2011, country_name = "Slovenia", v2paenname = NA, pf_party_id = 1618, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Hungarian_Workers%27_Party#Election_results
+new_row <- data.frame(year = 1998, country_name = "Hungary", v2paenname = NA, pf_party_id = 859, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Party_of_Civic_Rights#Election_results
+new_row <- data.frame(year = 2013, country_name = "Czechia", v2paenname = NA, pf_party_id = 1272, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Latvian_Russian_Union#Election_results
+new_row <- data.frame(year = 2010, country_name = "Latvia", v2paenname = NA, pf_party_id = 176, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Hungarian_Workers%27_Party#Election_results
+new_row <- data.frame(year = 2002, country_name = "Hungary", v2paenname = NA, pf_party_id = 859, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Hungarian_Justice_and_Life_Party#Parliamentary_representation
+new_row <- data.frame(year = 2002, country_name = "Hungary", v2paenname = NA, pf_party_id = 1597, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/2016_Croatian_parliamentary_election#Results
+new_row <- data.frame(year = 2016, country_name = "Croatia", v2paenname = NA, pf_party_id = 2650, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/2012_Lithuanian_parliamentary_election#Results
+new_row <- data.frame(year = 2012, country_name = "Lithuania", v2paenname = NA, pf_party_id = 1250, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Bulgarian_Democratic_Center#Participation_in_elections
+new_row <- data.frame(year = 2013, country_name = "Bulgaria", v2paenname = NA, pf_party_id = 265, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Attack_%28political_party%29#National_Assembly
+new_row <- data.frame(year = 2014, country_name = "Bulgaria", v2paenname = NA, pf_party_id = 1793, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/2017_Czech_parliamentary_election#Results
+new_row <- data.frame(year = 2017, country_name = "Czechia", v2paenname = NA, pf_party_id = 254, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Young_Lithuania#Election_results
+new_row <- data.frame(year = 2012, country_name = "Lithuania", v2paenname = NA, pf_party_id = 1026, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Slovenian_People%27s_Party#Electoral_results
+new_row <- data.frame(year = 2018, country_name = "Slovenia", v2paenname = NA, pf_party_id = 764, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Order,_Law_and_Justice#History
+new_row <- data.frame(year = 2013, country_name = "Bulgaria", v2paenname = NA, pf_party_id = 272, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Constitution_Party_(Estonia)#Election_results
+new_row <- data.frame(year = 2007, country_name = "Estonia", v2paenname = NA, pf_party_id = 18, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/People%27s_Union_of_Estonia#Parliamentary_elections
+new_row <- data.frame(year = 2011, country_name = "Estonia", v2paenname = NA, pf_party_id = 110, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Estonian_Greens#Parliamentary_elections
+new_row <- data.frame(year = 2019, country_name = "Estonia", v2paenname = NA, pf_party_id = 1040, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/2015_Croatian_parliamentary_election#Government_formation
+new_row <- data.frame(year = 2015, country_name = "Croatia", v2paenname = NA, pf_party_id = 2524, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Greater_Romania_Party#Electoral_history
+new_row <- data.frame(year = 2016, country_name = "Romania", v2paenname = NA, pf_party_id = 1305, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Hungarian_Democratic_Forum#Election_results
+new_row <- data.frame(year = 2010, country_name = "Hungary", v2paenname = NA, pf_party_id = 1697, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Hungarian_People%27s_Party_of_Transylvania#Legislative_elections
+new_row <- data.frame(year = 2012, country_name = "Romania", v2paenname = NA, pf_party_id = NA, v2pashname = "PPMT", v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Development/For!#Legislative_elections
+new_row <- data.frame(year = 2018, country_name = "Latvia", v2paenname = NA, pf_party_id = 8393, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/2015_Polish_parliamentary_election#Results
+new_row <- data.frame(year = 2015, country_name = "Poland", v2paenname = NA, pf_party_id = 1439, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/2019_Polish_parliamentary_election#Results
+new_row <- data.frame(year = 2019, country_name = "Poland", v2paenname = NA, pf_party_id = 1439, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Electoral_Action_of_Poles_in_Lithuania_%E2%80%93_Christian_Families_Alliance#Electoral_results
+new_row <- data.frame(year = 2000, country_name = "Lithuania", v2paenname = NA, pf_party_id = 556, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/National_Alliance_(Latvia)#Election_results
+new_row <- data.frame(year = 2010, country_name = "Latvia", v2paenname = NA, pf_party_id = 7619, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/United_Patriots#Electoral_history
+new_row <- data.frame(year = 2017, country_name = "Bulgaria", v2paenname = NA, pf_party_id = 6115, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Labour_Party_(Lithuania)#Electoral_results
+new_row <- data.frame(year = 2008, country_name = "Lithuania", v2paenname = NA, pf_party_id = 8279, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+
+
+na_check %>% arrange(-vote_share)
 
 
 # Problem:
@@ -275,11 +414,13 @@ v_dem_cee <- v_dem_cee %>%
 
 ## NED -----------------------------------------------------------
 
-# Fix typos
+# Fix typos or ID NAs
 ned$partyfacts_id[ned$party_abbreviation == "SLP-UP"] <- 6183
 ned$partyfacts_id[ned$party_abbreviation == "PATRIOTIC"] <- 3918 # https://partyfacts.herokuapp.com/data/partycodes/3918/
 ned$partyfacts_id[ned$party_abbreviation == "MSZP-PARBESZED"] <- 1408 # https://en.wikipedia.org/wiki/Hungarian_Socialist_Party https://en.wikipedia.org/wiki/Dialogue_%E2%80%93_The_Greens%27_Party 
 ned$partyfacts_id[ned$party_abbreviation == "AP!"] <- 8393 
+ned$partyfacts_id[ned$party_abbreviation == "NATIONAL ASSOCIATION 'FOR LITHUANIA IN LITHUANIA' (LITHUANIAN CENTRE PARTY, LITHUANIAN SOCIAL DEMOCRATIC UNION, COALITION OF NATIONAL UNION AND THE NATIONAL UNITY UNION)"] <- 8257 
+ned$partyfacts_id[ned$party_abbreviation == "UNION OF LITHUANIAN PEASANTS AND PEOPLES"] <- 1490 # Disputable
 
 # Preprocess and add vote share
 ned_cee <- ned %>% 
