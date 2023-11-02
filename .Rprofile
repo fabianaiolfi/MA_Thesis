@@ -13,3 +13,4 @@ library(scales) # This will ensure that numbers on the y-axis are formatted with
 library(plm) # Panel data analysis
 library(stargazer) # Exporting nice tables
 library(eurostat) # NUTS3 names
+library(slider) # Rolling averages
