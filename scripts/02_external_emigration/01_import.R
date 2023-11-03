@@ -8,7 +8,7 @@ load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
 
 ## Bulgaria -------------------------------------------------------------
 
-#source(here("scripts", "02_external_emigration", "01_import_preprocess", "bg.R"))
+# source(here("scripts", "02_external_emigration", "01_import_preprocess", "bg.R"))
 load(here("data", "02_external_emigration", "bg", "bg.Rda"))
 
 
