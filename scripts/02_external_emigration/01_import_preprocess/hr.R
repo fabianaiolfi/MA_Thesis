@@ -23,28 +23,34 @@ colnames(hr_emigration) <- hr_emigration[1, ] # Set column names using the first
 hr_emigration <- hr_emigration[-(1:9), ] # Remove top rows
 hr_emigration <- hr_emigration %>% rename(regionname = year_Županija)
 
+df <- ned_v_dem_cee %>% 
+  dplyr::filter(country == "Croatia") %>% 
+  distinct(nuts2016, regionname) %>% 
+  arrange(regionname)
+print(df, n = 21)
+
 # Add NUTS ID
 hr_emigration$NUTS_ID <- NA
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Zagrebačka"] <- "HR065"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Krapinsko-zagorska"] <- "HR064"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Sisačko-moslavačka"] <- "HR028"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Karlovačka"] <- "HR027"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Varaždinska"] <- "HR062"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Koprivničko-križevačka"] <- "HR063"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Bjelovarsko-bilogorska"] <- "HR021"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Zagrebačka"] <- "HR042"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Krapinsko-zagorska"] <- "HR043"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Sisačko-moslavačka"] <- "HR04E"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Karlovačka"] <- "HR04D"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Varaždinska"] <- "HR044"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Koprivničko-križevačka"] <- "HR045"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Bjelovarsko-bilogorska"] <- "HR047"
 hr_emigration$NUTS_ID[hr_emigration$regionname == "Primorsko-goranska"] <- "HR031"
 hr_emigration$NUTS_ID[hr_emigration$regionname == "Ličko-senjska"] <- "HR032"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Virovitičko-podravska"] <- "HR022"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Požeško-slavonska"] <- "HR023"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Brodsko-posavska"] <- "HR024"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Virovitičko-podravska"] <- "HR048"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Požeško-slavonska"] <- "HR049"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Brodsko-posavska"] <- "HR04A"
 hr_emigration$NUTS_ID[hr_emigration$regionname == "Zadarska"] <- "HR033"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Osječko-baranjska"] <- "HR025"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Osječko-baranjska"] <- "HR04B"
 hr_emigration$NUTS_ID[hr_emigration$regionname == "Šibensko-kninska"] <- "HR034"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Vukovarsko-srijemska"] <- "HR026"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Vukovarsko-srijemska"] <- "HR04C"
 hr_emigration$NUTS_ID[hr_emigration$regionname == "Splitsko-dalmatinska"] <- "HR035"
 hr_emigration$NUTS_ID[hr_emigration$regionname == "Istarska"] <- "HR036"
 hr_emigration$NUTS_ID[hr_emigration$regionname == "Dubrovačko-neretvanska"] <- "HR037"
-hr_emigration$NUTS_ID[hr_emigration$regionname == "Međimurska"] <- "HR061"
+hr_emigration$NUTS_ID[hr_emigration$regionname == "Međimurska"] <- "HR046"
 hr_emigration$NUTS_ID[hr_emigration$regionname == "Grad Zagreb"] <- "HR050"
 
 # Only keep relevant rows
@@ -90,26 +96,26 @@ hr_population <- hr_population %>% rename(regionname = year_Župa)
 
 # Add NUTS ID
 hr_population$NUTS_ID <- NA
-hr_population$NUTS_ID[hr_population$regionname == "Zagrebačka"] <- "HR065"
-hr_population$NUTS_ID[hr_population$regionname == "Krapinsko-zagorska"] <- "HR064"
-hr_population$NUTS_ID[hr_population$regionname == "Sisačko-moslavačka"] <- "HR028"
-hr_population$NUTS_ID[hr_population$regionname == "Karlovačka"] <- "HR027"
-hr_population$NUTS_ID[hr_population$regionname == "Varaždinska"] <- "HR062"
-hr_population$NUTS_ID[hr_population$regionname == "Koprivničko-križevačka"] <- "HR063"
-hr_population$NUTS_ID[hr_population$regionname == "Bjelovarsko-bilogorska"] <- "HR021"
+hr_population$NUTS_ID[hr_population$regionname == "Zagrebačka"] <- "HR042"
+hr_population$NUTS_ID[hr_population$regionname == "Krapinsko-zagorska"] <- "HR043"
+hr_population$NUTS_ID[hr_population$regionname == "Sisačko-moslavačka"] <- "HR04E"
+hr_population$NUTS_ID[hr_population$regionname == "Karlovačka"] <- "HR04D"
+hr_population$NUTS_ID[hr_population$regionname == "Varaždinska"] <- "HR044"
+hr_population$NUTS_ID[hr_population$regionname == "Koprivničko-križevačka"] <- "HR045"
+hr_population$NUTS_ID[hr_population$regionname == "Bjelovarsko-bilogorska"] <- "HR047"
 hr_population$NUTS_ID[hr_population$regionname == "Primorsko-goranska"] <- "HR031"
 hr_population$NUTS_ID[hr_population$regionname == "Ličko-senjska"] <- "HR032"
-hr_population$NUTS_ID[hr_population$regionname == "Virovitičko-podravska"] <- "HR022"
-hr_population$NUTS_ID[hr_population$regionname == "Požeško-slavonska"] <- "HR023"
-hr_population$NUTS_ID[hr_population$regionname == "Brodsko-posavska"] <- "HR024"
+hr_population$NUTS_ID[hr_population$regionname == "Virovitičko-podravska"] <- "HR048"
+hr_population$NUTS_ID[hr_population$regionname == "Požeško-slavonska"] <- "HR049"
+hr_population$NUTS_ID[hr_population$regionname == "Brodsko-posavska"] <- "HR04A"
 hr_population$NUTS_ID[hr_population$regionname == "Zadarska"] <- "HR033"
-hr_population$NUTS_ID[hr_population$regionname == "Osječko-baranjska"] <- "HR025"
+hr_population$NUTS_ID[hr_population$regionname == "Osječko-baranjska"] <- "HR04B"
 hr_population$NUTS_ID[hr_population$regionname == "Šibensko-kninska"] <- "HR034"
-hr_population$NUTS_ID[hr_population$regionname == "Vukovarsko-srijemska"] <- "HR026"
+hr_population$NUTS_ID[hr_population$regionname == "Vukovarsko-srijemska"] <- "HR04C"
 hr_population$NUTS_ID[hr_population$regionname == "Splitsko-dalmatinska"] <- "HR035"
 hr_population$NUTS_ID[hr_population$regionname == "Istarska"] <- "HR036"
 hr_population$NUTS_ID[hr_population$regionname == "Dubrovačko-neretvanska"] <- "HR037"
-hr_population$NUTS_ID[hr_population$regionname == "Međimurska"] <- "HR061"
+hr_population$NUTS_ID[hr_population$regionname == "Međimurska"] <- "HR046"
 hr_population$NUTS_ID[hr_population$regionname == "Grad Zagreb"] <- "HR050"
 
 # Wide to Long
