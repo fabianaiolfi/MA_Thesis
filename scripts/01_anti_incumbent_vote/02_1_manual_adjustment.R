@@ -27,6 +27,10 @@ new_row <- data.frame(year = 1998, country_name = "Hungary", v2paenname = NA, pf
 v_dem_cee <- rbind(v_dem_cee, new_row)
 
 # https://en.wikipedia.org/wiki/Restart_Coalition#Parliamentary_elections
+new_row <- data.frame(year = 2011, country_name = "Croatia", v2paenname = NA, pf_party_id = 2522, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Restart_Coalition#Parliamentary_elections
 new_row <- data.frame(year = 2015, country_name = "Croatia", v2paenname = NA, pf_party_id = 2522, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
 v_dem_cee <- rbind(v_dem_cee, new_row)
 
