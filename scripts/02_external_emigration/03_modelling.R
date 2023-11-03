@@ -42,9 +42,9 @@ average_emigration <- hr %>%
   mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
   ungroup()
 
-df <- ned_v_dem_cee %>% 
-  dplyr::filter(country == "Croatia")
-unique(df$year)
+# df <- ned_v_dem_cee %>% 
+#   dplyr::filter(country == "Croatia")
+# unique(df$year)
 
 anti_incumbent_vote <- ned_v_dem_cee %>% 
   dplyr::filter(prev_incumbent == T) %>%
@@ -56,7 +56,7 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
 
 summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(year))) +
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()
