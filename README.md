@@ -21,3 +21,4 @@
 
 ## Scripts
 - 01_anti_incumbent_vote: Calculate anti-incumbent vote
+  - Continue here: `v_dem_cee` > Croatia > Incumbent = Temp NA: Most of these parties can be explicitly coded as TRUE or FALSE based on https://partyfacts.herokuapp.com/data/partycodes. Make changes here: `02_1_manual_adjustment.R`
