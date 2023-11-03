@@ -11,7 +11,7 @@ file_path <- here("data", "02_external_emigration", "bg", "Pop_5.1_Migration_DR_
 sheet_names <- excel_sheets(file_path)
 
 # Import all sheets and merge into one dataframe
-bg_net_migration <- map_df(sheet_names, function(year) {
+bg_emigration <- map_df(sheet_names, function(year) {
   
   # Read data from the current sheet
   df <- read_excel(file_path, sheet = year)
@@ -19,33 +19,33 @@ bg_net_migration <- map_df(sheet_names, function(year) {
   # Perform transformations
   df <- df %>%
     rename_with(~paste0("V", seq_along(.))) %>% # Reset column names to generic names
-    select(V1, V8) %>% 
+    select(V1, V5) %>%
     rename(regionname = V1,
-           net_migration = V8) %>% 
-    mutate(net_migration = as.numeric(net_migration),
+           emigration = V5) %>% 
+    mutate(emigration = as.numeric(emigration),
            year = as.numeric(year))  # Convert year from sheet name to numeric
   
   return(df)
 })
 
-bg_net_migration <- bg_net_migration %>% 
-  drop_na(net_migration) %>% 
+bg_emigration <- bg_emigration %>% 
+  drop_na(emigration) %>% 
   dplyr::filter(regionname != "Total") %>% 
-  mutate(abs_net_migration = abs(net_migration))
+  mutate(abs_emigration = abs(emigration))
 
-# Remove rows with duplicate "regionname" values and keep only the one with the higher "abs_net_migration",
-bg_net_migration <- bg_net_migration %>%
+# Remove rows with duplicate "regionname" values and keep only the one with the higher "abs_emigration",
+bg_emigration <- bg_emigration %>%
   group_by(regionname, year) %>%
-  top_n(1, abs_net_migration) %>%
+  top_n(1, abs_emigration) %>%
   ungroup() %>% 
-  select(-abs_net_migration)
+  select(-abs_emigration)
 
 # Add NUTS3
-bg_net_migration <- bg_net_migration %>% 
+bg_emigration <- bg_emigration %>% 
   left_join(cee_nuts3, by = c("regionname" = "NAME_LATN")) %>% 
   drop_na(NUTS_ID) %>% 
   distinct(year, NUTS_ID, .keep_all = T) %>% 
-  select(year, NUTS_ID, regionname, net_migration)
+  select(year, NUTS_ID, regionname, emigration)
 
 
 ## Population -------------------------------------------------------------
@@ -95,12 +95,12 @@ bg_population <- bg_population %>%
   select(year, NUTS_ID, regionname, population)
 
 
-## Calculate crude net migration --------------------------------
-# Use same calculation of net migration as Eurostat: https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_gind3_esms.htm
+## Calculate crude emigration --------------------------------
+# Use same calculation of emigration as Eurostat: https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_gind3_esms.htm
 
-bg <- bg_net_migration %>% 
+bg <- bg_emigration %>% 
   left_join(select(bg_population, -regionname), by = c("year", "NUTS_ID")) %>% 
-  mutate(crude_net_migration = (net_migration/population) * 1000)
+  mutate(crude_emigration = (emigration/population) * 1000)
 
 
 ## Export ------------------------------
