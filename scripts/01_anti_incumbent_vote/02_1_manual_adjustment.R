@@ -7,7 +7,7 @@
 # `vote_share` >= 4
 # `vote_change` >= |1|
 
-# Party information retrieved via https://partyfacts.herokuapp.com/data/partycodes/[pf_party_id]
+# Party information retrieved via https://partyfacts.herokuapp.com/data/partycodes/[pf_party_id]/
 # https://en.wikipedia.org/wiki/Croatian_Democratic_Alliance_of_Slavonia_and_Baranja
 new_row <- data.frame(year = 2011, country_name = "Croatia", v2paenname = NA, pf_party_id = 2347, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
 v_dem_cee <- rbind(v_dem_cee, new_row)
