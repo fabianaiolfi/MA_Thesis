@@ -2,7 +2,7 @@
 # Bulgaria -------------------------------------------------------------
 
 
-## Net Migration -------------------------------------------------------------
+## Emigration -------------------------------------------------------------
 
 # Source: https://www.nsi.bg/en/content/3060/migration-population-districts-municipalities-and-sex (retrieved 2 November 2023)
 file_path <- here("data", "02_external_emigration", "bg", "Pop_5.1_Migration_DR_EN.xls")

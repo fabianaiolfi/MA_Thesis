@@ -14,7 +14,8 @@ load(here("data", "02_external_emigration", "bg", "bg.Rda"))
 
 ## Croatia -------------------------------------------------------------
 
-
+# source(here("scripts", "02_external_emigration", "01_import_preprocess", "hr.R"))
+load(here("data", "02_external_emigration", "hr", "hr.Rda"))
 
 ## Czechia / Czech Republic -------------------------------------------------------------
 
