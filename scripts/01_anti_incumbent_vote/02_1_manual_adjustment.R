@@ -414,4 +414,12 @@ v_dem_cee <- rbind(v_dem_cee, new_row)
 new_row <- data.frame(year = NA, country_name = "Romania", v2paenname = NA, pf_party_id = NA, v2pashname = "INDEPENDENT", v2pagovsup = NA, incumbent = "FALSE")
 v_dem_cee <- rbind(v_dem_cee, new_row)
 
+# https://en.wikipedia.org/wiki/Croatian_Peasant_Party#Election_history
+new_row <- data.frame(year = 2016, country_name = "Croatia", v2paenname = NA, pf_party_id = 72, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Croatian_Social_Liberal_Party#Election_results
+new_row <- data.frame(year = 2016, country_name = "Croatia", v2paenname = NA, pf_party_id = 214, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
 rm(new_row)
