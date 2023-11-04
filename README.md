@@ -21,4 +21,9 @@
 
 ## Scripts
 - 01_anti_incumbent_vote: Calculate anti-incumbent vote
-  - Continue here: `v_dem_cee` > Croatia > Incumbent = Temp NA: Most of these parties can be explicitly coded as TRUE or FALSE based on https://partyfacts.herokuapp.com/data/partycodes. Make changes here: `02_1_manual_adjustment.R`
+- 02_external_emigration: Model anti-incumbent vote and emigration rate
+  - Continue here: `03_modelling.R`
+  - This visualisation is promising: ![](https://github.com/fabianaiolfi/MA_Thesis/temp_bg_model.png)
+  - Continue exploring different parties and how their vote share changes together with average emigration
+  - Collect data from further countries
+  
