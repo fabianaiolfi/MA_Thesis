@@ -21,12 +21,13 @@ average_emigration <- bg %>%
 
 anti_incumbent_vote <- ned_v_dem_cee %>% 
   dplyr::filter(prev_incumbent == T) %>%
+  #dplyr::filter(partyfacts_id == 760) %>% # Build model with a single party
   left_join(select(average_emigration, -regionname), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   drop_na(crude_emigration)
 
 summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) +
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()
@@ -42,22 +43,15 @@ average_emigration <- hr %>%
   mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
   ungroup()
 
-# df <- ned_v_dem_cee %>% 
-#   dplyr::filter(country == "Croatia")
-# unique(df$year)
-
 anti_incumbent_vote <- ned_v_dem_cee %>% 
   dplyr::filter(prev_incumbent == T) %>%
+  # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   drop_na(crude_emigration)
 
-# problem: no rows with 2015 appear here
-# fix: some parties must be incumbent here -> define same parties over time
-
 summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) +
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()
-
