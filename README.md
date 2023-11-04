@@ -23,7 +23,7 @@
 - 01_anti_incumbent_vote: Calculate anti-incumbent vote
 - 02_external_emigration: Model anti-incumbent vote and emigration rate
   - Continue here: `03_modelling.R`
-  - This visualisation is promising: ![](https://github.com/fabianaiolfi/MA_Thesis/temp_bg_model.png)
+  - See plot `03_modelling_temp_bg_model.png`
   - Continue exploring different parties and how their vote share changes together with average emigration
   - Collect data from further countries
   
