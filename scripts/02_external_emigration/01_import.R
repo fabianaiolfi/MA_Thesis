@@ -19,14 +19,19 @@ load(here("data", "02_external_emigration", "hr", "hr.Rda"))
 
 ## Czechia / Czech Republic -------------------------------------------------------------
 
+# Not the right data available
+# https://vdb.czso.cz/vdbvo2/faces/en/index.jsf?page=vystup-objekt-vyhledavani&vyhltext=migration&bkvt=bWlncmF0aW9u&katalog=all&pvo=DEM11D (retrieved 7 November 2023)
+# Variable "Out-migrants" definition: "… Depending on the given type of migration or the territory for which the data is published, it may be internal migration, foreign migration or a combination of both types…" (via Google Translate)
 
 
 ## Estonia -------------------------------------------------------------
 
+# ready
 
 
 ## Hungary -------------------------------------------------------------
 
+# ready
 
 
 ## Latvia -------------------------------------------------------------
