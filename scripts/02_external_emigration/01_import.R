@@ -1,10 +1,13 @@
 
-# Import Migration Data -------------------------------------------------------------
+# Import Voting Data -------------------------------------------------------------
 
 load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
 
 
 # Import Migration Data -------------------------------------------------------------
+
+# Population numbers
+load(here("data", "02_external_emigration", "nuts3_population.Rda"))
 
 ## Bulgaria -------------------------------------------------------------
 
