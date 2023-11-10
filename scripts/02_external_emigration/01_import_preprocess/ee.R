@@ -158,8 +158,11 @@ rm(ee_population_90_17, ee_population_18_23)
 ## Calculate crude emigration --------------------------------
 # Use same calculation of emigration as Eurostat: https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_gind3_esms.htm
 
+ee <- ee_emigration %>%
+  left_join(ee_population, by = c("year", "NUTS_ID")) %>%
+  mutate(crude_emigration = (emigration/population) * 1000)
 
 
 ## Export ------------------------------
 
-#save(ee, file = here("data", "02_external_emigration", "ee", "ee.Rda"))
+save(ee, file = here("data", "02_external_emigration", "ee", "ee.Rda"))

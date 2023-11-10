@@ -26,7 +26,8 @@ load(here("data", "02_external_emigration", "hr", "hr.Rda"))
 
 ## Estonia -------------------------------------------------------------
 
-# ready
+# source(here("scripts", "02_external_emigration", "01_import_preprocess", "ee.R"))
+load(here("data", "02_external_emigration", "ee", "ee.Rda"))
 
 
 ## Hungary -------------------------------------------------------------
