@@ -51,6 +51,7 @@ load(here("data", "02_external_emigration", "hr", "hr.Rda"))
 
 ## Romania -------------------------------------------------------------
 
+# to do: check if these are international migration numbers
 
 
 ## Slovakia -------------------------------------------------------------
