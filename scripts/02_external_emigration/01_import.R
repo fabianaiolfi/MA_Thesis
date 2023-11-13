@@ -60,7 +60,8 @@ load(here("data", "02_external_emigration", "pl", "pl.Rda"))
 
 ## Romania -------------------------------------------------------------
 
-# to do: check if these are international migration numbers
+# source(here("scripts", "02_external_emigration", "01_import_preprocess", "ro.R"))
+load(here("data", "02_external_emigration", "ro", "ro.Rda"))
 
 
 ## Slovakia -------------------------------------------------------------
