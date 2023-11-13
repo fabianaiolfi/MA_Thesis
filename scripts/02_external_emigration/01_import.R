@@ -46,7 +46,7 @@ load(here("data", "02_external_emigration", "lv", "lv.Rda"))
 
 ## Lithuania -------------------------------------------------------------
 
-# ready
+load(here("data", "02_external_emigration", "lt", "lt.Rda"))
 
 
 ## Poland -------------------------------------------------------------
