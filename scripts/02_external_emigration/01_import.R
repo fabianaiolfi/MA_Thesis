@@ -36,22 +36,26 @@ load(here("data", "02_external_emigration", "ee", "ee.Rda"))
 
 ## Hungary -------------------------------------------------------------
 
+# source(here("scripts", "02_external_emigration", "01_import_preprocess", "hu.R"))
 load(here("data", "02_external_emigration", "hu", "hu.Rda"))
 
 
 ## Latvia -------------------------------------------------------------
 
+# source(here("scripts", "02_external_emigration", "01_import_preprocess", "lv.R"))
 load(here("data", "02_external_emigration", "lv", "lv.Rda"))
 
 
 ## Lithuania -------------------------------------------------------------
 
+# source(here("scripts", "02_external_emigration", "01_import_preprocess", "lt.R"))
 load(here("data", "02_external_emigration", "lt", "lt.Rda"))
 
 
 ## Poland -------------------------------------------------------------
 
-# ready
+# source(here("scripts", "02_external_emigration", "01_import_preprocess", "pl.R"))
+load(here("data", "02_external_emigration", "pl", "pl.Rda"))
 
 
 ## Romania -------------------------------------------------------------
