@@ -55,3 +55,195 @@ ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color =
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()
+
+
+## Estonia -------------------------------------------------------------
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- ee %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(crude_emigration)
+
+summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+
+
+## Hungary -------------------------------------------------------------
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- hu %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(crude_emigration) # Why are all rows dropped here? Maybe because crude emigration data is only available after 2014?
+
+summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+
+
+## Latvia -------------------------------------------------------------
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- lv %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(crude_emigration) 
+
+summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+
+
+## Lithuania -------------------------------------------------------------
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- lt %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(crude_emigration) 
+
+summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+
+
+## Poland -------------------------------------------------------------
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- pl %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(crude_emigration) # Why are all rows dropped here? -> because ned_v_dem_cee only contains NUTS2
+
+summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+
+
+## Romania -------------------------------------------------------------
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- ro %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(crude_emigration) 
+
+summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+
+
+## Slovakia -------------------------------------------------------------
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- sk %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(crude_emigration) 
+
+summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+
+
+## Slovenia -------------------------------------------------------------
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- si %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(crude_emigration) # All rows are dropped here because ned_v_dem_cee only contains NUTS1
+
+summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_minimal()
