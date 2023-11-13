@@ -40,6 +40,7 @@ capitalizeAfterSpace <- function(s) {
   paste0(chars, collapse = "")
 }
 
+# More preprocessing
 pl_emigration <- pl_emigration %>% 
   dplyr::filter(str_detect(regionname, "SUBREGION")) %>% 
   mutate(regionname = gsub("SUBREGION ", "", regionname)) %>% 
@@ -64,8 +65,32 @@ pl_emigration <- pl_emigration %>%
 raw_csv <- read_delim(here("data", "02_external_emigration", "pl", "LUDN_2425_CTAB_20231110072421.csv"),
                       delim = ";")
 
-plv_population <- raw_csv %>% 
-  #…
+pl_population <- raw_csv %>% 
+  select(-c(Code, `...31`)) %>% 
+  rename(regionname = Name)
+
+# Rename columns to year
+year_names <- as.character(1995:2022)
+current_names <- colnames(pl_population) # Getting the current column names
+current_names[2:29] <- year_names # Replacing the names of columns 2 through 29
+colnames(pl_population) <- current_names # Assigning the new names back to the dataframe
+
+# More preprocessing
+pl_population <- pl_population %>% 
+  dplyr::filter(str_detect(regionname, "SUBREGION")) %>% 
+  mutate(regionname = gsub("SUBREGION ", "", regionname)) %>% 
+  mutate(regionname = sapply(regionname, capitalizeAfterSpace)) %>% 
+  mutate(regionname = gsub("City Of", "Miasto", regionname)) %>% 
+  mutate(regionname = gsub("Capital ", "", regionname)) %>% 
+  mutate(regionname = gsub("Wschodni", "wschodni", regionname)) %>% 
+  mutate(regionname = gsub("Zachodni", "zachodni", regionname)) %>% 
+  left_join(select(cee_nuts3, NUTS_ID, NAME_LATN), by = c("regionname" = "NAME_LATN")) %>% 
+  select(-regionname) %>% 
+  pivot_longer(cols = -NUTS_ID,
+               names_to = "year",
+               values_to = "population") %>% 
+  mutate(year = as.numeric(year)) %>% 
+  mutate(population = population * 1000) # Original CSV population in thousand persons
 
 
 ## Calculate crude emigration --------------------------------
