@@ -71,4 +71,5 @@ load(here("data", "02_external_emigration", "sk", "sk.Rda"))
 
 ## Slovenia -------------------------------------------------------------
 
-# ready
+# source(here("scripts", "02_external_emigration", "01_import_preprocess", "si.R"))
+load(here("data", "02_external_emigration", "si", "si.Rda"))
