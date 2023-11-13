@@ -22,7 +22,8 @@ sk_emigration <- raw_xl %>%
   select(-regionname) %>% 
   pivot_longer(cols = -NUTS_ID,
                names_to = "year",
-               values_to = "emigration")
+               values_to = "emigration") %>% 
+  mutate(year = as.numeric(year))
 
 
 ## Population -------------------------------------------------------------
@@ -45,7 +46,8 @@ sk_population <- raw_xl %>%
   select(-regionname) %>% 
   pivot_longer(cols = -NUTS_ID,
                names_to = "year",
-               values_to = "population")
+               values_to = "population") %>% 
+  mutate(year = as.numeric(year))
 
 
 ## Calculate crude emigration --------------------------------
