@@ -10,20 +10,20 @@ raw_csv <- read_delim(here("data", "02_external_emigration", "lv", "IBE080_20231
                       skip = 1)
  
 lv_emigration <- raw_csv %>% 
-  rename(reggioname = `Territorial unit`) %>% 
+  rename(regioname = `Territorial unit`) %>% 
   select(-Indicator) %>% 
   pivot_longer(
-    cols = -reggioname, 
+    cols = -regioname, 
     names_to = "year",
     values_to = "emigration") %>% 
-  mutate(NUTS_ID = case_when(reggioname == "Kurzeme region" ~ "LV003",
-                             reggioname == "Latgale region" ~ "LV005",
-                             reggioname == "Riga region" ~ "LV006",
-                             reggioname == "Pierīga region" ~ "LV007",
-                             reggioname == "Vidzeme region" ~ "LV008",
-                             reggioname == "Zemgale region" ~ "LV009")) %>% 
+  mutate(NUTS_ID = case_when(regioname == "Kurzeme region" ~ "LV003",
+                             regioname == "Latgale region" ~ "LV005",
+                             regioname == "Riga region" ~ "LV006",
+                             regioname == "Pierīga region" ~ "LV007",
+                             regioname == "Vidzeme region" ~ "LV008",
+                             regioname == "Zemgale region" ~ "LV009")) %>% 
   mutate(year = as.numeric(year)) %>% 
-  select(-reggioname)
+  select(-regioname)
 
 
 ## Population -------------------------------------------------------------
@@ -34,20 +34,20 @@ raw_csv <- read_delim(here("data", "02_external_emigration", "lv", "IRS030_20231
                       skip = 1)
 
 lv_population <- raw_csv %>% 
-  rename(reggioname = `Territorial unit`) %>% 
+  rename(regioname = `Territorial unit`) %>% 
   select(-Indicator) %>% 
   pivot_longer(
-    cols = -reggioname, 
+    cols = -regioname, 
     names_to = "year",
     values_to = "population") %>% 
-  mutate(NUTS_ID = case_when(reggioname == "Kurzeme region" ~ "LV003",
-                             reggioname == "Latgale region" ~ "LV005",
-                             reggioname == "Riga region" ~ "LV006",
-                             reggioname == "Pierīga region" ~ "LV007",
-                             reggioname == "Vidzeme region" ~ "LV008",
-                             reggioname == "Zemgale region" ~ "LV009")) %>% 
+  mutate(NUTS_ID = case_when(regioname == "Kurzeme region" ~ "LV003",
+                             regioname == "Latgale region" ~ "LV005",
+                             regioname == "Riga region" ~ "LV006",
+                             regioname == "Pierīga region" ~ "LV007",
+                             regioname == "Vidzeme region" ~ "LV008",
+                             regioname == "Zemgale region" ~ "LV009")) %>% 
   mutate(year = as.numeric(year)) %>% 
-  select(-reggioname)
+  select(-regioname)
 
 
 ## Calculate crude emigration --------------------------------
