@@ -135,7 +135,8 @@ hr_population <- hr_population %>%
 
 hr <- hr_emigration %>%
   left_join(hr_population, by = c("year", "NUTS_ID")) %>%
-  mutate(crude_emigration = (emigration/population) * 1000)
+  mutate(crude_emigration = (emigration/population) * 1000) %>% 
+  select(NUTS_ID, year, crude_emigration)
 
 
 ## Export ------------------------------

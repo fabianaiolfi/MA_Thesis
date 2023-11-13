@@ -51,7 +51,8 @@ si_population <- raw_csv %>%
 
 si <- si_emigration %>%
   left_join(si_population, by = c("NUTS_ID", "year")) %>% 
-  mutate(crude_emigration = (emigration/population) * 1000)
+  mutate(crude_emigration = (emigration/population) * 1000) %>% 
+  select(NUTS_ID, year, crude_emigration)
 
 
 ## Export ------------------------------

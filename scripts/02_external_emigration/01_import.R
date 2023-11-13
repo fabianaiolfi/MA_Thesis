@@ -9,6 +9,7 @@ load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
 # Population numbers
 load(here("data", "02_external_emigration", "nuts3_population.Rda"))
 
+
 ## Bulgaria -------------------------------------------------------------
 
 # source(here("scripts", "02_external_emigration", "01_import_preprocess", "bg.R"))
@@ -74,3 +75,11 @@ load(here("data", "02_external_emigration", "sk", "sk.Rda"))
 
 # source(here("scripts", "02_external_emigration", "01_import_preprocess", "si.R"))
 load(here("data", "02_external_emigration", "si", "si.Rda"))
+
+
+## Merge Countries into one dataframe -------------------------------------------------------------
+
+cee_crude_emigration <- rbind(bg, ee, hr, hu, lt, lv, pl, ro, si, sk)
+
+cee_crude_emigration <- cee_crude_emigration %>% 
+  mutate(country = substr(NUTS_ID, 1, 2))
