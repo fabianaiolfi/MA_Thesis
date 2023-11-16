@@ -95,7 +95,7 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   dplyr::filter(prev_incumbent == T) %>%
   # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
-  drop_na(crude_emigration) # Why are all rows dropped here? Maybe because crude emigration data is only available after 2014?
+  drop_na(crude_emigration)
 
 summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 

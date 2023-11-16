@@ -70,6 +70,12 @@ ned_cee <- ned_cee %>%
   mutate(unique_party_id = fill_ids(data.frame(unique_party_id))) %>%
   ungroup()
 
+# Manually fix party mergers
+ned_cee <- ned_cee %>% 
+  mutate(unique_party_id = case_when(unique_party_id == 6366 & year == 2014 ~ 1691,
+                                     unique_party_id == 6366 & year == 2018 ~ 1691,
+                                     T ~ unique_party_id))
+
 # Add party's vote change between two consecutive elections
 ned_cee <- ned_cee %>%
   arrange(nuts2016, unique_party_id, year) %>%

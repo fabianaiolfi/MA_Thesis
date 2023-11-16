@@ -11,6 +11,7 @@
 # https://en.wikipedia.org/wiki/Croatian_Democratic_Alliance_of_Slavonia_and_Baranja
 new_row <- data.frame(year = 2011, country_name = "Croatia", v2paenname = NA, pf_party_id = 2347, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
 v_dem_cee <- rbind(v_dem_cee, new_row)
+
 new_row <- data.frame(year = 2015, country_name = "Croatia", v2paenname = NA, pf_party_id = 2347, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
 v_dem_cee <- rbind(v_dem_cee, new_row)
 
@@ -420,6 +421,16 @@ v_dem_cee <- rbind(v_dem_cee, new_row)
 
 # https://en.wikipedia.org/wiki/Croatian_Social_Liberal_Party#Election_results
 new_row <- data.frame(year = 2016, country_name = "Croatia", v2paenname = NA, pf_party_id = 214, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+
+# https://en.wikipedia.org/wiki/Fidesz%E2%80%93KDNP#National_Assembly
+new_row <- data.frame(year = 2006, country_name = "Hungary", v2paenname = NA, pf_party_id = 6366, v2pashname = NA, v2pagovsup = NA, incumbent = "FALSE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+new_row <- data.frame(year = 2010, country_name = "Hungary", v2paenname = NA, pf_party_id = 6366, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+new_row <- data.frame(year = 2014, country_name = "Hungary", v2paenname = NA, pf_party_id = 6366, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
+v_dem_cee <- rbind(v_dem_cee, new_row)
+new_row <- data.frame(year = 2018, country_name = "Hungary", v2paenname = NA, pf_party_id = 6366, v2pashname = NA, v2pagovsup = NA, incumbent = "TRUE")
 v_dem_cee <- rbind(v_dem_cee, new_row)
 
 rm(new_row)
