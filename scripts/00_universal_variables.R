@@ -23,3 +23,15 @@ cee_nuts3 <- eurostat::eurostat_geodata_60_2016 %>%
   dplyr::filter(str_length(NUTS_ID) == 5)
   
 cee_nuts3$geometry <- NULL
+
+
+# NUTS2 IDs and Names --------------------------------------
+
+cee_nuts2 <- eurostat::eurostat_geodata_60_2016 %>% 
+  select(NUTS_ID, NAME_LATN, NUTS_NAME) %>% 
+  # Filter for CEE
+  dplyr::filter(str_detect(NUTS_ID, paste0("^", cee, collapse = "|"))) %>% 
+  # Filter for NUTS2
+  dplyr::filter(str_length(NUTS_ID) == 4)
+
+cee_nuts2$geometry <- NULL
