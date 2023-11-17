@@ -195,7 +195,7 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
 
 summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(partyfacts_id))) +
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()

@@ -77,7 +77,7 @@ ned_cee <- ned_cee %>%
                                   unique_party_id == 5941 & year == 2012 ~ 481, # National Liberal Party part of Social Liberal Union in 2012 election (https://en.wikipedia.org/wiki/National_Liberal_Party_(Romania)#Parliamentary_elections) (retrieved 17 November 2023)
                                   unique_party_id == 215 & year == 2004 ~ 481, # National Liberal Party part of Justice and Truth Alliance in 2004 election (https://en.wikipedia.org/wiki/National_Liberal_Party_(Romania)#Parliamentary_elections) (retrieved 17 November 2023)
                                   T ~ unique_party_id))
-# Manuall fix party splits
+# Manually fix party splits
 # `year` should be the year of the election looking back at the previous election
 # E.g. Party A in 2005: ID 42
 #      Party A_1 in 2010: ID 421
@@ -86,28 +86,10 @@ ned_cee <- ned_cee %>%
 ned_cee <- ned_cee %>% 
   mutate(former_party = case_when(unique_party_id == 57 & year == 2005 ~ 6183, # Following 3 parties part of SLD-UP coalition in 2001 (https://en.wikipedia.org/wiki/Democratic_Left_Alliance_%E2%80%93_Labour_Union and https://en.wikipedia.org/wiki/Democratic_Left_Alliance_(Poland)#Election_results) (retrieved 17 November 2023)
                                   unique_party_id == 1328 & year == 2005 ~ 6183,
-                                  unique_party_id == 1566 & year == 2005 ~ 6183,
                                   T ~ NA))
 
 # Add party's vote change between two consecutive elections
-# test <- ned_cee %>%
-#   # Use mutate to create a new variable that uses partyfacts_id if former_party is NA, otherwise use unique_party_id
-#   mutate(party_id = if_else(is.na(former_party), partyfacts_id, former_party)) %>%
-#   arrange(nuts2016, unique_party_id, year) %>%
-#   group_by(nuts2016, unique_party_id) %>%
-#   #mutate(vote_change = vote_share - dplyr::lag(vote_share, order_by = year)) %>% 
-#   mutate(
-#     previous_vote_share = if_else(is.na(former_party), 
-#                                 NA_real_, 
-#                                 vote_share[year == min(year[unique_party_id == former_party])]
-#     ),
-#     vote_change = vote_share - dplyr::lag(previous_vote_share)
-#   ) %>%
-#   ungroup() %>% 
-#   # Fixes bug where parties with same ID but different names had vote_change within same election
-#   distinct(year, country, nuts2016, unique_party_id, .keep_all = T)
-
-test <- ned_cee %>%
+ned_cee <- ned_cee %>%
   # Replace NA with the party's own ID in former_party to link it to itself
   mutate(former_party = if_else(is.na(former_party), unique_party_id, former_party)) %>%
   # Join the dataframe with itself on the former_party and year columns to find the previous vote share
@@ -145,6 +127,15 @@ ned_v_dem_cee <- ned_cee %>%
 # However, they don't seem to be incumbents, so they can probably be ignored
 v_dem_cee_distinct <- v_dem_cee %>% distinct(year, pf_party_id, .keep_all = T)
 missing_rows <- anti_join(v_dem_cee, v_dem_cee_distinct)
+
+
+# Further manual adjustments -----------------------------------------------------------
+# Due to party splits, `prev_incumbent` is unclear and must be stated explicitly
+
+ned_v_dem_cee <- ned_v_dem_cee %>% 
+  mutate(prev_incumbent = case_when(unique_party_id == 1328 ~ T, # https://en.wikipedia.org/wiki/Democratic_Left_Alliance_(Poland)#Election_results (retrieved 17 November 2023)
+                                    unique_party_id == 731 ~ F, # https://en.wikipedia.org/wiki/Your_Movement#Election_Results (retrieved 17 November 2023)
+                                    T ~ prev_incumbent))
 
 
 # t-test -----------------------------------------------------------
