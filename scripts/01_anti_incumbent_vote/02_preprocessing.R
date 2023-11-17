@@ -73,17 +73,56 @@ ned_cee <- ned_cee %>%
 # Manually fix party mergers
 ned_cee <- ned_cee %>% 
   mutate(unique_party_id = case_when(unique_party_id == 6366 & year == 2014 ~ 1691,
-                                     unique_party_id == 6366 & year == 2018 ~ 1691,
-                                     T ~ unique_party_id))
+                                  unique_party_id == 6366 & year == 2018 ~ 1691,
+                                  unique_party_id == 5941 & year == 2012 ~ 481, # National Liberal Party part of Social Liberal Union in 2012 election (https://en.wikipedia.org/wiki/National_Liberal_Party_(Romania)#Parliamentary_elections) (retrieved 17 November 2023)
+                                  unique_party_id == 215 & year == 2004 ~ 481, # National Liberal Party part of Justice and Truth Alliance in 2004 election (https://en.wikipedia.org/wiki/National_Liberal_Party_(Romania)#Parliamentary_elections) (retrieved 17 November 2023)
+                                  T ~ unique_party_id))
+# Manuall fix party splits
+# `year` should be the year of the election looking back at the previous election
+# E.g. Party A in 2005: ID 42
+#      Party A_1 in 2010: ID 421
+#      Party A_2 in 2010: ID 422
+# > unique_party_id == 421 & year == 2010 ~ 42
+ned_cee <- ned_cee %>% 
+  mutate(former_party = case_when(unique_party_id == 57 & year == 2005 ~ 6183, # Following 3 parties part of SLD-UP coalition in 2001 (https://en.wikipedia.org/wiki/Democratic_Left_Alliance_%E2%80%93_Labour_Union and https://en.wikipedia.org/wiki/Democratic_Left_Alliance_(Poland)#Election_results) (retrieved 17 November 2023)
+                                  unique_party_id == 1328 & year == 2005 ~ 6183,
+                                  unique_party_id == 1566 & year == 2005 ~ 6183,
+                                  T ~ NA))
 
 # Add party's vote change between two consecutive elections
-ned_cee <- ned_cee %>%
-  arrange(nuts2016, unique_party_id, year) %>%
-  group_by(nuts2016, unique_party_id) %>%
-  mutate(vote_change = vote_share - dplyr::lag(vote_share, order_by = year)) %>% 
-  ungroup() %>% 
-  # Fixes bug where parties with same ID but different names had vote_change within same election
-  distinct(year, country, nuts2016, unique_party_id, .keep_all = T)
+# test <- ned_cee %>%
+#   # Use mutate to create a new variable that uses partyfacts_id if former_party is NA, otherwise use unique_party_id
+#   mutate(party_id = if_else(is.na(former_party), partyfacts_id, former_party)) %>%
+#   arrange(nuts2016, unique_party_id, year) %>%
+#   group_by(nuts2016, unique_party_id) %>%
+#   #mutate(vote_change = vote_share - dplyr::lag(vote_share, order_by = year)) %>% 
+#   mutate(
+#     previous_vote_share = if_else(is.na(former_party), 
+#                                 NA_real_, 
+#                                 vote_share[year == min(year[unique_party_id == former_party])]
+#     ),
+#     vote_change = vote_share - dplyr::lag(previous_vote_share)
+#   ) %>%
+#   ungroup() %>% 
+#   # Fixes bug where parties with same ID but different names had vote_change within same election
+#   distinct(year, country, nuts2016, unique_party_id, .keep_all = T)
+
+test <- ned_cee %>%
+  # Replace NA with the party's own ID in former_party to link it to itself
+  mutate(former_party = if_else(is.na(former_party), unique_party_id, former_party)) %>%
+  # Join the dataframe with itself on the former_party and year columns to find the previous vote share
+  left_join(ned_cee %>% rename(PreviousVoteShare = vote_share, PartyID = unique_party_id), 
+            by = c("former_party" = "PartyID", "nuts2016")) %>%
+  # Ensure that we're only looking at previous years
+  dplyr::filter(year.x > year.y | is.na(year.y)) %>%
+  # For each unique_party_id and year, get the row with the maximum year.y (most recent previous election)
+  group_by(nuts2016, unique_party_id, year.x) %>%
+  slice_max(year.y, n = 1, with_ties = FALSE) %>%
+  ungroup() %>%
+  # Calculate the vote change
+  mutate(vote_change = vote_share - PreviousVoteShare) %>%
+  # Select the relevant columns
+  select(year = year.x, nuts2016, unique_party_id, former_party, vote_share, vote_change)
 
 
 # Merge V-DEM and NED -----------------------------------------------------------
