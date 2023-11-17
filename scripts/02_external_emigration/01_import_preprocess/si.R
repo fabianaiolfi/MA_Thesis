@@ -55,6 +55,20 @@ si <- si_emigration %>%
   select(NUTS_ID, year, crude_emigration)
 
 
+## Convert NUTS3 to NUTS1 --------------------------------
+
+# ned_v_dem_cee only contains NUTS1 for Slovenia
+# NUTS3 level results could be calculated using these links:
+# https://www.dvk-rs.si/arhivi/dz2018/#/rezultati and (e.g.) https://en.wikipedia.org/wiki/Mura_Statistical_Region
+
+si <- si %>%
+  mutate(NUTS_ID = "SI0") %>% 
+  group_by(NUTS_ID, year) %>% 
+  summarise(crude_emigration = mean(crude_emigration, na.rm = T)) %>% 
+  mutate(crude_emigration = gsub("NaN", NA, crude_emigration)) %>% 
+  mutate(crude_emigration = as.numeric(crude_emigration))
+
+
 ## Export ------------------------------
 
 save(si, file = here("data", "02_external_emigration", "si", "si.Rda"))

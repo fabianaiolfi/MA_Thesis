@@ -102,6 +102,21 @@ pl <- pl_emigration %>%
   select(NUTS_ID, year, crude_emigration)
 
 
+## Convert NUTS3 to NUTS2 --------------------------------
+
+# ned_v_dem_cee only contains NUTS2 for Poland
+# Adjust accordingly: Average NUTS3 crude emigration into NUTS2
+pl <- pl %>%
+  mutate(NUTS_ID = str_sub(NUTS_ID, 1, -2)) %>% 
+  group_by(NUTS_ID, year) %>% 
+  summarise(crude_emigration = mean(crude_emigration, na.rm = T)) %>% 
+  mutate(crude_emigration = gsub("NaN", NA, crude_emigration)) %>% 
+  mutate(crude_emigration = as.numeric(crude_emigration))
+
+# NUTS3 electoral data could be retrieved from https://wybory.gov.pl/sejmsenat2023/en/sejm/wynik/pl,
+# but only with a massive effort
+
+
 ## Export ------------------------------
 
 save(pl, file = here("data", "02_external_emigration", "pl", "pl.Rda"))
