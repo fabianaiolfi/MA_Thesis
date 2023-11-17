@@ -6,13 +6,14 @@
 v_dem_cee <- v_dem %>% 
   dplyr::filter(country_name %in% cee_names) %>% 
   dplyr::filter(year >= 1994) %>% 
-  select(year, country_name, v2paenname, pf_party_id, v2pashname, v2pagovsup) %>% 
+  select(year, country_name, v2paenname, pf_party_id, v2pashname, v2pagovsup, v2pariglef) %>% 
   mutate(incumbent = case_when(v2pagovsup == 0 ~ "TRUE",
                                v2pagovsup == 1 ~ "TRUE",
                                v2pagovsup == 2 ~ "TRUE",
                                v2pagovsup == 3 ~ "FALSE",
                                v2pagovsup == 4 ~ "Temp NA",
-                               is.na(v2pagovsup) == T ~ "Temp NA"))
+                               is.na(v2pagovsup) == T ~ "Temp NA")) %>% 
+  mutate(lr_hack = round(v2pariglef, 0)) # Change this! Or give it more thought
 
 # Manually add rows, due to mismatch in `year`
 source(here("scripts", "01_anti_incumbent_vote", "02_1_manual_adjustment.R"))
@@ -111,7 +112,7 @@ ned_cee <- ned_cee %>%
 
 ned_v_dem_cee <- ned_cee %>% 
   # Merge dataframes
-  left_join(select(v_dem_cee, year, pf_party_id, prev_incumbent),
+  left_join(select(v_dem_cee, year, pf_party_id, prev_incumbent, lr_hack),
             by = c("year" = "year",
                    "unique_party_id" = "pf_party_id")) %>% 
   # Turn prev_incumbent into binary variable

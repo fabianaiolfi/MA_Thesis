@@ -14,15 +14,17 @@ average_emigration <- cee_crude_emigration %>%
 anti_incumbent_vote <- ned_v_dem_cee %>% 
   dplyr::filter(prev_incumbent == T) %>%
   # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
+  # dplyr::filter(lr_hack == -2) %>% # Build model with lr_hack
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
-  drop_na(crude_emigration)
+  drop_na(crude_emigration) %>% 
+  drop_na(lr_hack)
 
 summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change))+#, color = as.factor(partyfacts_id))) +
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(lr_hack))) +
   geom_point() +
-  geom_smooth(method = "lm", se = F) +
-  geom_smooth(method = "loess", color = "green", se = F) +
+  geom_smooth(method = "lm", se = F, na.rm = T) +
+  #geom_smooth(method = "loess", color = "green", se = F) +
   theme_minimal()
 
 
