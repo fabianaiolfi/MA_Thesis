@@ -164,6 +164,9 @@ average_emigration <- pl %>%
   mutate(crude_emigration = gsub("NaN", NA, crude_emigration)) %>% 
   mutate(crude_emigration = as.numeric(crude_emigration))
 
+# NUTS3 electoral data could be retrieved from https://wybory.gov.pl/sejmsenat2023/en/sejm/wynik/pl,
+# but only with a massive effort
+
 # Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
 average_emigration <- average_emigration %>%
   arrange(NUTS_ID, year) %>%
@@ -236,8 +239,19 @@ ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color =
 
 ## Slovenia -------------------------------------------------------------
 
-# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+# ned_v_dem_cee only contains NUTS1 for Slovenia
+# NUTS3 level results could be calculated using these links:
+# https://www.dvk-rs.si/arhivi/dz2018/#/rezultati and (e.g.) https://en.wikipedia.org/wiki/Mura_Statistical_Region
+
 average_emigration <- si %>%
+  mutate(NUTS_ID = "SI0") %>% 
+  group_by(NUTS_ID, year) %>% 
+  summarise(crude_emigration = mean(crude_emigration, na.rm = T)) %>% 
+  mutate(crude_emigration = gsub("NaN", NA, crude_emigration)) %>% 
+  mutate(crude_emigration = as.numeric(crude_emigration))
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- average_emigration %>%
   arrange(NUTS_ID, year) %>%
   group_by(NUTS_ID) %>%
   # Take rolling average of past 2 years into account, ignore current year
