@@ -131,10 +131,14 @@ missing_rows <- anti_join(v_dem_cee, v_dem_cee_distinct)
 
 # Further manual adjustments -----------------------------------------------------------
 # Due to party splits, `prev_incumbent` is unclear and must be stated explicitly
+# Supporting government is also coded as incumbent
 
 ned_v_dem_cee <- ned_v_dem_cee %>% 
   mutate(prev_incumbent = case_when(unique_party_id == 1328 ~ T, # https://en.wikipedia.org/wiki/Democratic_Left_Alliance_(Poland)#Election_results (retrieved 17 November 2023)
                                     unique_party_id == 731 ~ F, # https://en.wikipedia.org/wiki/Your_Movement#Election_Results (retrieved 17 November 2023)
+                                    unique_party_id == 1195 & year == 2013 ~ T, # https://en.wikipedia.org/wiki/Democrats_for_a_Strong_Bulgaria#Electoral_history (retrieved 17 November 2023)
+                                    unique_party_id == 3187 & year == 2017 ~ T, # https://en.wikipedia.org/wiki/Alternative_for_Bulgarian_Revival#Electoral_history (retrieved 17 November 2023)
+                                    unique_party_id == 296 & year == 2008 ~ T, # https://en.wikipedia.org/wiki/New_Generation_Party_(Romania)#Electoral_history (retrieved 17 November 2023)
                                     T ~ prev_incumbent))
 
 
