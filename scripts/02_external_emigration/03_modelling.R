@@ -21,7 +21,8 @@ summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
 ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change))+#, color = as.factor(partyfacts_id))) +
   geom_point() +
-  geom_smooth(method = "lm") +
+  geom_smooth(method = "lm", se = F) +
+  geom_smooth(method = "loess", color = "green", se = F) +
   theme_minimal()
 
 ## Bulgaria --------------------------------------------
