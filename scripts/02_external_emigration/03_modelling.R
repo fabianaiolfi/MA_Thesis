@@ -14,17 +14,19 @@ average_emigration <- cee_crude_emigration %>%
 anti_incumbent_vote <- ned_v_dem_cee %>% 
   dplyr::filter(prev_incumbent == T) %>%
   # dplyr::filter(partyfacts_id == 1431) %>% # Build model with a single party
-  # dplyr::filter(lrgen_fct == -2) %>% # Build model with lrgen_fct
+  # dplyr::filter(lrgen_fct == "Right") %>% # Build model with lrgen_fct
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   drop_na(crude_emigration) %>% 
-  drop_na(lrgen_fct)
+  drop_na(lrgen_fct) %>% 
+  mutate(country = str_sub(nuts2016, end = 2))
 
 summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(lrgen_fct))) +
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = galtan_fct)) + # lrgen_fct
   geom_point() +
   geom_smooth(method = "lm", se = F, na.rm = T) +
-  #geom_smooth(method = "loess", color = "green", se = F) +
+  # geom_smooth(method = "loess", color = "green", se = F) +
+  facet_wrap(~ country, scales = "free") +
   theme_minimal()
 
 
@@ -49,12 +51,13 @@ average_emigration <- bg %>%
 anti_incumbent_vote <- ned_v_dem_cee %>% 
   dplyr::filter(prev_incumbent == T) %>%
   #dplyr::filter(partyfacts_id == 760) %>% # Build model with a single party
+  # dplyr::filter(lrgen_fct == "Centre") %>% # Build model with lrgen_fct
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   drop_na(crude_emigration)
 
 summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()
@@ -192,19 +195,16 @@ average_emigration <- pl %>%
 
 anti_incumbent_vote <- ned_v_dem_cee %>% 
   dplyr::filter(prev_incumbent == T) %>%
-  # Manually add lrgen_fct
-  mutate(lrgen_fct = case_when(unique_party_id == 727 ~ "Left", # https://en.wikipedia.org/wiki/Self-Defence_of_the_Republic_of_Poland
-                               unique_party_id == 1328 ~ "Left", # https://en.wikipedia.org/wiki/Social_Democracy_of_Poland
-                               unique_party_id == 1768 ~ "Right", # https://en.wikipedia.org/wiki/League_of_Polish_Families
-                               T ~ lrgen_fct)) %>% 
   # dplyr::filter(partyfacts_id == 1565) %>% # Build model with a single party
-  dplyr::filter(lrgen_fct == "Right") %>% # Build model with lrgen_fct
+  # dplyr::filter(lrgen_fct == "Centre Right") %>% # Build model with lrgen_fct
+  #dplyr::filter(galtan_fct == "6_8") %>% # Build model with galtan_fct
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  #dplyr::filter(average_emigration < 2) %>% # Testing removing outliers
   drop_na(crude_emigration)
 
-summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+summary(lm(vote_change ~ average_emigration + lrgen_fct, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(lrgen_fct))) +
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) + # lrgen_fct # galtan_fct
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()
