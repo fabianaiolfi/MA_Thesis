@@ -1,22 +1,42 @@
 
 # Preprocessing -----------------------------------------------------------
 
+## CHES -----------------------------------------------------------
+
+ches <- ches %>% 
+  select(year, party_id, lrgen) %>% 
+  group_by(party_id) %>% 
+  summarise(lrgen = mean(lrgen))
+
 ## V-DEM -----------------------------------------------------------
+
+v_dem_cee_ches <- v_dem %>% 
+  select(pf_party_id, CHES_ID) %>% 
+  drop_na(CHES_ID) %>% 
+  distinct(pf_party_id, CHES_ID)
 
 v_dem_cee <- v_dem %>% 
   dplyr::filter(country_name %in% cee_names) %>% 
   dplyr::filter(year >= 1994) %>% 
-  select(year, country_name, v2paenname, pf_party_id, v2pashname, v2pagovsup, v2pariglef) %>% 
+  select(year, country_name, v2paenname, pf_party_id, v2pashname, v2pagovsup) %>% # v2pariglef
   mutate(incumbent = case_when(v2pagovsup == 0 ~ "TRUE",
                                v2pagovsup == 1 ~ "TRUE",
                                v2pagovsup == 2 ~ "TRUE",
                                v2pagovsup == 3 ~ "FALSE",
                                v2pagovsup == 4 ~ "Temp NA",
-                               is.na(v2pagovsup) == T ~ "Temp NA")) %>% 
-  mutate(lr_hack = round(v2pariglef, 0)) # Change this! Or give it more thought
+                               is.na(v2pagovsup) == T ~ "Temp NA"))
 
 # Manually add rows, due to mismatch in `year`
-source(here("scripts", "01_anti_incumbent_vote", "02_1_manual_adjustment.R"))
+source(here("scripts", "01_anti_incumbent_vote", "02_1_manual_adjustment.R"))  
+
+v_dem_cee <- v_dem_cee %>% 
+left_join(v_dem_cee_ches, by = "pf_party_id") %>% 
+  left_join(ches, by = c("CHES_ID" = "party_id")) %>% 
+  mutate(lrgen_fct = case_when(lrgen <= 3 ~ "Left",
+                               lrgen >3 & lrgen <7 ~ "Centre",
+                               lrgen >= 7 ~ "Right")) %>% 
+  mutate(lrgen_fct = as.factor(lrgen_fct)) %>% 
+  select(-c(lrgen, CHES_ID))
 
 # Was party incumbent in previous election?
 v_dem_cee <- v_dem_cee %>%
@@ -112,7 +132,7 @@ ned_cee <- ned_cee %>%
 
 ned_v_dem_cee <- ned_cee %>% 
   # Merge dataframes
-  left_join(select(v_dem_cee, year, pf_party_id, prev_incumbent, lr_hack),
+  left_join(select(v_dem_cee, year, pf_party_id, prev_incumbent, lrgen_fct),
             by = c("year" = "year",
                    "unique_party_id" = "pf_party_id")) %>% 
   # Turn prev_incumbent into binary variable
@@ -147,7 +167,7 @@ ned_v_dem_cee <- ned_v_dem_cee %>%
 
 ned_v_dem_cee %>% 
   drop_na(vote_change, prev_incumbent) %>% 
-  ggplot(aes(x = prev_incumbent, y = vote_change)) +
+  ggplot(aes(x = prev_incumbent, y = vote_change, color = lrgen_fct)) +
   geom_boxplot() +
   xlab("") +
   ggtitle(label = "Was Party in Power in Previous Election?",
