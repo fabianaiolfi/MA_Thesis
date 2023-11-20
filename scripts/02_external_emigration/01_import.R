@@ -79,7 +79,7 @@ load(here("data", "02_external_emigration", "si", "si.Rda"))
 
 ## Merge Countries into one dataframe -------------------------------------------------------------
 
-cee_crude_emigration <- rbind(bg, ee, hr, hu, lt, lv, pl, ro, si, sk)
+cee_crude_emigration <- bind_rows(bg, ee, hr, hu, lt, lv, pl, ro, si, sk)
 
 cee_crude_emigration <- cee_crude_emigration %>% 
   mutate(country = substr(NUTS_ID, 1, 2))

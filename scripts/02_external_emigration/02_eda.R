@@ -52,3 +52,19 @@ ggsave(
 # ggplot(hr, aes(x = year, y = crude_emigration, line = NUTS_ID)) +
 #   geom_line() +
 #   theme_minimal()
+
+
+## Poland -------------------------------------------------------------
+
+# Plot schools over time
+
+ggplot(pl, aes(x = year, y = schools_diff, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+
+ggplot(average_emigration, aes(x = average_emigration, y = average_schools_diff)) +
+  geom_point() +
+  theme_minimal()
+
+
+
