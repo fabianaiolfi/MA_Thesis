@@ -4,9 +4,10 @@
 ## CHES -----------------------------------------------------------
 
 ches <- ches %>% 
-  select(year, party_id, lrgen) %>% 
+  select(year, party_id, lrgen, galtan) %>% 
   group_by(party_id) %>% 
-  summarise(lrgen = mean(lrgen))
+  summarise(lrgen = mean(lrgen),
+            galtan = mean(galtan))
 
 ## V-DEM -----------------------------------------------------------
 
@@ -30,13 +31,21 @@ v_dem_cee <- v_dem %>%
 source(here("scripts", "01_anti_incumbent_vote", "02_1_manual_adjustment.R"))  
 
 v_dem_cee <- v_dem_cee %>% 
-left_join(v_dem_cee_ches, by = "pf_party_id") %>% 
+  left_join(v_dem_cee_ches, by = "pf_party_id") %>% 
   left_join(ches, by = c("CHES_ID" = "party_id")) %>% 
-  mutate(lrgen_fct = case_when(lrgen <= 3 ~ "Left",
-                               lrgen >3 & lrgen <7 ~ "Centre",
-                               lrgen >= 7 ~ "Right")) %>% 
+  mutate(lrgen_fct = case_when(lrgen <= 2 ~ "Left",
+                               lrgen >2 & lrgen <=5 ~ "Centre Left",
+                               lrgen >5 & lrgen <=6 ~ "Centre",
+                               lrgen >6 & lrgen <=9 ~ "Centre Right",
+                               lrgen > 9 ~ "Right")) %>% 
   mutate(lrgen_fct = as.factor(lrgen_fct)) %>% 
-  select(-c(lrgen, CHES_ID))
+  select(-c(lrgen, CHES_ID)) %>% 
+  mutate(galtan_fct = case_when(galtan <= 2 ~ "0_1",
+                                galtan >2 & galtan <=5 ~ "2_4",
+                                galtan >5 & galtan <=6 ~ "5",
+                                galtan >6 & galtan <=9 ~ "6_8",
+                                galtan > 9 ~ "9_10")) %>% 
+  mutate(galtan_fct = as.factor(galtan_fct))
 
 # Was party incumbent in previous election?
 v_dem_cee <- v_dem_cee %>%
@@ -132,7 +141,7 @@ ned_cee <- ned_cee %>%
 
 ned_v_dem_cee <- ned_cee %>% 
   # Merge dataframes
-  left_join(select(v_dem_cee, year, pf_party_id, prev_incumbent, lrgen_fct),
+  left_join(select(v_dem_cee, year, pf_party_id, prev_incumbent, lrgen_fct, galtan_fct),
             by = c("year" = "year",
                    "unique_party_id" = "pf_party_id")) %>% 
   # Turn prev_incumbent into binary variable
@@ -161,6 +170,17 @@ ned_v_dem_cee <- ned_v_dem_cee %>%
                                     unique_party_id == 3187 & year == 2017 ~ T, # https://en.wikipedia.org/wiki/Alternative_for_Bulgarian_Revival#Electoral_history (retrieved 17 November 2023)
                                     unique_party_id == 296 & year == 2008 ~ T, # https://en.wikipedia.org/wiki/New_Generation_Party_(Romania)#Electoral_history (retrieved 17 November 2023)
                                     T ~ prev_incumbent))
+
+# Manually add missing lrgen_fct
+ned_v_dem_cee <- ned_v_dem_cee %>% 
+  mutate(lrgen_fct = case_when(unique_party_id == 727 ~ "Left", # https://en.wikipedia.org/wiki/Self-Defence_of_the_Republic_of_Poland
+                               unique_party_id == 1328 ~ "Centre Left", # https://en.wikipedia.org/wiki/Social_Democracy_of_Poland
+                               unique_party_id == 1768 ~ "Right", # https://en.wikipedia.org/wiki/League_of_Polish_Families
+                               unique_party_id == 1195 ~ "Right", # https://en.wikipedia.org/wiki/Democrats_for_a_Strong_Bulgaria
+                               unique_party_id == 1793 ~ "Right", # https://en.wikipedia.org/wiki/Attack_%28political_party%29
+                               unique_party_id == 3187 ~ "Centre Left", # https://en.wikipedia.org/wiki/Alternative_for_Bulgarian_Revival
+                               unique_party_id == 3189 ~ "Centre Right", # https://en.wikipedia.org/wiki/Reformist_Bloc
+                               T ~ lrgen_fct))
 
 
 # t-test -----------------------------------------------------------
