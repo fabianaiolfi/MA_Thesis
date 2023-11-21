@@ -35,3 +35,28 @@ cee_nuts2 <- eurostat::eurostat_geodata_60_2016 %>%
   dplyr::filter(str_length(NUTS_ID) == 4)
 
 cee_nuts2$geometry <- NULL
+
+
+# Capitalize letter after space -----------------------------
+# Used for pl.R scripts
+
+capitalizeAfterSpace <- function(s) {
+  # Splitting the string into characters
+  chars <- unlist(strsplit(s, ""))
+  
+  # Lowercasing all characters first
+  chars <- tolower(chars)
+  
+  # Capitalizing the first character
+  chars[1] <- toupper(chars[1])
+  
+  # Finding spaces and capitalizing the following character
+  for (i in 1:(length(chars) - 1)) {
+    if (chars[i] == " " && i < length(chars)) {
+      chars[i + 1] <- toupper(chars[i + 1])
+    }
+  }
+  
+  # Collapsing the characters back into a single string
+  paste0(chars, collapse = "")
+}

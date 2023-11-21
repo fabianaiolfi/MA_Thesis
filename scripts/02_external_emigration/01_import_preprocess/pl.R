@@ -75,28 +75,6 @@ current_names <- colnames(pl_emigration) # Getting the current column names
 current_names[2:29] <- year_names # Replacing the names of columns 2 through 29
 colnames(pl_emigration) <- current_names # Assigning the new names back to the dataframe
 
-# Capitalize letter after space
-capitalizeAfterSpace <- function(s) {
-  # Splitting the string into characters
-  chars <- unlist(strsplit(s, ""))
-  
-  # Lowercasing all characters first
-  chars <- tolower(chars)
-  
-  # Capitalizing the first character
-  chars[1] <- toupper(chars[1])
-  
-  # Finding spaces and capitalizing the following character
-  for (i in 1:(length(chars) - 1)) {
-    if (chars[i] == " " && i < length(chars)) {
-      chars[i + 1] <- toupper(chars[i + 1])
-    }
-  }
-  
-  # Collapsing the characters back into a single string
-  paste0(chars, collapse = "")
-}
-
 # Combine Warszawski wschodni and Warszawski zachodni
 # Assuming you have a dataframe 'df' and you know the indices of the rows to add
 index1 <- which(pl_emigration$regionname == "SUBREGION WARSZAWSKI WSCHODNI") # Replace with the actual region name or condition
