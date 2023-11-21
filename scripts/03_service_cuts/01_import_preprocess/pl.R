@@ -1,7 +1,4 @@
 
-# Poland -------------------------------------------------------------
-
-
 ## Schools at NUTS2 --------------------------------
 
 # Source: https://bdl.stat.gov.pl/bdl/dane/podgrup/tablica (retrieved 20 November 2023)
@@ -32,10 +29,128 @@ pl_schools <- pl_schools %>%
                values_to = "schools") %>% 
   mutate(year = as.numeric(year))
 
-pl_schools <- pl_schools %>%
-  group_by(NUTS_ID) %>%
-  arrange(NUTS_ID, year) %>%
-  mutate(schools_diff = schools - dplyr::lag(schools))
+# pl_schools <- pl_schools %>%
+#   group_by(NUTS_ID) %>%
+#   arrange(NUTS_ID, year) %>%
+#   mutate(schools_diff = schools - dplyr::lag(schools))
+
+
+## Primary school population at NUTS2 --------------------------------
+# https://en.wikipedia.org/wiki/Education_in_Poland#Primary_school
+# Up to 2017: Age 7 -- 12 (6 years)
+# After Sept 2017: Age 7 -- 14 (8 years)
+
+# Age 7 -- 12 from 1998 to 2017
+# Source: https://ec.europa.eu/eurostat/databrowser/view/demo_r_d2jan__custom_8622439/default/table?lang=en (retrieved 21 November 2023)
+# Problem: 7 NUTS2 regions only from 2014
+# raw_csv <- read_csv(here("data", "03_service_cuts", "pl", "demo_r_d2jan__custom_8622439_linear.csv"))
+# 
+# pl_school_pop_1998_2017 <- raw_csv %>% 
+#   select(age, geo, TIME_PERIOD, OBS_VALUE) %>% 
+#   dplyr::filter(str_detect(geo, "^PL\\d\\d")) %>%  # Filter for NUTS2 (PL and 2 digits)
+#   group_by(TIME_PERIOD, geo) %>% 
+#   summarise(population = sum(OBS_VALUE))
+
+# Age 7 -- 12 from 1998 to 2017
+# Source: https://bdl.stat.gov.pl/bdl/dane/podgrup/tablica (retrieved 21 November 2023)
+# raw_csv <- read_delim(here("data", "03_service_cuts", "pl", "LUDN_1341_CTAB_20231121184439.csv"),
+#                       delim = ";")
+# 
+# pl_school_pop_1998_2017 <- raw_csv %>% 
+#   select(-c(Code, `...141`)) %>% 
+#   rename(regionname = Name) %>% 
+#   rename_with(~gsub("total;([0-9]+);([0-9]+);\\[person\\]", "age_\\1_year_\\2", .)) # Rename columns
+
+# More preprocessing
+# pl_school_pop_1998_2017 <- pl_school_pop_1998_2017 %>% 
+#   mutate(regionname = sapply(regionname, capitalizeAfterSpace)) %>%
+#   left_join(select(cee_nuts2, NUTS_ID, NAME_LATN), by = c("regionname" = "NAME_LATN")) %>% 
+#   mutate(NUTS_ID = case_when(regionname == "Mazowieckie" ~ "PL92",
+#                              regionname == "City With Powiat Status Capital City Warszawa" ~ "PL91",
+#                              T ~ NUTS_ID)) %>%
+#   select(-regionname) %>% 
+#   pivot_longer(cols = -NUTS_ID,
+#                names_to = "year",
+#                values_to = "population") %>% 
+#   mutate(year = gsub("age_\\d+_year_", "", year)) %>% 
+#   mutate(year = as.numeric(year)) %>% 
+#   group_by(year, NUTS_ID) %>% 
+#   mutate(population = sum(population))
+
+# Age 7 -- 14 from 2018 to 2022
+# Source: https://bdl.stat.gov.pl/bdl/dane/podgrup/tablica (retrieved 21 November 2023)
+# raw_csv <- read_delim(here("data", "03_service_cuts", "pl", "LUDN_1341_CTAB_20231121190207.csv"),
+#                       delim = ";")
+# 
+# pl_school_pop_2018_2022 <- raw_csv %>% 
+#   select(-c(Code, `...43`)) %>% 
+#   rename(regionname = Name) %>% 
+#   rename_with(~gsub("total;([0-9]+);([0-9]+);\\[person\\]", "age_\\1_year_\\2", .)) # Rename columns
+# 
+# # More preprocessing
+# pl_school_pop_2018_2022 <- pl_school_pop_2018_2022 %>% 
+#   mutate(regionname = sapply(regionname, capitalizeAfterSpace)) %>%
+#   left_join(select(cee_nuts2, NUTS_ID, NAME_LATN), by = c("regionname" = "NAME_LATN")) %>% 
+#   mutate(NUTS_ID = case_when(regionname == "Mazowieckie" ~ "PL92",
+#                              regionname == "City With Powiat Status Capital City Warszawa" ~ "PL91",
+#                              T ~ NUTS_ID)) %>%
+#   select(-regionname) %>% 
+#   pivot_longer(cols = -NUTS_ID,
+#                names_to = "year",
+#                values_to = "population") %>% 
+#   mutate(year = gsub("age_\\d+_year_", "", year)) %>% 
+#   mutate(year = as.numeric(year)) %>% 
+#   group_by(year, NUTS_ID) %>% 
+#   mutate(population = sum(population))
+# 
+# # Merging these results in a jump/break between 2017/2018
+# pl_school_pop <- pl_school_pop_1998_2017 %>% 
+#   bind_rows(pl_school_pop_2018_2022)
+# 
+# ggplot(pl_school_pop, aes(x = year, y = population, line = NUTS_ID)) +
+#   geom_line() +
+#   theme_minimal()
+
+# Fix: Only take age 7--12 for all years
+raw_csv <- read_delim(here("data", "03_service_cuts", "pl", "LUDN_1341_CTAB_20231121190646.csv"),
+                      delim = ";")
+
+pl_school_pop <- raw_csv %>% 
+  select(-c(Code, `...171`)) %>% 
+  rename(regionname = Name) %>% 
+  rename_with(~gsub("total;([0-9]+);([0-9]+);\\[person\\]", "age_\\1_year_\\2", .)) # Rename columns
+
+# More preprocessing
+pl_school_pop <- pl_school_pop %>% 
+  mutate(regionname = sapply(regionname, capitalizeAfterSpace)) %>%
+  left_join(select(cee_nuts2, NUTS_ID, NAME_LATN), by = c("regionname" = "NAME_LATN")) %>% 
+  mutate(NUTS_ID = case_when(regionname == "Mazowieckie" ~ "PL92",
+                             regionname == "City With Powiat Status Capital City Warszawa" ~ "PL91",
+                             T ~ NUTS_ID)) %>%
+  select(-regionname) %>% 
+  pivot_longer(cols = -NUTS_ID,
+               names_to = "year",
+               values_to = "population") %>% 
+  mutate(year = gsub("age_\\d+_year_", "", year)) %>% 
+  mutate(year = as.numeric(year)) %>% 
+  group_by(year, NUTS_ID) %>% 
+  mutate(population = sum(population))
+
+ggplot(pl_school_pop, aes(x = year, y = population, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+
+
+## Merge ------------------------------
+
+pl_schools <- pl_schools %>% 
+  left_join(pl_school_pop, by = c("NUTS_ID", "year")) %>% 
+  distinct(NUTS_ID, year, .keep_all = T) %>% 
+  mutate(ratio = population / schools)
+
+ggplot(pl_schools, aes(x = year, y = ratio, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
 
 
 ## Export ------------------------------
