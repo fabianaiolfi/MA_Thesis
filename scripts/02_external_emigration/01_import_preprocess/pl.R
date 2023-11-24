@@ -178,6 +178,8 @@ pl_population <- pl_population %>%
   mutate(year = as.numeric(year)) %>% 
   mutate(population = population * 1000) # Original CSV population in thousand persons
 
+save(pl_population, file = here("data", "02_external_emigration", "pl", "pl_population.Rda"))
+
 
 ## Calculate crude emigration --------------------------------
 # Use same calculation of emigration as Eurostat: https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_gind3_esms.htm

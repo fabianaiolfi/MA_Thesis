@@ -136,9 +136,9 @@ pl_school_pop <- pl_school_pop %>%
   group_by(year, NUTS_ID) %>% 
   mutate(population = sum(population))
 
-ggplot(pl_school_pop, aes(x = year, y = population, line = NUTS_ID)) +
-  geom_line() +
-  theme_minimal()
+# ggplot(pl_school_pop, aes(x = year, y = population, line = NUTS_ID)) +
+#   geom_line() +
+#   theme_minimal()
 
 
 ## Merge ------------------------------
@@ -146,13 +146,44 @@ ggplot(pl_school_pop, aes(x = year, y = population, line = NUTS_ID)) +
 pl_schools <- pl_schools %>% 
   left_join(pl_school_pop, by = c("NUTS_ID", "year")) %>% 
   distinct(NUTS_ID, year, .keep_all = T) %>% 
-  mutate(ratio = population / schools)
+  mutate(ratio_schools = population / schools)
 
 ggplot(pl_schools, aes(x = year, y = ratio, line = NUTS_ID)) +
   geom_line() +
   theme_minimal()
 
 
+
+## Hospital beds ------------------------------
+
+raw_csv <- read_csv(here("data", "03_service_cuts", "pl", "hlth_rs_bdsrg__custom_8678583_linear.csv"))
+
+pl_hospitals <- raw_csv %>% 
+  select(geo, TIME_PERIOD, OBS_VALUE) %>% 
+  rename(NUTS_ID = geo,
+         year = TIME_PERIOD,
+         hospital_beds = OBS_VALUE) %>% 
+  mutate(NUTS_ID = case_when(NUTS_ID == "PL11" ~ "PL71",
+                             NUTS_ID == "PL12" ~ "PL92",
+                             NUTS_ID == "PL12" ~ "PL92",
+                             NUTS_ID == "PL31" ~ "PL81",
+                             NUTS_ID == "PL32" ~ "PL82",
+                             NUTS_ID == "PL33" ~ "PL72",
+                             NUTS_ID == "PL34" ~ "PL84",
+                             T ~ NUTS_ID))
+
+load(here("data", "02_external_emigration", "pl", "pl_population.Rda"))
+
+pl_hospitals <- pl_hospitals %>% 
+  left_join(pl_population, by = c("year", "NUTS_ID")) %>% 
+  mutate(ratio_hospital_beds = population / hospital_beds)
+
+# ggplot(test, aes(x = year, y = ratio, line = NUTS_ID)) +
+#   geom_line() +
+#   theme_minimal()
+
+
 ## Export ------------------------------
 
 save(pl_schools, file = here("data", "03_service_cuts", "pl", "pl_schools.Rda"))
+save(pl_hospitals, file = here("data", "03_service_cuts", "pl", "pl_hospitals.Rda"))
