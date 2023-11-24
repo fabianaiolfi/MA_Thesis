@@ -55,20 +55,17 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
 
 anti_incumbent_vote <- anti_incumbent_vote %>% 
   left_join(pl_schools, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
-  left_join(pl_hospitals, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
-
-# summary(lm(vote_change ~ diff, anti_incumbent_vote))
-# summary(lm(vote_change ~ diff + average_emigration, anti_incumbent_vote))
+  left_join(pl_hospitals, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  dplyr::filter(ratio_hospital_beds_population_over_70 <= 30)
 
 summary(lm(vote_change ~ ratio_schools + average_emigration, anti_incumbent_vote))
-summary(lm(vote_change ~ ratio_hospital_beds + average_emigration, anti_incumbent_vote))
-summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds + average_emigration, anti_incumbent_vote))
+summary(lm(vote_change ~ ratio_hospital_beds_all_population + average_emigration, anti_incumbent_vote))
+summary(lm(vote_change ~ ratio_hospital_beds_population_over_70, anti_incumbent_vote))
+summary(lm(vote_change ~ ratio_hospital_beds_population_over_70 + average_emigration, anti_incumbent_vote))
+summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70 + average_emigration, anti_incumbent_vote))
+summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = ratio, y = vote_change))+#, color = lrgen_fct)) +
+ggplot(anti_incumbent_vote, aes(x = ratio_hospital_beds_population_over_70, y = vote_change, color = lrgen_fct)) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()
-
-anti_incumbent_vote %>% select(year, nuts2016, unique_party_id, vote_change, ratio, average_emigration) %>% sample_n(10)
-
-
