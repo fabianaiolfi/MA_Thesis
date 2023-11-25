@@ -134,7 +134,7 @@ ned_cee <- ned_cee %>%
   # Calculate the vote change
   mutate(vote_change = vote_share - PreviousVoteShare) %>%
   # Select the relevant columns
-  select(year = year.x, nuts2016, unique_party_id, former_party, vote_share, vote_change)
+  select(regionname = regionname.x, country = country.x, year = year.x, nuts2016, unique_party_id, former_party, vote_share, vote_change)
 
 
 # Merge V-DEM and NED -----------------------------------------------------------
@@ -187,7 +187,7 @@ ned_v_dem_cee <- ned_v_dem_cee %>%
 
 ned_v_dem_cee %>% 
   drop_na(vote_change, prev_incumbent) %>% 
-  ggplot(aes(x = prev_incumbent, y = vote_change, color = lrgen_fct)) +
+  ggplot(aes(x = prev_incumbent, y = vote_change))+#, color = lrgen_fct)) +
   geom_boxplot() +
   xlab("") +
   ggtitle(label = "Was Party in Power in Previous Election?",
