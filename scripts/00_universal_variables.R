@@ -1,4 +1,9 @@
 
+# Import Voting Data -------------------------------------------------------------
+
+load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
+
+
 # CEE NUTS0 --------------------------------------
 
 cee <- c("BG", "HR", "CZ", "EE", "HU", "LV", "LT", "PL", "RO", "SK", "SI")
@@ -60,3 +65,16 @@ capitalizeAfterSpace <- function(s) {
   # Collapsing the characters back into a single string
   paste0(chars, collapse = "")
 }
+
+
+# Election Years -------------------------------------
+
+# Poland
+pl_election_years <- ned_v_dem_cee %>% 
+  dplyr::filter(str_detect(nuts2016, "^PL")) %>% 
+  distinct(year) %>% 
+  arrange(year)
+
+pl_election_years <- pl_election_years$year
+pl_election_years <- c(1997, 2001, pl_election_years, 2023) # Previous elections
+pl_election_years <- sort(pl_election_years) # Ensure election years are sorted
