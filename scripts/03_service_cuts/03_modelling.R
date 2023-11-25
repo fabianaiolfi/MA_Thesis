@@ -43,8 +43,10 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
   left_join(pl_hospitals, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
 
 summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population, anti_incumbent_vote))
+summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + average_emigration, anti_incumbent_vote))
+summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + emigration_election_year_per_1000, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = ratio_hospitals_all_population, y = vote_change))+#, color = lrgen_fct)) +
+ggplot(anti_incumbent_vote, aes(x = emigration_election_year_per_1000, y = vote_change))+#, color = lrgen_fct)) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()
