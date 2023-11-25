@@ -14,7 +14,7 @@ save_here <- here("documentation")
 
 # Plot crude emigration over time
 
-ggplot(cee_crude_emigration, aes(x = year, y = crude_emigration, group = NUTS_ID)) +
+ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
   geom_line() +
   facet_wrap(~ country,
              scales = "free_y",
@@ -40,7 +40,7 @@ ggsave(
 
 # Plot crude emigration over time
 
-# ggplot(bg, aes(x = year, y = crude_emigration, line = NUTS_ID)) +
+# ggplot(bg, aes(x = year, y = emigration_yearly_per_1000, line = NUTS_ID)) +
 #   geom_line() +
 #   theme_minimal()
 
@@ -49,7 +49,7 @@ ggsave(
 
 # Plot crude emigration over time
 
-# ggplot(hr, aes(x = year, y = crude_emigration, line = NUTS_ID)) +
+# ggplot(hr, aes(x = year, y = emigration_yearly_per_1000, line = NUTS_ID)) +
 #   geom_line() +
 #   theme_minimal()
 

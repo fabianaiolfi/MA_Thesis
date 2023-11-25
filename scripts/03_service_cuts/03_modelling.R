@@ -41,31 +41,19 @@ average_emigration <- pl %>%
   arrange(NUTS_ID, year) %>%
   group_by(NUTS_ID) %>%
   # Take rolling average of past 2 years into account, ignore current year
-  mutate(average_emigration = slider::slide_dbl(crude_emigration, mean, .before = 2, .after = -1, .complete = T)) %>%
+  mutate(average_emigration = slider::slide_dbl(emigration_yearly_per_1000, mean, .before = 2, .after = -1, .complete = T)) %>%
   ungroup()
 
 anti_incumbent_vote <- ned_v_dem_cee %>% 
   dplyr::filter(prev_incumbent == T) %>%
-  # dplyr::filter(partyfacts_id == 1565) %>% # Build model with a single party
-  # dplyr::filter(lrgen_fct == "Right") %>% # Build model with lrgen_fct
-  #dplyr::filter(galtan_fct == "6_8") %>% # Build model with galtan_fct
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
-  #dplyr::filter(average_emigration < 2) %>% # Testing removing outliers
-  drop_na(crude_emigration)
+  drop_na(emigration_yearly_per_1000)
 
 anti_incumbent_vote <- anti_incumbent_vote %>% 
   left_join(pl_schools, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
-  left_join(pl_hospitals, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
-  dplyr::filter(ratio_hospital_beds_population_over_70 <= 30)
+  left_join(pl_hospitals, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
 
-# summary(lm(vote_change ~ ratio_schools + average_emigration, anti_incumbent_vote))
-# summary(lm(vote_change ~ ratio_hospital_beds_all_population + average_emigration, anti_incumbent_vote))
-# summary(lm(vote_change ~ ratio_hospital_beds_population_over_70, anti_incumbent_vote))
-# summary(lm(vote_change ~ ratio_hospital_beds_population_over_70 + average_emigration, anti_incumbent_vote))
-# summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70 + average_emigration, anti_incumbent_vote))
-# summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70, anti_incumbent_vote))
-
-summary(lm(vote_change ~ ratio_hospitals_population_over_70, anti_incumbent_vote))
+summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population, anti_incumbent_vote))
 
 ggplot(anti_incumbent_vote, aes(x = ratio_hospitals_population_over_70, y = vote_change))+#, color = lrgen_fct)) +
   geom_point() +

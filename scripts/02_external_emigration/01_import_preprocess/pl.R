@@ -186,8 +186,8 @@ save(pl_population, file = here("data", "02_external_emigration", "pl", "pl_popu
 
 pl <- pl_emigration %>%
   left_join(pl_population, by = c("NUTS_ID", "year")) %>% 
-  mutate(crude_emigration = (emigration/population) * 1000) %>% 
-  select(NUTS_ID, year, crude_emigration)
+  mutate(emigration_yearly_per_1000 = (emigration/population) * 1000)# %>% 
+  #select(NUTS_ID, year, crude_emigration)
 
 
 ## Convert NUTS3 to NUTS2 --------------------------------
