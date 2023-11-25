@@ -160,8 +160,8 @@ rm(ee_population_90_17, ee_population_18_23)
 
 ee <- ee_emigration %>%
   left_join(ee_population, by = c("year", "NUTS_ID")) %>%
-  mutate(crude_emigration = (emigration/population) * 1000) %>% 
-  select(NUTS_ID, year, crude_emigration)
+  mutate(emigration_yearly_per_1000 = (emigration/population) * 1000) %>% 
+  select(NUTS_ID, year, emigration_yearly_per_1000)
 
 
 ## Export ------------------------------

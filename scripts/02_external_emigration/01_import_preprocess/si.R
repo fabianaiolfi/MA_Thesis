@@ -51,8 +51,8 @@ si_population <- raw_csv %>%
 
 si <- si_emigration %>%
   left_join(si_population, by = c("NUTS_ID", "year")) %>% 
-  mutate(crude_emigration = (emigration/population) * 1000) %>% 
-  select(NUTS_ID, year, crude_emigration)
+  mutate(emigration_yearly_per_1000 = (emigration/population) * 1000) %>% 
+  select(NUTS_ID, year, emigration_yearly_per_1000)
 
 
 ## Convert NUTS3 to NUTS1 --------------------------------
@@ -64,9 +64,9 @@ si <- si_emigration %>%
 si <- si %>%
   mutate(NUTS_ID = "SI0") %>% 
   group_by(NUTS_ID, year) %>% 
-  summarise(crude_emigration = mean(crude_emigration, na.rm = T)) %>% 
-  mutate(crude_emigration = gsub("NaN", NA, crude_emigration)) %>% 
-  mutate(crude_emigration = as.numeric(crude_emigration))
+  summarise(emigration_yearly_per_1000 = mean(emigration_yearly_per_1000, na.rm = T)) %>% 
+  mutate(emigration_yearly_per_1000 = gsub("NaN", NA, emigration_yearly_per_1000)) %>% 
+  mutate(emigration_yearly_per_1000 = as.numeric(emigration_yearly_per_1000))
 
 
 ## Export ------------------------------

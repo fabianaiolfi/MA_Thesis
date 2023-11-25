@@ -57,8 +57,8 @@ hu_population <- raw_csv %>%
 
 hu <- hu_emigration %>%
   left_join(hu_population, by = c("NUTS_ID", "year")) %>% 
-  mutate(crude_emigration = (emigration/population) * 1000) %>% 
-  select(NUTS_ID, year, crude_emigration)
+  mutate(emigration_yearly_per_1000 = (emigration/population) * 1000) %>% 
+  select(NUTS_ID, year, emigration_yearly_per_1000)
 
 
 ## Export ------------------------------

@@ -187,7 +187,7 @@ save(pl_population, file = here("data", "02_external_emigration", "pl", "pl_popu
 pl <- pl_emigration %>%
   left_join(pl_population, by = c("NUTS_ID", "year")) %>% 
   mutate(emigration_yearly_per_1000 = (emigration/population) * 1000)# %>% 
-  #select(NUTS_ID, year, crude_emigration)
+  #select(NUTS_ID, year, emigration_yearly_per_1000)
 
 
 ## Convert NUTS3 to NUTS2 --------------------------------
@@ -197,9 +197,9 @@ pl <- pl_emigration %>%
 # pl <- pl %>%
 #   mutate(NUTS_ID = str_sub(NUTS_ID, 1, -2)) %>% 
 #   group_by(NUTS_ID, year) %>% 
-#   summarise(crude_emigration = mean(crude_emigration, na.rm = T)) %>% 
-#   mutate(crude_emigration = gsub("NaN", NA, crude_emigration)) %>% 
-#   mutate(crude_emigration = as.numeric(crude_emigration))
+#   summarise(emigration_yearly_per_1000 = mean(emigration_yearly_per_1000, na.rm = T)) %>% 
+#   mutate(emigration_yearly_per_1000 = gsub("NaN", NA, emigration_yearly_per_1000)) %>% 
+#   mutate(emigration_yearly_per_1000 = as.numeric(emigration_yearly_per_1000))
 
 # NUTS3 electoral data could be retrieved from https://wybory.gov.pl/sejmsenat2023/en/sejm/wynik/pl,
 # but only with a massive effort
