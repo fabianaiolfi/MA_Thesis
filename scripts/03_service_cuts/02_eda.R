@@ -56,3 +56,9 @@ ggplot(pl_third_places, aes(x = year, y = ratio_bars, line = NUTS_ID)) +
 
 ggplot(pl_remittances, aes(x = year, y = remittances)) +
   geom_line() + theme_minimal()
+
+
+## GDP -----------------------------------
+
+ggplot(pl_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
+  geom_line() + theme_minimal()

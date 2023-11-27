@@ -43,6 +43,7 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
   left_join(select(pl_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(select(pl_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(pl_remittances, by = "year") %>% 
+  left_join(pl_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   dplyr::filter(nuts2016 != "PL91") # Remove potentially problematic NUTS2 region (Warszawski stołeczny)
 
 summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population, anti_incumbent_vote))
@@ -66,7 +67,7 @@ summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70 
 summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70 + ratio_bars + average_emigration, anti_incumbent_vote)) #  
 summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_all_population + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) # nice
 
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) # best thesis model so far
+summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) 
 
 summary(lm(vote_change ~
              ratio_schools + 
@@ -75,6 +76,15 @@ summary(lm(vote_change ~
              emigration_election_year_per_1000 +
              remittances,
            anti_incumbent_vote)) # v good
+
+summary(lm(vote_change ~
+             ratio_schools +
+             ratio_hospitals_all_population +
+             ratio_third_places +
+             emigration_election_year_per_1000 +
+             remittances +
+             gdp,
+           anti_incumbent_vote)) # best thesis model so far
 
 
 colnames(anti_incumbent_vote)
