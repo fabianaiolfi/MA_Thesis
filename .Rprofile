@@ -14,3 +14,5 @@ library(plm) # Panel data analysis
 library(stargazer) # Exporting nice tables
 library(eurostat) # NUTS3 names
 library(slider) # Rolling averages
+
+options(scipen = 999) # Disable scientific notation
