@@ -1,0 +1,290 @@
+---
+title: "Data Analysis Report"
+author: "Fabian Aiolfi"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+## Setup
+library(tidyverse)
+library(here)
+library(sf)
+library(shiny)
+library(lubridate)
+library(haven)
+library(here)
+library(strucchange) # Chow test in MA_Thesis/scripts/preliminary_exploration/02_fom_emigration/04_models.R
+library(readxl) # Read in .xls files
+library(scales) # This will ensure that numbers on the y-axis are formatted with commas and without scientific notation.
+library(plm) # Panel data analysis
+library(stargazer) # Exporting nice tables
+library(eurostat) # NUTS3 names
+library(slider) # Rolling averages
+
+library(knitr)
+library(kableExtra)
+library(memisc)
+library(pandoc)
+library(pander)
+
+options(scipen = 0) # Enable scientific notation
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
+load(here("data", "02_external_emigration", "cee_crude_emigration.Rda"))
+load(here("data", "02_external_emigration", "pl", "pl.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_schools.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_hospitals.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_third_places.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_remittances.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_gdp.Rda"))
+```
+
+## Anti-Incumbent Vote  
+### Was Party in Power in Previous Election?  
+**11 CEE EU Member States, NUTS2/3, 1994–2019**  
+N = 3240
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ned_v_dem_cee %>% 
+  drop_na(vote_change, prev_incumbent) %>% 
+  ggplot(aes(x = prev_incumbent, y = vote_change))+#, color = lrgen_fct)) +
+  geom_boxplot() +
+  xlab("") +
+  #ggtitle(label = "Was Party in Power in Previous Election?",
+  #        subtitle = "11 CEE EU Member States, NUTS2/3, 1994–2019") +
+  ylab("Change in Vote Share") +
+  scale_x_discrete(labels = c("No", "Yes")) +
+  theme_minimal()
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Split the scores based on the binary_var
+group_true <- ned_v_dem_cee$vote_change[ned_v_dem_cee$prev_incumbent == TRUE]
+group_false <- ned_v_dem_cee$vote_change[ned_v_dem_cee$prev_incumbent == FALSE]
+
+# Perform the t-test
+result <- t.test(group_true, group_false)
+result
+```
+
+## External Emigration
+
+### Crude Emigration per 1000 Population at NUTS3 Level
+```{r echo=FALSE, fig.height=9, message=FALSE, warning=FALSE}
+ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
+  geom_line() +
+  facet_wrap(~ country,
+             scales = "free_y",
+             ncol = 2) +
+  ylab(" ") +
+  xlab(" ") +
+  theme_minimal() 
+```
+
+
+### Emigration and Incumbent Vote Change
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- cee_crude_emigration %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(emigration_yearly_per_1000, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(emigration_yearly_per_1000) %>% 
+  drop_na(lrgen_fct) %>% 
+  mutate(country = str_sub(nuts2016, end = 2))
+
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) + # lrgen_fct galtan_fct
+  geom_point() +
+  geom_smooth(method = "lm", se = F, na.rm = T) +
+  theme_minimal()
+
+summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+```
+
+### Emigration and Incumbent Vote Change by Party Orientation
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) + 
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = "lm", se = F, na.rm = T) +
+  theme_minimal()
+```
+
+\pagebreak
+
+### Emigration and Incumbent Vote Change by Party Orientation and Country
+```{r echo=FALSE, fig.height=7, message=FALSE, warning=FALSE}
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = F, na.rm = T) +
+  facet_wrap(~ country, scales = "free") +
+  theme_minimal()
+```
+
+
+## Service Cuts in Poland
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+options(scipen = 999) # Disable scientific notation
+```
+
+
+### Entire Population in Poland by NUTS2
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+ggplot(pl, aes(x = year, y = population, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+```
+
+### Primary Age Population in Poland by NUTS2
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+ggplot(pl_schools, aes(x = year, y = population, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+```
+
+### Ratio Number of Schools to Population of School Children in Poland by NUTS2
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+ggplot(pl_schools, aes(x = year, y = ratio_schools, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+```
+
+### Ratio Number of Hospitals to Entire Population in Poland by NUTS2
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+ggplot(pl_hospitals, aes(x = year, y = ratio_hospitals_all_population, line = NUTS_ID)) +
+  geom_line() + theme_minimal()
+```
+
+### Ratio Number of Third Places to Entire Population in Poland by NUTS2
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+ggplot(pl_third_places, aes(x = year, y = ratio_third_places, line = NUTS_ID)) +
+  geom_line() + theme_minimal()
+```
+
+### Remittance Inflows (US$ million) for all of Poland
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+ggplot(pl_remittances, aes(x = year, y = remittances)) +
+  geom_line() + theme_minimal()
+```
+
+### GDP at Current Market Prices in Poland by NUTS 2 (Euros per Inhabitant)
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+ggplot(pl_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
+  geom_line() + theme_minimal()
+```
+
+\pagebreak
+
+## LM Models: Anti-Incubment Voting in Poland at NUTS2 Level
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+options(scipen = 0) # Enable scientific notation
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- pl %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(emigration_yearly_per_1000, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(emigration_yearly_per_1000)
+
+anti_incumbent_vote <- anti_incumbent_vote %>% 
+  left_join(dplyr::select(pl_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
+  left_join(dplyr::select(pl_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(dplyr::select(pl_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(pl_remittances, by = "year") %>% 
+  left_join(pl_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  dplyr::filter(nuts2016 != "PL91") # Remove potentially problematic NUTS2 region (Warszawski stołeczny)
+
+lm_model_1 <- lm(vote_change ~
+                 ratio_schools +
+                 emigration_election_year_per_1000 +
+                 remittances +
+                 gdp,
+               data = anti_incumbent_vote)
+
+lm_model_2 <- lm(vote_change ~
+                 ratio_hospitals_all_population +
+                 emigration_election_year_per_1000 +
+                 remittances +
+                 gdp,
+               data = anti_incumbent_vote)
+
+lm_model_3 <- lm(vote_change ~
+                 ratio_third_places +
+                 emigration_election_year_per_1000 +
+                 remittances +
+                 gdp,
+               data = anti_incumbent_vote)
+
+lm_model_4 <- lm(vote_change ~
+                 ratio_schools +
+                 ratio_hospitals_all_population +
+                 emigration_election_year_per_1000 +
+                 remittances +
+                 gdp,
+               data = anti_incumbent_vote)
+
+lm_model_5 <- lm(vote_change ~
+                 ratio_schools +
+                 ratio_third_places +
+                 emigration_election_year_per_1000 +
+                 remittances +
+                 gdp,
+               data = anti_incumbent_vote)
+
+lm_model_6 <- lm(vote_change ~
+                 ratio_hospitals_all_population +
+                 ratio_third_places +
+                 emigration_election_year_per_1000 +
+                 remittances +
+                 gdp,
+               data = anti_incumbent_vote)
+
+
+lm_model_7 <- lm(vote_change ~
+                 ratio_schools +
+                 ratio_hospitals_all_population +
+                 ratio_third_places +
+                 emigration_election_year_per_1000 +
+                 remittances +
+                 gdp,
+               data = anti_incumbent_vote)
+
+mtable_1 <- mtable('Model 1' = lm_model_1,
+                   'Model 2' = lm_model_2,
+                   'Model 3' = lm_model_3,
+                 summary.stats = c('R-squared','F','p','N'))
+
+mtable_2 <- mtable('Model 4' = lm_model_4,
+                   'Model 5' = lm_model_5,
+                   'Model 6' = lm_model_6,
+                   'Model 7' = lm_model_7,
+                   summary.stats = c('R-squared','F','p','N'))
+```
+
+```{r}
+mtable_1
+```
+
+\pagebreak
+
+```{r}
+mtable_2
+```
+
+

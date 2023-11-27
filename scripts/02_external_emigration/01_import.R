@@ -83,3 +83,5 @@ cee_crude_emigration <- bind_rows(bg, ee, hr, hu, lt, lv, pl, ro, si, sk)
 
 cee_crude_emigration <- cee_crude_emigration %>% 
   mutate(country = substr(NUTS_ID, 1, 2))
+
+save(cee_crude_emigration, file = here("data", "02_external_emigration", "cee_crude_emigration.Rda"))

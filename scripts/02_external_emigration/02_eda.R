@@ -20,10 +20,10 @@ ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group
              scales = "free_y",
              ncol = 2) +
   ggtitle("Crude Emigration per 1000 Population at NUTS3 Level") +
-  xlab(" ") +
+  #xlab(" ") +
   ylab(" ") +
-  scale_x_discrete(breaks = seq(min(cee_crude_emigration$year, na.rm = TRUE), 
-                                  max(cee_crude_emigration$year, na.rm = TRUE), by = 5)) +
+  # scale_x_discrete(breaks = seq(min(cee_crude_emigration$year, na.rm = TRUE), 
+                                  # max(cee_crude_emigration$year, na.rm = TRUE), by = 5)) +
   theme_minimal()
 
 ggsave(

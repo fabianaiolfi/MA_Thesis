@@ -22,7 +22,7 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
 
 summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = galtan_fct)) + # lrgen_fct
+ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) + # lrgen_fct galtan_fct
   geom_point() +
   geom_smooth(method = "lm", se = F, na.rm = T) +
   # geom_smooth(method = "loess", color = "green", se = F) +
