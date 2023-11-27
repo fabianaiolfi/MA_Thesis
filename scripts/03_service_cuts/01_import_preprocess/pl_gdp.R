@@ -1,8 +1,13 @@
 
 # GPD at NUTS2 --------------------------------
 
+# Million units of national currency
 # Source: https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2gdp__custom_8714120/default/table?lang=en (retrieved 27 November 2023)
-raw_csv <- read_csv(here("data", "03_service_cuts", "pl", "nama_10r_2gdp__custom_8714120_linear.csv"))
+# raw_csv <- read_csv(here("data", "03_service_cuts", "pl", "nama_10r_2gdp__custom_8714120_linear.csv"))
+
+# Euro per inhabitant
+# Source: https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2gdp__custom_8716685/default/table?lang=en (retrieved 27 November 2023)
+raw_csv <- read_csv(here("data", "03_service_cuts", "pl", "nama_10r_2gdp__custom_8716685_linear.csv"))
 
 pl_gdp <- raw_csv %>% 
   select(geo, TIME_PERIOD, OBS_VALUE) %>% 
