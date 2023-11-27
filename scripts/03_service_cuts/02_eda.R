@@ -47,3 +47,6 @@ ggplot(pl_third_places, aes(x = year, y = bars, line = NUTS_ID)) +
 
 ggplot(pl_third_places, aes(x = year, y = ratio_third_places, line = NUTS_ID)) +
   geom_line() + theme_minimal()
+
+ggplot(pl_third_places, aes(x = year, y = ratio_bars, line = NUTS_ID)) +
+  geom_line() + theme_minimal()

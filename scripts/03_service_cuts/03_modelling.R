@@ -57,6 +57,19 @@ summary(lm(vote_change ~ ratio_schools + ratio_third_places + ratio_hospital_bed
 summary(lm(vote_change ~ ratio_schools + ratio_third_places + ratio_hospitals_all_population + average_emigration, anti_incumbent_vote))
 summary(lm(vote_change ~ ratio_schools + ratio_third_places + ratio_hospitals_population_over_70 + average_emigration, anti_incumbent_vote))
 
+summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + average_emigration, anti_incumbent_vote)) # nice
+summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) # nice
+summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + average_emigration, anti_incumbent_vote)) #  
+summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70 + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) #  ???
+summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70 + ratio_bars + average_emigration, anti_incumbent_vote)) #  
+summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_all_population + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) # nice
+
+summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) # best thesis model so far
+
+colnames(anti_incumbent_vote)
+
+
+
 ggplot(anti_incumbent_vote, aes(x = ratio_hospitals_all_population, y = vote_change))+#, color = lrgen_fct)) +
   geom_point() +
   geom_smooth(method = "lm") +

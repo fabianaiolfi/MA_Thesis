@@ -76,7 +76,8 @@ load(here("data", "02_external_emigration", "pl", "pl_population.Rda"))
 
 pl_third_places <- pl_third_places %>% 
   left_join(pl_population, by = c("NUTS_ID", "year")) %>% 
-  mutate(ratio_third_places = population / third_places)
+  mutate(ratio_third_places = population / third_places) %>% 
+  mutate(ratio_bars = population / bars)
 
 
 ## Export ------------------------------
