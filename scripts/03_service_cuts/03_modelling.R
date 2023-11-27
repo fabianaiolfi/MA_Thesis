@@ -84,7 +84,7 @@ summary(lm(vote_change ~
              emigration_election_year_per_1000 +
              remittances +
              gdp,
-           anti_incumbent_vote)) # best thesis model so far
+           anti_incumbent_vote)) # thesis model
 
 
 colnames(anti_incumbent_vote)
