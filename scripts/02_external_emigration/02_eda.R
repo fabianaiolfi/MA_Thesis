@@ -67,4 +67,8 @@ ggplot(average_emigration, aes(x = average_emigration, y = average_schools_diff)
   theme_minimal()
 
 
+## EDA for Modelling -------------------------------------------------------------
+# Run 03_modelling.R first
+
+hist(anti_incumbent_vote$average_emigration, breaks = 20)
 

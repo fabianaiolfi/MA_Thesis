@@ -18,16 +18,34 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   drop_na(emigration_yearly_per_1000) %>% 
   drop_na(lrgen_fct) %>% 
-  mutate(country = str_sub(nuts2016, end = 2))
+  mutate(country = str_sub(nuts2016, end = 2))# %>% 
+  # Filter out low emigration
+  # dplyr::filter(average_emigration >= 4)
 
-summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+# summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+# 
+# ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) + # lrgen_fct galtan_fct
+#   geom_point() +
+#   geom_smooth(method = "lm", se = F, na.rm = T) +
+#   # geom_smooth(method = "loess", color = "green", se = F) +
+#   # facet_wrap(~ country, scales = "free") +
+#   theme_minimal()
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) + # lrgen_fct galtan_fct
-  geom_point() +
-  geom_smooth(method = "lm", se = F, na.rm = T) +
-  # geom_smooth(method = "loess", color = "green", se = F) +
-  facet_wrap(~ country, scales = "free") +
-  theme_minimal()
+
+### Fixed Effects --------------------------------------------
+
+fe_1 <- feols(vote_change ~
+                average_emigration |
+                nuts2016 + year,
+              data = anti_incumbent_vote)
+
+fe_2 <- feols(vote_change ~
+                average_emigration + lrgen_fct |
+                nuts2016 + year,
+              data = anti_incumbent_vote)
+
+summary(fe_1)
+summary(fe_2)
 
 
 ## Bulgaria --------------------------------------------

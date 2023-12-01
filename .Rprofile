@@ -15,6 +15,7 @@ library(plm) # Panel data analysis
 library(stargazer) # Exporting nice tables
 library(eurostat) # NUTS3 names
 library(slider) # Rolling averages
+library(fixest) # feols(): Linear models with fixed effects
 
-#options(scipen = 999) # Disable scientific notation
+# options(scipen = 999) # Disable scientific notation
 options(scipen = 0) # Enable scientific notation
