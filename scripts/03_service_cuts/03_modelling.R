@@ -1,30 +1,6 @@
 
 # Preprocessing ----------------------------------
 
-# Experimental: How has the ratio changed compared to the last election?
-# 1. Use ratio value after an election as a baseline
-# 2. Calculate change between two elections
-
-# Calculate the year after each election
-# post_pl_election_years <- pl_election_years + 1
-# 
-# pl_schools <- pl_schools %>%
-#   arrange(NUTS_ID, year) %>%
-#   group_by(NUTS_ID) %>%
-#   mutate(is_post_election_year = year %in% post_pl_election_years) %>%
-#   mutate(baseline_ratio = ifelse(is_post_election_year, ratio, NA_real_)) %>%
-#   tidyr::fill(baseline_ratio, .direction = "down") %>%
-#   mutate(adjusted_ratio = 100 * ratio / baseline_ratio) %>%
-#   # Create a cycle identifier based on election years
-#   mutate(cycle = cumsum(year %in% post_pl_election_years)) %>%
-#   group_by(NUTS_ID, cycle) %>%
-#   mutate(average_adjusted_ratio = mean(adjusted_ratio, na.rm = TRUE)) %>%
-#   ungroup() %>%
-#   select(-baseline_ratio, -is_post_election_year, -cycle) %>% 
-#   mutate(diff = average_adjusted_ratio - 100) %>% 
-#   select(NUTS_ID, year, diff) %>% 
-#   dplyr::filter(year %in% pl_election_years)
-
 # Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
 average_emigration <- pl %>%
   arrange(NUTS_ID, year) %>%
