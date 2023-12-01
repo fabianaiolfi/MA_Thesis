@@ -49,37 +49,7 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
 
 # Modelling ----------------------------------
 
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population, anti_incumbent_vote))
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + emigration_election_year_per_1000, anti_incumbent_vote))
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_third_places + average_emigration + lrgen_fct, anti_incumbent_vote))
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + average_emigration, anti_incumbent_vote)) # best model so far
-
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_third_places, anti_incumbent_vote))
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_third_places + average_emigration, anti_incumbent_vote)) # thesis model
-summary(lm(vote_change ~ ratio_schools + ratio_third_places + average_emigration, anti_incumbent_vote))
-summary(lm(vote_change ~ ratio_schools + ratio_third_places + ratio_hospital_beds_population_over_70 + average_emigration, anti_incumbent_vote))
-summary(lm(vote_change ~ ratio_schools + ratio_third_places + ratio_hospital_beds_all_population + average_emigration, anti_incumbent_vote)) # also good
-summary(lm(vote_change ~ ratio_schools + ratio_third_places + ratio_hospital_beds_all_population, anti_incumbent_vote)) # 
-summary(lm(vote_change ~ ratio_schools + ratio_third_places + ratio_hospitals_all_population + average_emigration, anti_incumbent_vote))
-summary(lm(vote_change ~ ratio_schools + ratio_third_places + ratio_hospitals_population_over_70 + average_emigration, anti_incumbent_vote))
-
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + average_emigration, anti_incumbent_vote)) # nice
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) # nice
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + average_emigration, anti_incumbent_vote)) #  
-summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70 + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) #  ???
-summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_population_over_70 + ratio_bars + average_emigration, anti_incumbent_vote)) #  
-summary(lm(vote_change ~ ratio_schools + ratio_hospital_beds_all_population + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) # nice
-
-summary(lm(vote_change ~ ratio_schools + ratio_hospitals_all_population + ratio_bars + emigration_election_year_per_1000, anti_incumbent_vote)) 
-
-summary(lm(vote_change ~
-             ratio_schools + 
-             ratio_hospitals_all_population +
-             ratio_third_places +
-             emigration_election_year_per_1000 +
-             remittances,
-           anti_incumbent_vote)) # v good
-
+## Plain Vanilla Thesis Model ---------------------------------
 summary(lm(vote_change ~
              ratio_schools +
              ratio_hospitals_all_population +
@@ -87,10 +57,7 @@ summary(lm(vote_change ~
              emigration_election_year_per_1000 +
              remittances +
              gdp,
-           anti_incumbent_vote)) # thesis model
-
-
-colnames(anti_incumbent_vote)
+           anti_incumbent_vote))
 
 ggplot(anti_incumbent_vote, aes(x = ratio_hospitals_all_population, y = vote_change))+#, color = lrgen_fct)) +
   geom_point() +
@@ -98,10 +65,9 @@ ggplot(anti_incumbent_vote, aes(x = ratio_hospitals_all_population, y = vote_cha
   theme_minimal()
 
 
-# Fixed Effects Models ----------------------------------------------------
+## Fixed Effects Models ----------------------------------------------------
 
-
-feols_model <- feols(vote_change ~
+summary(feols(vote_change ~
                        ratio_schools +
                        ratio_hospitals_all_population +
                        ratio_third_places +
@@ -109,6 +75,4 @@ feols_model <- feols(vote_change ~
                        remittances +
                        gdp | 
                        nuts2016 + year,
-                     data = anti_incumbent_vote)
-
-summary(feols_model)
+                     data = anti_incumbent_vote))
