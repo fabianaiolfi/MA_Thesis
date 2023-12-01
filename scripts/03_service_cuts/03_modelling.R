@@ -26,6 +26,7 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
 # Modelling ----------------------------------
 
 ## Plain Vanilla Thesis Model ---------------------------------
+
 summary(lm(vote_change ~
              ratio_schools +
              ratio_hospitals_all_population +
@@ -43,12 +44,63 @@ ggplot(anti_incumbent_vote, aes(x = ratio_hospitals_all_population, y = vote_cha
 
 ## Fixed Effects Models ----------------------------------------------------
 
-summary(feols(vote_change ~
-                       ratio_schools +
-                       ratio_hospitals_all_population +
-                       ratio_third_places +
-                       emigration_election_year_per_1000 +
-                       remittances +
-                       gdp | 
-                       nuts2016 + year,
-                     data = anti_incumbent_vote))
+fe_lm_1 <- feols(vote_change ~
+                   ratio_schools +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_2 <- feols(vote_change ~
+                   ratio_hospitals_all_population +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_3 <- feols(vote_change ~
+                   ratio_third_places +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_4 <- feols(vote_change ~
+                   ratio_schools +
+                   ratio_hospitals_all_population +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_5 <- feols(vote_change ~
+                   ratio_schools +
+                   ratio_third_places +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_6 <- feols(vote_change ~
+                   ratio_hospitals_all_population +
+                   ratio_third_places +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_7 <- feols(vote_change ~
+                ratio_schools +
+                ratio_hospitals_all_population +
+                ratio_third_places +
+                emigration_election_year_per_1000 +
+                remittances +
+                gdp | 
+                nuts2016 + year,
+              data = anti_incumbent_vote)
