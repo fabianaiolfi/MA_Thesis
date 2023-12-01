@@ -46,23 +46,6 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
   left_join(pl_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   dplyr::filter(nuts2016 != "PL91") # Remove potentially problematic NUTS2 region (Warszawski stołeczny)
 
-# Create Tertile Factors
-test <- anti_incumbent_vote %>%
-  mutate(
-    ratio_schools_tertiles = ntile(ratio_schools, 4),
-    ratio_schools_tertiles = factor(ratio_schools_tertiles, levels = c(1,2,3,4), labels = c("low", "mid", "high", "very high")),
-    
-    ratio_hospitals_tertiles = ntile(ratio_hospitals_all_population, 4),
-    ratio_hospitals_tertiles = factor(ratio_hospitals_tertiles, levels = c(1,2,3,4), labels = c("low", "mid", "high", "very high")),
-    
-    ratio_third_places_tertiles = ntile(ratio_third_places, 4),
-    ratio_third_places_tertiles = factor(ratio_third_places_tertiles, levels = c(1,2,3,4), labels = c("low", "mid", "high", "very high")),
-    
-    average_emigration_tertiles = ntile(average_emigration, 4),
-    average_emigration_tertiles = factor(average_emigration_tertiles, levels = c(1,2,3,4), labels = c("low", "mid", "high", "very high"))
-  )
-
-
 
 # Modelling ----------------------------------
 
@@ -129,20 +112,3 @@ feols_model <- feols(vote_change ~
                      data = anti_incumbent_vote)
 
 summary(feols_model)
-
-feols_model <- feols(vote_change ~
-                       ratio_schools_tertiles +
-                       ratio_hospitals_tertiles +
-                       ratio_third_places_tertiles +
-                       #emigration_election_year_per_1000 +
-                       #average_emigration +
-                       #emigration_yearly_per_1000 +
-                       average_emigration_tertiles +
-                       remittances +
-                       gdp | 
-                       nuts2016 + year,
-                     data = test)
-
-summary(feols_model)
-
-
