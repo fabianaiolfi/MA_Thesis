@@ -3,16 +3,16 @@
 
 ## Schools ----------------------------------
 
-ggplot(pl_school_pop, aes(x = year, y = population, line = NUTS_ID)) +
-  geom_line() +
-  theme_minimal()
-
 ggplot(pl_schools, aes(x = year, y = ratio_schools, line = NUTS_ID)) +
   geom_line() +
   theme_minimal()
 
-ggplot(pl_school_pop, aes(x = year, y = population, line = NUTS_ID)) +
-  geom_line() +
+ggplot(pl_schools, aes(x = ratio_schools)) +
+  geom_histogram(binwidth = 5) +
+  theme_minimal()
+
+ggplot(pl_schools, aes(x = ratio_schools)) +
+  geom_boxplot() +
   theme_minimal()
 
 
@@ -33,6 +33,14 @@ ggplot(pl_hospitals, aes(x = year, y = ratio_hospital_beds_all_population, line 
 ggplot(pl_hospitals, aes(x = year, y = ratio_hospital_beds_population_over_70, line = NUTS_ID)) +
   geom_line() + theme_minimal()
 
+ggplot(pl_hospitals, aes(x = ratio_hospitals_all_population)) +
+  geom_histogram(binwidth = 500) +
+  theme_minimal()
+
+ggplot(pl_hospitals, aes(x = ratio_hospitals_all_population)) +
+  geom_boxplot() +
+  theme_minimal()
+
 
 ## Third Places -----------------------------------
 
@@ -50,6 +58,14 @@ ggplot(pl_third_places, aes(x = year, y = ratio_third_places, line = NUTS_ID)) +
 
 ggplot(pl_third_places, aes(x = year, y = ratio_bars, line = NUTS_ID)) +
   geom_line() + theme_minimal()
+
+ggplot(pl_third_places, aes(x = ratio_third_places)) +
+  geom_histogram() +
+  theme_minimal()
+
+ggplot(pl_third_places, aes(x = ratio_third_places)) +
+  geom_boxplot() +
+  theme_minimal()
 
 
 ## Remittances -----------------------------------
