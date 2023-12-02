@@ -375,4 +375,88 @@ In a second step, I use different combinations of ratios (models 1, 2 and 3) and
 \pagebreak
 
 ## Sources
-…
+
+### Page 2
+**V–Party Dataset**  
+Staffan I. Lindberg, Nils Du ̈pont, Masaaki Higashijima, Yaman Berker Kavasoglu, Kyle L. Marquardt, Michael Bernhard, Holger D ̈oring, Allen Hicken, Melis Laebens, Juraj Medzihorsky, Anja Neundorf, Ora John Reuter, Saskia Ruth–Lovell, Keith R. Weghorst, Nina Wiesehomeier, Joseph Wright, Nazifa Alizada, Paul Bederke, Lisa Gastaldi, Sandra Grahn, Garry Hindle, Nina Ilchenko, Johannes von R ̈omer, Steven Wilson, Daniel Pemstein, Brigitte Seim. 2022. Varieties of Party Identity and Organization (V–Party) Dataset V2. Varieties of Democracy (V–Dem) Project. https://doi.org/10.23696/vpartydsv2
+and:
+Pemstein, Daniel, Kyle L. Marquardt, Eitan Tzelgov, Yi–ting Wang, Juraj Medzihorsky, Joshua Krusell, Farhad Miri, and Johannes von R ̈omer. 2020. “The V-Dem Measurement Model: Latent Variable Analysis for Cross-National and Cross–Temporal Expert-Coded Data”. V- Dem Working Paper No. 21. 5th edition. University of Gothenburg: Varieties of Democracy Institute.  
+
+**EU-NED European NUTS-Level Election Dataset**  
+Schraff, Dominik; Vergioglou, Ioannis; Demirci, Buket Buse, 2022, "EU-NED: The European NUTS-Level Election Dataset", https://doi.org/10.7910/DVN/IQRYP5, Harvard Dataverse, V1, UNF:6:33YFLJUZN1V4UrerfOsbxg== [fileUNF]
+
+**Party Facts**  
+https://partyfacts.herokuapp.com/data/partycodes/[pf_party_id]/  
+
+### Page 3  
+**Bulgaria**  
+https://www.nsi.bg/en/content/3060/migration-population-districts-municipalities-and-sex (retrieved 2 November 2023)  
+https://www.nsi.bg/en/content/2975/population-districts-municipalities-place-residence-and-sex (retrieved 2 November 2023)  
+
+**Estonia**  
+RVR01; https://andmed.stat.ee/en/stat/Lepetatud_tabelid__Rahvastik.Arhiiv__Rahvastikus%C3%BCndmused.%20Arhiiv/RVR01 (retrieved 7 November 2023)  
+RVR02; https://andmed.stat.ee/en/stat/rahvastik__rahvastikusundmused__ranne/RVR02/table/tableViewLayout2 (retrieved 7 November 2023)  
+RV022: POPULATION, 1 JANUARY by Year, County, Sex and Age group; https://andmed.stat.ee/en/stat/Lepetatud_tabelid__Rahvastik.Arhiiv__Rahvastikun%C3%A4itajad%20ja%20koosseis.%20Arhiiv/RV022/table/tableViewLayout2 (retrieved 7 November 2023)  
+RV022U: POPULATION, 1 JANUARY. ADMINISTRATIVE DIVISION AS AT 01.01.2018 by Year, County, Sex and Age group; https://andmed.stat.ee/en/stat/rahvastik__rahvastikunaitajad-ja-koosseis__rahvaarv-ja-rahvastiku-koosseis/RV022U/table/tableViewLayout2 (retrieved 7 November 2023)  
+
+**Croatia**  
+https://podaci.dzs.hr/media/ueajlqe5/stanovnistvo-pregled-po-zupanijama.xlsx (retrieved 3 November 2023)  
+https://podaci.dzs.hr/media/ueajlqe5/stanovnistvo-pregled-po-zupanijama.xlsx (retrieved 3 November 2023)  
+
+**Hungary**  
+https://statinfo.ksh.hu/Statinfo/haViewer.jsp (retrieved 7 November 2023)  
+https://www.ksh.hu/stadat_files/nep/en/nep0034.html (retrieved 16 November 2023)  
+
+\pagebreak
+
+**Lithuania**  
+https://osp.stat.gov.lt/statistiniu-rodikliu-analize#/ (retrieved 9 November 2023)  
+
+**Latvia**  
+https://data.stat.gov.lv/pxweb/en/OSP_PUB/START__POP__IB__IBE/IBE080/table/tableViewLayout1/ (retrieved 9 November 2023)  
+https://data.stat.gov.lv/pxweb/en/OSP_PUB/START__POP__IR__IRS/IRS030/table/tableViewLayout1/ (retrieved 9 November 2023)  
+
+**Poland**  
+https://bdl.stat.gov.pl/bdl/dane/podgrup/tablica (retrieved 17 November 2023)  
+
+**Romania**  
+http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table (retrieved 13 November 2023)  
+
+**Slovenia**  
+https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05N1042S.px/table/tableViewLayout2/ (retrieved 10 November 2023)  
+https://pxweb.stat.si/SiStatData/pxweb/en/Data/Data/05E1016S.px/table/tableViewLayout2/ (retrieved 10 November 2023)  
+
+**Slovakia**  
+https://datacube.statistics.sk/#!/view/en/vbd_dem/om7021rr/v_om7021rr_00_00_00_en (retrieved 10 November 2023)  
+
+### Page 5
+
+**1999-2019 Chapel Hill Expert Survey (CHES) trend file**  
+Jolly, Seth, Ryan Bakker, Liesbet Hooghe, Gary Marks, Jonathan Polk, Jan Rovny, Marco Steenbergen, and Milada Anna Vachudova. 2022. “Chapel Hill Expert Survey Trend File, 1999-2019.” Electoral Studies 75 (February). https://doi.org/10.1016/j.electstud.2021.102420  
+
+### Page 6
+
+**Entire Population**
+https://bdl.stat.gov.pl/bdl/dane/podgrup/tablica (retrieved 17 November 2023)  
+
+**Primary Age Population**
+https://ec.europa.eu/eurostat/databrowser/view/demo_r_d2jan__custom_8622439/default/table?lang=en (retrieved 21 November 2023)
+
+### Page 7  
+
+**Schools**  
+https://bdl.stat.gov.pl/bdl/dane/podgrup/tablica (retrieved 20 November 2023)  
+
+**Hospitals**  
+https://bdl.stat.gov.pl/bdl/dane/podgrup/tablica (retrieved 24 November 2023)  
+
+**Third Places**  
+https://bdl.stat.gov.pl/bdl/dane/podgrup/tablica (retrieved 27 November 2023)  
+
+### Page 8
+
+**Remittances**  
+https://www.knomad.org/data/remittances (retrieved 27 November 2023)  
+
+**GDP**  
+https://ec.europa.eu/eurostat/databrowser/view/nama_10r_2gdp__custom_8716685/default/table?lang=en (retrieved 27 November 2023)  
