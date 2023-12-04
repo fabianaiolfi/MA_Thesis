@@ -75,7 +75,7 @@ load(here("data", "03_service_cuts", "pl", "pl_gdp.Rda"))
 ```
 
 ## Introduction
-This document provides an overview of the current status of the data analysis and initial results. It starts with an overview of all eleven CEE EU member states. Descriptive statistics display insights into the available data. I then continue by modelling emigration on incumbent vote change using a fixed effects model. Results show that an increase in emigration is associated with a decrease in incumbent vote share.
+This document shows an overview of my data analysis and provides initial results. It starts with an overview of all eleven CEE EU member states. Descriptive statistics display insights into the available data. I then continue by modelling emigration on incumbent vote change using a fixed effects model. Results show that an increase in emigration is associated with a decrease in incumbent vote share.
 
 In a second step I focus on the effects of service cuts in Poland. I again begin with descriptive statistics that provide an overview. Then I model the effects of service cuts on incumbent vote change. Results partially align with what my theory predicts. An increase in the number of children per school and an increase in the number of people per third place is associated with a decrease in incumbent vote share.
 
@@ -92,7 +92,7 @@ ned_v_dem_cee %>%
   ggplot(aes(x = prev_incumbent, y = vote_change)) +
   geom_boxplot() +
   xlab("") +
-  ylab("Change in Vote Share") +
+  ylab("Change in Vote Share Compared to Previous Election") +
   scale_x_discrete(labels = c("Not Incumbent", "Incumbent")) +
   theme_minimal() +
   coord_flip()
@@ -179,7 +179,7 @@ fe_2 <- feols(vote_change ~
 modelsummary(fe_2, stars = T, gof_omit = "FE|AIC|BIC|RMSE|Std|R2$|R2 Within$")
 ```
 
-Average emigration still shows a negative coefficient and is borderline statistically significant ($p = 0.14$). All party coefficients are statistically significant and the overall model fit as well as the “within” model fit have increased. We can also observe that Left parties fare far worse than other parties when emigration increases.
+Average emigration still shows a negative coefficient and is borderline statistically significant ($p = 0.14$). All party coefficients are statistically significant and the overall model fit as well as the “within” model fit have increased compared to the previous model. We can also observe that Left parties fare far worse than other parties when emigration increases.
 
 \pagebreak
 
