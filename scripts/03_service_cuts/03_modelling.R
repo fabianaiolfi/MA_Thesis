@@ -104,3 +104,11 @@ fe_lm_7 <- feols(vote_change ~
                 gdp | 
                 nuts2016 + year,
               data = anti_incumbent_vote)
+
+
+# Coefficient Plot --------------------------------------------------------
+
+fe_lm_7_summary = summary(fe_lm_7)
+coefplot(list(fe_lm_7_summary),
+         horiz = T,
+         xlim = c(-0.25, 0))
