@@ -116,10 +116,59 @@ coefplot(list(fe_lm_7_summary),
 
 ## Truncate Data ----------------------------------------------------
 
+# Truncate Vote Change
 cutoff <- 2
 
 anti_incumbent_vote_truncated <- anti_incumbent_vote %>% 
   dplyr::filter(vote_change > cutoff | vote_change < cutoff * -1)
+
+lm_truncated <- feols(vote_change ~
+                        ratio_schools +
+                        ratio_hospitals_all_population +
+                        ratio_third_places +
+                        emigration_election_year_per_1000 +
+                        remittances +
+                        gdp | 
+                        nuts2016 + year,
+                      data = anti_incumbent_vote_truncated)
+
+summary(lm_truncated)
+
+modelplot(lm_truncated,
+          coef_map = c(gdp = "GDP",
+                       emigration_election_year_per_1000 = "Emigration Rate between Election Years per 1000 People",
+                       ratio_third_places = "People per Third Places",
+                       ratio_hospitals_all_population = "People per Hospital",
+                       ratio_schools = "Children per School"))
+
+
+# Truncate Vote Share
+anti_incumbent_vote_truncated <- anti_incumbent_vote %>% 
+  dplyr::filter(vote_share < 25 & vote_share > 5)
+
+lm_truncated <- feols(vote_change ~
+                        ratio_schools +
+                        ratio_hospitals_all_population +
+                        ratio_third_places +
+                        emigration_election_year_per_1000 +
+                        remittances +
+                        gdp | 
+                        nuts2016 + year,
+                      data = anti_incumbent_vote_truncated)
+
+summary(lm_truncated)
+
+modelplot(lm_truncated,
+          coef_map = c(gdp = "GDP",
+                       emigration_election_year_per_1000 = "Emigration Rate between Election Years per 1000 People",
+                       ratio_third_places = "People per Third Places",
+                       ratio_hospitals_all_population = "People per Hospital",
+                       ratio_schools = "Children per School"))
+
+
+# Truncate Emigration Rate
+anti_incumbent_vote_truncated <- anti_incumbent_vote %>% 
+  dplyr::filter(emigration_election_year_per_1000 < 4)
 
 lm_truncated <- feols(vote_change ~
                         ratio_schools +
