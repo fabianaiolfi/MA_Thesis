@@ -155,7 +155,7 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
 
 This plot provides a basic overview of the relationship between the average emigration rate and the incumbent's change in vote share. There generally seems to be a positive correlation between the two: An increase in average emigration is associated with higher levels of vote change for incumbent parties. This indicates that incumbent parties achieve better results when emigration increases.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=4}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
 ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) +
   geom_point() +
   geom_smooth(method = "lm", se = F, na.rm = T) +
@@ -187,7 +187,7 @@ The coefficient is negative, which shows that an increase in the average emigrat
 
 As a small excursion, I use data from the Chapel Hill Expert survey to categorise parties by their overall ideological stance: Left, Centre Left, Centre, Centre Right and Right. I add this new information to the model, which uses Centre as the reference category.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
 ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) +
   geom_point(alpha = 0.25) +
   geom_smooth(method = "lm", se = F, na.rm = T) +
@@ -413,17 +413,19 @@ modelsummary(list(fe_lm_4, fe_lm_5, fe_lm_6, fe_lm_7),
              coef_map = c(ratio_schools = "Children per School",
                           ratio_hospitals_all_population = "People per Hospital",
                           ratio_third_places = "People per Third Places",
-                          emigration_election_year_per_1000 = "Emigration Rate between Election Years per 1000 People",
+                          emigration_election_year_per_1000 = "Emigration Rate between\nElection Years per 1000 People",
                           gdp = "GDP"),
              stars = T)
 ```
 
 In a second step, I use different combinations of ratios (models 1, 2 and 3) and finally combine all ratios in model 4. Again, NUTS2 regions and years are used as fixed effects. Both school ratio and third places ratio display statistically significant and negative coefficients, which align with my theory. This means that an increase in the number of children per school and an increase of the number of people per third place is associated with a decrease in the incumbent vote share, while controlling for emigration and GDP. The third ratio, number of people per hospital, still shows no effect.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
+cat("Coefficient Plot for Model 4 (Table 4)")
 modelplot(fe_lm_7,
           coef_map = c(gdp = "GDP",
-                       emigration_election_year_per_1000 = "Emigration Rate between Election Years per 1000 People",
+                       emigration_election_year_per_1000 = "Emigration Rate between\nElection Years per 1000 People",
                        ratio_third_places = "People per Third Places",
                        ratio_hospitals_all_population = "People per Hospital",
                        ratio_schools = "Children per School"))
@@ -432,7 +434,7 @@ modelplot(fe_lm_7,
 \pagebreak
 
 ## Truncating Data
-- Do models improve when truncating data?
+Do models improve when truncating parts of the data? I truncate the data in three different ways to explore if results vary. Model 1 uses data where observations with a small vote change, between $-2$ and $2$, are removed. This is done to see if extreme vote change values lead to more significant results. Model 2 uses data in which observations with extremely high (over $25\%$) and extremely low (under $5\%$) vote shares are removed. Model 3 uses data where high levels of emigration rates are removed. Both models 2 and 3 attempt to remove outliers in order to build models with higher validity.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Truncate Vote Change
@@ -490,13 +492,28 @@ modelsummary(list(lm_truncate_vote_change, lm_truncate_vote_share, lm_truncate_e
              stars = T)
 ```
 
+Truncated model 1, which focuses on extreme values, shows the most promising results. The school ratio and third places ratio coefficients become more pronounced and have higher statistical significance compared to the models using all observations. The emigration coefficient also becomes statistically significant, which is an improvement compared to the non-truncated models.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=2}
+cat("Coefficient Plot for Model 1 (Table 5)")
+modelplot(lm_truncate_vote_change,
+          coef_map = c(gdp = "GDP",
+                       emigration_election_year_per_1000 = "Emigration Rate between\nElection Years per 1000 People",
+                       ratio_third_places = "People per Third Places",
+                       ratio_hospitals_all_population = "People per Hospital",
+                       ratio_schools = "Children per School"))
+```
 
 \pagebreak
 
 ## Next Steps
-- am i modelling time correctly?
-- look at service cuts in another country?
+These are possible next steps and open questions, based on my considerations and input from the Kolloquium.
 
+- Am I operationalize service cuts correctly? A higher ratio does not necessarily always imply (for example) less schools.
+- Explore further data manipulation based on the truncated data. Are there more data in the outliers? Are there any region-specific data I should take into account? Should I look into large service cuts, as these will have a bigger effect on the population than small service cuts?
+- Should I take party orientation into account? A party's orientation will have an effect on service cuts.
+- Is time being correctly modelled?
+- Should I explore service cuts in another country? Perhaps a country that sees an increase in emigration rates?
 
 \pagebreak
 
