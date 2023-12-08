@@ -21,6 +21,8 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   mutate(country = str_sub(nuts2016, end = 2))# %>% 
   # Filter out low emigration
   # dplyr::filter(average_emigration >= 4)
+  # Filter out Poland and Latvia, due to their decrease in emigration
+  # dplyr::filter(!country == "PL" & !country == "LV")
 
 # summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 # 
