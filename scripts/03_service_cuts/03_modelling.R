@@ -36,7 +36,7 @@ summary(lm(vote_change ~
              gdp,
            anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = ratio_hospitals_all_population, y = vote_change))+#, color = lrgen_fct)) +
+ggplot(anti_incumbent_vote, aes(x = emigration_election_year_per_1000, y = vote_change))+#, color = lrgen_fct)) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_minimal()
