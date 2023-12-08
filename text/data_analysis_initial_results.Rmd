@@ -161,7 +161,7 @@ modelsummary(fe_1,
              stars = T,
              title = "DV: Incumbent's Change in Vote Share",
              coef_rename = c(average_emigration = "Average Emigration"),
-             gof_omit = "FE|AIC|BIC|RMSE|Std|R2$|R2 Within$")
+             gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$")
 ```
 
 
@@ -189,7 +189,7 @@ modelsummary(fe_2,
                           `lrgen_fctCentre Right` = "Centre Right Party",
                           `lrgen_fctRight` = "Right Party"),
              notes = "Reference Category: Centre Party",
-             gof_omit = "FE|AIC|BIC|RMSE|Std|R2$|R2 Within$")
+             gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$")
 ```
 
 Average emigration still shows a negative coefficient and is borderline statistically significant ($p = 0.14$). All party coefficients are statistically significant and the overall model fit as well as the “within” model fit have increased compared to the previous model. We can also observe that Left parties fare far worse than other parties when emigration increases.
