@@ -7,6 +7,30 @@ ggplot(pl_schools, aes(x = year, y = ratio_schools, line = NUTS_ID)) +
   geom_line() +
   theme_minimal()
 
+ggplot(hr_schools, aes(x = year, y = schools, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+
+ggplot(hr_schools_pop, aes(x = year, y = population, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+
+ggplot(hr_schools, aes(x = year, y = ratio_schools, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+
+ggplot(ro_schools, aes(x = year, y = schools, line = nuts2016)) +
+  geom_line() +
+  theme_minimal()
+
+ggplot(ro_schools_pop, aes(x = year, y = population, line = nuts2016)) +
+  geom_line() +
+  theme_minimal()
+
+ggplot(ro_schools, aes(x = year, y = ratio_schools, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+
 ggplot(pl_schools, aes(x = ratio_schools)) +
   geom_histogram(binwidth = 5) +
   theme_minimal()
