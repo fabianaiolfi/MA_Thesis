@@ -17,3 +17,11 @@ load(here("data", "03_service_cuts", "pl", "pl_remittances.Rda"))
 
 # source(here("scripts", "03_service_cuts", "01_import_preprocess", "pl_gdp.R"))
 load(here("data", "03_service_cuts", "pl", "pl_gdp.Rda"))
+
+
+## Croatia -------------------------------------------------------------
+
+load(here("data", "02_external_emigration", "hr", "hr.Rda"))
+
+# source(here("scripts", "03_service_cuts", "01_import_preprocess", "hr_schools.R"))
+load(here("data", "03_service_cuts", "hr", "hr_schools.Rda"))
