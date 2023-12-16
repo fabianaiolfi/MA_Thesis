@@ -78,3 +78,9 @@ pl_election_years <- ned_v_dem_cee %>%
 pl_election_years <- pl_election_years$year
 pl_election_years <- c(1997, 2001, pl_election_years, 2023) # Previous elections
 pl_election_years <- sort(pl_election_years) # Ensure election years are sorted
+
+
+# NUTS3 Population -------------------------------------
+
+# Eurostat, only covers 2014--2022
+load(file = here("data", "02_external_emigration", "nuts3_population.Rda"))
