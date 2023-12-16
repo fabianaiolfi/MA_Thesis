@@ -39,4 +39,7 @@ load(here("data", "03_service_cuts", "ro", "ro_schools.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_hospitals.Rda"))
 
 # source(here("scripts", "03_service_cuts", "01_import_preprocess", "ro_third_places.R"))
-load(here("data", "03_service_cuts", "ro", "ro_hospitals.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_third_places.Rda"))
+
+# source(here("scripts", "03_service_cuts", "01_import_preprocess", "ro_gdp.R"))
+load(here("data", "03_service_cuts", "ro", "ro_gdp.Rda"))
