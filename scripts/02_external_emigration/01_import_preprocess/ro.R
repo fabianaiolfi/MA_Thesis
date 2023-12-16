@@ -76,6 +76,8 @@ ro_population <- raw_xl %>%
   mutate(year = gsub("Year ", "", year)) %>% 
   mutate(year = as.numeric(year),
          population = as.numeric(population))
+
+save(ro_population, file = here("data", "02_external_emigration", "ro", "ro_population.Rda"))
   
 
 ## Calculate crude emigration --------------------------------

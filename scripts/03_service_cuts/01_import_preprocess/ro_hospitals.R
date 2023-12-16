@@ -35,7 +35,7 @@ ro_hospitals <- ro_hospitals %>%
 ## Hospitals Merge ------------------------------
 
 ro_hospitals <- ro_hospitals %>% 
-  left_join(nuts3_population, by = c("nuts2016" = "NUTS_ID", "year")) %>% 
+  left_join(ro_population, by = c("nuts2016" = "NUTS_ID", "year")) %>% 
   distinct(nuts2016, year, .keep_all = T) %>% 
   mutate(ratio_hospitals = population / hospitals) %>% 
   rename(NUTS_ID = nuts2016)
