@@ -5,8 +5,8 @@
 average_emigration <- ro %>%
   arrange(NUTS_ID, year) %>%
   group_by(NUTS_ID) %>%
-  # Take rolling average of past 2 years into account, ignore current year
-  mutate(average_emigration = slider::slide_dbl(emigration_yearly_per_1000, mean, .before = 2, .after = -1, .complete = T)) %>%
+  # Take rolling average of past 3 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(emigration_yearly_per_1000, mean, .before = 3, .after = -1, .complete = T)) %>%
   ungroup()
 
 anti_incumbent_vote <- ned_v_dem_cee %>% 
@@ -14,13 +14,14 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   drop_na(emigration_yearly_per_1000)
 
+ro_schools <- ro_schools %>% dplyr::filter(NUTS_ID != "RO321") # Remove potentially problematic NUTS3 region
+
 anti_incumbent_vote <- anti_incumbent_vote %>% 
   left_join(select(ro_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
   left_join(select(ro_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(select(ro_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(ro_remittances, by = "year") %>%
-  left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID"))# %>%
-  # dplyr::filter(nuts2016 != "PL91") # Remove potentially problematic NUTS2 region (Warszawski stołeczny)
+  left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
 
 
 # Modelling ----------------------------------
@@ -28,11 +29,11 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
 ## Plain Vanilla Thesis Model ---------------------------------
 
 summary(lm(vote_change ~
-             ratio_schools +
-             ratio_hospitals +
-             ratio_third_places +
+             schools +
+             hospitals +
+             third_places +
              emigration_yearly_per_1000 +
-             #remittances +
+             remittances +
              gdp,
            anti_incumbent_vote))
 
@@ -48,8 +49,9 @@ fe_lm_1 <- feols(vote_change ~
                    schools +
                    hospitals +
                    third_places +
-                   emigration_yearly_per_1000 +
-                   #remittances +
+                   # emigration_yearly_per_1000 +
+                   average_emigration +
+                   # remittances +
                    gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
