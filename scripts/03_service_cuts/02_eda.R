@@ -3,12 +3,20 @@
 
 ## Population ----------------------------------
 
+# Romania
 nuts3_population %>% 
   dplyr::filter(str_detect(NUTS_ID, "^RO")) %>% 
   dplyr::filter(nchar(NUTS_ID) == 5) %>% # Only NUTS3
   # dplyr::filter(population > 10000000) %>% # Only entire population
   ggplot(aes(x = year, y = population, line = NUTS_ID)) +
   geom_line() +
+  theme_minimal()
+
+ro_population %>% 
+  # dplyr::filter(population < 1000000) %>% # Only entire population
+  ggplot(aes(x = year, y = population, line = NUTS_ID)) +
+  geom_line() +
+  facet_wrap(~ NUTS_ID, scales = "free_y") +
   theme_minimal()
 
 ## Schools ----------------------------------
@@ -97,6 +105,9 @@ ggplot(pl_third_places, aes(x = year, y = ratio_third_places, line = NUTS_ID)) +
   geom_line() + theme_minimal()
 
 ggplot(pl_third_places, aes(x = year, y = ratio_bars, line = NUTS_ID)) +
+  geom_line() + theme_minimal()
+
+ggplot(ro_third_places, aes(x = year, y = third_places, line = nuts2016)) +
   geom_line() + theme_minimal()
 
 ggplot(pl_third_places, aes(x = ratio_third_places)) +
