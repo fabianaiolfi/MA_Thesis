@@ -72,6 +72,15 @@ load(here("data", "03_service_cuts", "pl", "pl_hospitals.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_third_places.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_remittances.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_gdp.Rda"))
+
+# PL Plots Compontents
+pl_plots_components <- list(
+  scale_color_gradient(low = "blue", high = "red", guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "top")),
+  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 4),
+  scale_y_continuous(labels = function(x) format(x, nsmall = 0)),
+  ylab(""), xlab(""), theme_minimal(),
+  theme(legend.position = c(0.5, 0.04), legend.title = element_text(size = 8))
+)
 ```
 
 ## Introduction
@@ -229,48 +238,74 @@ I now focus on service cuts in Poland, starting with the country’s overall pop
 
 Contrary to my expectations, the overall population has not decreased in the past 20 years. However, the number of primary aged school children, aged seven to twelve, has decreased.
 
+\pagebreak
+
 **Polish Population in Millions by NUTS2**  
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_avg_population_change <- pl %>% 
-  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
-  group_by(NUTS_ID) %>% # Group data by region
-  mutate(population_change = population - dplyr::lag(population)) %>% # Calculate year-on-year increase
-  summarise(avg_population_change = mean(population_change, na.rm = TRUE)) # Calculate average increase
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  mutate(population_change = population - dplyr::lag(population),
+         # Calculate the year-on-year percent increase. Multiplying by 100 gives the percent change.
+         percent_change = (population_change / dplyr::lag(population)) * 100
+         ) %>%
+  summarise(
+    avg_population_change = mean(population_change, na.rm = TRUE), # Average change in actual numbers
+    avg_percent_change = mean(percent_change, na.rm = TRUE) # Average percent change
+  )
 
 pl %>% 
   left_join(pl_avg_population_change, by = "NUTS_ID") %>% 
   mutate(population = population / 1000000) %>% 
-  mutate(avg_population_change = avg_population_change / 1000) %>% 
-  mutate(NUTS_ID = reorder(NUTS_ID, -avg_population_change)) %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
   ggplot(aes(x = year, y = population)) +
-  geom_smooth(aes(color = avg_population_change), method = "loess", se = FALSE) +
-  scale_color_gradient(low = "blue", high = "red", name = "Overall average of yearly change in population (in 1000s)") +
-  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 3) +
-  scale_y_continuous(labels = function(x) format(x, nsmall = 1)) + 
-  ylab("") + xlab("") + theme_minimal() +
-  theme(legend.position = c(0.9, 0.1))
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in population (in %) ") +
+  pl_plots_components
 ```
 
+\pagebreak
+
 **Polish Primary Age Population in Thousands by NUTS2**  
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_schools_avg_population_change <- pl_schools %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
-  mutate(population_change = population - dplyr::lag(population)) %>% # Calculate year-on-year increase
-  summarise(avg_population_change = mean(population_change, na.rm = TRUE)) # Calculate average increase
+  mutate(population_change = population - dplyr::lag(population),
+         percent_change = (population_change / dplyr::lag(population)) * 100) %>% # Calculate year-on-year increase
+  summarise(avg_population_change = mean(population_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE)) # Calculate average increase
 
 pl_schools %>% 
   left_join(pl_schools_avg_population_change, by = "NUTS_ID") %>% 
   mutate(population = population / 1000) %>% 
   mutate(avg_population_change = avg_population_change / 1000) %>% 
-  mutate(NUTS_ID = reorder(NUTS_ID, -avg_population_change)) %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
   ggplot(aes(x = year, y = population)) +
-  geom_smooth(aes(color = avg_population_change), method = "loess", se = FALSE) +
-  scale_color_gradient(low = "blue", high = "red", name = "Overall average of yearly change in population (in 1000s)") +
-  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 3) +
-  scale_y_continuous(labels = function(x) format(x, nsmall = 1)) + 
-  ylab("") + xlab("") + theme_minimal() +
-  theme(legend.position = c(0.9, 0.1))
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in population (in 1000s) ") +
+  pl_plots_components
+```
+
+\pagebreak
+
+**Polish Emigration per 1000 Population by NUTS2**  
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+pl_avg_emigration_change <- pl %>% 
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(emigration_change = emigration_yearly_per_1000 - dplyr::lag(emigration_yearly_per_1000),
+         percent_change = (emigration_change / dplyr::lag(emigration_yearly_per_1000)) * 100) %>% 
+  summarise(avg_emigration_change = mean(emigration_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE)) # Calculate average increase
+
+pl %>% 
+  left_join(pl_avg_emigration_change, by = "NUTS_ID") %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = emigration_yearly_per_1000)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in emigration ") +
+  pl_plots_components
 ```
 
 \pagebreak
@@ -278,66 +313,64 @@ pl_schools %>%
 ### Number of Institutions
 
 **Polish Schools by NUTS2**  
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
-  mutate(school_change = schools - dplyr::lag(schools)) %>% # Calculate year-on-year increase
-  summarise(avg_school_change = mean(school_change, na.rm = TRUE)) # Calculate average increase
+  mutate(school_change = schools - dplyr::lag(schools),
+         percent_change = (school_change / dplyr::lag(schools)) * 100) %>% 
+  summarise(avg_school_change = mean(school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 pl_schools %>% 
   left_join(pl_schools_avg_change, by = "NUTS_ID") %>%
-  mutate(NUTS_ID = reorder(NUTS_ID, -avg_school_change)) %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = schools)) +
-  geom_smooth(aes(color = avg_school_change), method = "loess", se = FALSE) +
-  scale_color_gradient(low = "blue", high = "red", name = "Overall average of yearly change in number of schools") +
-  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 3) +
-  scale_y_continuous(labels = function(x) format(x, nsmall = 1)) + 
-  ylab("") + xlab("") + theme_minimal() +
-  theme(legend.position = c(0.9, 0.1))
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in number of schools ") +
+  pl_plots_components
 ```
 
 \pagebreak
 
 **Polish Hospitals by NUTS2**  
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
-  mutate(hospital_change = hospitals - dplyr::lag(hospitals)) %>% # Calculate year-on-year increase
-  summarise(avg_hospital_change = mean(hospital_change, na.rm = TRUE)) # Calculate average increase
+  mutate(hospital_change = hospitals - dplyr::lag(hospitals),
+         percent_change = (hospital_change / dplyr::lag(hospitals)) * 100) %>% 
+  summarise(avg_hospital_change = mean(hospital_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 pl_hospitals %>% 
   left_join(pl_hospitals_avg_change, by = "NUTS_ID") %>%
-  mutate(NUTS_ID = reorder(NUTS_ID, -avg_hospital_change)) %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = hospitals)) +
-  geom_smooth(aes(color = avg_hospital_change), method = "loess", se = FALSE) +
-  scale_color_gradient(low = "blue", high = "red", name = "Overall average of yearly change in number of hospitals") +
-  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 3) +
-  scale_y_continuous(labels = function(x) format(x, nsmall = 1)) + 
-  ylab("") + xlab("") + theme_minimal() +
-  theme(legend.position = c(0.9, 0.1))
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "average of yearly change in number of hospitals ") +
+  pl_plots_components
 ```
 \pagebreak
 
 **Polish Third Places by NUTS2**  
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
-  mutate(third_places_change = third_places - dplyr::lag(third_places)) %>% # Calculate year-on-year increase
-  summarise(avg_third_places_change = mean(third_places_change, na.rm = TRUE)) # Calculate average increase
+  mutate(third_places_change = third_places - dplyr::lag(third_places),
+         percent_change = (third_places_change / dplyr::lag(third_places)) * 100) %>% 
+  summarise(avg_third_places_change = mean(third_places_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 pl_third_places %>% 
   left_join(pl_third_places_avg_change, by = "NUTS_ID") %>%
-  mutate(NUTS_ID = reorder(NUTS_ID, -avg_third_places_change)) %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = third_places)) +
-  geom_smooth(aes(color = avg_third_places_change), method = "loess", se = FALSE) +
-  scale_color_gradient(low = "blue", high = "red", name = "Overall average of yearly change in number of third places") +
-  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 3) +
-  scale_y_continuous(labels = function(x) format(x, nsmall = 0)) + 
-  ylab("") + xlab("") + theme_minimal() +
-  theme(legend.position = c(0.9, 0.1))
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in number of third places ") +
+  pl_plots_components +
+  theme(legend.position = "bottom")
 ```
 
 
@@ -347,65 +380,67 @@ pl_third_places %>%
 
 Also contrary to my expectations, all services that I investigate generally see a decrease in their ratios. This means that over time, there are less people per institution in a NUTS2 region. E.g., less children in a school or less citizens per hospital.
 
+\pagebreak
+
 **Number of Polish Primary School Children per School by NUTS2**  
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_ratio_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
-  mutate(ratio_school_change = ratio_schools - dplyr::lag(ratio_schools)) %>% # Calculate year-on-year increase
-  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE)) # Calculate average increase
+  mutate(ratio_school_change = ratio_schools - dplyr::lag(ratio_schools),
+         percent_change = (ratio_school_change / dplyr::lag(ratio_schools)) * 100) %>% 
+  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 pl_schools %>% 
   left_join(pl_ratio_schools_avg_change, by = "NUTS_ID") %>%
-  mutate(NUTS_ID = reorder(NUTS_ID, -avg_ratio_school_change)) %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_schools)) +
-  geom_smooth(aes(color = avg_ratio_school_change), method = "loess", se = FALSE) +
-  scale_color_gradient(low = "blue", high = "red", name = "Average of yearly change in children per school") +
-  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 3) +
-  scale_y_continuous(labels = function(x) format(x, nsmall = 1)) + 
-  ylab("") + xlab("") + theme_minimal() +
-  theme(legend.position = c(0.9, 0.1))
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in children per school ") +
+  pl_plots_components
 ```
 \pagebreak
 
 **Number of People per Hospital by NUTS2 in Poland**  
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_ratio_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
-  mutate(ratio_hospital_change = ratio_hospital_beds_all_population - dplyr::lag(ratio_hospital_beds_all_population)) %>% # Calculate year-on-year increase
-  summarise(avg_ratio_hospital_change = mean(ratio_hospital_change, na.rm = TRUE)) # Calculate average increase
+  mutate(ratio_hospital_change = ratio_hospitals_all_population - dplyr::lag(ratio_hospitals_all_population),
+         percent_change = (ratio_hospital_change / dplyr::lag(ratio_hospitals_all_population)) * 100) %>% 
+  summarise(avg_ratio_hospital_change = mean(ratio_hospital_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 pl_hospitals %>% 
   left_join(pl_ratio_hospitals_avg_change, by = "NUTS_ID") %>%
-  mutate(NUTS_ID = reorder(NUTS_ID, -avg_ratio_hospital_change)) %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_hospitals_all_population)) +
-  geom_smooth(aes(color = avg_ratio_hospital_change), method = "loess", se = FALSE) +
-  scale_color_gradient(low = "blue", high = "red", name = "Average of yearly change in people per hospital") +
-  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 3) +
-  scale_y_continuous(labels = function(x) format(x, nsmall = 1)) + 
-  ylab("") + xlab("") + theme_minimal() +
-  theme(legend.position = c(0.9, 0.1))
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in people per hospital ") +
+  pl_plots_components
 ```
-  
+
+\pagebreak
+
 **Number of People per Third Place by NUTS2 in Poland**  
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_ratio_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
-  mutate(ratio_third_places_change = ratio_third_places - dplyr::lag(ratio_third_places)) %>% # Calculate year-on-year increase
-  summarise(avg_ratio_third_places_change = mean(ratio_third_places_change, na.rm = TRUE)) # Calculate average increase
+  mutate(ratio_third_places_change = ratio_third_places - dplyr::lag(ratio_third_places),
+         percent_change = (ratio_third_places_change / dplyr::lag(ratio_third_places)) * 100) %>% 
+  summarise(avg_ratio_third_places_change = mean(ratio_third_places_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 pl_third_places %>% 
   left_join(pl_ratio_third_places_avg_change, by = "NUTS_ID") %>%
-  mutate(NUTS_ID = reorder(NUTS_ID, -avg_ratio_third_places_change)) %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_third_places)) +
-  geom_smooth(aes(color = avg_ratio_third_places_change), method = "loess", se = FALSE) +
-  scale_color_gradient(low = "blue", high = "red", name = "Average of yearly change in people per third place") +
-  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 3) +
-  scale_y_continuous(labels = function(x) format(x, nsmall = 0)) + 
-  ylab("") + xlab("") + theme_minimal() +
-  theme(legend.position = c(0.9, 0.1))
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in people per third place ") +
+  pl_plots_components +
+  theme(legend.position = "bottom")
 ```
 
 \pagebreak
