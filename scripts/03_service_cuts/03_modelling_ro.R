@@ -18,7 +18,7 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
   left_join(select(ro_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
   left_join(select(ro_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(select(ro_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
-  # left_join(pl_remittances, by = "year") %>% 
+  left_join(ro_remittances, by = "year") %>%
   left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID"))# %>%
   # dplyr::filter(nuts2016 != "PL91") # Remove potentially problematic NUTS2 region (Warszawski stołeczny)
 
