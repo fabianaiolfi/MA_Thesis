@@ -66,20 +66,44 @@ cee_crude_emigration <- cee_crude_emigration %>% mutate(country = substr(NUTS_ID
 
 load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
 load(here("data", "02_external_emigration", "cee_crude_emigration.Rda"))
-load(here("data", "02_external_emigration", "pl", "pl.Rda"))
+
 load(here("data", "03_service_cuts", "pl", "pl_schools.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_hospitals.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_third_places.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_remittances.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_gdp.Rda"))
 
-# PL Plots Compontents
+load(here("data", "02_external_emigration", "ro", "ro_population.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_schools.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_hospitals.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_third_places.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_remittances.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_gdp.Rda"))
+
+# Plot Compontents
 pl_plots_components <- list(
   scale_color_gradient(low = "blue", high = "red", guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "top")),
   facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 4),
-  scale_y_continuous(labels = function(x) format(x, nsmall = 0)),
+  # scale_y_continuous(labels = function(x) format(x, nsmall = 0)),
+  scale_y_continuous(breaks = function(x) pretty(x, n = 3), labels = label_comma()), # Adjust y-axis breaks
+  scale_x_continuous(breaks = c(1995, 2020)),
   ylab(""), xlab(""), theme_minimal(),
-  theme(legend.position = c(0.5, 0.04), legend.title = element_text(size = 8))
+  theme(legend.position = c(0.5, 0.04), 
+        legend.title = element_text(size = 8),
+        axis.text = element_text(size = 8),
+        axis.title = element_text(size = 8))
+)
+
+ro_plots_components <- list(
+  scale_color_gradient(low = "blue", high = "red", guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "top")),
+  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 4),
+  scale_y_continuous(breaks = function(x) pretty(x, n = 3), labels = label_comma()),  # Adjust y-axis breaks
+  scale_x_continuous(breaks = c(2000, 2020)),  # Adjust x-axis for dates
+  ylab(""), xlab(""), theme_minimal(),
+  theme(legend.position = c(0.7, 0.02),
+        legend.title = element_text(size = 8),
+        axis.text = element_text(size = 8),
+        axis.title = element_text(size = 8))
 )
 ```
 
@@ -667,6 +691,104 @@ modelplot(lm_truncate_vote_change,
                        ratio_third_places = "People per Third Places",
                        ratio_hospitals_all_population = "People per Hospital",
                        ratio_schools = "Children per School"))
+```
+
+\pagebreak
+
+## Service Cuts in Romania
+
+### Population Statistics
+…
+
+\pagebreak
+
+**Romanian Population in Millions by NUTS2**  
+```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE}
+ro_avg_population_change <- ro_population %>% 
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  mutate(population_change = population - dplyr::lag(population),
+         # Calculate the year-on-year percent increase. Multiplying by 100 gives the percent change.
+         percent_change = (population_change / dplyr::lag(population)) * 100
+         ) %>%
+  summarise(
+    avg_population_change = mean(population_change, na.rm = TRUE), # Average change in actual numbers
+    avg_percent_change = mean(percent_change, na.rm = TRUE) # Average percent change
+  )
+
+ro_population %>% 
+  left_join(ro_avg_population_change, by = "NUTS_ID") %>% 
+  mutate(population = population / 1000000) %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = population)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in population (in %) ") +
+  ro_plots_components
+```
+\pagebreak
+
+**Romanian Primary Age Population in Thousands by NUTS2**  
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_schools_avg_population_change <- ro_schools %>% 
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(population_change = population - dplyr::lag(population),
+         percent_change = (population_change / dplyr::lag(population)) * 100) %>% # Calculate year-on-year increase
+  summarise(avg_population_change = mean(population_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE)) # Calculate average increase
+
+ro_schools %>% 
+  left_join(ro_schools_avg_population_change, by = "NUTS_ID") %>% 
+  mutate(population = population / 1000) %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = population)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in population (in 1000s) ") +
+  ro_plots_components
+```
+
+\pagebreak
+
+**Romanian Emigration per 1000 Population by NUTS2**  
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_avg_emigration_change <- ro %>% 
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(emigration_change = emigration_yearly_per_1000 - dplyr::lag(emigration_yearly_per_1000),
+         percent_change = (emigration_change / dplyr::lag(emigration_yearly_per_1000)) * 100) %>% 
+  summarise(avg_emigration_change = mean(emigration_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE)) # Calculate average increase
+
+ro %>% 
+  left_join(ro_avg_emigration_change, by = "NUTS_ID") %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = emigration_yearly_per_1000)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in emigration ") +
+  ro_plots_components
+```
+
+\pagebreak
+
+### Number of Institutions
+
+**Romanian Schools by NUTS3**  
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_schools_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(school_change = schools - dplyr::lag(schools),
+         percent_change = (school_change / dplyr::lag(schools)) * 100) %>% 
+  summarise(avg_school_change = mean(school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = schools)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in number of schools ") +
+  ro_plots_components
 ```
 
 \pagebreak
