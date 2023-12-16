@@ -129,3 +129,6 @@ ggplot(pl_remittances, aes(x = year, y = remittances)) +
 
 ggplot(pl_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
   geom_line() + theme_minimal()
+
+ggplot(ro_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
+  geom_line() + theme_minimal()
