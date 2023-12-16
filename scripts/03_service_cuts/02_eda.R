@@ -1,6 +1,16 @@
 
 # EDA --------------------------
 
+## Population ----------------------------------
+
+nuts3_population %>% 
+  dplyr::filter(str_detect(NUTS_ID, "^RO")) %>% 
+  dplyr::filter(nchar(NUTS_ID) == 5) %>% # Only NUTS3
+  # dplyr::filter(population > 10000000) %>% # Only entire population
+  ggplot(aes(x = year, y = population, line = NUTS_ID)) +
+  geom_line() +
+  theme_minimal()
+
 ## Schools ----------------------------------
 
 ggplot(pl_schools, aes(x = year, y = ratio_schools, line = NUTS_ID)) +
@@ -45,6 +55,9 @@ ggplot(pl_schools, aes(x = ratio_schools)) +
 ggplot(pl_hospitals, aes(x = year, y = hospitals, line = NUTS_ID)) +
   geom_line() + theme_minimal()
 
+ggplot(ro_hospitals, aes(x = year, y = hospitals, line = nuts2016)) +
+  geom_line() + theme_minimal()
+
 ggplot(pl_hospitals, aes(x = year, y = ratio_hospitals_all_population, line = NUTS_ID)) +
   geom_line() + theme_minimal()
 
@@ -64,6 +77,9 @@ ggplot(pl_hospitals, aes(x = ratio_hospitals_all_population)) +
 ggplot(pl_hospitals, aes(x = ratio_hospitals_all_population)) +
   geom_boxplot() +
   theme_minimal()
+
+ggplot(ro_hospitals, aes(x = year, y = ratio_hospitals, line = NUTS_ID)) +
+  geom_line() + theme_minimal()
 
 
 ## Third Places -----------------------------------

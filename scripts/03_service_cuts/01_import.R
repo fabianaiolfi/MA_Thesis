@@ -25,3 +25,14 @@ load(here("data", "02_external_emigration", "hr", "hr.Rda"))
 
 # source(here("scripts", "03_service_cuts", "01_import_preprocess", "hr_schools.R"))
 load(here("data", "03_service_cuts", "hr", "hr_schools.Rda"))
+
+
+## Romania -------------------------------------------------------------
+
+load(here("data", "02_external_emigration", "ro", "ro.Rda"))
+
+# source(here("scripts", "03_service_cuts", "01_import_preprocess", "ro_schools.R"))
+load(here("data", "03_service_cuts", "ro", "ro_schools.Rda"))
+
+# source(here("scripts", "03_service_cuts", "01_import_preprocess", "ro_hospitals"))
+load(here("data", "03_service_cuts", "ro", "ro_hospitals.Rda"))
