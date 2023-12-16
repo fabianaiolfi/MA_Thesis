@@ -62,7 +62,7 @@ pl_bars <- pl_bars %>%
 
 ## Third Places Merge ------------------------------
 
-pl_third_places <- pl_restaurants %>% 
+pl_third_places <- pl_restaurants %>%
   left_join(pl_bars, by = c("NUTS_ID", "year")) %>% 
   mutate(third_places = restaurants + bars)
 
