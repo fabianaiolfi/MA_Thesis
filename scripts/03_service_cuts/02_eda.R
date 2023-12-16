@@ -21,10 +21,20 @@ ro_population %>%
 
 ## Schools ----------------------------------
 
+# Poland
 ggplot(pl_schools, aes(x = year, y = ratio_schools, line = NUTS_ID)) +
   geom_line() +
   theme_minimal()
 
+ggplot(pl_schools, aes(x = ratio_schools)) +
+  geom_histogram(binwidth = 5) +
+  theme_minimal()
+
+ggplot(pl_schools, aes(x = ratio_schools)) +
+  geom_boxplot() +
+  theme_minimal()
+
+# Croatia
 ggplot(hr_schools, aes(x = year, y = schools, line = NUTS_ID)) +
   geom_line() +
   theme_minimal()
@@ -37,7 +47,8 @@ ggplot(hr_schools, aes(x = year, y = ratio_schools, line = NUTS_ID)) +
   geom_line() +
   theme_minimal()
 
-ggplot(ro_schools, aes(x = year, y = schools, line = nuts2016)) +
+# Romania
+ggplot(ro_schools, aes(x = year, y = schools, line = NUTS_ID)) +
   geom_line() +
   theme_minimal()
 
@@ -49,21 +60,11 @@ ggplot(ro_schools, aes(x = year, y = ratio_schools, line = NUTS_ID)) +
   geom_line() +
   theme_minimal()
 
-ggplot(pl_schools, aes(x = ratio_schools)) +
-  geom_histogram(binwidth = 5) +
-  theme_minimal()
-
-ggplot(pl_schools, aes(x = ratio_schools)) +
-  geom_boxplot() +
-  theme_minimal()
-
 
 ## Hospitals -----------------------------------
 
+# Poland
 ggplot(pl_hospitals, aes(x = year, y = hospitals, line = NUTS_ID)) +
-  geom_line() + theme_minimal()
-
-ggplot(ro_hospitals, aes(x = year, y = hospitals, line = nuts2016)) +
   geom_line() + theme_minimal()
 
 ggplot(pl_hospitals, aes(x = year, y = ratio_hospitals_all_population, line = NUTS_ID)) +
@@ -86,12 +87,17 @@ ggplot(pl_hospitals, aes(x = ratio_hospitals_all_population)) +
   geom_boxplot() +
   theme_minimal()
 
+# Romania
+ggplot(ro_hospitals, aes(x = year, y = hospitals, line = NUTS_ID)) +
+  geom_line() + theme_minimal()
+
 ggplot(ro_hospitals, aes(x = year, y = ratio_hospitals, line = NUTS_ID)) +
   geom_line() + theme_minimal()
 
 
 ## Third Places -----------------------------------
 
+# Poland
 ggplot(pl_restaurants, aes(x = year, y = restaurants, line = NUTS_ID)) +
   geom_line() + theme_minimal()
 
@@ -107,9 +113,6 @@ ggplot(pl_third_places, aes(x = year, y = ratio_third_places, line = NUTS_ID)) +
 ggplot(pl_third_places, aes(x = year, y = ratio_bars, line = NUTS_ID)) +
   geom_line() + theme_minimal()
 
-ggplot(ro_third_places, aes(x = year, y = third_places, line = nuts2016)) +
-  geom_line() + theme_minimal()
-
 ggplot(pl_third_places, aes(x = ratio_third_places)) +
   geom_histogram() +
   theme_minimal()
@@ -117,6 +120,14 @@ ggplot(pl_third_places, aes(x = ratio_third_places)) +
 ggplot(pl_third_places, aes(x = ratio_third_places)) +
   geom_boxplot() +
   theme_minimal()
+
+# Romania
+ggplot(ro_third_places, aes(x = year, y = third_places, line = NUTS_ID)) +
+  geom_line() + theme_minimal()
+
+ggplot(ro_third_places, aes(x = year, y = ratio_third_places, line = NUTS_ID)) +
+  geom_line() + theme_minimal()
+
 
 
 ## Remittances -----------------------------------
