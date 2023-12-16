@@ -124,6 +124,9 @@ ggplot(pl_third_places, aes(x = ratio_third_places)) +
 ggplot(pl_remittances, aes(x = year, y = remittances)) +
   geom_line() + theme_minimal()
 
+ggplot(ro_remittances, aes(x = year, y = remittances)) +
+  geom_line() + theme_minimal()
+
 
 ## GDP -----------------------------------
 
