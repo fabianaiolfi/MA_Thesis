@@ -788,7 +788,119 @@ ro_schools %>%
   ggplot(aes(x = year, y = schools)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in number of schools ") +
-  ro_plots_components
+  ro_plots_components +
+  scale_x_continuous(breaks = c(1990, 2022)) # Adjust x-axis for dates
+```
+
+\pagebreak
+
+**Romanian Hospitals at NUTS3**  
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_hospitals_avg_change <- ro_hospitals %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(hospital_change = hospitals - dplyr::lag(hospitals),
+         percent_change = (hospital_change / dplyr::lag(hospitals)) * 100) %>% 
+  summarise(avg_hospital_change = mean(hospital_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_hospitals %>% 
+  left_join(ro_hospitals_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = hospitals)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "average of yearly change in number of hospitals ") +
+  ro_plots_components +
+  scale_x_continuous(breaks = c(1990, 2022))  # Adjust x-axis for dates
+```
+\pagebreak
+
+**Romanian Third Places at NUTS3**  
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_third_places_avg_change <- ro_third_places %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(third_places_change = third_places - dplyr::lag(third_places),
+         percent_change = (third_places_change / dplyr::lag(third_places)) * 100) %>% 
+  summarise(avg_third_places_change = mean(third_places_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_third_places %>% 
+  left_join(ro_third_places_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = third_places)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in number of third places ") +
+  ro_plots_components +
+  scale_x_continuous(breaks = c(2008, 2021))  # Adjust x-axis for dates
+```
+### Ratios
+
+…
+
+\pagebreak
+
+**Number of Romanian Primary School Children per School at NUTS3**  
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_ratio_schools_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_school_change = ratio_schools - dplyr::lag(ratio_schools),
+         percent_change = (ratio_school_change / dplyr::lag(ratio_schools)) * 100) %>% 
+  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_ratio_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_schools)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in children per school ") +
+  ro_plots_components +
+  scale_x_continuous(breaks = c(1995, 2022))  # Adjust x-axis for dates
+```
+\pagebreak
+
+**Number of People per Hospital by NUTS2 in Poland**  
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_ratio_hospitals_avg_change <- ro_hospitals %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_hospital_change = ratio_hospitals - dplyr::lag(ratio_hospitals),
+         percent_change = (ratio_hospital_change / dplyr::lag(ratio_hospitals)) * 100) %>% 
+  summarise(avg_ratio_hospital_change = mean(ratio_hospital_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_hospitals %>% 
+  left_join(ro_ratio_hospitals_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_hospitals)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in people per hospital ") +
+  ro_plots_components +
+  scale_x_continuous(breaks = c(2000, 2022)) # Adjust x-axis for dates
+```
+
+\pagebreak
+
+**Number of People per Third Place by NUTS2 in Poland**  
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_ratio_third_places_avg_change <- ro_third_places %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_third_places_change = ratio_third_places - dplyr::lag(ratio_third_places),
+         percent_change = (ratio_third_places_change / dplyr::lag(ratio_third_places)) * 100) %>% 
+  summarise(avg_ratio_third_places_change = mean(ratio_third_places_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_third_places %>% 
+  left_join(ro_ratio_third_places_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_third_places)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in people per third place ") +
+  pl_plots_components +
+  scale_x_continuous(breaks = c(2008, 2020)) # Adjust x-axis for dates
 ```
 
 \pagebreak
