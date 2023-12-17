@@ -861,7 +861,7 @@ ro_schools %>%
 ```
 \pagebreak
 
-**Number of People per Hospital by NUTS2 in Poland**  
+**Number of People per Hospital by NUTS3 in Romania**  
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_ratio_hospitals_avg_change <- ro_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -883,7 +883,7 @@ ro_hospitals %>%
 
 \pagebreak
 
-**Number of People per Third Place by NUTS2 in Poland**  
+**Number of People per Third Place by NUTS3 in Romania**  
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_ratio_third_places_avg_change <- ro_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -901,6 +901,153 @@ ro_third_places %>%
   scale_color_gradient(name = "Average of yearly change in people per third place ") +
   pl_plots_components +
   scale_x_continuous(breaks = c(2008, 2020)) # Adjust x-axis for dates
+```
+
+\pagebreak
+
+### Control Variables
+
+…
+
+**Remittance Inflows (US$ million) for all of Romania**  
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+ggplot(ro_remittances, aes(x = year, y = remittances)) +
+  geom_line() +
+  scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
+```
+
+**GDP at Current Market Prices in Romania at NUTS3 (Euros per Inhabitant)**  
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+ggplot(ro_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
+  geom_line(color = "light grey") +
+  geom_smooth(aes(group = 1), method = "loess", color = "red", se = FALSE, size = 0.5) + 
+  scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+options(scipen = 0) # Enable scientific notation
+
+# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
+average_emigration <- ro %>%
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  # Take rolling average of past 2 years into account, ignore current year
+  mutate(average_emigration = slider::slide_dbl(emigration_yearly_per_1000, mean, .before = 2, .after = -1, .complete = T)) %>%
+  ungroup()
+
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(prev_incumbent == T) %>%
+  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  drop_na(emigration_yearly_per_1000)
+
+anti_incumbent_vote <- anti_incumbent_vote %>% 
+  left_join(dplyr::select(ro_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
+  left_join(dplyr::select(ro_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(dplyr::select(ro_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(ro_remittances, by = "year") %>% 
+  left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
+
+fe_lm_1 <- feols(vote_change ~
+                   ratio_schools +
+                   emigration_yearly_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_2 <- feols(vote_change ~
+                   ratio_hospitals +
+                   emigration_yearly_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_3 <- feols(vote_change ~
+                   ratio_third_places +
+                   emigration_yearly_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_4 <- feols(vote_change ~
+                   ratio_schools +
+                   ratio_hospitals +
+                   emigration_yearly_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_5 <- feols(vote_change ~
+                   ratio_schools +
+                   ratio_third_places +
+                   emigration_yearly_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_6 <- feols(vote_change ~
+                   ratio_hospitals +
+                   ratio_third_places +
+                   emigration_yearly_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_7 <- feols(vote_change ~
+                ratio_schools +
+                ratio_hospitals +
+                ratio_third_places +
+                emigration_yearly_per_1000 +
+                remittances +
+                gdp | 
+                nuts2016 + year,
+              data = anti_incumbent_vote)
+```
+
+### LM Models: Anti-Incumbent Voting in Romania at NUTS3 Level
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3),
+             title = "DV: Incumbent's Change in Vote Share",
+             coef_map = c(ratio_schools = "Children per School",
+                          ratio_hospitals = "People per Hospital",
+                          ratio_third_places = "People per Third Places",
+                          emigration_election_year_per_1000 = "Emigration Rate between Election Years per 1000 People",
+                          gdp = "GDP"),
+             stars = T)
+```
+
+…
+
+\pagebreak
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+modelsummary(list(fe_lm_4, fe_lm_5, fe_lm_6, fe_lm_7),
+             title = "DV: Incumbent's Change in Vote Share",
+             coef_map = c(ratio_schools = "Children per School",
+                          ratio_hospitals = "People per Hospital",
+                          ratio_third_places = "People per Third Places",
+                          emigration_election_year_per_1000 = "Emigration Rate between\nElection Years per 1000 People",
+                          gdp = "GDP"),
+             stars = T)
+```
+
+…
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
+cat("Coefficient Plot for Model 4 (Table 4)")
+modelplot(fe_lm_7,
+          coef_map = c(gdp = "GDP",
+                       emigration_election_year_per_1000 = "Emigration Rate between\nElection Years per 1000 People",
+                       ratio_third_places = "People per Third Places",
+                       ratio_hospitals = "People per Hospital",
+                       ratio_schools = "Children per School"))
 ```
 
 \pagebreak
