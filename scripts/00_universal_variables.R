@@ -79,6 +79,16 @@ pl_election_years <- pl_election_years$year
 pl_election_years <- c(1997, 2001, pl_election_years, 2023) # Previous elections
 pl_election_years <- sort(pl_election_years) # Ensure election years are sorted
 
+# Romania
+ro_election_years <- ned_v_dem_cee %>% 
+  dplyr::filter(str_detect(nuts2016, "^RO")) %>% 
+  distinct(year) %>% 
+  arrange(year)
+
+ro_election_years <- ro_election_years$year
+ro_election_years <- c(1996, 2000, 2004, ro_election_years, 2020) # Previous elections
+ro_election_years <- sort(ro_election_years) # Ensure election years are sorted
+
 
 # NUTS3 Population -------------------------------------
 
