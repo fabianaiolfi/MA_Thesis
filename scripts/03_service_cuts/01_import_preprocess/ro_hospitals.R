@@ -15,12 +15,15 @@ current_names <- colnames(ro_hospitals) # Getting the current column names
 current_names[2:34] <- year_names # Replacing the names of columns 2 through 29
 colnames(ro_hospitals) <- current_names # Assigning the new names back to the dataframe
 
+ro_nuts2 <- c("CENTER", "MACROREGION 2", "NORTH - EAST", "SOUTH - EAST", "MACROREGION 3", "SOUTH - MUNTENIA", "BUCHAREST - ILFOV", "MACROREGION 4", "SOUTH - WEST OLTENIA", "WEST")
 ned_v_dem_ro <- ned_v_dem_cee %>% select(country, regionname, nuts2016) %>% dplyr::filter(country == "Romania") %>% distinct(regionname, .keep_all = T) %>% select(-country)
 
 ro_hospitals <- ro_hospitals %>% 
   slice(8:n()) %>% 
   rename(region = `...3`) %>% 
   drop_na(region) %>% 
+  dplyr::filter(!region %in% ro_nuts2) %>% 
+  mutate(across(everything(), ~gsub(':', NA, .))) %>% 
   mutate(region = case_when(region == "Bucharest Municipality" ~ "Bucuresti",
                             region == "Bucharest Municipality - including SAI" ~ "Bucuresti",
                             T ~ region)) %>% 
