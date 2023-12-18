@@ -1077,7 +1077,7 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
 
 fe_lm_1 <- feols(vote_change ~
                    schools +
-                   emigration_yearly_per_1000 +
+                   average_emigration +
                    remittances +
                    gdp | 
                    nuts2016 + year,
@@ -1085,7 +1085,7 @@ fe_lm_1 <- feols(vote_change ~
 
 fe_lm_2 <- feols(vote_change ~
                    hospitals +
-                   emigration_yearly_per_1000 +
+                   average_emigration +
                    remittances +
                    gdp | 
                    nuts2016 + year,
@@ -1093,7 +1093,7 @@ fe_lm_2 <- feols(vote_change ~
 
 fe_lm_3 <- feols(vote_change ~
                    third_places +
-                   emigration_yearly_per_1000 +
+                   average_emigration +
                    remittances +
                    gdp | 
                    nuts2016 + year,
@@ -1102,7 +1102,7 @@ fe_lm_3 <- feols(vote_change ~
 fe_lm_4 <- feols(vote_change ~
                    schools +
                    hospitals +
-                   emigration_yearly_per_1000 +
+                   average_emigration +
                    remittances +
                    gdp | 
                    nuts2016 + year,
@@ -1111,7 +1111,7 @@ fe_lm_4 <- feols(vote_change ~
 fe_lm_5 <- feols(vote_change ~
                    schools +
                    third_places +
-                   emigration_yearly_per_1000 +
+                   average_emigration +
                    remittances +
                    gdp | 
                    nuts2016 + year,
@@ -1120,7 +1120,7 @@ fe_lm_5 <- feols(vote_change ~
 fe_lm_6 <- feols(vote_change ~
                    hospitals +
                    third_places +
-                   emigration_yearly_per_1000 +
+                   average_emigration +
                    remittances +
                    gdp | 
                    nuts2016 + year,
@@ -1130,7 +1130,7 @@ fe_lm_7 <- feols(vote_change ~
                 schools +
                 hospitals +
                 third_places +
-                emigration_yearly_per_1000 +
+                average_emigration +
                 remittances +
                 gdp | 
                 nuts2016 + year,
@@ -1145,7 +1145,7 @@ modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3),
              coef_map = c(schools = "Number of Schools",
                           hospitals = "Number of Hospitals",
                           third_places = "Number of Third Places",
-                          emigration_yearly_per_1000 = "Rolling Emigration Average per 1000 People",
+                          average_emigration = "Rolling Emigration Average per 1000 People",
                           gdp = "GDP"),
              stars = T)
 ```
@@ -1160,7 +1160,7 @@ modelsummary(list(fe_lm_4, fe_lm_5, fe_lm_6, fe_lm_7),
              coef_map = c(schools = "Number of Schools",
                           hospitals = "Number of Hospitals",
                           third_places = "Number of Third Places",
-                          emigration_yearly_per_1000 = "Rolling Emigration Average per 1000 People",
+                          average_emigration = "Rolling Emigration Average per 1000 People",
                           gdp = "GDP"),
              stars = T)
 ```
