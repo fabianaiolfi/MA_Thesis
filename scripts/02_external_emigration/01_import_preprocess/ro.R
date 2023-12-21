@@ -109,7 +109,7 @@ for (i in 1:(length(ro_election_years) - 1)) {
   sum_data <- ro %>%
     dplyr::filter(year >= start_year & year < end_year) %>%
     group_by(NUTS_ID) %>%
-    summarize(sum_emigration = sum(emigration_yearly_per_1000, na.rm = T))
+    summarize(sum_emigration = sum(emigration, na.rm = T))
   
   # Filter and average emigration
   avg_data <- ro %>%
