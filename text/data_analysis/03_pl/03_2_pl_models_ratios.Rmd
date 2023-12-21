@@ -1,4 +1,4 @@
-### LM Models: Anti-Incumbent Voting in Poland at NUTS2 Level: Ratios
+## LM Models: Anti-Incumbent Voting in Poland at NUTS2 Level using Ratios
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 options(scipen = 0) # Enable scientific notation

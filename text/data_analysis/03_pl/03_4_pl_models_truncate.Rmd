@@ -1,4 +1,5 @@
-### Truncating Data
+## LM Models with Truncated Data
+
 Do models improve when truncating parts of the data? I truncate the data in three different ways to explore if results vary. Model 1 uses data where observations with a small vote change, between $-2$ and $2$, are removed. This is done to see if extreme vote change values lead to more significant results. Model 2 uses data in which observations with extremely high (over $25\%$) and extremely low (under $5\%$) vote shares are removed. Model 3 uses data where high levels of emigration rates are removed. Both models 2 and 3 attempt to remove outliers in order to build models with higher validity.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}

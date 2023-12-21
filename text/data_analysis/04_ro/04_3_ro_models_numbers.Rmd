@@ -1,4 +1,4 @@
-### LM Models: Anti-Incumbent Voting in Romania at NUTS3 Level: Number of Institutions
+## LM Models: Anti-Incumbent Voting in Romania at NUTS3 Level using Number of Institutions
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Models using number of institutions

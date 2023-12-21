@@ -1,4 +1,4 @@
-## Service Cuts in Poland
+# Service Cuts in Poland
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 options(scipen = 999) # Disable scientific notation

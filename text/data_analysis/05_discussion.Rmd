@@ -1,8 +1,9 @@
-## Discussion
+# Discussion
 …
 
+\pagebreak
 
-## Next Steps
+# Next Steps
 These are possible next steps and open questions, based on my considerations and input from the Kolloquium.
 
 - Am I operationalize service cuts correctly? A higher ratio does not necessarily always imply (for example) less schools.

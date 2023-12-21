@@ -6,6 +6,9 @@ output:
   pdf_document:
     latex_engine: xelatex
     extra_dependencies: "microtype"
+    toc: true
+    toc_depth: 2
+    number_sections: true
 mainfont: Times New Roman
 bibliography: references.bib
 csl: american-journal-of-political-science.csl
@@ -16,6 +19,7 @@ header-includes:
    - \usepackage{setspace}
    - \onehalfspacing
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -106,6 +110,8 @@ ro_plots_components <- list(
         axis.title = element_text(size = 8))
 )
 ```
+
+\pagebreak
 
 ```{r, child = 'data_analysis/01_introduction.Rmd'}
 ```

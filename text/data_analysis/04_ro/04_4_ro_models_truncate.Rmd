@@ -1,7 +1,7 @@
-### Truncating Data
+## LM Models with Truncated Data
 …
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 hist(anti_incumbent_vote$vote_change, breaks = 50)
 summary(anti_incumbent_vote$vote_change)
 

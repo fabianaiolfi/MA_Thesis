@@ -1,4 +1,4 @@
-### Population Statistics
+## Population Statistics
 
 I now focus on service cuts in Poland, starting with the country’s overall population and primary school population. NUTS2 data is used, because Poland only provides data at this level. Each line represents a Polish NUTS2 region, of which there are 16. A plot's overall trend is displayed with a red trendline.
 
@@ -6,7 +6,7 @@ Contrary to my expectations, the overall population has not decreased in the pas
 
 \pagebreak
 
-**Polish Population in Millions by NUTS2**  
+### Population in Millions in Poland at NUTS2 Level
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_avg_population_change <- pl %>% 
   arrange(NUTS_ID, year) %>%
@@ -32,7 +32,7 @@ pl %>%
 
 \pagebreak
 
-**Polish Primary Age Population in Thousands by NUTS2**  
+### Primary Age Population in 1000 in Poland at NUTS2 Level
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_schools_avg_population_change <- pl_schools %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -55,7 +55,7 @@ pl_schools %>%
 
 \pagebreak
 
-**Polish Emigration per 1000 Population by NUTS2**  
+### Emigration per 1000 Population from Poland at NUTS2 Level
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_avg_emigration_change <- pl %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -76,9 +76,9 @@ pl %>%
 
 \pagebreak
 
-### Number of Institutions
+## Number of Institutions
 
-**Polish Schools by NUTS2**  
+### Number of Schools in Poland at NUTS2 Level
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -99,7 +99,7 @@ pl_schools %>%
 
 \pagebreak
 
-**Polish Hospitals by NUTS2**  
+### Number of Hospitals in Poland at NUTS2 Level
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -119,7 +119,7 @@ pl_hospitals %>%
 ```
 \pagebreak
 
-**Polish Third Places by NUTS2**  
+### Number of Third Places in Poland at NUTS2 Level
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -142,13 +142,13 @@ pl_third_places %>%
 
 \pagebreak
 
-### Ratios
+## Ratios
 
 Also contrary to my expectations, all services that I investigate generally see a decrease in their ratios. This means that over time, there are less people per institution in a NUTS2 region. E.g., less children in a school or less citizens per hospital.
 
 \pagebreak
 
-**Number of Polish Primary School Children per School by NUTS2**  
+### Number of Primary School Children per School in Poland at NUTS2 Level
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_ratio_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -168,7 +168,7 @@ pl_schools %>%
 ```
 \pagebreak
 
-**Number of People per Hospital by NUTS2 in Poland**  
+### Number of People per Hospital in Poland at NUTS2 Level
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_ratio_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -189,7 +189,7 @@ pl_hospitals %>%
 
 \pagebreak
 
-**Number of People per Third Place by NUTS2 in Poland**  
+### Number of People per Third Place in Poland at NUTS2 Level
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_ratio_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -211,11 +211,11 @@ pl_third_places %>%
 
 \pagebreak
 
-### Control Variables
+## Control Variables
 
 Both remittances and GDP show an increase over time. I use these data as control variables in my models. Data on remittances are only available at the national level.
 
-**Remittance Inflows (US$ million) for all of Poland**  
+### Remittance Inflows (US$ million) for all of Poland
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
 ggplot(pl_remittances, aes(x = year, y = remittances)) +
   geom_line(color = "light grey") +
@@ -223,7 +223,7 @@ ggplot(pl_remittances, aes(x = year, y = remittances)) +
   scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
 ```
 
-**GDP at Current Market Prices in Poland by NUTS 2 (Euros per Inhabitant)**  
+### GDP at Current Market Prices in Poland at NUTS2 Level (Euros per Inhabitant)
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
 ggplot(pl_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
   geom_line(color = "light grey") +
