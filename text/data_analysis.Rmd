@@ -1,0 +1,136 @@
+---
+title: "Data Analysis"
+author: "Fabian Aiolfi"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+    extra_dependencies: "microtype"
+mainfont: Times New Roman
+bibliography: references.bib
+csl: american-journal-of-political-science.csl
+classoption: a4paper
+lang: en-UK
+header-includes:
+   - \usepackage{hyperref}
+   - \usepackage{setspace}
+   - \onehalfspacing
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+## Setup
+library(tidyverse)
+library(here)
+library(sf)
+library(shiny)
+library(lubridate)
+library(haven)
+library(here)
+library(strucchange) # Chow test in MA_Thesis/scripts/preliminary_exploration/02_fom_emigration/04_models.R
+library(readxl) # Read in .xls files
+library(scales) # This will ensure that numbers on the y-axis are formatted with commas and without scientific notation.
+library(plm) # Panel data analysis
+library(stargazer) # Exporting nice tables
+library(eurostat) # NUTS3 names
+library(slider) # Rolling averages
+
+library(knitr)
+library(kableExtra)
+library(memisc)
+library(pandoc)
+library(pander)
+library(scales)
+library(fixest)
+library(modelsummary)
+
+options(scipen = 0) # Enable scientific notation
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
+load(here("data", "02_external_emigration", "nuts3_population.Rda"))
+load(here("data", "02_external_emigration", "bg", "bg.Rda"))
+load(here("data", "02_external_emigration", "hr", "hr.Rda"))
+load(here("data", "02_external_emigration", "ee", "ee.Rda"))
+load(here("data", "02_external_emigration", "hu", "hu.Rda"))
+load(here("data", "02_external_emigration", "lv", "lv.Rda"))
+load(here("data", "02_external_emigration", "lt", "lt.Rda"))
+load(here("data", "02_external_emigration", "pl", "pl.Rda"))
+load(here("data", "02_external_emigration", "ro", "ro.Rda"))
+load(here("data", "02_external_emigration", "sk", "sk.Rda"))
+load(here("data", "02_external_emigration", "si", "si.Rda"))
+cee_crude_emigration <- bind_rows(bg, ee, hr, hu, lt, lv, pl, ro, si, sk)
+cee_crude_emigration <- cee_crude_emigration %>% mutate(country = substr(NUTS_ID, 1, 2))
+
+load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
+load(here("data", "02_external_emigration", "cee_crude_emigration.Rda"))
+
+load(here("data", "03_service_cuts", "pl", "pl_schools.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_hospitals.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_third_places.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_remittances.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_gdp.Rda"))
+
+load(here("data", "02_external_emigration", "ro", "ro_population.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_schools.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_hospitals.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_third_places.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_remittances.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_gdp.Rda"))
+
+# Plot Compontents
+pl_plots_components <- list(
+  scale_color_gradient(low = "blue", high = "red", guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "top")),
+  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 4),
+  # scale_y_continuous(labels = function(x) format(x, nsmall = 0)),
+  scale_y_continuous(breaks = function(x) pretty(x, n = 3), labels = label_comma()), # Adjust y-axis breaks
+  scale_x_continuous(breaks = c(1995, 2020)),
+  ylab(""), xlab(""), theme_minimal(),
+  theme(legend.position = c(0.5, 0.04), 
+        legend.title = element_text(size = 8),
+        axis.text = element_text(size = 8),
+        axis.title = element_text(size = 8))
+)
+
+ro_plots_components <- list(
+  scale_color_gradient(low = "blue", high = "red", guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "top")),
+  facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 4),
+  scale_y_continuous(breaks = function(x) pretty(x, n = 3), labels = label_comma()),  # Adjust y-axis breaks
+  scale_x_continuous(breaks = c(2000, 2020)),  # Adjust x-axis for dates
+  ylab(""), xlab(""), theme_minimal(),
+  theme(legend.position = c(0.7, 0.02),
+        legend.title = element_text(size = 8),
+        axis.text = element_text(size = 8),
+        axis.title = element_text(size = 8))
+)
+```
+
+```{r, child = 'data_analysis/01_introduction.Rmd'}
+```
+
+\pagebreak
+
+```{r, child = 'data_analysis/02_all_cee_eu_ms.Rmd'}
+```
+
+\pagebreak
+
+```{r, child = 'data_analysis/03_pl.Rmd'}
+```
+
+\pagebreak
+
+```{r, child = 'data_analysis/04_ro.Rmd'}
+```
+
+\pagebreak
+
+```{r, child = 'data_analysis/05_discussion.Rmd'}
+```
+
+\pagebreak
+
+```{r, child = 'data_analysis/06_sources.Rmd'}
+```

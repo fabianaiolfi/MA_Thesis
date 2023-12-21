@@ -1,0 +1,12 @@
+## Discussion
+…
+
+
+## Next Steps
+These are possible next steps and open questions, based on my considerations and input from the Kolloquium.
+
+- Am I operationalize service cuts correctly? A higher ratio does not necessarily always imply (for example) less schools.
+- Explore further data manipulation based on the truncated data. Are there more data in the outliers? Are there any region-specific data I should take into account? Should I look into large service cuts, as these will have a bigger effect on the population than small service cuts?
+- Should I take party orientation into account? A party's orientation will have an effect on service cuts.
+- Is time being correctly modelled?
+- Should I explore service cuts in another country? Perhaps a country that sees an increase in emigration rates?

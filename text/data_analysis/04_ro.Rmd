@@ -1,0 +1,25 @@
+## Service Cuts in Poland
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+options(scipen = 999) # Disable scientific notation
+```
+
+```{r, child = '04_ro/04_1_ro_descriptive_stats.Rmd'}
+```
+
+\pagebreak
+
+```{r, child = '04_ro/04_2_ro_models_ratios.Rmd'}
+```
+
+\pagebreak
+
+```{r, child = '04_ro/04_3_ro_models_numbers.Rmd'}
+```
+
+\pagebreak
+
+```{r, child = '04_ro/04_4_ro_models_truncate.Rmd'}
+```
+
+\pagebreak
