@@ -18,6 +18,8 @@ header-includes:
    - \usepackage{hyperref}
    - \usepackage{setspace}
    - \onehalfspacing
+   - \usepackage{placeins}
+   - \usepackage{booktabs}
 ---
 
 

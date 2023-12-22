@@ -1,7 +1,7 @@
-# All CEE EU Member States
+# Overview of all CEE EU Member States
 
-## Anti-Incumbent Voting: Was the party in power after the previous election?
-11 CEE EU Member States, NUTS2/3, 1994–2019 (N = 3240)  
+## Anti-Incumbent Voting
+Is there a difference in vote share change between incumbent and non-incumbent parties? Overview of 11 CEE EU Member States, NUTS2/3 regions, 1994–2019 (N = 3240).
 
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
 ned_v_dem_cee %>% 
@@ -50,11 +50,13 @@ ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group
 \pagebreak
 
 
-### Model: Emigration and Incumbent Vote Change
+### Emigration and Incumbent Vote Change
 
-I model emigration rates on incumbent vote change across all NUTS3 regions in CEE EU member states. First, I calculate a region’s rolling emigration rate average, taking the average from two consecutive years. E.g., a region’s average emigration rate in the year 2010 is the average of the year 2008 and 2009. I do this to smooth out potential outliers and attempt to model a person’s perception of emigration in a region.
+I examine if there is a relationship between emigration rates and an incumbent’s change in vote share across all NUTS3 region in CEE EU member states. First, I calculate a region’s rolling emigration rate average, taking the average from two consecutive years. E.g., a region’s average emigration rate in the year 2010 is the average of the year 2008 and 2009. I do this to smooth out potential outliers and attempt to model a person’s perception of emigration in a region.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+This plot provides a basic overview of the relationship between the average emigration rate and the incumbent's change in vote share. There generally seems to be a positive correlation between the two: An increase in average emigration is associated with higher levels of vote change for incumbent parties. This indicates that incumbent parties achieve better results when emigration increases.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
 average_emigration <- cee_crude_emigration %>%
   arrange(NUTS_ID, year) %>%
   group_by(NUTS_ID) %>%
@@ -67,12 +69,7 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   drop_na(emigration_yearly_per_1000) %>% 
   drop_na(lrgen_fct) %>% 
   mutate(country = str_sub(nuts2016, end = 2))
-```
 
-
-This plot provides a basic overview of the relationship between the average emigration rate and the incumbent's change in vote share. There generally seems to be a positive correlation between the two: An increase in average emigration is associated with higher levels of vote change for incumbent parties. This indicates that incumbent parties achieve better results when emigration increases.
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
 ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) +
   geom_point() +
   geom_smooth(method = "lm", se = F, na.rm = T) +
@@ -81,8 +78,9 @@ ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) +
   theme_minimal()
 ```
 
-I use the NUTS3 region and the year as fixed effects when building the model, accounting for region- and time-specific factors that may confound the results.
+In a next step, I build a model using NUTS3 regions and years as fixed effects, accounting for region- and time-specific factors that may confound the results (see Table \ref{tab:fe_lm_1}). The average emigration coefficient’s is negative, which shows that an increase in the average emigration rate in a NUTS3 region is associated with a decrease in the change of vote share for the incumbent party. This aligns with my theory. The result is statistically significant. The standard errors are clustered at the NUTS3 level, as observations within a region are more similar to each other than to observations in other regions. The overall model fit is 53.34%. However, the “within” model fit is very low (0.24%), which indicates that average emigration does not explain variation in the dependent variable within each fixed-effects group.
 
+\FloatBarrier
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 fe_1 <- feols(vote_change ~
                 average_emigration |
@@ -93,26 +91,21 @@ modelsummary(fe_1,
              stars = T,
              title = "DV: Incumbent's Change in Vote Share",
              coef_rename = c(average_emigration = "Average Emigration"),
-             gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$")
+             gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$",
+             label = "tab:fe_lm_1")
 ```
-
-The coefficient is negative, which shows that an increase in the average emigration rate in a NUTS3 region is associated with a decrease in the change of vote share for the incumbent party. This aligns with my theory. The result is statistically significant. The standard errors are clustered at the NUTS3 level, as observations within a region are more similar to each other than to observations in other regions. The overall model fit is 53.34%. However, the “within” model fit is very low (0.24%), which indicates that average emigration does not explain variation in the dependent variable within each fixed-effects group.
+\FloatBarrier
 
 \pagebreak
 
-### Model: Emigration, Incumbent Vote Change and Party Orientation
+### Emigration, Incumbent Vote Change and Party Orientation
 
 As a small excursion, I use data from the Chapel Hill Expert survey to categorise parties by their overall ideological stance: Left, Centre Left, Centre, Centre Right and Right. I add this new information to the model, which uses Centre as the reference category.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) +
-  geom_point(alpha = 0.25) +
-  geom_smooth(method = "lm", se = F, na.rm = T) +
-  xlab("Average Emigration Rate") +
-  ylab("Incumbent's Change in Vote Share") +
-  labs(color = "Party Orientation") +
-  theme_minimal()
+Average emigration still shows a negative coefficient and is borderline statistically significant ($p = 0.14$). All party coefficients are statistically significant and the overall model fit as well as the “within” model fit have increased compared to the previous model. We can observe that, compared to Centre parties, all other parties suffer a decrease in vote share when emigration increases. Incumbent Left parties see the largest decrease in vote share.
 
+\FloatBarrier
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 fe_2 <- feols(vote_change ~
                 average_emigration + lrgen_fct |
                 nuts2016 + year,
@@ -129,5 +122,6 @@ modelsummary(fe_2,
              notes = "Reference Category: Centre Party",
              gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$")
 ```
+\FloatBarrier
 
-Average emigration still shows a negative coefficient and is borderline statistically significant ($p = 0.14$). All party coefficients are statistically significant and the overall model fit as well as the “within” model fit have increased compared to the previous model. We can also observe that Left parties fare far worse than other parties when emigration increases.
+\pagebreak
