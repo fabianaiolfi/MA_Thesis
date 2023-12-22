@@ -5,9 +5,9 @@ I now focus on the effects of service cuts on anti-incumbent voting in Poland. I
 \pagebreak
 
 ### Population in Millions in Poland at NUTS2 Level
-The population has decreased in a majority of Polish NUTS2 regions. The four regions that have seen an increase are XXXXX.
+The population has decreased in a majority of Polish NUTS2 regions. The four regions that have seen the largest increase are regions that include major metropolitan areas, such as the Warsaw Metropolitan Area (PL91), the Pomeranian Voivodeship (PL63, which includes the city of Gdańsk), Lesser Poland Voivodeship (PL21, including Kraków) and Greater Poland Voivodeship (PL41, including Poznań).
 
-worms_explainer
+`r worms_explainer`
 
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_avg_population_change <- pl %>% 
@@ -36,9 +36,9 @@ pl %>%
 \pagebreak
 
 ### Primary Age Population in 1000 in Poland at NUTS2 Level
-The primary age population, i.e., children aged seven to twelve, has seen a very similar development across regions apart from XXXx (PL91). This segment of the population decreased steadily until around the year 2010–2012, after which an uptick is visible.
+The primary age population, i.e., children aged seven to twelve, has seen a very similar development across regions apart from Warsaw Metropolitan Area (PL91). This segment of the population decreased steadily until around the year 2010–2012, after which an uptick is visible.
 
-worms_explainer
+`r worms_explainer`
 
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_schools_avg_population_change <- pl_schools %>% 
@@ -65,9 +65,9 @@ pl_schools %>%
 
 ### External Emigration per 1000 Population from Poland at NUTS2 Level
 
-Most regions display two peaks in external emigration around the years 2006 and 2013/2014. The first peak may be due to Poland’s accession to the EU in the year 2004. The second peak may be due to Polish citizens gaining access to the EU’s Freedom of Movement for all EU member states (xxxxxx check this).
+Most regions display two peaks in external emigration around the years 2006 and 2013/2014. The first peak may be due to Poland’s accession to the EU in the year 2004. The reason for the second peak is unclear.
 
-worms_explainer
+`r worms_explainer`
 
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_avg_emigration_change <- pl %>% 
@@ -91,12 +91,14 @@ pl %>%
 \pagebreak
 
 ## Number of Institutions
-I provide separate overviews of the number of schools, hospitals and third places in Polish NUTS2 regions over time.
+I provide separate overviews of the number of schools, hospitals and third places in Polish NUTS2 regions over time. My thesis assumes that emigration causes these numbers to decrease over time. The following graphs show that in fact only the number of schools decrease and the number of hospitals and third places tend to increase.
+
+\pagebreak
 
 ### Number of Schools in Poland at NUTS2 Level
-Apart from XXXX (PL91), all Polish NUTS2 regions see an overall decrease in the number of schools, with some regions displaying an uptick between the years 2015 and 2017. This aligns with my assumption that emigration leads to less schools.
+Apart from Warsaw Metropolitan Area (PL91), all Polish NUTS2 regions see an overall decrease in the number of schools, with some regions displaying an uptick between the years 2015 and 2017. This overall decrease aligns with my assumption that the number of schools decreases over time.
 
-worms_explainer
+`r worms_explainer`
 
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_schools_avg_change <- pl_schools %>%
@@ -120,6 +122,11 @@ pl_schools %>%
 \pagebreak
 
 ### Number of Hospitals in Poland at NUTS2 Level
+
+Overall, the number of hospitals increases across Poland, which one exception being Greater Poland Voivodeship (PL41). This goes against my general assumption that the number of hospitals decreases due to emigration.
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -135,11 +142,18 @@ pl_hospitals %>%
   ggplot(aes(x = year, y = hospitals)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "average of yearly change in number of hospitals ") +
+	scale_x_continuous(breaks = c(2003, 2020)) +
   pl_plots_components
 ```
+
 \pagebreak
 
 ### Number of Third Places in Poland at NUTS2 Level
+
+There is no consistent trend across all regions when it comes to number of third places in Polish NUTS2 regions. Seen over all regions, the number of third places does not decrease or stays approximately the same.
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -155,20 +169,27 @@ pl_third_places %>%
   ggplot(aes(x = year, y = third_places)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in number of third places ") +
+	scale_x_continuous(breaks = c(2005, 2022)) +
   pl_plots_components +
   theme(legend.position = "bottom")
 ```
 
-
 \pagebreak
 
-## Ratios
+## Ratios of People per Institution
 
-Also contrary to my expectations, all services that I investigate generally see a decrease in their ratios. This means that over time, there are less people per institution in a NUTS2 region. E.g., less children in a school or less citizens per hospital.
+In a next step, I look at the number of people per institution within a region. For example, I count the number of primary school children per school on average, or the number of a region’s inhabitants per hospital.
+
+Contrary to my expectations, all services that I investigate generally see a decrease in their ratios. This means that over time, there are less people per institution in a NUTS2 region. E.g., less children in a school or less inhabitants per hospital.
 
 \pagebreak
 
 ### Number of Primary School Children per School in Poland at NUTS2 Level
+
+The number of primary school children per school sees a dip across regions around the years 2010/2011, after which most regions see an increase. Only the Silesian Voivodeship (PL22) shows a constant decrease.
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_ratio_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -184,11 +205,18 @@ pl_schools %>%
   ggplot(aes(x = year, y = ratio_schools)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in children per school ") +
+  scale_x_continuous(breaks = c(1998, 2022)) +
   pl_plots_components
 ```
+
 \pagebreak
 
 ### Number of People per Hospital in Poland at NUTS2 Level
+
+A general trend across all regions cannot be observed. Only the Greater Poland Voivodeship (PL41) shows a clear increase in number of people per hospital, while all other regions show a decrease.
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_ratio_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -204,6 +232,7 @@ pl_hospitals %>%
   ggplot(aes(x = year, y = ratio_hospitals_all_population)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in people per hospital ") +
+  scale_x_continuous(breaks = c(2003, 2020)) +
   pl_plots_components
 ```
 
