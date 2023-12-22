@@ -114,7 +114,7 @@ ro_plots_components <- list(
 
 worm_span <- 0.3
 
-worms_explainer <- "Curves apply smoothing (“loess”) to make the curve easier to read. Graphs are sorted by the average year-on-year percent increase. The region with the highest average year-on-year increase is displayed in the top left, with further regions displayed from left to right in decreasing order of average increase. The region with the lowest increase, i.e., highest decrease, is displayed on the last row."
+worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the right. The growth rate is also indicated by the curve's colour._"
 ```
 
 \pagebreak
