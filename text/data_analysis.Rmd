@@ -92,7 +92,7 @@ pl_plots_components <- list(
   facet_wrap(~ NUTS_ID, scales = "free_y", ncol = 4),
   # scale_y_continuous(labels = function(x) format(x, nsmall = 0)),
   scale_y_continuous(breaks = function(x) pretty(x, n = 3), labels = label_comma()), # Adjust y-axis breaks
-  scale_x_continuous(breaks = c(1995, 2020)),
+  # scale_x_continuous(breaks = c(1995, 2020)),
   ylab(""), xlab(""), theme_minimal(),
   theme(legend.position = c(0.5, 0.04), 
         legend.title = element_text(size = 8),
@@ -111,6 +111,10 @@ ro_plots_components <- list(
         axis.text = element_text(size = 8),
         axis.title = element_text(size = 8))
 )
+
+worm_span <- 0.3
+
+worms_explainer <- "Curves apply smoothing (“loess”) to make the curve easier to read. Graphs are sorted by the average year-on-year percent increase. The region with the highest average year-on-year increase is displayed in the top left, with further regions displayed from left to right in decreasing order of average increase. The region with the lowest increase, i.e., highest decrease, is displayed on the last row."
 ```
 
 \pagebreak

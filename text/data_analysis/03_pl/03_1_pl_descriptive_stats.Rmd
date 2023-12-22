@@ -1,12 +1,14 @@
-## Population Statistics
+## Overview of XXXX
 
-I now focus on service cuts in Poland, starting with the country’s overall population and primary school population. NUTS2 data is used, because Poland only provides data at this level. Each line represents a Polish NUTS2 region, of which there are 16. A plot's overall trend is displayed with a red trendline.
-
-Contrary to my expectations, the overall population has not decreased in the past 20 years. However, the number of primary aged school children, aged seven to twelve, has decreased.
+I now focus on the effects of service cuts on anti-incumbent voting in Poland. I start by providing an overview of the variables I later use in my models. NUTS2 data is used, because Poland only provides data at this level. 
 
 \pagebreak
 
 ### Population in Millions in Poland at NUTS2 Level
+The population has decreased in a majority of Polish NUTS2 regions. The four regions that have seen an increase are XXXXX.
+
+worms_explainer
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_avg_population_change <- pl %>% 
   arrange(NUTS_ID, year) %>%
@@ -25,14 +27,19 @@ pl %>%
   mutate(population = population / 1000000) %>% 
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
   ggplot(aes(x = year, y = population)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in population (in %) ") +
+  scale_x_continuous(breaks = c(1995, 2022)) +
   pl_plots_components
 ```
 
 \pagebreak
 
 ### Primary Age Population in 1000 in Poland at NUTS2 Level
+The primary age population, i.e., children aged seven to twelve, has seen a very similar development across regions apart from XXXx (PL91). This segment of the population decreased steadily until around the year 2010–2012, after which an uptick is visible.
+
+worms_explainer
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_schools_avg_population_change <- pl_schools %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -48,14 +55,20 @@ pl_schools %>%
   mutate(avg_population_change = avg_population_change / 1000) %>% 
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
   ggplot(aes(x = year, y = population)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in population (in 1000s) ") +
+	scale_x_continuous(breaks = c(1998, 2022)) +
   pl_plots_components
 ```
 
 \pagebreak
 
-### Emigration per 1000 Population from Poland at NUTS2 Level
+### External Emigration per 1000 Population from Poland at NUTS2 Level
+
+Most regions display two peaks in external emigration around the years 2006 and 2013/2014. The first peak may be due to Poland’s accession to the EU in the year 2004. The second peak may be due to Polish citizens gaining access to the EU’s Freedom of Movement for all EU member states (xxxxxx check this).
+
+worms_explainer
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_avg_emigration_change <- pl %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -69,16 +82,22 @@ pl %>%
   left_join(pl_avg_emigration_change, by = "NUTS_ID") %>% 
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
   ggplot(aes(x = year, y = emigration_yearly_per_1000)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in emigration ") +
+	scale_x_continuous(breaks = c(1995, 2022)) +
   pl_plots_components
 ```
 
 \pagebreak
 
 ## Number of Institutions
+I provide separate overviews of the number of schools, hospitals and third places in Polish NUTS2 regions over time.
 
 ### Number of Schools in Poland at NUTS2 Level
+Apart from XXXX (PL91), all Polish NUTS2 regions see an overall decrease in the number of schools, with some regions displaying an uptick between the years 2015 and 2017. This aligns with my assumption that emigration leads to less schools.
+
+worms_explainer
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -92,8 +111,9 @@ pl_schools %>%
   left_join(pl_schools_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = schools)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in number of schools ") +
+	scale_x_continuous(breaks = c(1998, 2022)) +
   pl_plots_components
 ```
 
@@ -113,7 +133,7 @@ pl_hospitals %>%
   left_join(pl_hospitals_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = hospitals)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "average of yearly change in number of hospitals ") +
   pl_plots_components
 ```
@@ -133,7 +153,7 @@ pl_third_places %>%
   left_join(pl_third_places_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = third_places)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in number of third places ") +
   pl_plots_components +
   theme(legend.position = "bottom")
@@ -162,7 +182,7 @@ pl_schools %>%
   left_join(pl_ratio_schools_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_schools)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in children per school ") +
   pl_plots_components
 ```
@@ -182,7 +202,7 @@ pl_hospitals %>%
   left_join(pl_ratio_hospitals_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_hospitals_all_population)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in people per hospital ") +
   pl_plots_components
 ```
@@ -203,7 +223,7 @@ pl_third_places %>%
   left_join(pl_ratio_third_places_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_third_places)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in people per third place ") +
   pl_plots_components +
   theme(legend.position = "bottom")
