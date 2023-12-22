@@ -20,6 +20,7 @@ header-includes:
    - \onehalfspacing
    - \usepackage{placeins}
    - \usepackage{booktabs}
+   - \usepackage{caption}
 ---
 
 
@@ -50,6 +51,7 @@ library(pander)
 library(scales)
 library(fixest)
 library(modelsummary)
+library(bookdown)
 
 options(scipen = 0) # Enable scientific notation
 ```
@@ -134,15 +136,15 @@ worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are or
 
 \pagebreak
 
-```{r, child = 'data_analysis/04_ro.Rmd'}
+```{r eval=FALSE, child = 'data_analysis/04_ro.Rmd'}
 ```
 
 \pagebreak
 
-```{r, child = 'data_analysis/05_discussion.Rmd'}
+```{r eval=FALSE, child = 'data_analysis/05_discussion.Rmd'}
 ```
 
 \pagebreak
 
-```{r, child = 'data_analysis/06_sources.Rmd'}
+```{r eval=FALSE, child = 'data_analysis/06_sources.Rmd'}
 ```

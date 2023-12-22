@@ -239,6 +239,11 @@ pl_hospitals %>%
 \pagebreak
 
 ### Number of People per Third Place in Poland at NUTS2 Level
+
+A clear trend is not visible when taking all regions into account. Generally, when observing the average annual growth rate, we can see that the number of people per third place decreases over time.
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 pl_ratio_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -254,6 +259,7 @@ pl_third_places %>%
   ggplot(aes(x = year, y = ratio_third_places)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in people per third place ") +
+  scale_x_continuous(breaks = c(2005, 2022)) +
   pl_plots_components +
   theme(legend.position = "bottom")
 ```
@@ -267,15 +273,15 @@ Both remittances and GDP show an increase over time. I use these data as control
 ### Remittance Inflows (US$ million) for all of Poland
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
 ggplot(pl_remittances, aes(x = year, y = remittances)) +
-  geom_line(color = "light grey") +
-  geom_smooth(aes(group = 1), method = "loess", color = "red", se = FALSE, size = 0.5) + 
-  scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
+  geom_line() +
+  geom_point(shape = 21, fill = "white") +
+  scale_y_continuous(limits = c(0, 12500), labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
 ```
 
 ### GDP at Current Market Prices in Poland at NUTS2 Level (Euros per Inhabitant)
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
 ggplot(pl_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
-  geom_line(color = "light grey") +
-  geom_smooth(aes(group = 1), method = "loess", color = "red", se = FALSE, size = 0.5) + 
-  scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
+  geom_line() +
+  geom_point(shape = 21, fill = "white") +
+  scale_y_continuous(limits = c(0, 35000), labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
 ```
