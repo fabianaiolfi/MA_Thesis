@@ -78,6 +78,8 @@ ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) +
   theme_minimal()
 ```
 
+\pagebreak
+
 In a next step, I build a model using NUTS3 regions and years as fixed effects, accounting for region- and time-specific factors that may confound the results (see Table \ref{tab:fe_lm_1}). The average emigration coefficient’s is negative, which shows that an increase in the average emigration rate in a NUTS3 region is associated with a decrease in the change of vote share for the incumbent party. This aligns with my theory. The result is statistically significant. The standard errors are clustered at the NUTS3 level, as observations within a region are more similar to each other than to observations in other regions. The overall model fit is 53.34%. However, the “within” model fit is very low (0.24%), which indicates that average emigration does not explain variation in the dependent variable within each fixed-effects group.
 
 \FloatBarrier
@@ -92,6 +94,7 @@ modelsummary(fe_1,
              title = "DV: Incumbent's Change in Vote Share",
              coef_rename = c(average_emigration = "Average Emigration"),
              gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$",
+             statistic = NULL,
              label = "tab:fe_lm_1")
 ```
 \FloatBarrier
@@ -120,8 +123,7 @@ modelsummary(fe_2,
                           `lrgen_fctCentre Right` = "Centre Right Party",
                           `lrgen_fctRight` = "Right Party"),
              notes = "Reference Category: Centre Party",
+             statistic = NULL,
              gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$")
 ```
 \FloatBarrier
-
-\pagebreak
