@@ -80,7 +80,7 @@ ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) +
 
 \pagebreak
 
-In a next step, I build a model using NUTS3 regions and years as fixed effects, accounting for region- and time-specific factors that may confound the results (see Table \ref{tab:fe_lm_1}). The average emigration coefficient’s is negative, which shows that an increase in the average emigration rate in a NUTS3 region is associated with a decrease in the change of vote share for the incumbent party. This aligns with my theory. The result is statistically significant. The standard errors are clustered at the NUTS3 level, as observations within a region are more similar to each other than to observations in other regions. The overall model fit is 53.34%. However, the “within” model fit is very low (0.24%), which indicates that average emigration does not explain variation in the dependent variable within each fixed-effects group.
+In a next step, I build a model using NUTS3 regions and years as fixed effects, accounting for region- and time-specific factors that may confound the results (see Table 1). The average emigration coefficient’s is negative, which shows that an increase in the average emigration rate in a NUTS3 region is associated with a decrease in the change of vote share for the incumbent party. This aligns with my theory. The result is statistically significant. The standard errors are clustered at the NUTS3 level, as observations within a region are more similar to each other than to observations in other regions. The overall model fit is 53.34%. However, the “within” model fit is very low (0.1%), which indicates that average emigration does not explain variation in the dependent variable within each fixed-effects group.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 fe_1 <- feols(vote_change ~
@@ -93,8 +93,7 @@ modelsummary(fe_1,
              title = "DV: Incumbent's Change in Vote Share",
              coef_rename = c(average_emigration = "Average Emigration"),
              gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$",
-             statistic = NULL,
-             label = "tab:fe_lm_1")
+             statistic = NULL)
 ```
 
 \pagebreak
@@ -103,9 +102,8 @@ modelsummary(fe_1,
 
 As a small excursion, I use data from the Chapel Hill Expert survey to categorise parties by their overall ideological stance: Left, Centre Left, Centre, Centre Right and Right. I add this new information to the model, which uses Centre as the reference category.
 
-Average emigration still shows a negative coefficient and is borderline statistically significant ($p = 0.14$). All party coefficients are statistically significant and the overall model fit as well as the “within” model fit have increased compared to the previous model. We can observe that, compared to Centre parties, all other parties suffer a decrease in vote share when emigration increases. Incumbent Left parties see the largest decrease in vote share.
+As Table 2 displays, average emigration still shows a negative coefficient and is borderline statistically significant ($p = 0.14$). All party coefficients are statistically significant and the overall model fit as well as the “within” model fit have increased compared to the previous model. We can observe that, compared to Centre parties, all other parties suffer a decrease in vote share when emigration increases. Incumbent Left parties see the largest decrease in vote share.
 
-\FloatBarrier
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 fe_2 <- feols(vote_change ~
                 average_emigration + lrgen_fct |
@@ -124,4 +122,3 @@ modelsummary(fe_2,
              statistic = NULL,
              gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$")
 ```
-\FloatBarrier
