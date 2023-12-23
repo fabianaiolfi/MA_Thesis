@@ -1,11 +1,6 @@
-## Overview of Variables
-
-In this next section, I focus on the effects of service cuts on anti-incumbent voting in Romania. I start by providing an overview of the variables I later use in my models.
-
-\pagebreak
+## Population and Emigration
 
 ### Population in Millions in Romania at NUTS3 Level
-description…
 
 `r worms_explainer`
 
@@ -37,8 +32,6 @@ ro_population %>%
 
 ### Primary Age Population in 1000s in Romania at NUTS3 Level
 
-description…
-
 `r worms_explainer`
 
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
@@ -57,15 +50,13 @@ ro_schools %>%
   ggplot(aes(x = year, y = population)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in population (in 1000s) ") +
-  scale_x_continuous(breaks = c(1990, 2022)) +
+  scale_x_continuous(breaks = c(1995, 2022)) +
   ro_plots_components
 ```
 
 \pagebreak
 
 ### Emigration per 1000 Inhabitants from Romania at NUTS3 Level
-
-description…
 
 `r worms_explainer`
 
@@ -94,7 +85,7 @@ ro %>%
 
 ### Number of Schools in Romania at NUTS3 Level
 
-description…
+Many regions see a sudden drop in number of schools during the beginning of the 2000s, the reason for which is currently unclear.
 
 `r worms_explainer`
 
@@ -121,8 +112,6 @@ ro_schools %>%
 
 ### Number of Hospitals in Romania at NUTS3 Level
 
-description…
-
 `r worms_explainer`
 
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
@@ -146,8 +135,6 @@ ro_hospitals %>%
 \pagebreak
 
 ### Number of Third Places in Romania at NUTS3 Level
-
-description…
 
 `r worms_explainer`
 
@@ -176,13 +163,13 @@ ro_third_places %>%
 
 In a next step, I look at the number of people per institution within a region. For example, I count the number of primary school children per school on average, or the number of a region’s inhabitants per hospital.
 
-description…
+The following plots do not show a consistent trends across all regions in Romania. A possible next step could be to categorise NUTS3 regions, e.g., into urban and rural regions, or regions that border neighboring countries, in an attempt to find groups with similar trends.
 
 \pagebreak
 
 ### Number of Primary School Children per School in Romania at NUTS3 Level
 
-description…
+We can generally observe an increase in children per school in Romania. This increase seems to follow the sudden decrease in schools at the beginning of the 2000s. 
 
 `r worms_explainer`
 
@@ -208,8 +195,6 @@ ro_schools %>%
 \pagebreak
 
 ### Number of People in 1000s per Hospital in Romania at NUTS3 Level
-
-description…
 
 `r worms_explainer`
 
@@ -237,8 +222,6 @@ ro_hospitals %>%
 
 ### Number of People in 1000s per Third Place in Romania at NUTS3 Level
 
-description…
-
 `r worms_explainer`
 
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
@@ -257,7 +240,7 @@ ro_third_places %>%
   ggplot(aes(x = year, y = ratio_third_places)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in people per third place ") +
-  scale_x_continuous(breaks = c(2008, 2021)) +
+  scale_x_continuous(breaks = c(2008, 2020)) +
   ro_plots_components
 ```
 

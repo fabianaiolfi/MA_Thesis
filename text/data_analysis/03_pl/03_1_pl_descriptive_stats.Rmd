@@ -1,8 +1,6 @@
-## Overview of Variables
+## Population and Emigration
 
-I now focus on the effects of service cuts on anti-incumbent voting in Poland. I start by providing an overview of the variables I later use in my models. NUTS2 data is used, because Poland only provides data at this level.
-
-\pagebreak
+_NUTS2 data is used, because Poland only provides data at this level._
 
 ### Population in Millions in Poland at NUTS2 Level
 The population has decreased in a majority of Polish NUTS2 regions. The four regions that have seen the largest increase are regions that include major metropolitan areas, such as the Warsaw Metropolitan Area (PL91), the Pomeranian Voivodeship (PL63, which includes the city of Gdańsk), Lesser Poland Voivodeship (PL21, including Kraków) and Greater Poland Voivodeship (PL41, including Poznań).

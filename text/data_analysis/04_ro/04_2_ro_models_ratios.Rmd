@@ -1,7 +1,6 @@
-## LM Models: Anti-Incumbent Voting in Romania at NUTS3 Level using Ratios
+## Modelling Anti-Incumbent Voting in Romania at NUTS3 Level using Ratios
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-# Models using ratios
 options(scipen = 0) # Enable scientific notation
 
 # Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
@@ -88,39 +87,38 @@ fe_lm_7 <- feols(vote_change ~
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3),
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(ratio_schools = "Children per School",
                           ratio_hospitals = "People per Hospital",
                           ratio_third_places = "People per Third Places",
-                          emigration_election_year_per_1000 = "Emigration Election Year",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
-             stars = T)
+             stars = T,
+             statistic = NULL)
 ```
 
-…
+I first model separate ratios on incumbent vote change while controlling for emigration, GDP and remittances. Models 1, 2 and 3 in Table X each use a ratio separately. NUTS3 regions and years are used as fixed effects in all models. The emigration rate is the rolling emigration average between two national elections per 1000 inhabitants. Remittances are removed due to collinearity.
+
+Only model 1, which uses the ratio of children per school, has a negative coefficient, that indicates that more children per school is associated with a loss in incumbent vote share. However, this coefficient is not statistically significant at conventional levels ($p = 0.26$). The ratio of people per hospital has no effect on incumbent vote share and the number of people per third place shows a positive coefficient.
+
+A highlight is the emigration control variable, which displays a relatively strong and statistically significant effect. Higher levels of emigration between elections is associated with a decrease in incumbent vote share across all three models.
 
 \pagebreak
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_4, fe_lm_5, fe_lm_6, fe_lm_7),
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(ratio_schools = "Children per School",
                           ratio_hospitals = "People per Hospital",
                           ratio_third_places = "People per Third Places",
-                          emigration_election_year_per_1000 = "Emigration Election Year",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
-             stars = T)
+             stars = T,
+             statistic = NULL)
 ```
 
-…
+In a second step, I use different combinations of ratios (Table x, models 1, 2 and 3) and finally combine all ratios in model 4 (see Table x). Again, NUTS3 regions and years are used as fixed effects. 
 
+Results are similar to models 1 through 3 in table x: The coefficients of the independent variables are not statistically significant at conventional levels and, apart from children per school, are positive and thus do not align with my theory. The ratio of children per school in model 4 becomes statistically more significant compared to model 1 in table x, but at $p = 0.177$ is still above the 10% threshold for conventional statistical significance.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
-cat("Coefficient Plot for Model 4 (Table 4)")
-modelplot(fe_lm_7,
-          coef_map = c(gdp = "GDP",
-                       emigration_election_year_per_1000 = "Emigration Election Year",
-                       ratio_third_places = "People per Third Places",
-                       ratio_hospitals = "People per Hospital",
-                       ratio_schools = "Children per School"))
-```
+As with the models in table x, we can observe that the emigration control variable again has a strong and statistically significant effect across all models.
