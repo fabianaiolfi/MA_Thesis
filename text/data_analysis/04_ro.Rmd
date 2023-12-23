@@ -4,12 +4,12 @@
 options(scipen = 999) # Disable scientific notation
 ```
 
-```{r eval=FALSE, child = '04_ro/04_1_ro_descriptive_stats.Rmd'}
+```{r, child = '04_ro/04_1_ro_descriptive_stats.Rmd'}
 ```
 
 \pagebreak
 
-```{r eval=FALSE, child = '04_ro/04_2_ro_models_ratios.Rmd'}
+```{r, child = '04_ro/04_2_ro_models_ratios.Rmd'}
 ```
 
 \pagebreak
@@ -19,7 +19,7 @@ options(scipen = 999) # Disable scientific notation
 
 \pagebreak
 
-```{r eval=FALSE, child = '04_ro/04_4_ro_models_truncate.Rmd'}
+```{r, child = '04_ro/04_4_ro_models_truncate.Rmd'}
 ```
 
 \pagebreak

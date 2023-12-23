@@ -1,25 +1,6 @@
-## LM Models with Truncated Data
-…
+## Modelling with Truncated Data
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
-hist(anti_incumbent_vote$vote_change, breaks = 50)
-summary(anti_incumbent_vote$vote_change)
-
-ggplot(anti_incumbent_vote) +
-  geom_histogram(aes(x = vote_change), binwidth = 1) +
-  # xlim(-1,1) +
-  theme_minimal()
-
-ggplot(anti_incumbent_vote) +
-  geom_histogram(aes(x = vote_share), binwidth = 1) +
-  # xlim(-1,1) +
-  theme_minimal()
-
-ggplot(anti_incumbent_vote) +
-  geom_histogram(aes(x = emigration_election_year_per_1000)) +
-  # xlim(-1,1) +
-  theme_minimal()
-```
+Do models improve when truncating parts of the data? I truncate the data in three different ways to explore if results vary. Model 1 uses data where observations with a small vote change, between $-0.5$ and $0.5$, are removed. This is done to see if extreme vote change values lead to more significant results. Model 2 uses data in which observations with extremely high (over $30\%$) and extremely low (under $5\%$) vote shares are removed. Model 3 uses data where high levels of emigration rates (above 2 per 1000 inhabitants) are removed. Both models 2 and 3 attempt to remove outliers in order to build models with higher validity.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Truncate Vote Change
@@ -69,13 +50,14 @@ lm_truncate_emigration_rate <- feols(vote_change ~
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(lm_truncate_vote_change, lm_truncate_vote_share, lm_truncate_emigration_rate),
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share in Romania (Truncated Data)",
              coef_map = c(ratio_schools = "Children per School",
                           ratio_hospitals = "People per Hospital",
                           ratio_third_places = "People per Third Places",
-                          emigration_election_year_per_1000 = "Emigration Rate between Election Years per 1000 People",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
-             stars = T)
+             stars = T,
+             statistic = NULL)
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -126,11 +108,16 @@ lm_truncate_emigration_rate <- feols(vote_change ~
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(lm_truncate_vote_change, lm_truncate_vote_share, lm_truncate_emigration_rate),
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share in Romania (Truncated Data)",
              coef_map = c(schools = "Number of Schools",
                           hospitals = "Number of Hospitals",
                           third_places = "Number of Third Places",
-                          emigration_election_year_per_1000 = "Emigration Rate between Election Years per 1000 People",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
-             stars = T)
+             stars = T,
+             statistic = NULL)
 ```
+
+Model results using truncated data are shows in Table x and x. The models in Table x use ratios as independent variables, models in Table x use numbers of institutions.
+
+None of the truncated models show particularly promising results, apart model 1 when using actual numbers of institutions (see Table x). As with the non-truncated data, the number of schools and incumbent change in vote share are positively associated, with a decrease in schools going hand in hand with a decrease in incumbent vote share. All other coefficients from all other models using truncated data do not display statistically significant results. Also as with the non-truncated data, the control variable for emigration displays highly significant and strong effects, with an increase in emigration being associated with a decrease in incubment vote share.
