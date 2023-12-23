@@ -91,7 +91,7 @@ modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3),
              title = "DV: Incumbent's Change in Vote Share in Poland",
              coef_map = c(ratio_schools = "Children per School",
                           ratio_hospitals_all_population = "People per Hospital",
-                          ratio_third_places = "People per Third Places",
+                          ratio_third_places = "People per Third Place",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
              stars = T,
@@ -109,11 +109,11 @@ modelsummary(list(fe_lm_4, fe_lm_5, fe_lm_6, fe_lm_7),
              title = "DV: Incumbent's Change in Vote Share in Poland",
              coef_map = c(ratio_schools = "Children per School",
                           ratio_hospitals_all_population = "People per Hospital",
-                          ratio_third_places = "People per Third Places",
+                          ratio_third_places = "People per Third Place",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
              stars = T,
              statistic = NULL)
 ```
 
-In a second step, I use different combinations of ratios (models 1, 2 and 3) and finally combine all ratios in model 4 (see Table 4). Again, NUTS2 regions and years are used as fixed effects. Both school ratio and third places ratio display statistically significant and negative coefficients, which align with my theory. This means that an increase in the number of children per school and an increase of the number of people per third place is associated with a decrease in the incumbent vote share, while controlling for emigration and GDP. The third ratio, number of people per hospital, still shows no effect.
+In a second step, I use different combinations of ratios (Table 4, models 1, 2 and 3) and finally combine all ratios in model 4 (see Table 4). Again, NUTS2 regions and years are used as fixed effects. Both school ratio and third places ratio display statistically significant and negative coefficients, which align with my theory. This means that an increase in the number of children per school and an increase of the number of people per third place is associated with a decrease in the incumbent vote share, while controlling for emigration and GDP. The third ratio, number of people per hospital, still shows no effect.

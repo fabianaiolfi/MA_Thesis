@@ -1,4 +1,4 @@
-## LM Models with Truncated Data
+## Modelling with Truncated Data
 
 Do models improve when truncating parts of the data? I truncate the data in three different ways to explore if results vary. Model 1 uses data where observations with a small vote change, between $-2$ and $2$, are removed. This is done to see if extreme vote change values lead to more significant results. Model 2 uses data in which observations with extremely high (over $25\%$) and extremely low (under $5\%$) vote shares are removed. Model 3 uses data where high levels of emigration rates are removed. Both models 2 and 3 attempt to remove outliers in order to build models with higher validity.
 
@@ -50,13 +50,14 @@ lm_truncate_emigration_rate <- feols(vote_change ~
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(lm_truncate_vote_change, lm_truncate_vote_share, lm_truncate_emigration_rate),
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share in Poland (Truncated Data)",
              coef_map = c(ratio_schools = "Children per School",
                           ratio_hospitals_all_population = "People per Hospital",
-                          ratio_third_places = "People per Third Places",
-                          emigration_election_year_per_1000 = "Emigration Rate between Election Years per 1000 People",
+                          ratio_third_places = "People per Third Place",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
-             stars = T)
+             stars = T,
+             statistic = NULL)
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -107,23 +108,18 @@ lm_truncate_emigration_rate <- feols(vote_change ~
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(lm_truncate_vote_change, lm_truncate_vote_share, lm_truncate_emigration_rate),
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share in Poland (Truncated Data)",
              coef_map = c(schools = "Number of Schools",
                           hospitals = "Number of Hospitals",
                           third_places = "Number of Third Places",
-                          emigration_election_year_per_1000 = "Emigration Rate between Election Years per 1000 People",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
-             stars = T)
+             stars = T,
+             statistic = NULL)
 ```
 
-Truncated model 1, which focuses on extreme values, shows the most promising results. The school ratio and third places ratio coefficients become more pronounced and have higher statistical significance compared to the models using all observations. The emigration coefficient also becomes statistically significant, which is an improvement compared to the non-truncated models.
+Model results using truncated data are shows in Table 7 and 8. The models in Table 7 use ratios as independent variables, models in Table 8 use numbers of institutions.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=2}
-cat("Coefficient Plot for Model 1 (Table 5)")
-modelplot(lm_truncate_vote_change,
-          coef_map = c(gdp = "GDP",
-                       emigration_election_year_per_1000 = "Emigration Rate between\nElection Years per 1000 People",
-                       ratio_third_places = "People per Third Places",
-                       ratio_hospitals_all_population = "People per Hospital",
-                       ratio_schools = "Children per School"))
-```
+Truncated model 1, which focuses on extreme values, shows the most promising results when using ratios as independent variables (see Table 7). The school ratio and third places ratio coefficients become more pronounced and have higher statistical significance compared to the models using all observations. The emigration coefficient also becomes statistically significant, which is an improvement compared to the non-truncated models.
+
+The models that use actual numbers of institutions as independent variables display less promising results (see Table 8). Almost all coefficients are significant at conventional levels. The one statistically significant value shows a negative coefficient, meaning that an increase in number of third places is associated with a decrease in incumbent vote share, which does not align with my theory or make intuitive sense.
