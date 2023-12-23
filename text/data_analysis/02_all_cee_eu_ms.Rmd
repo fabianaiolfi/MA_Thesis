@@ -1,7 +1,7 @@
 # Overview of all CEE EU Member States
 
 ## Anti-Incumbent Voting in all CEE EU Member States
-Is there a difference in vote share change between incumbent and non-incumbent parties? Overview of 11 CEE EU Member States, NUTS2/3 regions, 1994–2019 (N = 3240).
+Is there a difference in vote share change between incumbent and non-incumbent parties? Overview of 11 CEE EU Member States, NUTS2/3 regions, 1994–2019 ($N = 3240$).
 
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
 ned_v_dem_cee %>% 
@@ -33,12 +33,13 @@ result
 
 ### Crude Emigration per 1000 Population at NUTS3 Level in all CEE EU Member States
 
-This is an overview of the available external emigration data at NUTS3 level (Poland: NUTS2; Slovenia: NUTS1). Please note that the y-axis varies by country, the x-axis however is the same for all countries. This makes a comparison of available data across different countries easier. Of the eleven CEE EU member states, only ten are displayed as Czechia does not provide data solely on external emigration. Each grey line represents a NUTS region. The red line displays the overall trend over all available years and regions within a country.
+This is an overview of the available external emigration data at NUTS3 level (Poland: NUTS2; Slovenia: NUTS1). Please note that the y-axis varies by country, the x-axis however is the same for all countries. This makes a comparison of available data across different countries easier. Of the eleven CEE EU member states, only ten are displayed as Czechia does not provide data solely on external emigration. Each grey line represents a NUTS region. The red line, which applies smoothing to enhance readability, displays the overall trend over all available years and regions within a country.
 
 ```{r echo=FALSE, fig.height=8, message=FALSE, warning=FALSE}
 ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
   geom_line(color = "light grey") +
-  geom_smooth(aes(group = 1), method = "lm", color = "red", se = FALSE, size = 0.5) + 
+  #geom_smooth(aes(group = 1), method = "lm", color = "red", se = FALSE, size = 0.5) + 
+  geom_smooth(aes(group = 1), method = "loess", span = worm_span, color = "red", se = FALSE, size = 0.5) + 
   facet_wrap(~ country,
              scales = "free_y",
              ncol = 2) +

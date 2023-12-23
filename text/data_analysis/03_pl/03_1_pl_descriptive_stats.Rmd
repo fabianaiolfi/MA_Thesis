@@ -135,13 +135,15 @@ pl_hospitals_avg_change <- pl_hospitals %>%
             avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 pl_hospitals %>% 
+  drop_na(hospitals) %>% 
   left_join(pl_hospitals_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = hospitals)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "average of yearly change in number of hospitals ") +
-	scale_x_continuous(breaks = c(2003, 2020)) +
-  pl_plots_components
+	scale_x_continuous(breaks = c(2004, 2020)) +
+  pl_plots_components +
+  theme(legend.position = "bottom")
 ```
 
 \pagebreak
@@ -225,13 +227,15 @@ pl_ratio_hospitals_avg_change <- pl_hospitals %>%
             avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 pl_hospitals %>% 
+  drop_na(hospitals) %>% 
   left_join(pl_ratio_hospitals_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_hospitals_all_population)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in people per hospital ") +
-  scale_x_continuous(breaks = c(2003, 2020)) +
-  pl_plots_components
+  scale_x_continuous(breaks = c(2004, 2020)) +
+  pl_plots_components +
+  theme(legend.position = "bottom")
 ```
 
 \pagebreak
