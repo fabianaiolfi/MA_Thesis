@@ -1,6 +1,6 @@
 # Overview of all CEE EU Member States
 
-## Anti-Incumbent Voting
+## Anti-Incumbent Voting in all CEE EU Member States
 Is there a difference in vote share change between incumbent and non-incumbent parties? Overview of 11 CEE EU Member States, NUTS2/3 regions, 1994–2019 (N = 3240).
 
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
@@ -31,7 +31,7 @@ result
 
 ## External Emigration
 
-### Crude Emigration per 1000 Population at NUTS3 Level
+### Crude Emigration per 1000 Population at NUTS3 Level in all CEE EU Member States
 
 This is an overview of the available external emigration data at NUTS3 level (Poland: NUTS2; Slovenia: NUTS1). Please note that the y-axis varies by country, the x-axis however is the same for all countries. This makes a comparison of available data across different countries easier. Of the eleven CEE EU member states, only ten are displayed as Czechia does not provide data solely on external emigration. Each grey line represents a NUTS region. The red line displays the overall trend over all available years and regions within a country.
 
@@ -50,7 +50,7 @@ ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group
 \pagebreak
 
 
-### Emigration and Incumbent Vote Change
+### Emigration and Incumbent Vote Change in all CEE EU Member States
 
 I examine if there is a relationship between emigration rates and an incumbent’s change in vote share across all NUTS3 region in CEE EU member states. First, I calculate a region’s rolling emigration rate average, taking the average from two consecutive years. E.g., a region’s average emigration rate in the year 2010 is the average of the year 2008 and 2009. I do this to smooth out potential outliers and attempt to model a person’s perception of emigration in a region.
 
@@ -90,7 +90,7 @@ fe_1 <- feols(vote_change ~
 
 modelsummary(fe_1,
              stars = T,
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share (all CEE EU MS)",
              coef_rename = c(average_emigration = "Average Emigration"),
              gof_omit = "AIC|BIC|RMSE|Std|R2$|R2 Within$",
              statistic = NULL)
@@ -98,7 +98,7 @@ modelsummary(fe_1,
 
 \pagebreak
 
-### Emigration, Incumbent Vote Change and Party Orientation
+### Emigration, Incumbent Vote Change and Party Orientation in all CEE EU Member States
 
 As a small excursion, I use data from the Chapel Hill Expert survey to categorise parties by their overall ideological stance: Left, Centre Left, Centre, Centre Right and Right. I add this new information to the model, which uses Centre as the reference category.
 
@@ -112,7 +112,7 @@ fe_2 <- feols(vote_change ~
 
 modelsummary(fe_2,
              stars = T,
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share (all CEE EU MS)",
              coef_map = c(average_emigration = "Average Emigration",
                           `lrgen_fctLeft` = "Left Party",
                           `lrgen_fctCentre Left` = "Centre Left Party",

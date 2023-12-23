@@ -279,7 +279,8 @@ ggplot(pl_remittances, aes(x = year, y = remittances)) +
 ```
 
 ### GDP at Current Market Prices in Poland at NUTS2 Level (Euros per Inhabitant)
-Each line represents a NUTS2 region in Poland. The Warsaw Metropolitan Area (PL91) displays a consistently higher GDP than all other regions.
+Each line represents a NUTS2 region in Poland. The Warsaw Metropolitan Area (PL91) displays a consistently higher GDP than all other regions.  
+
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
 ggplot(pl_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
   geom_line() +
