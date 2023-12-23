@@ -9,12 +9,12 @@ options(scipen = 999) # Disable scientific notation
 
 \pagebreak
 
-```{r, child = '04_ro/04_2_ro_models_ratios.Rmd'}
+```{r eval=FALSE, child = '04_ro/04_2_ro_models_ratios.Rmd'}
 ```
 
 \pagebreak
 
-```{r eval=FALSE, child = '04_ro/04_3_ro_models_numbers.Rmd'}
+```{r, child = '04_ro/04_3_ro_models_numbers.Rmd'}
 ```
 
 \pagebreak

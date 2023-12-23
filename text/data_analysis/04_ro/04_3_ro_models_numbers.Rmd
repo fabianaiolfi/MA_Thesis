@@ -1,4 +1,4 @@
-## LM Models: Anti-Incumbent Voting in Romania at NUTS3 Level using Number of Institutions
+## Modelling Anti-Incumbent Voting in Romania at NUTS3 Level using Number of Institutions
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Models using number of institutions
@@ -88,39 +88,32 @@ fe_lm_7 <- feols(vote_change ~
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3),
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(schools = "Number of Schools",
                           hospitals = "Number of Hospitals",
                           third_places = "Number of Third Places",
-                          emigration_election_year_per_1000 = "Emigration Election Year",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
-             stars = T)
+             stars = T,
+             statistic = NULL)
 ```
 
-…
+As an alternative to using number of people per inhabitants as the independent variable, I instead use the actual number of institutions. I do this to examine if the closing of an institution has an effect on the incumbent’s vote share, regardless of the number of people who then use the institution.
+
+Analog to Tables x and x, I first model each institution seperately (Table x) and then combine the different independent variables (Table x). In constrast to using ratios as independent variables, using actual numbers should result in positive coefficients in order to align with my theory. This is because an increase in the number of, e.g., schools should be associated with an increase in the incumbent’s change in vote share – and reversely – a decrease in schools is associated with a decrease in vote share.
+
+Using the number of schools as an independent variable is statistically significant across all models and always displays a positive coefficient (see Table X and X). This means that an decrease in the number of schools is associated with a decrease in the incumbent's vote share. In short, less schools in a region are bad for incumbent parties. All models also display relatively high R2 value, meaning that all models can explain a large proportion of the dependent variable's variance.
 
 \pagebreak
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_4, fe_lm_5, fe_lm_6, fe_lm_7),
-             title = "DV: Incumbent's Change in Vote Share",
+             title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(schools = "Number of Schools",
                           hospitals = "Number of Hospitals",
                           third_places = "Number of Third Places",
-                          emigration_election_year_per_1000 = "Emigration Election Year",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
-             stars = T)
-```
-
-…
-
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=3}
-cat("Coefficient Plot for Model 4 (Table 4)")
-modelplot(fe_lm_7,
-          coef_map = c(gdp = "GDP",
-                       emigration_election_year_per_1000 = "Emigration Election Year",
-                       third_places = "Number of Third Places",
-                       hospitals = "Number of Hospitals",
-                       schools = "Number of Schools"))
+             stars = T,
+             statistic = NULL)
 ```
