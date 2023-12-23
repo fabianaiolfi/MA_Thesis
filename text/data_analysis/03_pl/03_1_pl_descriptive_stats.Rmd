@@ -35,7 +35,7 @@ pl %>%
 
 \pagebreak
 
-### Primary Age Population in 1000 in Poland at NUTS2 Level
+### Primary Age Population in 1000s in Poland at NUTS2 Level
 The primary age population, i.e., children aged seven to twelve, has seen a very similar development across regions apart from Warsaw Metropolitan Area (PL91). This segment of the population decreased steadily until around the year 2010–2012, after which an uptick is visible.
 
 `r worms_explainer`

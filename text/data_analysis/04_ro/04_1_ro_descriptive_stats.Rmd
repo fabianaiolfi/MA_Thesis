@@ -1,10 +1,15 @@
-## Population Statistics
-…
+## Overview of Variables
+
+In this next section, I focus on the effects of service cuts on anti-incumbent voting in Romania. I start by providing an overview of the variables I later use in my models.
 
 \pagebreak
 
 ### Population in Millions in Romania at NUTS3 Level
-```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE}
+description…
+
+`r worms_explainer`
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_avg_population_change <- ro_population %>% 
   arrange(NUTS_ID, year) %>%
   group_by(NUTS_ID) %>%
@@ -22,13 +27,20 @@ ro_population %>%
   mutate(population = population / 1000000) %>% 
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
   ggplot(aes(x = year, y = population)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in population (in %) ") +
+  scale_x_continuous(breaks = c(2000, 2023)) +
   ro_plots_components
 ```
+
 \pagebreak
 
 ### Primary Age Population in 1000s in Romania at NUTS3 Level
+
+description…
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_schools_avg_population_change <- ro_schools %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -43,14 +55,20 @@ ro_schools %>%
   mutate(population = population / 1000) %>% 
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
   ggplot(aes(x = year, y = population)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in population (in 1000s) ") +
+  scale_x_continuous(breaks = c(1990, 2022)) +
   ro_plots_components
 ```
 
 \pagebreak
 
-### Emigration per 1000 Population from Romania at NUTS3 Level
+### Emigration per 1000 Inhabitants from Romania at NUTS3 Level
+
+description…
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_avg_emigration_change <- ro %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -64,8 +82,9 @@ ro %>%
   left_join(ro_avg_emigration_change, by = "NUTS_ID") %>% 
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
   ggplot(aes(x = year, y = emigration_yearly_per_1000)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in emigration ") +
+  scale_x_continuous(breaks = c(2000, 2022)) +
   ro_plots_components
 ```
 
@@ -74,6 +93,11 @@ ro %>%
 ## Number of Institutions
 
 ### Number of Schools in Romania at NUTS3 Level
+
+description…
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_schools_avg_change <- ro_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -87,15 +111,20 @@ ro_schools %>%
   left_join(ro_schools_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = schools)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in number of schools ") +
-  ro_plots_components +
-  scale_x_continuous(breaks = c(1990, 2022)) # Adjust x-axis for dates
+  scale_x_continuous(breaks = c(1990, 2022)) +
+  ro_plots_components
 ```
 
 \pagebreak
 
 ### Number of Hospitals in Romania at NUTS3 Level
+
+description…
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_hospitals_avg_change <- ro_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -109,14 +138,19 @@ ro_hospitals %>%
   left_join(ro_hospitals_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = hospitals)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "average of yearly change in number of hospitals ") +
-  ro_plots_components +
-  scale_x_continuous(breaks = c(1990, 2022))  # Adjust x-axis for dates
+  scale_x_continuous(breaks = c(1990, 2022)) +
+  ro_plots_components
 ```
 \pagebreak
 
 ### Number of Third Places in Romania at NUTS3 Level
+
+description…
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_third_places_avg_change <- ro_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -130,21 +164,28 @@ ro_third_places %>%
   left_join(ro_third_places_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = third_places)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in number of third places ") +
-  ro_plots_components +
-  scale_x_continuous(breaks = c(2008, 2021))  # Adjust x-axis for dates
+  scale_x_continuous(breaks = c(2008, 2021)) +
+  ro_plots_components
 ```
 
 \pagebreak
 
-## Ratios
+## Ratios of People per Institution
 
-…
+In a next step, I look at the number of people per institution within a region. For example, I count the number of primary school children per school on average, or the number of a region’s inhabitants per hospital.
+
+description…
 
 \pagebreak
 
 ### Number of Primary School Children per School in Romania at NUTS3 Level
+
+description…
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_ratio_schools_avg_change <- ro_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -158,14 +199,20 @@ ro_schools %>%
   left_join(ro_ratio_schools_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_schools)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in children per school ") +
-  ro_plots_components +
-  scale_x_continuous(breaks = c(1995, 2022))  # Adjust x-axis for dates
+  scale_x_continuous(breaks = c(1995, 2022)) +
+  ro_plots_components
 ```
+
 \pagebreak
 
-### Number of People per Hospital in Romania at NUTS3 Level
+### Number of People in 1000s per Hospital in Romania at NUTS3 Level
+
+description…
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_ratio_hospitals_avg_change <- ro_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -176,18 +223,24 @@ ro_ratio_hospitals_avg_change <- ro_hospitals %>%
             avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 ro_hospitals %>% 
+  mutate(ratio_hospitals = ratio_hospitals / 1000) %>% 
   left_join(ro_ratio_hospitals_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_hospitals)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in people per hospital ") +
-  ro_plots_components +
-  scale_x_continuous(breaks = c(2000, 2022)) # Adjust x-axis for dates
+  scale_x_continuous(breaks = c(2000, 2022)) +
+  ro_plots_components
 ```
 
 \pagebreak
 
-### Number of People per Third Place in Romania at NUTS3 Level
+### Number of People in 1000s per Third Place in Romania at NUTS3 Level
+
+description…
+
+`r worms_explainer`
+
 ```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
 ro_ratio_third_places_avg_change <- ro_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
@@ -198,32 +251,36 @@ ro_ratio_third_places_avg_change <- ro_third_places %>%
             avg_percent_change = mean(percent_change, na.rm = TRUE))
 
 ro_third_places %>% 
+  mutate(ratio_third_places = ratio_third_places / 1000) %>% 
   left_join(ro_ratio_third_places_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_third_places)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", se = FALSE) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in people per third place ") +
-  pl_plots_components +
-  scale_x_continuous(breaks = c(2008, 2020)) # Adjust x-axis for dates
+  scale_x_continuous(breaks = c(2008, 2021)) +
+  ro_plots_components
 ```
 
 \pagebreak
 
 ## Control Variables
 
-…
+I use these data as control variables in my models. Data on remittances are only available at the national level.
 
 ### Remittance Inflows (US$ million) for all of Romania
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
 ggplot(ro_remittances, aes(x = year, y = remittances)) +
   geom_line() +
+  geom_point(shape = 21, fill = "white") +
   scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
 ```
 
 ### GDP at Current Market Prices in Romania at NUTS3 Level (Euros per Inhabitant)
+Each line represents a NUTS3 region in Romania. Bucharest (RO321) displays a consistently higher GDP than all other regions.  
+
 ```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
 ggplot(ro_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
-  geom_line(color = "light grey") +
-  geom_smooth(aes(group = 1), method = "loess", color = "red", se = FALSE, size = 0.5) + 
+  geom_line() +
+  geom_point(shape = 21, fill = "white") +
   scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
 ```
