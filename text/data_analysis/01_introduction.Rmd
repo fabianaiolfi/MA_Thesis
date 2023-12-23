@@ -1,4 +1,0 @@
-# Introduction
-This document shows an overview of my data analysis and provides initial results. It starts with an overview of all eleven CEE EU member states. Descriptive statistics display insights into the available data. I then continue by modelling emigration on incumbent vote change using a fixed effects model. Results show that an increase in emigration is associated with a decrease in incumbent vote share.
-
-In a second step I focus on the effects of service cuts in Poland. I again begin with descriptive statistics that provide an overview. Then I model the effects of service cuts on incumbent vote change. Results partially align with what my theory predicts. An increase in the number of children per school and an increase in the number of people per third place is associated with a decrease in incumbent vote share.
