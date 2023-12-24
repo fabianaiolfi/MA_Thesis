@@ -17,6 +17,7 @@ library(eurostat) # NUTS3 names
 library(slider) # Rolling averages
 library(fixest) # feols(): Linear models with fixed effects
 library(modelsummary) # Make nice tables and plots for feols() model outputs
+library(spelling) # Spell check Rmd files
 
 # options(scipen = 999) # Disable scientific notation
 options(scipen = 0) # Enable scientific notation
