@@ -163,7 +163,7 @@ ro_third_places %>%
 
 In a next step, I look at the number of people per institution within a region. For example, I count the number of primary school children per school on average, or the number of a region’s inhabitants per hospital.
 
-The following plots do not show a consistent trends across all regions in Romania. A possible next step could be to categorise NUTS3 regions, e.g., into urban and rural regions, or regions that border neighboring countries, in an attempt to find groups with similar trends.
+The following plots do not show a consistent trends across all regions in Romania. A possible next step could be to categorise NUTS3 regions, e.g., into urban and rural regions, or regions that border neighbouring countries, in an attempt to find groups with similar trends.
 
 \pagebreak
 
