@@ -141,7 +141,7 @@ worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are or
 
 \pagebreak
 
-```{r, child = 'data_analysis/05_next_steps.Rmd'}
+```{r eval=FALSE, child = 'data_analysis/05_next_steps.Rmd'}
 ```
 
 \pagebreak

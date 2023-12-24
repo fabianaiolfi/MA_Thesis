@@ -100,7 +100,7 @@ modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3),
 
 I first model separate ratios on incumbent vote change while controlling for emigration, GDP and remittances. Models 1, 2 and 3 in Table 3 each use a ratio separately. NUTS2 regions and years are used as fixed effects in all models. The emigration rate is the rolling emigration average between two national elections per 1000 inhabitants. Remittances are removed due to collinearity.
 
-Some coefficients point in the right direction but overall no results are statistically significant at conventional levels. An increase in the number of children per school is associated with a decrease in the incumbent vote share. However, the p-value is high at conventional levels ($p = 0.197$). Both hospital and third places ratios have coefficients of 0, displaying no effect on incumbent vote share change.
+Two coefficients point in the right direction but overall one variable is statistically significant at conventional levels. An increase in the number of children per school is associated with a decrease in the incumbent vote share. However, the p-value is high at conventional levels ($p = 0.197$). The ratio of people per hospital displays no effect on incumbent vote share change, while the number of people per third place has a very small yet statistically significant effect.
 
 \pagebreak
 

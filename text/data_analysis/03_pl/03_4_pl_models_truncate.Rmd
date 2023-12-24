@@ -118,8 +118,8 @@ modelsummary(list(lm_truncate_vote_change, lm_truncate_vote_share, lm_truncate_e
              statistic = NULL)
 ```
 
-Model results using truncated data are shows in Table 7 and 8. The models in Table 7 use ratios as independent variables, models in Table 8 use numbers of institutions.
+Model results using truncated data are shown in Tables 7 and 8. The models in Table 7 use ratios as independent variables, models in Table 8 use numbers of institutions.
 
 Truncated model 1, which focuses on extreme values, shows the most promising results when using ratios as independent variables (see Table 7). The school ratio and third places ratio coefficients become more pronounced and have higher statistical significance compared to the models using all observations. The emigration coefficient also becomes statistically significant, which is an improvement compared to the non-truncated models.
 
-The models that use actual numbers of institutions as independent variables display less promising results (see Table 8). Almost all coefficients are significant at conventional levels. The one statistically significant value shows a negative coefficient, meaning that an increase in number of third places is associated with a decrease in incumbent vote share, which does not align with my theory or make intuitive sense.
+The models that use actual numbers of institutions as independent variables display less promising results (see Table 8). Almost all coefficients are not significant at conventional levels. The one statistically significant value shows a negative coefficient, meaning that an increase in number of third places is associated with a decrease in incumbent vote share, which does not align with my theory.

@@ -53,7 +53,7 @@ ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group
 
 ### Emigration and Incumbent Vote Change in all CEE EU Member States
 
-I examine if there is a relationship between emigration rates and an incumbent’s change in vote share across all NUTS3 region in CEE EU member states. First, I calculate a region’s rolling emigration rate average, taking the average from two consecutive years. E.g., a region’s average emigration rate in the year 2010 is the average of the year 2008 and 2009. I do this to smooth out potential outliers and attempt to model a person’s perception of emigration in a region.
+I examine if there is a relationship between emigration rates and an incumbent’s change in vote share across all NUTS3 regions in CEE EU member states. First, I calculate a region’s rolling emigration rate average, taking the average from two consecutive years. E.g., a region’s average emigration rate in the year 2010 is the average of the year 2008 and 2009. I do this to smooth out potential outliers and attempt to model a person’s perception of emigration in a region.
 
 This plot provides a basic overview of the relationship between the average emigration rate and the incumbent's change in vote share. There generally seems to be a positive correlation between the two: An increase in average emigration is associated with higher levels of vote change for incumbent parties. This indicates that incumbent parties achieve better results when emigration increases.
 
@@ -81,7 +81,7 @@ ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change)) +
 
 \pagebreak
 
-In a next step, I build a model using NUTS3 regions and years as fixed effects, accounting for region- and time-specific factors that may confound the results (see Table 1). The average emigration coefficient’s is negative, which shows that an increase in the average emigration rate in a NUTS3 region is associated with a decrease in the change of vote share for the incumbent party. This aligns with my theory. The result is statistically significant. The standard errors are clustered at the NUTS3 level, as observations within a region are more similar to each other than to observations in other regions. The overall model fit is 53.34%. However, the “within” model fit is very low (0.1%), which indicates that average emigration does not explain variation in the dependent variable within each fixed-effects group.
+In a next step, I build a model using NUTS3 regions and years as fixed effects, accounting for region- and time-specific factors that may confound the results. Results are displayed in Table 1. The average emigration coefficient is negative, which shows that an increase in the average emigration rate in a NUTS3 region is associated with a decrease in the change of vote share for the incumbent party. This aligns with my theory. The result is statistically significant. The standard errors are clustered at the NUTS3 level, as observations within a region are more similar to each other than to observations in other regions. The overall model fit is 53.34%. However, the “within” model fit is very low (0.1%), which indicates that average emigration does not explain variation in the dependent variable within each fixed-effects group.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 fe_1 <- feols(vote_change ~

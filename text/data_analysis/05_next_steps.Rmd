@@ -7,3 +7,4 @@ These are possible next steps and open questions, based on my considerations and
 - Is time being correctly modelled?
 - Should I explore service cuts in another country? Perhaps a country that sees an increase in emigration rates?
 - Romania: Take region’s character into account, e.g., differentiate between rural and urban NUTS3 regions.
+- find alternative to remittances?

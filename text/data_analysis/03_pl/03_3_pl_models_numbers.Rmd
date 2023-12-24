@@ -108,9 +108,9 @@ modelsummary(list(fe_lm_4, fe_lm_5, fe_lm_6, fe_lm_7),
              statistic = NULL)
 ```
 
-As an alternative to using number of people per inhabitants as the independent variable, I instead use the actual number of institutions. I do this to examine if the closing of an institution has an effect on the incumbent’s vote share, regardless of the number of people who then use the institution.
+As an alternative to using number of people per institution as the independent variable, I instead use the actual number of institutions. I do this to examine if the closing of an institution has an effect on the incumbent’s vote share, regardless of the number of people who then use the institution.
 
-Analog to Tables 3 and 4, I first model each institution seperately (Table 5) and then combine the different independent variables (Table 6). In constrast to using ratios as independent variables, using actual numbers should result in positive coefficients in order to align with my theory. This is because an increase in the number of, e.g., schools should be associated with an increase in the incumbent’s change in vote share – and reversely – a decrease in schools is associated with a decrease in vote share.
+Analog to Tables 3 and 4, I first model each institution seperately (Table 5) and then combine the different independent variables (Table 6). In constrast to using ratios as independent variables, using actual numbers should result in positive coefficients in order to align with my theory. This is because an increase in the number of, e.g., schools, should be associated with an increase in the incumbent’s change in vote share – and reversely – a decrease in schools should be associated with a decrease in vote share.
 
 In sum, no model shows statisticlly significant results and the coefficients signs mostly do not align with my theory.
 
