@@ -46,3 +46,6 @@ load(here("data", "03_service_cuts", "ro", "ro_remittances.Rda"))
 
 # source(here("scripts", "03_service_cuts", "01_import_preprocess", "ro_gdp.R"))
 load(here("data", "03_service_cuts", "ro", "ro_gdp.Rda"))
+
+# source(here("scripts", "03_service_cuts", "01_import_preprocess", "ro_volatility.R"))
+load(here("data", "03_service_cuts", "ro", "ro_volatility.Rda"))
