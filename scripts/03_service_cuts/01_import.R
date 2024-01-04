@@ -18,6 +18,9 @@ load(here("data", "03_service_cuts", "pl", "pl_remittances.Rda"))
 # source(here("scripts", "03_service_cuts", "01_import_preprocess", "pl_gdp.R"))
 load(here("data", "03_service_cuts", "pl", "pl_gdp.Rda"))
 
+# source(here("scripts", "03_service_cuts", "01_import_preprocess", "pl_volatility.R"))
+load(here("data", "03_service_cuts", "pl", "pl_volatility.Rda"))
+
 
 ## Croatia -------------------------------------------------------------
 

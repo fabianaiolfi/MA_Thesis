@@ -20,6 +20,7 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
   left_join(select(pl_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(pl_remittances, by = "year") %>% 
   left_join(pl_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(pl_volatility, by = c("year", "nuts2016")) %>% 
   dplyr::filter(nuts2016 != "PL91") # Remove potentially problematic NUTS2 region (Warszawski stołeczny)
 
 
@@ -32,7 +33,8 @@ summary(lm(vote_change ~
              ratio_hospitals_all_population +
              ratio_third_places +
              emigration_election_year_per_1000 +
-             remittances +
+             # remittances +
+             volatility +
              gdp,
            anti_incumbent_vote))
 
@@ -47,7 +49,8 @@ ggplot(anti_incumbent_vote, aes(x = emigration_election_year_per_1000, y = vote_
 fe_lm_1 <- feols(vote_change ~
                    ratio_schools +
                    emigration_election_year_per_1000 +
-                   remittances +
+                   # remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -55,7 +58,8 @@ fe_lm_1 <- feols(vote_change ~
 fe_lm_2 <- feols(vote_change ~
                    ratio_hospitals_all_population +
                    emigration_election_year_per_1000 +
-                   remittances +
+                   # remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -63,7 +67,8 @@ fe_lm_2 <- feols(vote_change ~
 fe_lm_3 <- feols(vote_change ~
                    ratio_third_places +
                    emigration_election_year_per_1000 +
-                   remittances +
+                   # remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -72,7 +77,8 @@ fe_lm_4 <- feols(vote_change ~
                    ratio_schools +
                    ratio_hospitals_all_population +
                    emigration_election_year_per_1000 +
-                   remittances +
+                   # remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -81,7 +87,8 @@ fe_lm_5 <- feols(vote_change ~
                    ratio_schools +
                    ratio_third_places +
                    emigration_election_year_per_1000 +
-                   remittances +
+                   # remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -90,7 +97,8 @@ fe_lm_6 <- feols(vote_change ~
                    ratio_hospitals_all_population +
                    ratio_third_places +
                    emigration_election_year_per_1000 +
-                   remittances +
+                   # remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -100,7 +108,8 @@ fe_lm_7 <- feols(vote_change ~
                 ratio_hospitals_all_population +
                 ratio_third_places +
                 emigration_election_year_per_1000 +
-                remittances +
+                # remittances +
+                volatility +
                 gdp | 
                 nuts2016 + year,
               data = anti_incumbent_vote)
@@ -110,8 +119,7 @@ fe_lm_7 <- feols(vote_change ~
 
 fe_lm_7_summary = summary(fe_lm_7)
 coefplot(list(fe_lm_7_summary),
-         horiz = T,
-         xlim = c(-0.25, 0))
+         horiz = T)#, xlim = c(-0.25, 0))
 
 
 ## Truncate Data ----------------------------------------------------
@@ -127,7 +135,8 @@ lm_truncated <- feols(vote_change ~
                         ratio_hospitals_all_population +
                         ratio_third_places +
                         emigration_election_year_per_1000 +
-                        remittances +
+                        # remittances +
+                        volatility +
                         gdp | 
                         nuts2016 + year,
                       data = anti_incumbent_vote_truncated)
@@ -151,7 +160,8 @@ lm_truncated <- feols(vote_change ~
                         ratio_hospitals_all_population +
                         ratio_third_places +
                         emigration_election_year_per_1000 +
-                        remittances +
+                        # remittances +
+                        volatility +
                         gdp | 
                         nuts2016 + year,
                       data = anti_incumbent_vote_truncated)
@@ -175,7 +185,8 @@ lm_truncated <- feols(vote_change ~
                         ratio_hospitals_all_population +
                         ratio_third_places +
                         emigration_election_year_per_1000 +
-                        remittances +
+                        # remittances +
+                        volatility +
                         gdp | 
                         nuts2016 + year,
                       data = anti_incumbent_vote_truncated)
