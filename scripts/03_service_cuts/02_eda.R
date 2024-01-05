@@ -27,11 +27,20 @@ ro_population %>%
 
 temp_df <- ro %>%
   left_join(ro_fertility, by = c("NUTS_ID" = "nuts2016", "year" = "year")) %>% 
+  left_join(ro_schools_temp, by = c("NUTS_ID", "year")) %>% 
   group_by(NUTS_ID) %>%
   arrange(year) %>%
   mutate(lagged_emigration = dplyr::lag(emigration, 1)) %>% 
+  mutate(lagged_emigration_yearly_per_1000 = dplyr::lag(emigration_yearly_per_1000, 6)) %>% 
   mutate(lagged_fertility = dplyr::lag(fertility, 1)) %>% 
-  mutate(pop_diff = c(NA, diff(population)))
+  mutate(pop_diff = c(NA, diff(population.x))) %>% 
+  mutate(school_pop_diff = c(NA, diff(population.y))) %>% 
+  mutate(pop_diff_percent = c(NA, diff(population.x) / head(population.x, -1) * 100)) %>% 
+  mutate(school_pop_diff_percent = c(NA, diff(population.y) / head(population.y, -1) * 100)) %>% 
+  mutate(lagged_school_pop = dplyr::lag(population.y, 1)) %>% 
+  mutate(lagged_school_ratio = dplyr::lag(ratio_schools, 1)) %>% 
+  mutate(ratio_diff = c(NA, diff(ratio_schools)))
+
 
 # plot(temp_df$lagged_emigration, temp_df$pop_diff)
 
@@ -57,8 +66,46 @@ fe_lm
 summary(lm(pop_diff ~ emigration, temp_df))
 summary(lm(pop_diff ~ emigration + fertility, temp_df))
 summary(lm(pop_diff ~ emigration * fertility, temp_df))
-summary(lm(population ~ emigration_yearly_per_1000 * fertility, temp_df))
+summary(lm(population ~ lagged_emigration_yearly_per_1000 * lagged_fertility, temp_df))
+summary(lm(pop_diff ~ lagged_emigration_yearly_per_1000 * lagged_fertility, temp_df))
 
+fe_lm <- feols(pop_diff_percent ~
+                 lagged_emigration_yearly_per_1000 *
+                 lagged_fertility |
+                 NUTS_ID + year,
+               data = temp_df)
+fe_lm
+
+# very nice results?
+fe_lm <- feols(school_diff_percent ~
+                 lagged_emigration_yearly_per_1000 |
+                 # lagged_fertility |
+                 NUTS_ID + year,
+               data = temp_df)
+
+fe_lm <- feols(school_diff ~
+                 lagged_emigration_yearly_per_1000 |
+                 # lagged_fertility |
+                 NUTS_ID + year,
+               data = temp_df)
+
+# this is a very nice results, with a lag of 7 years; but result is super volatile if lag is changed
+fe_lm <- feols(ratio_diff ~
+                 lagged_emigration_yearly_per_1000 |
+                 NUTS_ID + year,
+               data = temp_df)
+
+fe_lm <- feols(ratio_schools ~
+                 emigration_yearly_per_1000 |
+                 NUTS_ID + year,
+               data = temp_df)
+fe_lm
+
+ro_schools_temp <- ro_schools %>% 
+  group_by(NUTS_ID) %>%
+  arrange(year) %>%
+  mutate(school_diff = c(NA, diff(schools))) %>% 
+  mutate(school_diff_percent = c(NA, diff(schools) / head(schools, -1) * 100))
 
 
 #####
