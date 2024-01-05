@@ -19,6 +19,61 @@ ro_population %>%
   facet_wrap(~ NUTS_ID, scales = "free_y") +
   theme_minimal()
 
+
+# Is there a correlation between emigration and population?
+
+# summary(lm(population ~ emigration_yearly_per_1000, ro))
+# plot(ro$emigration_yearly_per_1000, ro$population)
+
+temp_df <- ro %>%
+  left_join(ro_fertility, by = c("NUTS_ID" = "nuts2016", "year" = "year")) %>% 
+  group_by(NUTS_ID) %>%
+  arrange(year) %>%
+  mutate(lagged_emigration = dplyr::lag(emigration, 1)) %>% 
+  mutate(lagged_fertility = dplyr::lag(fertility, 1)) %>% 
+  mutate(pop_diff = c(NA, diff(population)))
+
+# plot(temp_df$lagged_emigration, temp_df$pop_diff)
+
+fe_lm <- feols(pop_diff ~
+                 lagged_emigration *
+                 lagged_fertility |
+                 NUTS_ID + year,
+               data = temp_df)
+
+fe_lm <- feols(pop_diff ~
+                 emigration *
+                 fertility |
+                 NUTS_ID + year,
+               data = temp_df)
+
+fe_lm <- feols(population ~
+                 emigration_yearly_per_1000 *
+                 fertility |
+                 NUTS_ID + year,
+               data = temp_df)
+fe_lm
+
+summary(lm(pop_diff ~ emigration, temp_df))
+summary(lm(pop_diff ~ emigration + fertility, temp_df))
+summary(lm(pop_diff ~ emigration * fertility, temp_df))
+summary(lm(population ~ emigration_yearly_per_1000 * fertility, temp_df))
+
+
+
+#####
+
+
+temp_df <- ro %>% 
+  left_join(ro_fertility, by = c("NUTS_ID" = "nuts2016", "year" = "year")) %>% 
+  # dplyr::filter(NUTS_ID == "RO121") %>% 
+  mutate(lagged_population = dplyr::lag(population, 3))
+
+plot(temp_df$fertility, temp_df$lagged_population)
+
+summary(lm(lagged_population ~ fertility, temp_df))
+
+
 ## Schools ----------------------------------
 
 # Poland
