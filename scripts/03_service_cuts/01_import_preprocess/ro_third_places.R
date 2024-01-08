@@ -43,6 +43,42 @@ ro_third_places <- ro_third_places %>%
   rename(NUTS_ID = nuts2016)
 
 
+## Calculate ratio between elections --------------------------------
+
+# Calculate average ratio between elections
+# E.g. average of 2001, 2002, 2003 and 2004 for election in 2005
+
+ro_third_places <- ro_third_places %>% 
+  mutate(ratio_third_places_diff = c(NA, diff(ratio_third_places)))
+
+avg_results <- data.frame()
+
+# Loop over the election years, excluding the last one
+for (i in 1:(length(ro_election_years) - 1)) {
+  start_year <- ro_election_years[i]
+  end_year <- ro_election_years[i + 1]
+  
+  # Filter and average classrooms
+  avg_data <- ro_third_places %>%
+    dplyr::filter(year >= start_year & year < end_year) %>%
+    group_by(NUTS_ID) %>%
+    summarize(average_ratio_third_places_election_year = mean(ratio_third_places_diff, na.rm = T))
+  
+  avg_data$start_year <- start_year
+  avg_data$end_year <- end_year - 1
+  
+  # Append to the results dataframe
+  avg_results <- rbind(avg_results, avg_data)
+}
+
+avg_results <- avg_results %>% 
+  rename(election_year = end_year) %>% 
+  mutate(election_year = election_year + 1) %>% 
+  select(NUTS_ID, average_ratio_third_places_election_year, election_year)
+
+ro_third_places <- ro_third_places %>% 
+  left_join(avg_results, by = c("NUTS_ID" = "NUTS_ID", "year" = "election_year"))
+
 ## Export ------------------------------
 
 save(ro_third_places, file = here("data", "03_service_cuts", "ro", "ro_third_places.Rda"))
