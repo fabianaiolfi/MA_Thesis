@@ -24,6 +24,10 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
   left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(ro_volatility, by = c("year", "nuts2016"))
 
+# Add NUTS Typology
+anti_incumbent_vote <- anti_incumbent_vote %>% 
+  left_join(nuts3_typologies, by = c("nuts2016" = "NUTS_ID"))
+
 
 # Modelling ----------------------------------
 
@@ -133,6 +137,27 @@ fe_lm_9 <- feols(vote_change ~
                    gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
+
+
+fe_lm_temp <- feols(vote_change ~
+                   average_ratio_schools_election_year +
+                   emigration_election_year_per_1000 *
+                     typology +
+                   gdp |
+                   nuts2016 +
+                     year,
+                 data = anti_incumbent_vote)
+
+fe_lm_temp <- feols(vote_change ~
+                   average_ratio_schools_election_year +
+                   average_ratio_hospitals_election_year +
+                   average_ratio_third_places_election_year +
+                   emigration_election_year_per_1000 *
+                     typology +
+                   gdp |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
 
 
 # Coefficient Plot --------------------------------------------------------

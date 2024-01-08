@@ -10,6 +10,24 @@ cee <- c("BG", "HR", "CZ", "EE", "HU", "LV", "LT", "PL", "RO", "SK", "SI")
 cee_names <- c("Bulgaria", "Croatia", "Czech Republic", "Czechia", "Estonia", "Hungary", "Latvia", "Lithuania", "Poland", "Romania", "Slovakia", "Slovenia")
 
 
+# NUTS3 (2010) Typologies
+# https://ec.europa.eu/eurostat/documents/345175/6807882/Ttypologies+and+local+information+corresponding+to+NUTS3.xls
+nuts3_typologies <- read_csv(here("data", "nuts3_2010_typologies.csv"))
+nuts3_typologies <- nuts3_typologies %>% 
+  rename(NUTS_ID = `NUTS 3 ID (2010)`,
+         coastal = `Coastal region`,
+         typology = `Rural - urban typology`,
+         metro = `Metro region corresponding to the NUTS`) %>% 
+  select(NUTS_ID, typology, metro, coastal) %>% 
+  mutate(coastal = case_when(coastal == "N" ~ F,
+                             coastal == "Y" ~ T,
+                             T ~ NA)) %>% 
+  mutate(metro = case_when(metro == "N" ~ F,
+                           metro == "Y" ~ T,
+                           T ~ NA)) %>% 
+  mutate(typology = factor(typology, ordered = T, levels = c("Rural region", "Intermediate region", "Urban region")))
+
+
 # Croatian NUTS3 Recoding --------------------------------------
 
 # https://ec.europa.eu/eurostat/web/nuts/background

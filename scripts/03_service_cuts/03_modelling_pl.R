@@ -23,6 +23,10 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
   left_join(pl_volatility, by = c("year", "nuts2016")) %>% 
   dplyr::filter(nuts2016 != "PL91") # Remove potentially problematic NUTS2 region (Warszawski stołeczny)
 
+# Add NUTS Typology
+anti_incumbent_vote <- anti_incumbent_vote %>% 
+  left_join(nuts3_typologies, by = c("nuts2016" = "NUTS_ID"))
+
 
 # Modelling ----------------------------------
 
