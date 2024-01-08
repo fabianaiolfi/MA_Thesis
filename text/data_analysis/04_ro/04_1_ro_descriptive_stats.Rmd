@@ -110,6 +110,31 @@ ro_schools %>%
 
 \pagebreak
 
+### Number of Classrooms in Romania at NUTS3 Level
+
+`r worms_explainer`
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_classrooms_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(classroom_change = classrooms - dplyr::lag(classrooms),
+         percent_change = (classroom_change / dplyr::lag(classrooms)) * 100) %>% 
+  summarise(avg_classroom_change = mean(classroom_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_classrooms_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = classrooms)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in number of classrooms ") +
+  scale_x_continuous(breaks = c(1990, 2022)) +
+  ro_plots_components
+```
+
+\pagebreak
+
 ### Number of Hospitals in Romania at NUTS3 Level
 
 `r worms_explainer`
@@ -170,6 +195,56 @@ The following plots do not show a consistent trends across all regions in Romani
 ### Number of Primary School Children per School in Romania at NUTS3 Level
 
 We can generally observe an increase in children per school in Romania. This increase seems to follow the sudden decrease in schools at the beginning of the 2000s. 
+
+`r worms_explainer`
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_ratio_schools_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_school_change = ratio_schools - dplyr::lag(ratio_schools),
+         percent_change = (ratio_school_change / dplyr::lag(ratio_schools)) * 100) %>% 
+  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_ratio_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_schools)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in children per school ") +
+  scale_x_continuous(breaks = c(1995, 2022)) +
+  ro_plots_components
+```
+
+\pagebreak
+
+### Number of Primary School Children per Classroom in Romania at NUTS3 Level
+
+`r worms_explainer`
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_ratio_classrooms_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_classroom_change = ratio_classrooms - dplyr::lag(ratio_classrooms),
+         percent_change = (ratio_classroom_change / dplyr::lag(ratio_classrooms)) * 100) %>% 
+  summarise(avg_ratio_classroom_change = mean(ratio_classroom_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_ratio_classrooms_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_classrooms)) +
+  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
+  scale_color_gradient(name = "Average of yearly change in children per classroom ") +
+  scale_x_continuous(breaks = c(1995, 2022)) +
+  ro_plots_components
+```
+
+\pagebreak
+
+### Number of Primary School Children per Classroom in Romania at NUTS3 Level
 
 `r worms_explainer`
 
