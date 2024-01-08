@@ -219,6 +219,35 @@ ro_schools %>%
 
 \pagebreak
 
+### Number of Primary School Children per School in Romania at NUTS3 Level (Map)
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+# Load the shapefile for maps
+# https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts
+nuts3_shape_2016 <- st_read(here("data", "NUTS_RG_10M_2016_3035_shp", "NUTS_RG_10M_2016_3035.shp"))
+
+# Merge the data
+merged_data_2016 <- left_join(nuts3_shape_2016, ro_ratio_schools_avg_change, by = "NUTS_ID")
+merged_data_2016_filter <- merged_data_2016 %>% dplyr::filter(LEVL_CODE == 3 & CNTR_CODE == "RO")
+```
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ggplot() +
+  geom_sf(data = merged_data_2016_filter, aes(fill = avg_percent_change), color = "#333333", lwd = 0.1) +
+  scale_fill_viridis_c(guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "bottom")) +
+  theme_minimal() +
+  theme(panel.grid = element_blank(), # remove grid
+        axis.title = element_blank(), # remove axis labels
+        axis.text = element_blank(),  # remove axis text
+        legend.position = "bottom",   # place legend at bottom
+        legend.text = element_text(size = 12),  # Increase the font size for legend items
+        legend.title = element_text(size = 12, face = "bold")  # Increase the font size for the legend title
+  ) +
+  labs(fill = "Average of yearly change\nin children per school")
+```
+
+\pagebreak
+
 ### Number of Primary School Children per Classroom in Romania at NUTS3 Level
 
 `r worms_explainer`
@@ -238,31 +267,6 @@ ro_schools %>%
   ggplot(aes(x = year, y = ratio_classrooms)) +
   geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
   scale_color_gradient(name = "Average of yearly change in children per classroom ") +
-  scale_x_continuous(breaks = c(1995, 2022)) +
-  ro_plots_components
-```
-
-\pagebreak
-
-### Number of Primary School Children per Classroom in Romania at NUTS3 Level
-
-`r worms_explainer`
-
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
-ro_ratio_schools_avg_change <- ro_schools %>%
-  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
-  group_by(NUTS_ID) %>% # Group data by region
-  mutate(ratio_school_change = ratio_schools - dplyr::lag(ratio_schools),
-         percent_change = (ratio_school_change / dplyr::lag(ratio_schools)) * 100) %>% 
-  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
-            avg_percent_change = mean(percent_change, na.rm = TRUE))
-
-ro_schools %>% 
-  left_join(ro_ratio_schools_avg_change, by = "NUTS_ID") %>%
-  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
-  ggplot(aes(x = year, y = ratio_schools)) +
-  geom_smooth(aes(color = avg_percent_change), method = "loess", span = worm_span, se = FALSE) +
-  scale_color_gradient(name = "Average of yearly change in children per school ") +
   scale_x_continuous(breaks = c(1995, 2022)) +
   ro_plots_components
 ```
@@ -295,6 +299,35 @@ ro_hospitals %>%
 
 \pagebreak
 
+### Number of People in 1000s per Hospital in Romania at NUTS3 Level (Map)
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+# Load the shapefile for maps
+# https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts
+nuts3_shape_2016 <- st_read(here("data", "NUTS_RG_10M_2016_3035_shp", "NUTS_RG_10M_2016_3035.shp"))
+
+# Merge the data
+merged_data_2016 <- left_join(nuts3_shape_2016, ro_ratio_hospitals_avg_change, by = "NUTS_ID")
+merged_data_2016_filter <- merged_data_2016 %>% dplyr::filter(LEVL_CODE == 3 & CNTR_CODE == "RO")
+```
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ggplot() +
+  geom_sf(data = merged_data_2016_filter, aes(fill = avg_percent_change), color = "#333333", lwd = 0.1) +
+  scale_fill_viridis_c(guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "bottom")) +
+  theme_minimal() +
+  theme(panel.grid = element_blank(), # remove grid
+        axis.title = element_blank(), # remove axis labels
+        axis.text = element_blank(),  # remove axis text
+        legend.position = "bottom",   # place legend at bottom
+        legend.text = element_text(size = 12),  # Increase the font size for legend items
+        legend.title = element_text(size = 12, face = "bold")  # Increase the font size for the legend title
+  ) +
+  labs(fill = "Average of yearly change\nin people per hospital")
+```
+
+\pagebreak
+
 ### Number of People in 1000s per Third Place in Romania at NUTS3 Level
 
 `r worms_explainer`
@@ -317,6 +350,35 @@ ro_third_places %>%
   scale_color_gradient(name = "Average of yearly change in people per third place ") +
   scale_x_continuous(breaks = c(2008, 2020)) +
   ro_plots_components
+```
+
+\pagebreak
+
+### Number of People in 1000s per Third Place in Romania at NUTS3 Level (Map)
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+# Load the shapefile for maps
+# https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts
+nuts3_shape_2016 <- st_read(here("data", "NUTS_RG_10M_2016_3035_shp", "NUTS_RG_10M_2016_3035.shp"))
+
+# Merge the data
+merged_data_2016 <- left_join(nuts3_shape_2016, ro_ratio_third_places_avg_change, by = "NUTS_ID")
+merged_data_2016_filter <- merged_data_2016 %>% dplyr::filter(LEVL_CODE == 3 & CNTR_CODE == "RO")
+```
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ggplot() +
+  geom_sf(data = merged_data_2016_filter, aes(fill = avg_percent_change), color = "#333333", lwd = 0.1) +
+  scale_fill_viridis_c(guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "bottom")) +
+  theme_minimal() +
+  theme(panel.grid = element_blank(), # remove grid
+        axis.title = element_blank(), # remove axis labels
+        axis.text = element_blank(),  # remove axis text
+        legend.position = "bottom",   # place legend at bottom
+        legend.text = element_text(size = 12),  # Increase the font size for legend items
+        legend.title = element_text(size = 12, face = "bold")  # Increase the font size for the legend title
+  ) +
+  labs(fill = "Average of yearly change in\npeople per third place")
 ```
 
 \pagebreak
