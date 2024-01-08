@@ -118,11 +118,27 @@ fe_lm_7 <- feols(vote_change ~
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
+fe_lm_8 <- feols(vote_change ~
+                   average_ratio_schools_election_year +
+                   emigration_election_year_per_1000 +
+                   gdp |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_9 <- feols(vote_change ~
+                   # average_ratio_schools_election_year +
+                   average_ratio_hospitals_election_year +
+                   average_ratio_third_places_election_year +
+                   emigration_election_year_per_1000 +
+                   gdp |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
 
 # Coefficient Plot --------------------------------------------------------
 
-fe_lm_7_summary = summary(fe_lm_7)
-coefplot(list(fe_lm_7_summary),
+fe_lm_8_summary = summary(fe_lm_8)
+coefplot(list(fe_lm_8_summary),
          horiz = T)#, xlim = c(-0.25, 0))
 
 
