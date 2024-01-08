@@ -14,7 +14,7 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   drop_na(emigration_yearly_per_1000)
 
-ro_schools <- ro_schools %>% dplyr::filter(NUTS_ID != "RO321") # Remove potentially problematic NUTS3 region
+# ro_schools <- ro_schools %>% dplyr::filter(NUTS_ID != "RO321") # Remove potentially problematic NUTS3 region
 
 anti_incumbent_vote <- anti_incumbent_vote %>% 
   left_join(select(ro_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
@@ -126,7 +126,7 @@ fe_lm_8 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 
 fe_lm_9 <- feols(vote_change ~
-                   # average_ratio_schools_election_year +
+                   average_ratio_schools_election_year +
                    average_ratio_hospitals_election_year +
                    average_ratio_third_places_election_year +
                    emigration_election_year_per_1000 +
