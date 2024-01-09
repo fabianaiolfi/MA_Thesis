@@ -112,7 +112,7 @@ ro_third_places <- ro_third_places %>%
   left_join(avg_results, by = c("NUTS_ID" = "NUTS_ID", "year" = "election_year"))
 
 
-## Calculate number of hospital change between elections --------------------------------
+## Calculate number of third places change between elections --------------------------------
 
 # Calculate average change between elections
 # E.g. average of 2001, 2002, 2003 and 2004 for election in 2005
