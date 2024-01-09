@@ -23,7 +23,9 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
   left_join(dplyr::select(pl_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(pl_remittances, by = "year") %>% 
   left_join(pl_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
+```
 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 fe_lm_1 <- feols(vote_change ~
                    schools +
                    emigration_election_year_per_1000 +
@@ -116,14 +118,143 @@ In sum, no model shows statistically significant results and the coefficients si
 
 \pagebreak
 
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-modelsummary(list(fe_lm_4, fe_lm_5, fe_lm_6, fe_lm_7),
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Using average ratio between elections
+
+fe_lm_8 <- feols(vote_change ~
+                   average_schools_diff_election_year +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_9 <- feols(vote_change ~
+                   average_hospitals_diff_election_year +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_10 <- feols(vote_change ~
+                   average_third_places_diff_election_year +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_11 <- feols(vote_change ~
+                   average_schools_diff_election_year +
+                   average_hospitals_diff_election_year +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_12 <- feols(vote_change ~
+                   average_schools_diff_election_year +
+                   average_third_places_diff_election_year +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_13 <- feols(vote_change ~
+                   average_hospitals_diff_election_year +
+                   average_third_places_diff_election_year +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_14 <- feols(vote_change ~
+                average_schools_diff_election_year +
+                average_hospitals_diff_election_year +
+                average_third_places_diff_election_year +
+                emigration_election_year_per_1000 +
+                remittances +
+                gdp | 
+                nuts2016 + year,
+              data = anti_incumbent_vote)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10),
              title = "DV: Incumbent's Change in Vote Share in Poland",
-             coef_map = c(schools = "Number of Schools",
-                          hospitals = "Number of Hospitals",
-                          third_places = "Number of Third Places",
+             coef_map = c(average_schools_diff_election_year = "Avg. Change of Schools",
+                          average_hospitals_diff_election_year = "Avg. Change of Hospitals",
+                          average_third_places_diff_election_year = "Avg. Change of Third Places",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
              stars = T,
              statistic = NULL)
 ```
+
+…
+
+\pagebreak
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+modelsummary(list(fe_lm_11, fe_lm_12, fe_lm_13, fe_lm_14),
+             title = "DV: Incumbent's Change in Vote Share in Poland",
+             coef_map = c(average_schools_diff_election_year = "Avg. Change of Schools",
+                          average_hospitals_diff_election_year = "Avg. Change of Hospitals",
+                          average_third_places_diff_election_year = "Avg. Change of Third Places",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
+                          gdp = "GDP"),
+             stars = T,
+             statistic = NULL)
+```
+
+Using average ratio between elections…
+
+\pagebreak
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Interactions
+fe_lm_15 <- feols(vote_change ~
+                   average_schools_diff_election_year *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_16 <- feols(vote_change ~
+                   average_hospitals_diff_election_year *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_17 <- feols(vote_change ~
+                   average_third_places_diff_election_year *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
+             title = "DV: Incumbent's Change in Vote Share in Poland",
+             coef_map = c(average_schools_diff_election_year = "Avg. Change of Schools",
+                          `average_schools_diff_election_year:emigration_election_year_per_1000` = "Avg. Change of Schools × Avg. Emigration",
+                          average_hospitals_diff_election_year = "Avg. Change Hospitals",
+                          `average_hospitals_diff_election_year:emigration_election_year_per_1000` = "Avg. Change Hospitals × Avg. Emigration",
+                          average_third_places_diff_election_year = "Avg. Change of Third Places",
+                          `average_third_places_diff_election_year:emigration_election_year_per_1000` = "Avg. Change of Third Places × Avg. Emigration",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
+                          gdp = "GDP"),
+             stars = T,
+             statistic = NULL)
+```
+
+Using interactions…
