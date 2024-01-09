@@ -24,8 +24,8 @@ nuts3_typologies <- nuts3_typologies %>%
                              T ~ NA)) %>% 
   mutate(metro = case_when(metro == "N" ~ F,
                            metro == "Y" ~ T,
-                           T ~ NA)) %>% 
-  mutate(typology = factor(typology, ordered = T, levels = c("Rural region", "Intermediate region", "Urban region")))
+                           T ~ NA))# %>% 
+  # mutate(typology = factor(typology, ordered = T, levels = c("Rural region", "Intermediate region", "Urban region")))
 
 
 # Croatian NUTS3 Recoding --------------------------------------
