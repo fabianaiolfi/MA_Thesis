@@ -243,7 +243,7 @@ ggplot() +
         legend.text = element_text(size = 12),  # Increase the font size for legend items
         legend.title = element_text(size = 12, face = "bold")  # Increase the font size for the legend title
   ) +
-  labs(fill = "Average of yearly change\nin children per school")
+  labs(fill = "Average Percent Change\nof Children per School")
 ```
 
 \pagebreak
@@ -323,7 +323,7 @@ ggplot() +
         legend.text = element_text(size = 12),  # Increase the font size for legend items
         legend.title = element_text(size = 12, face = "bold")  # Increase the font size for the legend title
   ) +
-  labs(fill = "Average of yearly change\nin people per hospital")
+  labs(fill = "Average Percent Change\nof People per Hospital")
 ```
 
 \pagebreak
@@ -378,7 +378,7 @@ ggplot() +
         legend.text = element_text(size = 12),  # Increase the font size for legend items
         legend.title = element_text(size = 12, face = "bold")  # Increase the font size for the legend title
   ) +
-  labs(fill = "Average of yearly change in\npeople per third place")
+  labs(fill = "Average Percent Change\nof People per Third Place")
 ```
 
 \pagebreak
