@@ -153,6 +153,43 @@ ro_schools <- ro_schools %>%
 # and seem to have a stronger effect than general population change
 
 
+## Calculate number of school buildings change between elections --------------------------------
+
+# Calculate average change between elections
+# E.g. average of 2001, 2002, 2003 and 2004 for election in 2005
+
+ro_schools <- ro_schools %>% 
+  mutate(schools_diff = c(NA, diff(schools)))
+
+avg_results <- data.frame()
+
+# Loop over the election years, excluding the last one
+for (i in 1:(length(ro_election_years) - 1)) {
+  start_year <- ro_election_years[i]
+  end_year <- ro_election_years[i + 1]
+  
+  # Filter and average classrooms
+  avg_data <- ro_schools %>%
+    dplyr::filter(year >= start_year & year < end_year) %>%
+    group_by(NUTS_ID) %>%
+    summarize(average_schools_diff_election_year = mean(schools_diff, na.rm = T))
+  
+  avg_data$start_year <- start_year
+  avg_data$end_year <- end_year - 1
+  
+  # Append to the results dataframe
+  avg_results <- rbind(avg_results, avg_data)
+}
+
+avg_results <- avg_results %>% 
+  rename(election_year = end_year) %>% 
+  mutate(election_year = election_year + 1) %>% 
+  select(NUTS_ID, average_schools_diff_election_year, election_year)
+
+ro_schools <- ro_schools %>% 
+  left_join(avg_results, by = c("NUTS_ID" = "NUTS_ID", "year" = "election_year"))
+
+
 ## Export ------------------------------
 
 save(ro_schools, file = here("data", "03_service_cuts", "ro", "ro_schools.Rda"))
