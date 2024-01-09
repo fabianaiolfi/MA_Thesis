@@ -22,7 +22,6 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
   left_join(dplyr::select(ro_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(ro_remittances, by = "year") %>% 
   left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
-
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
