@@ -138,15 +138,15 @@ fe_lm_9 <- feols(vote_change ~
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
-
+####
 fe_lm_temp <- feols(vote_change ~
-                   average_ratio_schools_election_year +
-                   emigration_election_year_per_1000 *
-                     typology +
-                   gdp |
-                   nuts2016 +
-                     year,
-                 data = anti_incumbent_vote)
+                      average_ratio_schools_election_year +
+                      emigration_election_year_per_1000 *
+                      typology +
+                      gdp |
+                      nuts2016 +
+                      year,
+                    data = anti_incumbent_vote)
 
 fe_lm_temp <- feols(vote_change ~
                    average_ratio_schools_election_year +
@@ -157,6 +157,15 @@ fe_lm_temp <- feols(vote_change ~
                    gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
+
+fe_lm_temp <- feols(vote_change ~
+                      average_ratio_schools_election_year *
+                      typology +
+                      emigration_election_year_per_1000 +
+                      gdp |
+                      nuts2016 +
+                      year,
+                    data = anti_incumbent_vote)
 
 
 
