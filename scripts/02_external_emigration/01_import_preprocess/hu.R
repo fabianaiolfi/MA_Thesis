@@ -57,8 +57,66 @@ hu_population <- raw_csv %>%
 
 hu <- hu_emigration %>%
   left_join(hu_population, by = c("NUTS_ID", "year")) %>% 
-  mutate(emigration_yearly_per_1000 = (emigration/population) * 1000) %>% 
-  select(NUTS_ID, year, emigration_yearly_per_1000)
+  mutate(emigration_yearly_per_1000 = (emigration/population) * 1000)# %>% 
+  # select(NUTS_ID, year, emigration_yearly_per_1000)
+
+
+## Calculate emigration between elections --------------------------------
+
+# Use sum of emigration in a region between elections
+# E.g. 2001, 2002, 2003 and 2004 for election in 2005
+# Use average of population in a region between elections
+# Calculate emigration per 1000 with this
+
+# Create an empty dataframe to store the results
+sum_results <- data.frame()
+avg_results <- data.frame()
+
+# Loop over the election years, excluding the last one
+for (i in 1:(length(hu_election_years) - 1)) {
+  start_year <- hu_election_years[i]
+  end_year <- hu_election_years[i + 1]
+  
+  # Filter and summarize emigration
+  sum_data <- hu %>%
+    dplyr::filter(year >= start_year & year < end_year) %>%
+    group_by(NUTS_ID) %>%
+    summarize(sum_emigration = sum(emigration, na.rm = T))
+  
+  # Filter and average emigration
+  avg_data <- hu %>%
+    dplyr::filter(year >= start_year & year < end_year) %>%
+    group_by(NUTS_ID) %>%
+    summarize(average_population = mean(population, na.rm = T))
+  
+  # Add the start and end years for reference
+  sum_data$start_year <- start_year
+  avg_data$start_year <- start_year
+  sum_data$end_year <- end_year - 1
+  avg_data$end_year <- end_year - 1
+  
+  # Append to the results dataframe
+  sum_results <- rbind(sum_results, sum_data)
+  avg_results <- rbind(avg_results, avg_data)
+}
+
+sum_results <- sum_results %>% 
+  rename(election_year = end_year) %>% 
+  mutate(election_year = election_year + 1) %>% 
+  select(NUTS_ID, sum_emigration, election_year)
+
+avg_results <- avg_results %>% 
+  rename(election_year = end_year) %>% 
+  mutate(election_year = election_year + 1) %>% 
+  select(NUTS_ID, average_population, election_year)
+
+election_emigration <- sum_results %>% 
+  left_join(avg_results, by = c("NUTS_ID", "election_year")) %>% 
+  mutate(emigration_election_year_per_1000 = (sum_emigration/average_population) * 1000) %>% 
+  select(NUTS_ID, election_year, emigration_election_year_per_1000)
+
+hu <- hu %>% 
+  left_join(election_emigration, by = c("NUTS_ID" = "NUTS_ID", "year" = "election_year"))
 
 
 ## Export ------------------------------

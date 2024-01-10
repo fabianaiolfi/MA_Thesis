@@ -107,6 +107,76 @@ ro_election_years <- ro_election_years$year
 ro_election_years <- c(1996, 2000, 2004, ro_election_years, 2020) # Previous elections
 ro_election_years <- sort(ro_election_years) # Ensure election years are sorted
 
+# Bulgaria
+bg_election_years <- ned_v_dem_cee %>%
+  dplyr::filter(str_detect(nuts2016, "^BG")) %>%
+  distinct(year) %>% 
+  arrange(year)
+
+bg_election_years <- bg_election_years$year
+bg_election_years <- c(2001, 2005, bg_election_years, 2021) # Previous elections
+bg_election_years <- sort(bg_election_years) # Ensure election years are sorted
+
+# Lithuania
+lt_election_years <- ned_v_dem_cee %>%
+  dplyr::filter(str_detect(nuts2016, "^LT")) %>%
+  distinct(year) %>% 
+  arrange(year)
+
+lt_election_years <- lt_election_years$year
+lt_election_years <- c(2000, lt_election_years, 2020) # Previous elections
+lt_election_years <- sort(lt_election_years) # Ensure election years are sorted
+
+# Estonia
+ee_election_years <- ned_v_dem_cee %>%
+  dplyr::filter(str_detect(nuts2016, "^EE")) %>%
+  distinct(year) %>% 
+  arrange(year)
+
+ee_election_years <- ee_election_years$year
+ee_election_years <- c(1999, 2003, ee_election_years, 2023) # Previous elections
+ee_election_years <- sort(ee_election_years) # Ensure election years are sorted
+
+# Croatia
+hr_election_years <- ned_v_dem_cee %>%
+  dplyr::filter(str_detect(nuts2016, "^HR")) %>%
+  distinct(year) %>% 
+  arrange(year)
+
+hr_election_years <- hr_election_years$year
+hr_election_years <- c(2003, 2007, 2011, hr_election_years, 2020) # Previous elections
+hr_election_years <- sort(hr_election_years) # Ensure election years are sorted
+
+# Hungary
+hu_election_years <- ned_v_dem_cee %>%
+  dplyr::filter(str_detect(nuts2016, "^HU")) %>%
+  distinct(year) %>% 
+  arrange(year)
+
+hu_election_years <- hu_election_years$year
+hu_election_years <- c(hu_election_years, 2022) # Previous elections
+hu_election_years <- sort(hu_election_years) # Ensure election years are sorted
+
+# Latvia
+lv_election_years <- ned_v_dem_cee %>%
+  dplyr::filter(str_detect(nuts2016, "^LV")) %>%
+  distinct(year) %>% 
+  arrange(year)
+
+lv_election_years <- lv_election_years$year
+lv_election_years <- c(2002, lv_election_years, 2022) # Previous elections
+lv_election_years <- sort(lv_election_years) # Ensure election years are sorted
+
+# Slovakia
+sk_election_years <- ned_v_dem_cee %>%
+  dplyr::filter(str_detect(nuts2016, "^SK")) %>%
+  distinct(year) %>% 
+  arrange(year)
+
+sk_election_years <- sk_election_years$year
+sk_election_years <- c(1994, 1998, 2002, 2006, sk_election_years, 2020) # Previous elections
+sk_election_years <- sort(sk_election_years) # Ensure election years are sorted
+
 
 # NUTS3 Population -------------------------------------
 
