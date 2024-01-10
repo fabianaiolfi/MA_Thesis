@@ -254,7 +254,7 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   # dplyr::filter(lrgen_fct == "Centre Right") %>% # Build model with lrgen_fct
   #dplyr::filter(galtan_fct == "6_8") %>% # Build model with galtan_fct
   # left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
-  left_join(select(pl, NUTS_ID, year, emigration_election_year_per_1000), by = c("year" = "year", "nuts2016" = "NUTS_ID")) 
+  left_join(dplyr::select(pl, NUTS_ID, year, emigration_election_year_per_1000), by = c("year" = "year", "nuts2016" = "NUTS_ID")) 
   #dplyr::filter(average_emigration < 2) %>% # Testing removing outliers
   # drop_na(emigration_yearly_per_1000)
 
