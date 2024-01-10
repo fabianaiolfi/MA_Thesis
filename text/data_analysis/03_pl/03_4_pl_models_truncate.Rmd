@@ -1,6 +1,6 @@
-## Modelling with Truncated Data
+<!-- ## Modelling with Truncated Data -->
 
-Do models improve when truncating parts of the data? I truncate the data in three different ways to explore if results vary. Model 1 uses data where observations with a small vote change, between $-2$ and $2$, are removed. This is done to see if extreme vote change values lead to more significant results. Model 2 uses data in which observations with extremely high (over $25\%$) and extremely low (under $5\%$) vote shares are removed. Model 3 uses data where high levels of emigration rates (above 4 per 1000 inhabitants) are removed. Both models 2 and 3 attempt to remove outliers in order to build models with higher validity.
+<!-- Do models improve when truncating parts of the data? I truncate the data in three different ways to explore if results vary. Model 1 uses data where observations with a small vote change, between $-2$ and $2$, are removed. This is done to see if extreme vote change values lead to more significant results. Model 2 uses data in which observations with extremely high (over $25\%$) and extremely low (under $5\%$) vote shares are removed. Model 3 uses data where high levels of emigration rates (above 4 per 1000 inhabitants) are removed. Both models 2 and 3 attempt to remove outliers in order to build models with higher validity. -->
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Truncate Vote Change
@@ -118,8 +118,8 @@ modelsummary(list(lm_truncate_vote_change, lm_truncate_vote_share, lm_truncate_e
              statistic = NULL)
 ```
 
-Model results using truncated data are shown in Tables 7 and 8. The models in Table 7 use ratios as independent variables, models in Table 8 use numbers of institutions.
+<!-- Model results using truncated data are shown in Tables 7 and 8. The models in Table 7 use ratios as independent variables, models in Table 8 use numbers of institutions. -->
 
-Truncated model 1, which focuses on extreme values, shows the most promising results when using ratios as independent variables (see Table 7). The school ratio and third places ratio coefficients become more pronounced and have higher statistical significance compared to the models using all observations. The emigration coefficient also becomes statistically significant, which is an improvement compared to the non-truncated models.
+<!-- Truncated model 1, which focuses on extreme values, shows the most promising results when using ratios as independent variables (see Table 7). The school ratio and third places ratio coefficients become more pronounced and have higher statistical significance compared to the models using all observations. The emigration coefficient also becomes statistically significant, which is an improvement compared to the non-truncated models. -->
 
-The models that use actual numbers of institutions as independent variables display less promising results (see Table 8). Almost all coefficients are not significant at conventional levels. The one statistically significant value shows a negative coefficient, meaning that an increase in number of third places is associated with a decrease in incumbent vote share, which does not align with my theory.
+<!-- The models that use actual numbers of institutions as independent variables display less promising results (see Table 8). Almost all coefficients are not significant at conventional levels. The one statistically significant value shows a negative coefficient, meaning that an increase in number of third places is associated with a decrease in incumbent vote share, which does not align with my theory. -->
