@@ -167,6 +167,17 @@ fe_lm_temp <- feols(vote_change ~
                       year,
                     data = anti_incumbent_vote)
 
+fe_lm_temp <- feols(vote_change ~
+                      average_ratio_schools_election_year +
+                      average_ratio_hospitals_election_year +
+                      average_ratio_third_places_election_year +
+                      emigration_election_year_per_1000 +
+                      lrgen_fct +
+                      gdp |
+                      nuts2016 +
+                      year,
+                    data = anti_incumbent_vote)
+
 
 
 # Coefficient Plot --------------------------------------------------------
