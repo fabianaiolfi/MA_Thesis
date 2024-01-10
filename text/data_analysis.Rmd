@@ -80,6 +80,7 @@ load(here("data", "03_service_cuts", "pl", "pl_hospitals.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_third_places.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_remittances.Rda"))
 load(here("data", "03_service_cuts", "pl", "pl_gdp.Rda"))
+load(here("data", "03_service_cuts", "pl", "pl_volatility.Rda"))
 
 load(here("data", "02_external_emigration", "ro", "ro_population.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_schools.Rda"))
@@ -87,6 +88,7 @@ load(here("data", "03_service_cuts", "ro", "ro_hospitals.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_third_places.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_remittances.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_gdp.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_volatility.Rda"))
 
 # Plot Compontents
 pl_plots_components <- list(
@@ -121,12 +123,12 @@ worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are or
 
 \pagebreak
 
-```{r, child = 'data_analysis/01_summary.Rmd'}
+```{r, child = 'data_analysis/01_summary.Rmd', include=FALSE}
 ```
 
 \pagebreak
 
-```{r, child = 'data_analysis/02_all_cee_eu_ms.Rmd'}
+```{r, child = 'data_analysis/02_all_cee_eu_ms.Rmd', include=FALSE}
 ```
 
 \pagebreak
@@ -141,10 +143,10 @@ worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are or
 
 \pagebreak
 
-```{r eval=FALSE, child = 'data_analysis/05_next_steps.Rmd'}
+```{r eval=FALSE, child = 'data_analysis/05_next_steps.Rmd', include=FALSE}
 ```
 
 \pagebreak
 
-```{r, child = 'data_analysis/06_sources.Rmd'}
+```{r, child = 'data_analysis/06_sources.Rmd', include=FALSE}
 ```
