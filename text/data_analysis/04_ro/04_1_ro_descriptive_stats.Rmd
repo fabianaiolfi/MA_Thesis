@@ -217,11 +217,11 @@ ro_schools %>%
   ro_plots_components
 ```
 
-\pagebreak
+<!-- \pagebreak -->
 
-### Number of Primary School Children per School in Romania at NUTS3 Level (Map)
+<!-- ### Number of Primary School Children per School in Romania at NUTS3 Level (Map) -->
 
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, include=FALSE}
 # Load the shapefile for maps
 # https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts
 nuts3_shape_2016 <- st_read(here("data", "NUTS_RG_10M_2016_3035_shp", "NUTS_RG_10M_2016_3035.shp"))
@@ -231,7 +231,7 @@ merged_data_2016 <- left_join(nuts3_shape_2016, ro_ratio_schools_avg_change, by 
 merged_data_2016_filter <- merged_data_2016 %>% dplyr::filter(LEVL_CODE == 3 & CNTR_CODE == "RO")
 ```
 
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, include=FALSE}
 ggplot() +
   geom_sf(data = merged_data_2016_filter, aes(fill = avg_percent_change), color = "#333333", lwd = 0.1) +
   scale_fill_viridis_c(guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "bottom")) +
@@ -297,11 +297,11 @@ ro_hospitals %>%
   ro_plots_components
 ```
 
-\pagebreak
+<!-- \pagebreak -->
 
-### Number of People in 1000s per Hospital in Romania at NUTS3 Level (Map)
+<!-- ### Number of People in 1000s per Hospital in Romania at NUTS3 Level (Map) -->
 
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, include=FALSE}
 # Load the shapefile for maps
 # https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts
 nuts3_shape_2016 <- st_read(here("data", "NUTS_RG_10M_2016_3035_shp", "NUTS_RG_10M_2016_3035.shp"))
@@ -311,7 +311,7 @@ merged_data_2016 <- left_join(nuts3_shape_2016, ro_ratio_hospitals_avg_change, b
 merged_data_2016_filter <- merged_data_2016 %>% dplyr::filter(LEVL_CODE == 3 & CNTR_CODE == "RO")
 ```
 
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, include=FALSE}
 ggplot() +
   geom_sf(data = merged_data_2016_filter, aes(fill = avg_percent_change), color = "#333333", lwd = 0.1) +
   scale_fill_viridis_c(guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "bottom")) +
@@ -352,11 +352,11 @@ ro_third_places %>%
   ro_plots_components
 ```
 
-\pagebreak
+<!-- \pagebreak -->
 
-### Number of People in 1000s per Third Place in Romania at NUTS3 Level (Map)
+<!-- ### Number of People in 1000s per Third Place in Romania at NUTS3 Level (Map) -->
 
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, include=FALSE}
 # Load the shapefile for maps
 # https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts
 nuts3_shape_2016 <- st_read(here("data", "NUTS_RG_10M_2016_3035_shp", "NUTS_RG_10M_2016_3035.shp"))
@@ -366,7 +366,7 @@ merged_data_2016 <- left_join(nuts3_shape_2016, ro_ratio_third_places_avg_change
 merged_data_2016_filter <- merged_data_2016 %>% dplyr::filter(LEVL_CODE == 3 & CNTR_CODE == "RO")
 ```
 
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, include=FALSE}
 ggplot() +
   geom_sf(data = merged_data_2016_filter, aes(fill = avg_percent_change), color = "#333333", lwd = 0.1) +
   scale_fill_viridis_c(guide = guide_colourbar(direction = "horizontal", barheight = 0.5, title.position = "bottom")) +

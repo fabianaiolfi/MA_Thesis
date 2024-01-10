@@ -3,18 +3,10 @@
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 options(scipen = 0) # Enable scientific notation
 
-# Calculate the average crude_net_migration for each NUTS_ID for every pair of consecutive years
-average_emigration <- ro %>%
-  arrange(NUTS_ID, year) %>%
-  group_by(NUTS_ID) %>%
-  # Take rolling average of past 2 years into account, ignore current year
-  mutate(average_emigration = slider::slide_dbl(emigration_yearly_per_1000, mean, .before = 2, .after = -1, .complete = T)) %>%
-  ungroup()
-
 anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(country == "Romania") %>%
   dplyr::filter(prev_incumbent == T) %>%
-  left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
-  drop_na(emigration_yearly_per_1000)
+  left_join(dplyr::select(ro, NUTS_ID, year, emigration_election_year_per_1000), by = c("year" = "year", "nuts2016" = "NUTS_ID"))
 
 anti_incumbent_vote <- anti_incumbent_vote %>% 
   left_join(dplyr::select(ro_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
@@ -26,7 +18,6 @@ anti_incumbent_vote <- anti_incumbent_vote %>%
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Using ratio in election year
-
 fe_lm_1 <- feols(vote_change ~
                    ratio_schools +
                    emigration_election_year_per_1000 +
@@ -52,33 +43,6 @@ fe_lm_3 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 
 fe_lm_4 <- feols(vote_change ~
-                   ratio_schools +
-                   ratio_hospitals +
-                   emigration_election_year_per_1000 +
-                   remittances +
-                   gdp | 
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_5 <- feols(vote_change ~
-                   ratio_schools +
-                   ratio_third_places +
-                   emigration_election_year_per_1000 +
-                   remittances +
-                   gdp | 
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_6 <- feols(vote_change ~
-                   ratio_hospitals +
-                   ratio_third_places +
-                   emigration_election_year_per_1000 +
-                   remittances +
-                   gdp | 
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_7 <- feols(vote_change ~
                 ratio_schools +
                 ratio_hospitals +
                 ratio_third_places +
@@ -90,7 +54,7 @@ fe_lm_7 <- feols(vote_change ~
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3),
+modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3, fe_lm_4),
              title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(ratio_schools = "Children per School",
                           ratio_hospitals = "People per Hospital",
@@ -107,20 +71,6 @@ Only model 1, which uses the ratio of children per school, has a negative coeffi
 
 A highlight is the emigration control variable, which displays a relatively strong and statistically significant effect. Higher levels of emigration between elections is associated with a decrease in incumbent vote share across all three models.
 
-\pagebreak
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list(fe_lm_4, fe_lm_5, fe_lm_6, fe_lm_7),
-             title = "DV: Incumbent's Change in Vote Share in Romania",
-             coef_map = c(ratio_schools = "Children per School",
-                          ratio_hospitals = "People per Hospital",
-                          ratio_third_places = "People per Third Places",
-                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
-                          gdp = "GDP"),
-             stars = T,
-             statistic = NULL)
-```
-
 In a second step, I use different combinations of ratios (Table 10, models 1, 2 and 3) and finally combine all ratios in model 4 (see Table 10). Again, NUTS3 regions and years are used as fixed effects. 
 
 Results are similar to models 1 through 3 in Table 9: The coefficients of the independent variables are not statistically significant at conventional levels and, apart from children per school, are positive and thus do not align with my theory. The ratio of children per school in model 4 becomes statistically more significant compared to model 1 in Table 9, but at $p = 0.177$ is still above the 10% threshold for conventional statistical significance.
@@ -131,7 +81,6 @@ As with the models in Table 9, we can observe that the emigration control variab
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Using average ratio between elections
-
 fe_lm_8 <- feols(vote_change ~
                    average_ratio_schools_election_year +
                    emigration_election_year_per_1000 +
@@ -157,33 +106,6 @@ fe_lm_10 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 
 fe_lm_11 <- feols(vote_change ~
-                   average_ratio_schools_election_year +
-                   average_ratio_hospitals_election_year +
-                   emigration_election_year_per_1000 +
-                   remittances +
-                   gdp | 
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_12 <- feols(vote_change ~
-                   average_ratio_schools_election_year +
-                   average_ratio_third_places_election_year +
-                   emigration_election_year_per_1000 +
-                   remittances +
-                   gdp | 
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_13 <- feols(vote_change ~
-                   average_ratio_hospitals_election_year +
-                   average_ratio_third_places_election_year +
-                   emigration_election_year_per_1000 +
-                   remittances +
-                   gdp | 
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_14 <- feols(vote_change ~
                 average_ratio_schools_election_year +
                 average_ratio_hospitals_election_year +
                 average_ratio_third_places_election_year +
@@ -195,27 +117,11 @@ fe_lm_14 <- feols(vote_change ~
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10),
+modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
              title = "DV: Incumbent's Change in Vote Share in Romania",
-             coef_map = c(average_ratio_schools_election_year = "Avg. % Change of Children per School",
-                          average_ratio_hospitals_election_year = "Avg. % Change of People per Hospital",
-                          average_ratio_third_places_election_year = "Avg. % Change of People per Third Place",
-                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
-                          gdp = "GDP"),
-             stars = T,
-             statistic = NULL)
-```
-
-Using average ratio between elections…
-
-\pagebreak
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list(fe_lm_11, fe_lm_12, fe_lm_13, fe_lm_14),
-             title = "DV: Incumbent's Change in Vote Share in Romania",
-             coef_map = c(average_ratio_schools_election_year = "Avg. % Change of Children per School",
-                          average_ratio_hospitals_election_year = "Avg. % Change of People per Hospital",
-                          average_ratio_third_places_election_year = "Avg. % Change of People per Third Place",
+             coef_map = c(average_ratio_schools_election_year = "Avg. Change of Children per School",
+                          average_ratio_hospitals_election_year = "Avg. Change of People per Hospital",
+                          average_ratio_third_places_election_year = "Avg. Change of People per Third Place",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
              stars = T,
@@ -256,12 +162,12 @@ fe_lm_17 <- feols(vote_change ~
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
              title = "DV: Incumbent's Change in Vote Share in Romania",
-             coef_map = c(average_ratio_schools_election_year = "Avg. % Change of Children per School",
-                          `average_ratio_schools_election_year:emigration_election_year_per_1000` = "Avg. % Change of Children per School × Avg. Emigration",
-                          average_ratio_hospitals_election_year = "Avg. % Change of People per Hospital",
-                          `average_ratio_hospitals_election_year:emigration_election_year_per_1000` = "Avg. % Change of People per Hospital × Avg. Emigration",
-                          average_ratio_third_places_election_year = "Avg. % Change of People per Third Place",
-                          `average_ratio_third_places_election_year:emigration_election_year_per_1000` = "Avg. % Change of People per Third Place × Avg. Emigration",
+             coef_map = c(average_ratio_schools_election_year = "Avg. Change of Children per School",
+                          `average_ratio_schools_election_year:emigration_election_year_per_1000` = "Avg. Change of Children per School × Avg. Emigration",
+                          average_ratio_hospitals_election_year = "Avg. Change of People per Hospital",
+                          `average_ratio_hospitals_election_year:emigration_election_year_per_1000` = "Avg. Change of People per Hospital × Avg. Emigration",
+                          average_ratio_third_places_election_year = "Avg. Change of People per Third Place",
+                          `average_ratio_third_places_election_year:emigration_election_year_per_1000` = "Avg. Change of People per Third Place × Avg. Emigration",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
                           gdp = "GDP"),
              stars = T,
