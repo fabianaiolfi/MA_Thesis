@@ -3,6 +3,13 @@
 ## Research Proposal
 
 **To Do**
+- [ ] Controlling for volatility
+  - [ ] Is Pedersen Index correctly used?
+  - [ ] Describe in theory and explain in methods
+- [ ] Create summary stats of data used: Elections, etc.
+
+----
+
 - [ ] Preliminary Explorations
 	- [x] NUTS3 emigration map
 	- [x] Model emigration and vote switching
