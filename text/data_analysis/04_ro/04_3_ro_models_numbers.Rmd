@@ -1,26 +1,11 @@
 ## Modelling Anti-Incumbent Voting in Romania at NUTS3 Level using Number of Institutions
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-options(scipen = 0) # Enable scientific notation
-
-anti_incumbent_vote <- ned_v_dem_cee %>% 
-  dplyr::filter(country == "Romania") %>%
-  dplyr::filter(prev_incumbent == T) %>%
-  left_join(dplyr::select(ro, NUTS_ID, year, emigration_election_year_per_1000), by = c("year" = "year", "nuts2016" = "NUTS_ID"))
-
-anti_incumbent_vote <- anti_incumbent_vote %>% 
-  left_join(dplyr::select(ro_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
-  left_join(dplyr::select(ro_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
-  left_join(dplyr::select(ro_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
-  left_join(ro_remittances, by = "year") %>% 
-  left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
-```
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
 fe_lm_1 <- feols(vote_change ~
                    schools +
                    emigration_election_year_per_1000 +
                    remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -29,6 +14,7 @@ fe_lm_2 <- feols(vote_change ~
                    hospitals +
                    emigration_election_year_per_1000 +
                    remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -37,6 +23,7 @@ fe_lm_3 <- feols(vote_change ~
                    third_places +
                    emigration_election_year_per_1000 +
                    remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -47,6 +34,7 @@ fe_lm_4 <- feols(vote_change ~
                 third_places +
                 emigration_election_year_per_1000 +
                 remittances +
+                volatility +
                 gdp | 
                 nuts2016 + year,
               data = anti_incumbent_vote)
@@ -59,6 +47,7 @@ modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3, fe_lm_4),
                           hospitals = "Number of Hospitals",
                           third_places = "Number of Third Places",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
+                          volatility = "Volatility",
                           gdp = "GDP"),
              stars = T,
              statistic = NULL)
@@ -78,6 +67,7 @@ fe_lm_8 <- feols(vote_change ~
                    average_schools_diff_election_year +
                    emigration_election_year_per_1000 +
                    remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -86,6 +76,7 @@ fe_lm_9 <- feols(vote_change ~
                    average_hospitals_diff_election_year +
                    emigration_election_year_per_1000 +
                    remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -94,6 +85,7 @@ fe_lm_10 <- feols(vote_change ~
                    average_third_places_diff_election_year +
                    emigration_election_year_per_1000 +
                    remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -104,6 +96,7 @@ fe_lm_11 <- feols(vote_change ~
                 average_third_places_diff_election_year +
                 emigration_election_year_per_1000 +
                 remittances +
+                volatility +
                 gdp | 
                 nuts2016 + year,
               data = anti_incumbent_vote)
@@ -116,6 +109,7 @@ modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
                           average_hospitals_diff_election_year = "Avg. Change of Hospitals",
                           average_third_places_diff_election_year = "Avg. Change of Third Places",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
+                          volatility = "Volatility",
                           gdp = "GDP"),
              stars = T,
              statistic = NULL)
@@ -131,6 +125,7 @@ fe_lm_15 <- feols(vote_change ~
                    average_schools_diff_election_year *
                    emigration_election_year_per_1000 +
                    remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -139,6 +134,7 @@ fe_lm_16 <- feols(vote_change ~
                    average_hospitals_diff_election_year *
                    emigration_election_year_per_1000 +
                    remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -147,6 +143,7 @@ fe_lm_17 <- feols(vote_change ~
                    average_third_places_diff_election_year *
                    emigration_election_year_per_1000 +
                    remittances +
+                   volatility +
                    gdp | 
                    nuts2016 + year,
                  data = anti_incumbent_vote)
@@ -155,13 +152,14 @@ fe_lm_17 <- feols(vote_change ~
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
              title = "DV: Incumbent's Change in Vote Share in Romania",
-             coef_map = c(average_schools_diff_election_year = "Avg. Change of Schools",
+             coef_map = c(#average_schools_diff_election_year = "Avg. Change of Schools",
                           `average_schools_diff_election_year:emigration_election_year_per_1000` = "Avg. Change of Schools × Avg. Emigration",
-                          average_hospitals_diff_election_year = "Avg. Change Hospitals",
+                          #average_hospitals_diff_election_year = "Avg. Change Hospitals",
                           `average_hospitals_diff_election_year:emigration_election_year_per_1000` = "Avg. Change Hospitals × Avg. Emigration",
-                          average_third_places_diff_election_year = "Avg. Change of Third Places",
+                          #average_third_places_diff_election_year = "Avg. Change of Third Places",
                           `average_third_places_diff_election_year:emigration_election_year_per_1000` = "Avg. Change of Third Places × Avg. Emigration",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
+                          volatility = "Volatility",
                           gdp = "GDP"),
              stars = T,
              statistic = NULL)
