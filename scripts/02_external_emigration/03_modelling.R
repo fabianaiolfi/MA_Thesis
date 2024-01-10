@@ -70,12 +70,12 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   # left_join(select(bg, NUTS_ID, year, emigration_election_year_per_1000), by = c("year" = "year", "nuts2016" = "NUTS_ID")) 
   # drop_na(emigration_yearly_per_1000)
 
-summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
-
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  theme_minimal()
+# summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+# 
+# ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = lrgen_fct)) +
+#   geom_point() +
+#   geom_smooth(method = "lm") +
+#   theme_minimal()
 
 fe_lm <- feols(vote_change ~
                  emigration_election_year_per_1000 |
@@ -101,12 +101,12 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID"))# %>% 
   # drop_na(emigration_yearly_per_1000)
 
-summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
-
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  theme_minimal()
+# summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+# 
+# ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
+#   geom_point() +
+#   geom_smooth(method = "lm") +
+#   theme_minimal()
 
 fe_lm <- feols(vote_change ~
                  emigration_election_year_per_1000 |
@@ -133,12 +133,12 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID"))# %>% 
   # drop_na(emigration_yearly_per_1000)
 
-summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+# summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
 
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  theme_minimal()
+# ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
+#   geom_point() +
+#   geom_smooth(method = "lm") +
+#   theme_minimal()
 
 fe_lm <- feols(vote_change ~
                  emigration_election_year_per_1000 |
@@ -193,12 +193,12 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   left_join(average_emigration, by = c("year" = "year", "nuts2016" = "NUTS_ID"))# %>% 
   # drop_na(emigration_yearly_per_1000) 
 
-summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
-
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  theme_minimal()
+# summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+# 
+# ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
+#   geom_point() +
+#   geom_smooth(method = "lm") +
+#   theme_minimal()
 
 fe_lm <- feols(vote_change ~
                  emigration_election_year_per_1000 |
@@ -289,12 +289,12 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   left_join(select(ro, NUTS_ID, year, emigration_election_year_per_1000), by = c("year" = "year", "nuts2016" = "NUTS_ID")) 
   # drop_na(emigration_yearly_per_1000)
 
-summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
-
-ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  theme_minimal()
+# summary(lm(vote_change ~ average_emigration, anti_incumbent_vote))
+# 
+# ggplot(anti_incumbent_vote, aes(x = average_emigration, y = vote_change, color = as.factor(unique_party_id))) +
+#   geom_point() +
+#   geom_smooth(method = "lm") +
+#   theme_minimal()
 
 fe_lm <- feols(vote_change ~
                  emigration_election_year_per_1000 |
