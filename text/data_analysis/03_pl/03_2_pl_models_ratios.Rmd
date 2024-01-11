@@ -78,6 +78,56 @@ Model 4 displays independent variable coefficients with statistical significance
 \pagebreak
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Interactions
+fe_lm_a <- feols(vote_change ~
+                   ratio_schools *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   volatility +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_b <- feols(vote_change ~
+                   ratio_hospitals_all_population *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   volatility +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_c <- feols(vote_change ~
+                   ratio_third_places *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   volatility +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+```
+
+```{r pl-fe-ratio-interaction, echo=FALSE, message=FALSE, warning=FALSE}
+modelsummary(list(fe_lm_a, fe_lm_b, fe_lm_c),
+             title = "DV: Incumbent's Change in Vote Share in Poland",
+             coef_map = c(#average_ratio_schools_election_year = "Avg. Change of Children per School",
+                          `ratio_schools:emigration_election_year_per_1000` = "Children per School × Avg. Emigration",
+                          #average_ratio_hospitals_election_year = "Avg. Change of People per Hospital",
+                          `ratio_hospitals_all_population:emigration_election_year_per_1000` = "People per Hospital × Avg. Emigration",
+                          #average_ratio_third_places_election_year = "Avg. Change of People per Third Place",
+                          `ratio_third_places:emigration_election_year_per_1000` = "People per Third Place × Avg. Emigration",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
+                          volatility = "Volatility",
+                          gdp = "GDP"),
+             stars = T,
+             statistic = NULL)
+```
+
+I add a separate interaction term between every ratio and average emigration. No results are statistically significant.
+
+\pagebreak
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Using average ratio between elections
 fe_lm_8 <- feols(vote_change ~
                    average_ratio_schools_election_year +

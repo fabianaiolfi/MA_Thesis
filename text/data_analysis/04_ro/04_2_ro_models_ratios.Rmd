@@ -58,7 +58,7 @@ fe_lm_4 <- feols(vote_change ~
               data = anti_incumbent_vote)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r ro-fe-ratio, echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3, fe_lm_4),
              title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(ratio_schools = "Children per School",
@@ -71,9 +71,59 @@ modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3, fe_lm_4),
              statistic = NULL)
 ```
 
-I model separate ratios on incumbent vote change while controlling for emigration, volatility and GDP. Models 1, 2 and 3 in Table 7 each use a ratio separately, Model 4 combines all ratios. NUTS3 regions and years are used as fixed effects in all models. The emigration rate is the rolling emigration average between two national parliamentary elections per 1000 inhabitants. No independent variable is statistically significant.
+I model separate ratios on incumbent vote change while controlling for emigration, volatility and GDP. Models 1, 2 and 3 in Table \@ref(tab:ro-fe-ratio) each use a ratio separately, Model 4 combines all ratios. NUTS3 regions and years are used as fixed effects in all models. The emigration rate is the rolling emigration average between two national parliamentary elections per 1000 inhabitants. No independent variable is statistically significant.
 
 A highlight is the emigration control variable, which displays a relatively strong and statistically significant effect. Higher levels of emigration between elections is associated with a decrease in incumbent vote share across all models.
+
+\pagebreak
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Interactions
+fe_lm_a <- feols(vote_change ~
+                   ratio_schools *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   volatility +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_b <- feols(vote_change ~
+                   ratio_hospitals *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   volatility +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_c <- feols(vote_change ~
+                   ratio_third_places *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   volatility +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+```
+
+```{r ro-fe-ratio-interaction, echo=FALSE, message=FALSE, warning=FALSE}
+modelsummary(list(fe_lm_a, fe_lm_b, fe_lm_c),
+             title = "DV: Incumbent's Change in Vote Share in Romania",
+             coef_map = c(#average_ratio_schools_election_year = "Avg. Change of Children per School",
+                          `ratio_schools:emigration_election_year_per_1000` = "Children per School × Avg. Emigration",
+                          #average_ratio_hospitals_election_year = "Avg. Change of People per Hospital",
+                          `ratio_hospitals:emigration_election_year_per_1000` = "People per Hospital × Avg. Emigration",
+                          #average_ratio_third_places_election_year = "Avg. Change of People per Third Place",
+                          `ratio_third_places:emigration_election_year_per_1000` = "People per Third Place × Avg. Emigration",
+                          emigration_election_year_per_1000 = "Avg. Emigration between Elections",
+                          volatility = "Volatility",
+                          gdp = "GDP"),
+             stars = T,
+             statistic = NULL)
+```
+
+I add a separate interaction term between every ratio and average emigration. No results are statistically significant.
 
 \pagebreak
 
@@ -118,7 +168,7 @@ fe_lm_11 <- feols(vote_change ~
               data = anti_incumbent_vote)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r ro-fe-avg-ratio, echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
              title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(average_ratio_schools_election_year = "Avg. Change of Children per School",
@@ -131,7 +181,7 @@ modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
              statistic = NULL)
 ```
 
-Table 8 uses different independent variables compared to Table 7. Instead of using the ratio in an election year, I calculate the average ratio _change_ between two national parliamentary elections. As in Table 7, no independent variables are statistically significant.
+Table \@ref(tab:ro-fe-avg-ratio) uses different independent variables compared to Table \@ref(tab:ro-fe-ratio). Instead of using the ratio in an election year, I calculate the average ratio _change_ between two national parliamentary elections. As in Table \@ref(tab:ro-fe-ratio), no independent variables are statistically significant.
 
 \pagebreak
 
@@ -165,7 +215,7 @@ fe_lm_17 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r ro-fe-avg-ratio-interaction, echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
              title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(#average_ratio_schools_election_year = "Avg. Change of Children per School",
