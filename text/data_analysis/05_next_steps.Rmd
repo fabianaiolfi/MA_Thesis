@@ -8,3 +8,5 @@ These are possible next steps and open questions, based on my considerations and
 - Should I explore service cuts in another country? Perhaps a country that sees an increase in emigration rates?
 - Romania: Take region’s character into account, e.g., differentiate between rural and urban NUTS3 regions.
 - find alternative to remittances?
+
+<!-- Next steps could be to take a region’s characteristic into account. E.g., differentiate between rural and urban regions, or regions that border neighbouring countries, in an attempt to group regions with similar trends. Another next step could be to take an incumbent party’s orientation into account, as this may have an effect on service cuts. I may also have to find an alternative for the remittances variable, which I include in my models to control for electoral volatility. Remittances are only available for an entire country and are automatically removed due to collinearity when creating fixed effects models. -->

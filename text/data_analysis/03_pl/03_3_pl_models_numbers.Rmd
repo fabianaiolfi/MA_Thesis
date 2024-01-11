@@ -41,7 +41,7 @@ fe_lm_4 <- feols(vote_change ~
               data = anti_incumbent_vote)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r pl-fe-number, echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3, fe_lm_4),
              title = "DV: Incumbent's Change in Vote Share in Poland",
              coef_map = c(schools = "Number of Schools",
@@ -58,7 +58,7 @@ As an alternative to using number of people per institution as the independent v
 
 In contrast to using ratios as independent variables, using actual numbers should result in positive coefficients in order to align with my theory. This is because an increase in the number of, e.g., schools, should be associated with an increase in the incumbent’s change in vote share – and reversely – a decrease in schools should be associated with a decrease in vote share.
 
-A single result is statistically significant (Model 3), but its sign does not comply with my theory. The coefficient implies a decrease in incumbent vote share if the number of third places increases.
+A single result is statistically significant (Model 3 in Table \@ref(tab:pl-fe-number)), but its sign does not comply with my theory. The coefficient implies a decrease in incumbent vote share if the number of third places increases.
 
 \pagebreak
 
@@ -103,7 +103,7 @@ fe_lm_11 <- feols(vote_change ~
               data = anti_incumbent_vote)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r pl-fe-avg-number, echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
              title = "DV: Incumbent's Change in Vote Share in Poland",
              coef_map = c(average_schools_diff_election_year = "Avg. Change of Schools",
@@ -116,7 +116,7 @@ modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
              statistic = NULL)
 ```
 
-Analogue to Table 2, I calculate the average change of institutions between two parliamentary elections and use this as the independent variable. As in Table 4, I expect the coefficients to be positive. However, the only statistically significant coefficients are the average change of number of hospitals, and these are both negative. The negative coefficient implies a decrease in incumbent vote share when the number of hospitals increases since the last election.
+Analogue to Table \@ref(tab:pl-fe-avg-ratio), I calculate the average change of institutions between two parliamentary elections and use this as the independent variable. As in Table \@ref(tab:pl-fe-number), I expect the coefficients to be positive. However, the only statistically significant coefficients are the average change of number of hospitals (Models 2 and 4 in Table \@ref(tab:pl-fe-avg-number)), and these are both negative. The negative coefficient implies a decrease in incumbent vote share when the number of hospitals increases since the last election. This goes against my theory.
 
 \pagebreak
 
@@ -150,7 +150,7 @@ fe_lm_17 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r pl-fe-avg-number-interaction, echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
              title = "DV: Incumbent's Change in Vote Share in Poland",
              coef_map = c(#average_schools_diff_election_year = "Avg. Change of Schools",
@@ -166,4 +166,4 @@ modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
              statistic = NULL)
 ```
 
-Analogue to Table 3, I add interaction terms between average change in number of institutions and average emigration. No results are statistically significant.
+Analogue to Table \@ref(tab:pl-fe-avg-ratio-interaction), I add a separate interaction term between every average change in ratio and average emigration. No results are statistically significant.

@@ -357,10 +357,10 @@ ggplot() +
 
 ## Control Variables
 
-Both remittances and GDP show an increase over time. I use these data as control variables in my models. Data on remittances are only available at the national level.
+GDP shows an increase over time. I use these data as a control variable in my models.
 
-### Remittance Inflows (US$ million) for all of Poland
-```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+<!-- ### Remittance Inflows (US$ million) for all of Poland -->
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE, include=FALSE}
 ggplot(pl_remittances, aes(x = year, y = remittances)) +
   geom_line() +
   geom_point(shape = 21, fill = "white") +

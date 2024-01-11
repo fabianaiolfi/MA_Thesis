@@ -53,7 +53,7 @@ modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3, fe_lm_4),
              statistic = NULL)
 ```
 
-As an alternative to using number of people per institution as the independent variable, I instead use the actual number of institutions. I do this to examine if the closing of an institution has an effect on the incumbent’s vote share, regardless of the number of people who then use the institution. n contrast to using ratios as independent variables, using actual numbers should result in positive coefficients in order to align with my theory. This is because an increase in the number of, e.g., schools, should be associated with an increase in the incumbent’s change in vote share – and reversely – a decrease in schools is associated with a decrease in vote share.
+As an alternative to using number of people per institution as the independent variable, I instead use the actual number of institutions. I do this to examine if the closing of an institution has an effect on the incumbent’s vote share, regardless of the number of people who then use the institution. In contrast to using ratios as independent variables, using actual numbers should result in positive coefficients in order to align with my theory. This is because an increase in the number of, e.g., schools, should be associated with an increase in the incumbent’s change in vote share – and reversely – a decrease in schools is associated with a decrease in vote share.
 
 Using the number of schools as an independent variable is statistically significant across all models and always displays a positive coefficient. This means that a decrease in the number of schools is associated with a decrease in the incumbent’s vote share. In short, less schools in a region is bad for incumbent parties.
 
@@ -66,7 +66,7 @@ fe_lm_8 <- feols(vote_change ~
                    emigration_election_year_per_1000 +
                    remittances +
                    volatility +
-                   gdp | 
+                   gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
@@ -75,7 +75,7 @@ fe_lm_9 <- feols(vote_change ~
                    emigration_election_year_per_1000 +
                    remittances +
                    volatility +
-                   gdp | 
+                   gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
@@ -84,7 +84,7 @@ fe_lm_10 <- feols(vote_change ~
                    emigration_election_year_per_1000 +
                    remittances +
                    volatility +
-                   gdp | 
+                   gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
@@ -95,7 +95,7 @@ fe_lm_11 <- feols(vote_change ~
                 emigration_election_year_per_1000 +
                 remittances +
                 volatility +
-                gdp | 
+                gdp |
                 nuts2016 + year,
               data = anti_incumbent_vote)
 ```
@@ -113,7 +113,7 @@ modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
              statistic = NULL)
 ```
 
-In Table 11, Models 1 through 4 differ to the models in Table 10 in the following aspect. Instead of using the ratio in an election year as the independent variable, I calculate the average ratio change between two national parliamentary elections. No independent variables are statistically significant.
+Table 11 uses different independent variables compared to Table 10. Instead of using the ratio in an election year, I calculate the average ratio _change_ between two national parliamentary elections. No independent variables are statistically significant.
 
 \pagebreak
 
@@ -124,7 +124,7 @@ fe_lm_15 <- feols(vote_change ~
                    emigration_election_year_per_1000 +
                    remittances +
                    volatility +
-                   gdp | 
+                   gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
@@ -133,7 +133,7 @@ fe_lm_16 <- feols(vote_change ~
                    emigration_election_year_per_1000 +
                    remittances +
                    volatility +
-                   gdp | 
+                   gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
@@ -142,7 +142,7 @@ fe_lm_17 <- feols(vote_change ~
                    emigration_election_year_per_1000 +
                    remittances +
                    volatility +
-                   gdp | 
+                   gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 ```
@@ -163,4 +163,4 @@ modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
              statistic = NULL)
 ```
 
-Analogue to Table 9, I add interaction terms between average change in number of institutions and average emigration. While all three independent variable coefficients are positive, which generally supports my theory, only the average change of number of schools is statistically significant. This suggests that a decrease in the number of schools is associated with a decrease in incumbent vote share, and this relationship is dependent on the average emigration rate. The average change of number of hospitals also displays a strong effect. However, the coefficient is not statistically significant at conventional levels ($p = 0.20$).
+Analogue to Table 9, I add a separate interaction term between every average change in ratio and average emigration. While all three independent variable coefficients are positive, thus supporting my theory, only the average change of number of schools is statistically significant. This suggests that the negative impact of numbers of schools on the incumbent’s vote share is moderated by the level of emigration. The average change of number of hospitals also displays a strong effect. However, the coefficient is not statistically significant at conventional levels ($p = 0.20$).

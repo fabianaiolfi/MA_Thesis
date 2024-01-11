@@ -3,7 +3,7 @@ title: "Data Analysis"
 author: "Fabian Aiolfi"
 date: "`r Sys.Date()`"
 output: 
-  pdf_document:
+  bookdown::pdf_document2:
     latex_engine: xelatex
     extra_dependencies: "microtype"
     toc: true
@@ -22,7 +22,6 @@ header-includes:
    - \usepackage{booktabs}
    - \usepackage{caption}
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -123,30 +122,30 @@ worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are or
 
 \pagebreak
 
-```{r, child = 'data_analysis/01_summary.Rmd', include=FALSE}
+```{r, child = 'data_analysis/01_summary.Rmd'}
 ```
 
 \pagebreak
 
-```{r, child = 'data_analysis/02_all_cee_eu_ms.Rmd', include=FALSE}
+```{r, child = 'data_analysis/02_all_cee_eu_ms.Rmd'}
 ```
 
-\pagebreak
+<!-- \pagebreak -->
 
-```{r, child = 'data_analysis/03_pl.Rmd'}
-```
+<!-- ```{r, child = 'data_analysis/03_pl.Rmd', include=FALSE} -->
+<!-- ``` -->
 
-\pagebreak
+<!-- \pagebreak -->
 
-```{r, child = 'data_analysis/04_ro.Rmd'}
-```
+<!-- ```{r, child = 'data_analysis/04_ro.Rmd', include=FALSE} -->
+<!-- ``` -->
 
-\pagebreak
+<!-- \pagebreak -->
 
-```{r eval=FALSE, child = 'data_analysis/05_next_steps.Rmd', include=FALSE}
-```
+<!-- ```{r eval=FALSE, child = 'data_analysis/05_next_steps.Rmd', include=FALSE} -->
+<!-- ``` -->
 
-\pagebreak
+<!-- \pagebreak -->
 
-```{r, child = 'data_analysis/06_sources.Rmd', include=FALSE}
-```
+<!-- ```{r, child = 'data_analysis/06_sources.Rmd', include=FALSE} -->
+<!-- ``` -->

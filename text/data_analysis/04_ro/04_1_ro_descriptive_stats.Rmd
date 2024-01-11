@@ -385,10 +385,10 @@ ggplot() +
 
 ## Control Variables
 
-I use these data as control variables in my models. Data on remittances are only available at the national level.
+I use these data as a control variable in my models.
 
-### Remittance Inflows (US$ million) for all of Romania
-```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+<!-- ### Remittance Inflows (US$ million) for all of Romania -->
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE, include=FALSE}
 ggplot(ro_remittances, aes(x = year, y = remittances)) +
   geom_line() +
   geom_point(shape = 21, fill = "white") +

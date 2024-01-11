@@ -58,7 +58,7 @@ fe_lm_4 <- feols(vote_change ~
               data = anti_incumbent_vote)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r pl-fe-ratio, echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3, fe_lm_4),
              title = "DV: Incumbent's Change in Vote Share in Poland",
              coef_map = c(ratio_schools = "Children per School",
@@ -71,7 +71,7 @@ modelsummary(list(fe_lm_1, fe_lm_2, fe_lm_3, fe_lm_4),
              statistic = NULL)
 ```
 
-I model separate ratios on incumbent vote change while controlling for emigration, volatility and GDP. Models 1, 2 and 3 in Table 1 each use a ratio separately, Model 4 combines all ratios. NUTS2 regions and years are used as fixed effects in all models. The emigration rate is the rolling emigration average between two national parliamentary elections per 1000 inhabitants.
+I model separate ratios on incumbent vote change while controlling for emigration, volatility and GDP. Models 1, 2 and 3 in Table \@ref(tab:pl-fe-ratio) each use a ratio separately, Model 4 combines all ratios. NUTS2 regions and years are used as fixed effects in all models. The emigration rate is the rolling emigration average between two national parliamentary elections per 1000 inhabitants.
 
 Model 4 displays independent variable coefficients with statistical significance at conventional levels. The ratio of children per school and the ratio of people per third place are statistically significant and their signs support my theory. An increase in the ratio, e.g., more children per school, is associated with a decrease in the incumbent vote share. The ratio of people per hospital displays no effect on incumbent vote share change.
 
@@ -118,7 +118,7 @@ fe_lm_11 <- feols(vote_change ~
               data = anti_incumbent_vote)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r pl-fe-avg-ratio, echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
              title = "DV: Incumbent's Change in Vote Share in Poland",
              coef_map = c(average_ratio_schools_election_year = "Avg. Change of Children per School",
@@ -131,9 +131,9 @@ modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
              statistic = NULL)
 ```
 
-In Table 2, Models 1 through 4 differ to the models in Table 1 in the following aspect. Instead of using the ratio in an election year as the independent variable, I calculate the average ratio change between two national parliamentary elections. This is how I calculate this average. Let us assume there to be an election in year the 2004 and 2008. Let us also assume that the ratio of children per school decreases by 10 every year from 2004 to 2008. This leads the average change of children per school between two election to equal 10. I calculate the average change for all three independent variables and for all elections data is available for.
+Table \@ref(tab:pl-fe-avg-ratio) uses different independent variables compared to Table \@ref(tab:pl-fe-ratio). Instead of using the ratio in an election year, I calculate the average ratio _change_ between two national parliamentary elections. As an example, let us assume there to be an election in the year 2004 and 2008. Let us also assume that the ratio of children per school decreases by 10 every year from 2004 to 2008. This leads the average change of children per school between two election to equal 10. I calculate the average change for all three independent variables and for all elections that data is available for.
 
-Table 2 shows no effect and no statistical significance for any independent variables, apart from Model 4, where are ratios are combined. Here an increase in the average change of children per school is associated with an increase in incumbent vote share, which goes against my assumptions.
+Table \@ref(tab:pl-fe-avg-ratio) shows no effect and no statistical significance for any independent variables, apart from Model 4, where all ratios are combined. Here an increase in the average change of children per school is associated with an increase in incumbent vote share, which goes against my assumptions.
 
 \pagebreak
 
@@ -167,7 +167,7 @@ fe_lm_17 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r pl-fe-avg-ratio-interaction, echo=FALSE, message=FALSE, warning=FALSE}
 modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
              title = "DV: Incumbent's Change in Vote Share in Poland",
              coef_map = c(#average_ratio_schools_election_year = "Avg. Change of Children per School",
@@ -183,4 +183,4 @@ modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
              statistic = NULL)
 ```
 
-I add interaction terms between average change in ratio and average emigration. No results are statistically significant.
+I add a separate interaction term between every average change in ratio and average emigration. No results are statistically significant.
