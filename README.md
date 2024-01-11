@@ -7,6 +7,7 @@
   - [ ] Is Pedersen Index correctly used?
   - [ ] Describe in theory and explain in methods
 - [ ] Create summary stats of data used: Elections, etc.
+- [ ] Address decrease in number of Romanian schools in early 2000s
 
 ----
 
