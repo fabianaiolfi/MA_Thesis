@@ -1,0 +1,46 @@
+# List of Models  
+  
+**Poland**  
+  
+_Models using Ratios_  
+  
+Ratios in Election Year  
+- Without Interaction Terms: Table \@ref(tab:pl-fe-ratio)  
+- With Interaction Terms: Table \@ref(tab:pl-fe-ratio-interaction)    
+  
+Average Ratio Change between Elections  
+- Without Interaction Terms: Table \@ref(tab:pl-fe-avg-ratio)  
+- With Interaction Terms: Table \@ref(tab:pl-fe-avg-ratio-interaction)  
+  
+_Models using Number of Institutions_  
+  
+Number of Institutions in Election Year  
+- Without Interaction Terms: Table \@ref(tab:pl-fe-number)  
+- With Interaction Terms: Table \@ref(tab:pl-fe-number-interaction)  
+  
+Average Change of Institutions between Elections  
+- Without Interaction Terms: Table \@ref(tab:pl-fe-avg-number)  
+- With Interaction Terms: Table \@ref(tab:pl-fe-avg-number-interaction)  
+  
+  
+**Romania**  
+  
+_Models using Ratios_  
+  
+Ratios in Election Year  
+- Without Interaction Terms: Table \@ref(tab:ro-fe-ratio)  
+- With Interaction Terms: Table \@ref(tab:ro-fe-ratio-interaction)    
+  
+Average Ratio Change between Elections  
+- Without Interaction Terms: Table \@ref(tab:ro-fe-avg-ratio)  
+- With Interaction Terms: Table \@ref(tab:ro-fe-avg-ratio-interaction)  
+  
+_Models using Number of Institutions_  
+  
+Number of Institutions in Election Year  
+- Without Interaction Terms: Table \@ref(tab:ro-fe-number)  
+- With Interaction Terms: Table \@ref(tab:ro-fe-number-interaction) 
+  
+Average Change of Institutions between Elections  
+- Without Interaction Terms: Table \@ref(tab:ro-fe-avg-number)  
+- With Interaction Terms: Table \@ref(tab:ro-fe-avg-number-interaction)  
