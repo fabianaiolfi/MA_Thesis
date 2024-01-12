@@ -25,7 +25,7 @@
 	- Electoral volatility
 	- GDP
 - Selecting Poland and Romania as CEE EU member states with high emigration rates
-	- Decrease in Romanian schools in early 2000s
+	- Decrease in Romanian schools in early 2000s → Use classrooms instead?!
 
 ## Results
 - Effect of EU accession on emigration in CEE EU member states
