@@ -1,0 +1,41 @@
+# MA Thesis
+
+## Introduction
+- Thesis summary
+- Thesis motivation
+	- EU’s Freedom of Movement and the emigration it causes as a cornerstone of European integration
+	- Effects of emigration on sending countries as a blind spot in political science research
+
+## Literature Review and Theory
+- Effects of emigration on voting behaviour, specifically on electorate of sending countries
+- Building on Dancygier et al. (2022)
+	- Motivation behind replacing PRR parties with incumbent party
+	- Operationalising service cuts through school closings, hospital closings and third places closings
+- Research question
+- Hypotheses
+- Controlling for electoral volatility
+
+## Data and Methods
+- Overview of available data: Elections, parties, NUTS regions, …
+- Defining incumbent party
+- Variable definitions
+	- Vote change between national parliamentary elections
+	- Ratios of target audience per institution, e.g., children per school and then measuring the effect of service cuts among the electorate by using the average change between elections, under the assumption that voters vote retrospectivaly
+	- Emigration rate, based on Dancygier et al. (2022, 17)
+	- Electoral volatility
+	- GDP
+- Selecting Poland and Romania as CEE EU member states with high emigration rates
+	- Decrease in Romanian schools in early 2000s
+
+## Results
+- Effect of EU accession on emigration in CEE EU member states
+- Effect of emigration on incumbent vote share, while controlling for certain aspects
+- Discussion of Polish and Romanian models and their respective differences
+
+- …
+- Hypotheses support or falsification
+
+## Conclusion
+- Summary
+- Further research
+	- Retrieve more data
