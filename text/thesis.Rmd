@@ -125,5 +125,11 @@ worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are or
 
 \pagebreak
 
+```{r, child = 'thesis/00_titelblatt.Rmd'}
+```
+
+
+\pagebreak
+
 ```{r, child = 'thesis/structure.Rmd'}
 ```
