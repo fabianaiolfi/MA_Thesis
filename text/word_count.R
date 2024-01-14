@@ -38,4 +38,4 @@ folder_path <- "text/thesis"
 total_words <- count_words_in_rmd(folder_path)
 cat("Total words in all Rmd files:", total_words)
 
-# 240114: 489
+# 240114: 578
