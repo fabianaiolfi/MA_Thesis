@@ -7,21 +7,20 @@
 	- Effects of emigration on sending countries as a blind spot in political science research
 
 ## Literature Review and Theory
-- Does a country’s accession to the EU have an effect on emigration rates?
+- Effect of EU accession on emigration
 - Two possible impacts of emigration on voting behaviour and electoral outcome: Change in electoral composition and effect on people left behind
-- Effect of emigration on voting for populist and radical right parties and why this should be questioned
-- Building on Dancygier et al. (2022)
-	- Examining the possible effects of three service cuts based on papers:
-		- Paper x: school closings
-		- Paper y: hospital closings
-		- Paper z: third places closings
-	- Motivation behind replacing PRR parties with incumbent party
-- Research question
+- Impact of emigration on voting for populist and radical right parties and why this should be questioned and replaced with voting against incumbent party
+- Research question following Dancygier et al. (2022): Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share?
+	- Sageman 2022: School closures
+	- Hospital closures
+	- Bolet 2021: Third places closures
+- Causal chain of events
+- Empirical specification
+- Control variables
 - Hypotheses
-- Controlling for electoral volatility
 
 ## Data and Methods
-- Overview of available data, how it was collected and transformed: Elections, parties, NUTS regions, …
+- Overview of available data, how it was collected and transformed: External emigration, elections, parties, NUTS regions, …
 - Defining incumbent party
 - Operationalisation
 	- Ratio of target audience to institutions (e.g. number of school children per school); then measuring the effect of service cuts among the electorate by using the average change between elections, under the assumption that voters vote retrospectivaly
@@ -29,8 +28,13 @@
 	- Emigration rate, based on Dancygier et al. (2022, 17)
 	- Electoral volatility
 	- GDP
-- Selecting Poland and Romania as CEE EU member states with high emigration rates
-	- Unexplainable decrease in Romanian schools in early 2000s, potential use of number of classrooms as a proxy
+	- Grievances
+- Selecting Poland and Romania as prototypical CEE EU member states with high emigration rates
+- Models: Mediation analysis, interactions and fixed effects
+	- Does emigration cause service cuts?
+	- Does emigration cause grievances?
+	- Effect of service cuts on incumbent vote share
+- Unexplainable decrease in Romanian schools in early 2000s, potential use of number of classrooms as a proxy
 
 ## Results
 - Discussion of Polish and Romanian models and their respective differences
@@ -40,6 +44,6 @@
 
 ## Conclusion
 - Summary
+- Meaning of results in the context of further European integration
 - Future research
-	- Find relevant service cuts
-	- Retrieve more data
+	- Uncover country specific service cuts
