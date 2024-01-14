@@ -1,26 +1,27 @@
 # MA Thesis
 
+## Abstract
+…
+
 ## Introduction
-- Overview
+- Thesis overview
 - Thesis relevance and motivation
-	- EU’s Freedom of Movement and the emigration it causes as a foundational of the EU
+	- EU’s Freedom of Movement and the emigration it causes as a foundational aspect of the EU
 	- Effects of emigration on sending countries as a blind spot in political science research
 
 ## Literature Review and Theory
-- Effect of EU accession on emigration
-- Two possible impacts of emigration on voting behaviour and electoral outcome: Change in electoral composition and effect on people left behind
-- Impact of emigration on voting for populist and radical right parties and why this should be questioned and replaced with voting against incumbent party
+- Impact of emigration on voting behaviour and electoral outcome: Change in electoral composition and effect on people left behind
+- Effect of emigration on voting for populist and radical right parties and why this should be questioned and replaced with voting against incumbent party
 - Research question following Dancygier et al. (2022): Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share?
-	- Sageman 2022: School closures
+- Service cuts to be examined:
+	- School closures (Sageman 2022)
 	- Hospital closures
-	- Bolet 2021: Third places closures
-- Causal chain of events
-- Empirical specification
-- Control variables
+	- Third places closures (Bolet 2021)
+- Causal chain of events based on research question
 - Hypotheses
 
 ## Data and Methods
-- Overview of available data, how it was collected and transformed: External emigration, elections, parties, NUTS regions, …
+- Overview of available data, how it was collected and transformed
 - Defining incumbent party
 - Operationalisation
 	- Ratio of target audience to institutions (e.g. number of school children per school); then measuring the effect of service cuts among the electorate by using the average change between elections, under the assumption that voters vote retrospectivaly
@@ -31,12 +32,15 @@
 	- Grievances
 - Selecting Poland and Romania as prototypical CEE EU member states with high emigration rates
 - Models: Mediation analysis, interactions and fixed effects
-	- Does emigration cause service cuts?
-	- Does emigration cause grievances?
-	- Effect of service cuts on incumbent vote share
-- Unexplainable decrease in Romanian schools in early 2000s, potential use of number of classrooms as a proxy
+	- Empirical specification
+	- Control variables
 
 ## Results
+- Does EU accession affect emigration?
+- Does emigration cause service cuts?
+- Does emigration cause grievances?
+- Effect of service cuts on incumbent vote share in Poland and Romania
+	- Unexplainable decrease in Romanian schools in early 2000s, potential use of number of classrooms as a proxy
 - Discussion of Polish and Romanian models and their respective differences
 	- Stronger effect of emigration on incumbent vote share in Romania
 	- Generally stronger effects of service cuts in Romania than Poland
@@ -47,3 +51,6 @@
 - Meaning of results in the context of further European integration
 - Future research
 	- Uncover country specific service cuts
+
+## Literature, Sources & Appendix
+…
