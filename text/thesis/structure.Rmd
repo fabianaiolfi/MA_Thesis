@@ -1,5 +1,3 @@
-# MA Thesis
-
 ## Abstract
 …
 
@@ -11,24 +9,28 @@
 
 ## Literature Review and Theory
 - Emigration affects voting behaviour and electoral outcomes. It changes the electoral composition and influences the people left behind.
-- Emigration benefits populist and radical right parties in Sweden (Dancygier et al., 2022). I argue that this also applies to CEE EU member states. Assuming that voters vote retrospectively, I also argue that not necessarily populist parties benefit, but that emigration can also simply cause an anti-incumbent vote 
+- Emigration benefits populist and radical right parties in Sweden (Dancygier et al., 2022). I argue that this also applies to CEE EU member states. I also argue that if voters cast their ballots retrospectively, it is not only populist parties that may benefit. Rather, emigration could also lead to an increase in anti-incumbent voting.
 - Research question following Dancygier et al. (2022): Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share?
 - Service cuts to be examined:
 	- School closures, based on Sageman (2022)
 	- Hospital closures, based on ageing population (Lim 2023)
 	- Third places closures, based on Bolet (2021)
 - Causal chain of events based on research question: Emigration → Service Cuts → Grievances → Anti-Incumbent Vote
-- Defining three hypotheses
+- Hypotheses
+	- H1: Service cuts to schools lead to an increase in the region’s anti-incumbent vote.
+	- H2: Service cuts to hospitals lead to an increase in the region’s anti-incumbent vote.
+	- H3: Service cuts to “third places” lead to an increase in the region’s anti-incumbent vote.
 
 ## Data and Methods
 - Overview of available data, how it was collected and transformed
+	- Inexplicable decrease in Romanian schools in early 2000s, potential use of number of classrooms as a proxy
 - Preliminary Analysis
 	- Does EU accession affect emigration?
 	- Does emigration cause service cuts?
 	- Does emigration cause grievances?
 	- Does emigration affect incumbent vote share?
 - Defining incumbent party: Under what circumstances are parties defined as incumbent in the context of this thesis?
-- Operationalisation DV and IV
+- Operationalising DV and IV
 	- Service Cuts: Ratio of target audience to institutions, e.g., number of school children per school, and its average change between two elections
 	- Incumbent vote change between national parliamentary elections
 - Selecting Poland and Romania as typical CEE EU member states with high emigration rates
@@ -38,11 +40,10 @@
 
 ## Results
 - Do emigration induced service cuts effect incumbent vote share in Poland and Romania?
-	- Inexplicable decrease in Romanian schools in early 2000s, potential use of number of classrooms as a proxy
+- Hypotheses acceptance or rejection
 - Discussion of Polish and Romanian service cut models and their respective differences
 	- Stronger effect of emigration on incumbent vote share in Romania
 	- Generally stronger effects of service cuts in Romania than Poland
-- Hypotheses support or falsification
 
 ## Conclusion
 - Summary of thesis and findings
