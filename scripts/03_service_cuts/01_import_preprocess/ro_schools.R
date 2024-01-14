@@ -113,6 +113,7 @@ ro_schools <- ro_schools %>%
 
 ## Calculate ratio between elections --------------------------------
 
+# Schools
 # Calculate average ratio between elections
 # E.g. average of 2001, 2002, 2003 and 2004 for election in 2005
 
@@ -152,9 +153,45 @@ ro_schools <- ro_schools %>%
 # Preliminary results did point towards theory support with borderline statistical significance 
 # and seem to have a stronger effect than general population change
 
+# Classrooms
+# Calculate average ratio between elections
+# E.g. average of 2001, 2002, 2003 and 2004 for election in 2005
+
+ro_schools <- ro_schools %>% 
+  mutate(ratio_classrooms_diff = c(NA, diff(ratio_classrooms)))
+
+avg_results <- data.frame()
+
+# Loop over the election years, excluding the last one
+for (i in 1:(length(ro_election_years) - 1)) {
+  start_year <- ro_election_years[i]
+  end_year <- ro_election_years[i + 1]
+  
+  # Filter and average classrooms
+  avg_data <- ro_schools %>%
+    dplyr::filter(year >= start_year & year < end_year) %>%
+    group_by(NUTS_ID) %>%
+    summarize(average_ratio_classrooms_election_year = mean(ratio_classrooms_diff, na.rm = T))
+  
+  avg_data$start_year <- start_year
+  avg_data$end_year <- end_year - 1
+  
+  # Append to the results dataframe
+  avg_results <- rbind(avg_results, avg_data)
+}
+
+avg_results <- avg_results %>% 
+  rename(election_year = end_year) %>% 
+  mutate(election_year = election_year + 1) %>% 
+  select(NUTS_ID, average_ratio_classrooms_election_year, election_year)
+
+ro_schools <- ro_schools %>% 
+  left_join(avg_results, by = c("NUTS_ID" = "NUTS_ID", "year" = "election_year"))
+
 
 ## Calculate number of school buildings change between elections --------------------------------
 
+# Schools
 # Calculate average change between elections
 # E.g. average of 2001, 2002, 2003 and 2004 for election in 2005
 
@@ -185,6 +222,41 @@ avg_results <- avg_results %>%
   rename(election_year = end_year) %>% 
   mutate(election_year = election_year + 1) %>% 
   select(NUTS_ID, average_schools_diff_election_year, election_year)
+
+ro_schools <- ro_schools %>% 
+  left_join(avg_results, by = c("NUTS_ID" = "NUTS_ID", "year" = "election_year"))
+
+# Classrooms
+# Calculate average change between elections
+# E.g. average of 2001, 2002, 2003 and 2004 for election in 2005
+
+ro_schools <- ro_schools %>% 
+  mutate(classrooms_diff = c(NA, diff(classrooms)))
+
+avg_results <- data.frame()
+
+# Loop over the election years, excluding the last one
+for (i in 1:(length(ro_election_years) - 1)) {
+  start_year <- ro_election_years[i]
+  end_year <- ro_election_years[i + 1]
+  
+  # Filter and average classrooms
+  avg_data <- ro_schools %>%
+    dplyr::filter(year >= start_year & year < end_year) %>%
+    group_by(NUTS_ID) %>%
+    summarize(average_classrooms_diff_election_year = mean(classrooms_diff, na.rm = T))
+  
+  avg_data$start_year <- start_year
+  avg_data$end_year <- end_year - 1
+  
+  # Append to the results dataframe
+  avg_results <- rbind(avg_results, avg_data)
+}
+
+avg_results <- avg_results %>% 
+  rename(election_year = end_year) %>% 
+  mutate(election_year = election_year + 1) %>% 
+  select(NUTS_ID, average_classrooms_diff_election_year, election_year)
 
 ro_schools <- ro_schools %>% 
   left_join(avg_results, by = c("NUTS_ID" = "NUTS_ID", "year" = "election_year"))

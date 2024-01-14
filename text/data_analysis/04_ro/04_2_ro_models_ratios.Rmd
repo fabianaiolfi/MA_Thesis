@@ -138,6 +138,14 @@ fe_lm_8 <- feols(vote_change ~
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
+fe_lm_8a <- feols(vote_change ~
+                   average_ratio_classrooms_election_year +
+                   emigration_election_year_per_1000 +
+                   volatility +
+                   gdp |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
 fe_lm_9 <- feols(vote_change ~
                    average_ratio_hospitals_election_year +
                    emigration_election_year_per_1000 +
@@ -166,12 +174,23 @@ fe_lm_11 <- feols(vote_change ~
                 gdp |
                 nuts2016 + year,
               data = anti_incumbent_vote)
+
+fe_lm_11a <- feols(vote_change ~
+                average_ratio_classrooms_election_year +
+                average_ratio_hospitals_election_year +
+                average_ratio_third_places_election_year +
+                emigration_election_year_per_1000 +
+                volatility +
+                gdp |
+                nuts2016 + year,
+              data = anti_incumbent_vote)
 ```
 
 ```{r ro-fe-avg-ratio, echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
+modelsummary(list(fe_lm_8, fe_lm_8a, fe_lm_9, fe_lm_10, fe_lm_11, fe_lm_11a),
              title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(average_ratio_schools_election_year = "Avg. Change of Children per School",
+                          average_ratio_classrooms_election_year = "Avg. Change of Children per Classroom",
                           average_ratio_hospitals_election_year = "Avg. Change of People per Hospital",
                           average_ratio_third_places_election_year = "Avg. Change of People per Third Place",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
@@ -189,6 +208,15 @@ Table \@ref(tab:ro-fe-avg-ratio) uses different independent variables compared t
 # Interactions
 fe_lm_15 <- feols(vote_change ~
                    average_ratio_schools_election_year *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   volatility +
+                   gdp | 
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_15a <- feols(vote_change ~
+                   average_ratio_classrooms_election_year *
                    emigration_election_year_per_1000 +
                    remittances +
                    volatility +
@@ -216,10 +244,11 @@ fe_lm_17 <- feols(vote_change ~
 ```
 
 ```{r ro-fe-avg-ratio-interaction, echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
+modelsummary(list(fe_lm_15, fe_lm_15a, fe_lm_16, fe_lm_17),
              title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(#average_ratio_schools_election_year = "Avg. Change of Children per School",
                           `average_ratio_schools_election_year:emigration_election_year_per_1000` = "Avg. Change of Children per School × Avg. Emigration",
+                          `average_ratio_classrooms_election_year:emigration_election_year_per_1000` = "Avg. Change of Children per Classroom × Avg. Emigration",
                           #average_ratio_hospitals_election_year = "Avg. Change of People per Hospital",
                           `average_ratio_hospitals_election_year:emigration_election_year_per_1000` = "Avg. Change of People per Hospital × Avg. Emigration",
                           #average_ratio_third_places_election_year = "Avg. Change of People per Third Place",
@@ -231,4 +260,4 @@ modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
              statistic = NULL)
 ```
 
-I add a separate interaction term between every average change in ratio and average emigration. Results show that the change in ratio of children per school and the change of people per hospital are statistically significant and have negative coefficients. This indicates that the negative impact of increased children per school and people per hospital on the incumbent’s vote share is moderated by the level of emigration. The average change of people per third place shows no effect.
+I add a separate interaction term between every average change in ratio and average emigration. Results show that the change in ratio of children per school and the change of people per hospital are statistically significant and have negative coefficients. This indicates that the negative impact of increased children per school and people per hospital on the incumbent’s vote share is moderated by the level of emigration. The average change of people per third place shows no effect. Also, as emigration increases, the negative effect of children per classroom on vote change becomes less negative.

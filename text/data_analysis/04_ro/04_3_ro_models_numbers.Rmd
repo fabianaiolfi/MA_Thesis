@@ -120,6 +120,15 @@ fe_lm_8 <- feols(vote_change ~
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
+fe_lm_8a <- feols(vote_change ~
+                   average_classrooms_diff_election_year +
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   volatility +
+                   gdp |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
 fe_lm_9 <- feols(vote_change ~
                    average_hospitals_diff_election_year +
                    emigration_election_year_per_1000 +
@@ -148,12 +157,24 @@ fe_lm_11 <- feols(vote_change ~
                 gdp |
                 nuts2016 + year,
               data = anti_incumbent_vote)
+
+fe_lm_11a <- feols(vote_change ~
+                average_classrooms_diff_election_year +
+                average_hospitals_diff_election_year +
+                average_third_places_diff_election_year +
+                emigration_election_year_per_1000 +
+                remittances +
+                volatility +
+                gdp |
+                nuts2016 + year,
+              data = anti_incumbent_vote)
 ```
 
 ```{r ro-fe-avg-number, echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list(fe_lm_8, fe_lm_9, fe_lm_10, fe_lm_11),
+modelsummary(list(fe_lm_8, fe_lm_8a, fe_lm_9, fe_lm_10, fe_lm_11, fe_lm_11a),
              title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(average_schools_diff_election_year = "Avg. Change of Schools",
+                          average_classrooms_diff_election_year = "Avg. Change of Classrooms",
                           average_hospitals_diff_election_year = "Avg. Change of Hospitals",
                           average_third_places_diff_election_year = "Avg. Change of Third Places",
                           emigration_election_year_per_1000 = "Avg. Emigration between Elections",
@@ -171,6 +192,15 @@ Table \@ref(tab:ro-fe-avg-number) uses different independent variables compared 
 # Interactions
 fe_lm_15 <- feols(vote_change ~
                    average_schools_diff_election_year *
+                   emigration_election_year_per_1000 +
+                   remittances +
+                   volatility +
+                   gdp |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_15a <- feols(vote_change ~
+                   average_classrooms_diff_election_year *
                    emigration_election_year_per_1000 +
                    remittances +
                    volatility +
@@ -198,10 +228,11 @@ fe_lm_17 <- feols(vote_change ~
 ```
 
 ```{r ro-fe-avg-number-interaction, echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list(fe_lm_15, fe_lm_16, fe_lm_17),
+modelsummary(list(fe_lm_15, fe_lm_15a, fe_lm_16, fe_lm_17),
              title = "DV: Incumbent's Change in Vote Share in Romania",
              coef_map = c(#average_schools_diff_election_year = "Avg. Change of Schools",
                           `average_schools_diff_election_year:emigration_election_year_per_1000` = "Avg. Change of Schools × Avg. Emigration",
+                          `average_classrooms_diff_election_year:emigration_election_year_per_1000` = "Avg. Change of Classrooms × Avg. Emigration",
                           #average_hospitals_diff_election_year = "Avg. Change Hospitals",
                           `average_hospitals_diff_election_year:emigration_election_year_per_1000` = "Avg. Change Hospitals × Avg. Emigration",
                           #average_third_places_diff_election_year = "Avg. Change of Third Places",
