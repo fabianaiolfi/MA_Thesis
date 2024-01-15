@@ -3,7 +3,14 @@
 ### Overview of available data, how it was collected and transformed
 
 <!-- Incumbent Party -->
-The V-Party Dataset [@staffan.i.lindbergVPartyDatasetV22022] provides information on parties supporting the government.^[Variable “v2pagovsup”: Does this party support the government formed immediately after this election? (Codebook p. 24)]. I manually add further elections and parties to the data in order to minimise missing values and obtain a more complete picture of anti-incumbent voting. I retrieve data on whether a party is incumbent or not based on the documented electoral history on their Wikipedia page.^[E.g., https://en.wikipedia.org/wiki/Greater_Romania_Party#Electoral_history (retrieved 15 January 2024)] Furthermore, I adjust the V-Party Dataset and categorise parties that show government support leading up to an election as incumbent, even if they are outside of government. I do this because I assume a citizen who wants to cast an anti-incumbent vote will vote against any party who supports or sypmathises with incumbent parties.
+The V-Party Dataset [@staffan.i.lindbergVPartyDatasetV22022] provides information on which parties are in or support the government.^[Variable “v2pagovsup”: Does this party support the government formed immediately after this election? (Codebook p. 24)]. I manually add further elections and parties to the data in order to minimise missing values and obtain a more complete picture of anti-incumbent voting. I retrieve data on whether a party is incumbent or not based on the documented electoral history on their Wikipedia page.^[E.g., https://en.wikipedia.org/wiki/Greater_Romania_Party#Electoral_history (retrieved 15 January 2024)] Furthermore, I adjust the V-Party Dataset and categorise parties that show government support leading up to an election as incumbent, even if they are outside of government. I do this because I assume a citizen who wants to cast an anti-incumbent vote will vote against any party that supports or sypmathises with incumbent parties.
+
+<!-- Election results -->
+Subnational election results are provided by the European NUTS-level election dataset [@schraffEuropeanNUTSlevelElection2023]. I remove EU parliament elections from the data, leaving only national parliament election results. I also remove votes cast from abroad, parties named “Other” and elections before the year 1994 and after 2020. I calculate a party’s vote share by dividing the number of received votes by the total number of votes cast in the region, then multiply this by 100 to receive the regional vote share in percent. In a next step, I calculate a party’s regional vote change between two consecutive elections.
+
+Using unique party IDs, I can combine the V-Party Dataset with the European NUTS-level election dataset. This combined dataset shows the regional vote change of incumbent parties.
+
+(TO DO: Show snippet of n_v_dem_cee)
 
 - Anti-incumbent vote: NED and V DEM
 
