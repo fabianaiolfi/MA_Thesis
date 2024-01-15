@@ -5,7 +5,7 @@ count_words_in_rmd <- function(folder_path) {
   library(stringr)
   
   # Get a list of all Rmd files in the folder
-  rmd_files <- list.files(path = folder_path, pattern = "\\.Rmd$", full.names = TRUE)
+  rmd_files <- list.files(path = folder_path, pattern = "\\.Rmd$", full.names = T, recursive = T)
   
   # List of files to exclude
   exclude_files <- c("00_titelblatt.Rmd")
@@ -45,5 +45,5 @@ folder_path <- "text/thesis"
 total_words <- count_words_in_rmd(folder_path)
 cat("Total words in all Rmd files:", total_words)
 
-# 240115: 1157
+# 240115: 1909
 # 240114: 578
