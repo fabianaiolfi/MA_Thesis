@@ -1,5 +1,3 @@
-## Data and Methods
-
 ### Overview of available data, how it was collected and transformed
 
 <!-- Incumbent Party -->
@@ -13,7 +11,6 @@ Using unique party IDs, I can combine the V-Party Dataset with the European NUTS
 (TO DO: Show snippet of n_v_dem_cee)
 
 - Anti-incumbent vote: NED and V DEM
-
 
 <!-- Election years -->
 The years in which national parliamentary elections were held are retrieved from Wikipedia^[E.g., https://en.wikipedia.org/wiki/2019_Polish_parliamentary_election or https://en.wikipedia.org/wiki/2016_Romanian_parliamentary_election (both retrieved 15 January 2024)]
@@ -34,16 +31,3 @@ The Romanian government agency “National Institute of Statistics”^[https://i
 
 <!-- Romanian Classrooms as a proxy -->
 As Figure X shows (TO DO), there is an inexplicable large drop in the number of Romanian schools in the early 2000s. I assume that along with schools closings, the Romanian “National Institute of Statistics” changed the way they counted single school entities. To counter this problem, I use the number of classrooms^[Variable SCL105C: Classrooms (school cabinets/amphiteaters), by level of education, macroregions, development regions and counties (http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table, retrieved 8 January 2024)] as a proxy for the number of school buildings. Figure X displays the number of classrooms, whereby a decrease is visible across most regions, but no sudden drop occurs (TO DO). Thus I assume the number of classrooms to be a more meaningful variable for Romanian schools closings than the number of school buildings.
-
-- Preliminary Analysis
-	- Does EU accession affect emigration?
-	- Does emigration cause service cuts?
-	- Does emigration cause grievances?
-	- Does emigration affect incumbent vote share?
-- Operationalising DV and IV
-	- Service Cuts: Ratio of target audience to institutions, e.g., number of school children per school, and its average change between two elections
-	- Incumbent vote change between national parliamentary elections
-- Selecting Poland and Romania as typical CEE EU member states with high emigration rates
-- Models: Mediation analysis, interactions and fixed effects
-	- Empirical specification based on operationalised variables
-	- Control variables: Emigration rate (based on Dancygier et al., 2022, 17), electoral volatility, GDP, grievances

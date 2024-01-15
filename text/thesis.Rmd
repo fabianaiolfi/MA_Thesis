@@ -1,7 +1,5 @@
 ---
-title: "MA Thesis Structure"
-author: "Fabian Aiolfi"
-date: "`r Sys.Date()`"
+title: "Emigration and Voting Behaviour in Central and Eastern European EU Member States"
 output: 
   bookdown::pdf_document2:
     latex_engine: xelatex
@@ -22,6 +20,7 @@ header-includes:
    - \usepackage{placeins}
    - \usepackage{booktabs}
    - \usepackage{caption}
+   - \pagenumbering{gobble} # Suppress page numbers
 ---
 
 \onehalfspacing
@@ -123,13 +122,34 @@ worm_span <- 0.3
 worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the right. The growth rate is also indicated by the curve's colour._"
 ```
 
-\pagebreak
-
 ```{r, child = 'thesis/00_titelblatt.Rmd'}
 ```
 
+<!-- Add this line to generate the title -->
+\maketitle
+
+<!-- Start new page after title -->
+\newpage
+
+<!-- Restart page numbering in Arabic numerals -->
+\pagenumbering{arabic} 
+
+```{r, child = 'thesis/01_abstract/abstract.Rmd'}
+```
 
 \pagebreak
 
-```{r, child = 'thesis/structure.Rmd'}
+```{r, child = 'thesis/02_introduction/introduction.Rmd'}
+```
+
+```{r, child = 'thesis/03_literature_theory/literature_theory.Rmd'}
+```
+
+```{r, child = 'thesis/04_data_methods/data_methods.Rmd'}
+```
+
+```{r, child = 'thesis/05_results/results.Rmd'}
+```
+
+```{r, child = 'thesis/06_conclusion/conclusion.Rmd'}
 ```

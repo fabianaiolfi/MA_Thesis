@@ -1,0 +1,8 @@
+### Preliminary Analysis
+- Does EU accession affect emigration?
+
+```{r, child = 'emigration_service_cuts.Rmd'}
+```
+
+- Does emigration cause grievances?
+- Does emigration affect incumbent vote share?

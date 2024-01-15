@@ -1,0 +1,9 @@
+## Conclusion
+- Summary of thesis and findings
+- Thesis limits: Effects seem country specific, no broad generalisations possible
+- Interpreting results in the broader context of further European integration
+- Future research
+	- state that causality is not that simple, there might me a mediating factor in the whole thing, which should be looked at in future research
+	- Uncovering country specific service cuts
+	- Effect of incumbent party on emigration
+	- Other effects of emigration on sending countries, e.g. impact on democratic institutions
