@@ -12,7 +12,7 @@
 - Emigration benefits populist and radical right parties in Sweden (Dancygier et al., 2022). I argue that this also applies to CEE EU member states. I also argue that if voters cast their ballots retrospectively, it is not only populist parties that may benefit. Rather, emigration could also lead to an increase in anti-incumbent voting.
 - Research question following Dancygier et al. (2022): Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share?
 - Service cuts to be examined:
-	- School closures, based on Sageman (2022)
+	- School closures, based on Sageman (2022); Focus on primary schools, because their closures are more cumbersome than closing high schools or vocational schools
 	- Hospital closures, based on ageing population (Lim 2023)
 	- Third places closures, based on Bolet (2021)
 - Causal chain of events based on research question: Emigration → Service Cuts → Grievances → Anti-Incumbent Vote
