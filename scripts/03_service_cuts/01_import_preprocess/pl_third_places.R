@@ -64,7 +64,9 @@ pl_bars <- pl_bars %>%
 
 pl_third_places <- pl_restaurants %>%
   left_join(pl_bars, by = c("NUTS_ID", "year")) %>% 
-  mutate(third_places = restaurants + bars)
+  # mutate(third_places = restaurants + bars) %>% 
+  mutate(third_places = bars)
+
 
 
 ## Population ----------------------------
