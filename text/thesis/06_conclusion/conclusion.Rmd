@@ -1,5 +1,6 @@
 ## Conclusion
 - Summary of thesis and findings
+  - Difference between PL and RO: maybe because emigration picks up in RO and decreases in PL? see "Does EU accession affect emigration?" 
 - Thesis limits: Effects seem country specific, no broad generalisations possible
 - Interpreting results in the broader context of further European integration
 - Future research
