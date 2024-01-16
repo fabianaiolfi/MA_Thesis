@@ -1,4 +1,23 @@
 
+# Function to remove R code chunks from content
+remove_r_chunks <- function(content) {
+  in_chunk <- FALSE
+  cleaned_content <- c()
+  
+  for (line in content) {
+    if (grepl("^```\\{r.*\\}", line)) {
+      in_chunk <- TRUE
+    } else if (grepl("^```$", line) && in_chunk) {
+      in_chunk <- FALSE
+    } else if (!in_chunk) {
+      cleaned_content <- c(cleaned_content, line)
+    }
+  }
+  
+  return(cleaned_content)
+}
+
+
 count_words_in_rmd <- function(folder_path) {
   # Load required library
   if (!require("stringr")) install.packages("stringr")
@@ -33,6 +52,12 @@ count_words_in_rmd <- function(folder_path) {
     # Remove references like [@...]
     text_content <- gsub("\\[@[^]]+\\]", "", text_content)
     
+    # Apply the function to your content
+    cleaned_text <- remove_r_chunks(content)
+    
+    # Combine into a single text string
+    text_content <- paste(cleaned_text, collapse = " ")
+    
     # Count words in the text content
     word_count <- str_count(text_content, "\\S+")
     total_word_count <- total_word_count + word_count
@@ -45,5 +70,6 @@ folder_path <- "text/thesis"
 total_words <- count_words_in_rmd(folder_path)
 cat("Total words in all Rmd files:", total_words)
 
+# 240116: 2509
 # 240115: 1909
 # 240114: 578
