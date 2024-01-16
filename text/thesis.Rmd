@@ -21,6 +21,7 @@ header-includes:
    - \usepackage{booktabs}
    - \usepackage{caption}
    - \pagenumbering{gobble} # Suppress page numbers
+   - \usepackage{times}
 ---
 
 \onehalfspacing

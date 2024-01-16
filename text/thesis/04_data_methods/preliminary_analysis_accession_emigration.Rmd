@@ -16,18 +16,32 @@ ro_emigration <- ro %>%
   dplyr::filter(year <= 2020)
 
 pl_emigration_plot <- ggplot(pl_emigration, aes(x = year, y = emigration_rate)) +
-  geom_vline(xintercept = 2004) +
+  geom_vline(xintercept = 2004, linetype = "dashed") +
   geom_bar(stat = "identity") +
   xlab("") + ylab("") +
-  ggtitle("External Emigration in Poland") +
-  theme_minimal()
+  labs(subtitle = "Poland") +
+  theme_minimal() +
+  theme(text = element_text(family = "serif")) +
+  # Remove minor y-axis grid lines
+  theme(panel.grid.minor.y = element_blank()) +
+  # Remove vertical grid lines
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 ro_emigration_plot <- ggplot(ro_emigration, aes(x = year, y = emigration_rate)) +
-  geom_vline(xintercept = 2007) +
+  geom_vline(xintercept = 2007, linetype = "dashed") +
   geom_bar(stat = "identity") +
   xlab("") + ylab("") +
-  ggtitle("External Emigration in Romania") +
-  theme_minimal()
+  labs(subtitle = "Romania") +
+  theme_minimal() +
+  theme(text = element_text(family = "serif")) +
+  # Remove minor y-axis grid lines
+  theme(panel.grid.minor.y = element_blank()) +
+  # Remove 0.25 and 0.75 y-axis values
+  scale_y_continuous(breaks = c(0, 0.5, 1, 1.5, 2, 2.5, 3)) +
+  # Remove vertical grid lines
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 # Chow test
 chow_ro <- sctest(ro_emigration$emigration_rate ~ ro_emigration$year,
@@ -60,8 +74,12 @@ p_values_significant <- p_values %>% dplyr::filter(p_values <= 0.05)
 
 p_values_pl <- ggplot(p_values, aes(x = p_values)) +
   geom_boxplot() +
-  xlim(0, 0.05) +
-  theme_minimal()
+  labs(subtitle = "Poland") +
+  xlab("p-value") +
+  scale_y_continuous(breaks = NULL) + # Remove y-axis numbers
+  xlim(0, 0.01) +
+  theme_minimal() +
+  theme(text = element_text(family = "serif"))
 
 # Applying the function to each NUTS3 region in Romania
 results <- ro %>%
@@ -76,18 +94,30 @@ p_values_significant <- p_values %>% dplyr::filter(p_values <= 0.05)
 
 p_values_ro <- ggplot(p_values, aes(x = p_values)) +
   geom_boxplot() +
+  labs(subtitle = "Romania") +
+  xlab("p-value") +
+  scale_y_continuous(breaks = NULL) + # Remove y-axis numbers
   xlim(0, 0.05) +
-  theme_minimal()
+  theme_minimal() +
+  theme(text = element_text(family = "serif"))
 ```
 
-```{r accession-emigration, echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
-grid.arrange(pl_emigration_plot, ro_emigration_plot, p_values_pl, p_values_ro, ncol = 2)
-```
-
-Gaining EU membership grants member states access to the EU’s Freedom of Movement (FoM), facilitating migration between member states. Thus we can assume that becoming a member will result in higher levels of emigration from CEE EU member states. I examine this assumption in two steps. In a first step, I plot external emigration from Poland and Romania over time. If the assumption holds, we should observe an increase in emigration rates after a country’s accession. Figure X displays each country’s emigration rate over time, with the vertical dashed line marking the year of accession to the EU. In both Poland and Romania we can observe a constant emigration rate until joining the EU. Once a country joins and gains access to the FoM, emigration rates pick up. However, the increase is lagged by two years in Poland and four years in Romania. The two countries also display different developments of emigration after the initial increase. Poland’s emigration rate decreases constantly after a peak is reached in 2006, with another small increase around 2013 and 2014. Romania displays a constant increase in emigration after 2010. These two distinctive developments hint at other factors influencing emigration rates along with access to FoM.
+Gaining EU membership grants member states access to the EU’s Freedom of Movement (FoM), facilitating migration between member states. Thus we can assume that becoming a member will result in higher levels of emigration from CEE EU member states. I examine this assumption in two steps. In a first step, I plot external emigration from Poland and Romania over time. If the assumption holds, we should observe an increase in emigration rates after a country’s accession. Figure \@ref(fig:accession-emigration-bar) displays each country’s emigration rate over time, with the vertical dashed line marking the year of accession to the EU. In both Poland and Romania we can observe a constant emigration rate until joining the EU. Once a country joins and gains access to the FoM, emigration rates pick up. However, the increase is lagged by two years in Poland and four years in Romania. The two countries also display different developments of emigration after the initial increase. Poland’s emigration rate decreases constantly after a peak is reached in 2006, with another small increase around 2013 and 2014. Romania displays a constant increase in emigration after 2010. These two distinctive developments hint at other factors influencing emigration rates along with access to FoM.
 
 In a second step, I perform a Chow-Test [@chowTestsEqualitySets1960] for each NUTS region in Poland and Romania to examine if EU accession creates a break in the rate of emigration over time. A country’s year of accession is set as the break point. The Chow-Test returns a p-value, with which we can determine if the emigration rate displays a significant difference before and after accession. In this specific case, we receive a p-value for every NUTS region in Poland and Romania.
 
-In Poland, 15 of the 17 NUTS2 regions, or around $88\%$, return p-values below conventional statistical significance ($p < 0.05$), while in Romania 38 of the 42 NUTS3 regions, about $90\%$, do. Figure X displays the distribution of every region’s p-value in a boxplot. In these we can observe that in both countries, the p-values are well below conventional levels. This means that in Poland and in Romania, an overwhelming majority of regions display a change in external emigration when the country joins the EU. 
+In Poland, 15 of the 17 NUTS2 regions, or around $88\%$, return p-values below conventional statistical significance ($p < 0.05$), while in Romania 38 of the 42 NUTS3 regions, about $90\%$, do. Figure \@ref(fig:accession-emigration-box) displays the distribution of every region’s p-value in a boxplot. In these we can observe that in both countries, the p-values are well below conventional levels. This means that in Poland and in Romania, an overwhelming majority of regions display a change in external emigration when the country joins the EU. 
 
 Based on the plots and the Chow Test, I assume that there is a link between a country’s accession to the EU and a change in emigration rate. This is because a country’s membership in the EU facilitates emigration, due to the EU’s FoM. However, as the diverging emigration rates between Poland and Romania after joining the EU show, accession is not the only factor that influences external emigration.
+
+```{r accession-emigration-bar, echo=FALSE, fig.height=2, message=FALSE, warning=FALSE, fig.cap="External Emigration over Time. Dashed Line: Year of Accession"}
+grid.arrange(pl_emigration_plot, ro_emigration_plot, ncol = 2)
+```
+
+```{r accession-emigration-box, echo=FALSE, fig.height=2, message=FALSE, warning=FALSE, fig.cap="Distribution of p-values for Chow Test"}
+# Define a layout matrix
+layout_matrix <- rbind(c(1, NA, 2))
+
+# Arrange the plots with the specified layout
+grid.arrange(p_values_pl, p_values_ro, layout_matrix = layout_matrix, widths = c(1, 0.25, 1))
+```
