@@ -1,14 +1,14 @@
 ### Preliminary Analysis
 
-```{r, child = 'accession_emigration.Rmd'}
+```{r, child = 'preliminary_analysis_accession_emigration.Rmd'}
 ```
 
-```{r, child = 'emigration_service_cuts.Rmd'}
+```{r, child = 'preliminary_analysis_emigration_service_cuts.Rmd'}
 ```
 
 <!-- ```{r, child = 'xxx.Rmd'} -->
 <!-- # Does emigration cause grievances? -->
 <!-- ``` -->
 
-```{r, child = 'emigration_incumbent_vote_share.Rmd'}
+```{r, child = 'preliminary_analysis_emigration_incumbent_vote_share.Rmd'}
 ```

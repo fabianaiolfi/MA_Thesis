@@ -1,0 +1,86 @@
+#### Does EU accession affect emigration?  
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+pl_emigration <- pl %>% 
+  group_by(year) %>% 
+  summarise(total_emigration = sum(emigration),
+            total_population = sum(population)) %>% 
+  mutate(emigration_rate = total_emigration / total_population * 1000) %>% 
+  dplyr::filter(year <= 2020)
+
+ro_emigration <- ro %>% 
+  group_by(year) %>% 
+  summarise(total_emigration = sum(emigration),
+            total_population = sum(population)) %>% 
+  mutate(emigration_rate = total_emigration / total_population * 1000) %>% 
+  dplyr::filter(year <= 2020)
+
+pl_emigration_plot <- ggplot(pl_emigration, aes(x = year, y = emigration_rate)) +
+  geom_vline(xintercept = 2004) +
+  geom_bar(stat = "identity") +
+  xlab("") + ylab("") +
+  ggtitle("External Emigration in Poland") +
+  theme_minimal()
+
+ro_emigration_plot <- ggplot(ro_emigration, aes(x = year, y = emigration_rate)) +
+  geom_vline(xintercept = 2007) +
+  geom_bar(stat = "identity") +
+  xlab("") + ylab("") +
+  ggtitle("External Emigration in Romania") +
+  theme_minimal()
+
+# Chow test
+chow_ro <- sctest(ro_emigration$emigration_rate ~ ro_emigration$year,
+       type = "Chow",
+       point = which(ro_emigration$year == 2007))
+
+chow_pl <- sctest(pl_emigration$emigration_rate ~ pl_emigration$year,
+       type = "Chow",
+       point = which(pl_emigration$year == 2004))
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Function to perform Chow test for a single region
+perform_chow_test <- function(data, breakpoint_year) {
+  sctest(emigration_yearly_per_1000 ~ year, data = data,
+         type = "Chow",
+         point = which(data$year == breakpoint_year))
+}
+
+# Applying the function to each NUTS2 region in Poland
+results <- pl %>%
+  group_by(NUTS_ID) %>%
+  do(chow_test = perform_chow_test(., 2004))
+
+# Plot results
+p_values <- sapply(results$chow_test, function(x) x$p.value)
+p_values <- as.data.frame(p_values)
+
+p_values_pl <- ggplot(p_values, aes(x = p_values)) +
+  geom_boxplot() +
+  xlim(0, 0.01) +
+  theme_minimal()
+
+# Applying the function to each NUTS3 region in Romania
+results <- ro %>%
+  group_by(NUTS_ID) %>%
+  do(chow_test = perform_chow_test(., 2007))
+
+# Plot results
+p_values <- sapply(results$chow_test, function(x) x$p.value)
+p_values <- as.data.frame(p_values)
+
+p_values_ro <- ggplot(p_values, aes(x = p_values)) +
+  geom_boxplot() +
+  xlim(0, 0.1) +
+  theme_minimal()
+```
+
+```{r accession-emigration, echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+grid.arrange(pl_emigration_plot, ro_emigration_plot, p_values_pl, p_values_ro, ncol = 2)
+```
+
+I perform a Chow-Test [@chowTestsEqualitySets1960] for each individual country to examine if EU accession creates a break in the rate of emigration over time. The results show that, apart from the Czech Republic, EU accession does create a break in the time series with conventional significance ($p < 0.05$). Because of these breaks in the emigration rates, I assume that there is a link between a country’s accession to the EU and a change in emigration rate. This is because a country’s membership in the EU makes emigration easier, due to the EU’s FoM.
+
+
+

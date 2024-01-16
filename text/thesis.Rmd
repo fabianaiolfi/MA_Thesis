@@ -53,6 +53,7 @@ library(scales)
 library(fixest)
 library(modelsummary)
 library(bookdown)
+library(gridExtra)
 
 options(scipen = 0) # Enable scientific notation
 ```
