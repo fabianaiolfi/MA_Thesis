@@ -153,3 +153,7 @@ worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are or
 
 ```{r, child = 'thesis/06_conclusion/conclusion.Rmd'}
 ```
+
+\newpage
+
+## References
