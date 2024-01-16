@@ -52,14 +52,15 @@ ggplot(anti_incumbent_vote, aes(x = emigration_yearly_per_1000, y = vote_change)
 ## Fixed Effects Models ----------------------------------------------------
 
 fe_lm_1 <- feols(vote_change ~
-                   schools +
-                   hospitals +
-                   third_places +
-                   # emigration_yearly_per_1000 +
-                   average_emigration +
+                   # schools +
+                   # hospitals +
+                   # third_places +
+                   emigration_election_year_per_1000 |
+                   # emigration_yearly_per_1000 |
+                   # average_emigration +
                    # remittances +
-                   volatility +
-                   gdp |
+                   # volatility +
+                   # gdp |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
