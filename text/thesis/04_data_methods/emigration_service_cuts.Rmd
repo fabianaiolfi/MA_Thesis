@@ -1,6 +1,5 @@
-## Does emigration cause service cuts?
+#### Does emigration cause service cuts?
 
-**Poland**
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 pl_schools_lm <- pl_schools %>% dplyr::rename(school_population = population)
 
@@ -60,18 +59,22 @@ fe_lm_9 <- feols(third_places_diff ~
 ```
 
 ```{r pl-emigration-service-cuts, echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
+model_table <- modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
                   "Hospitals" = fe_lm_2, fe_lm_5, fe_lm_8,
                   "Third Places" = fe_lm_3, fe_lm_6, fe_lm_9),
-             title = "DV: Change in Number of Institutions in Poland",
-             coef_map = c(emigration_lagged_1 = "Emigration lagged by 1 year",
-                          emigration_lagged_3 = "Emigration lagged by 3 years",
-                          emigration_lagged_5 = "Emigration lagged by 5 years"),
+             title = "DV: Yearly Change in Number of Institutions in Poland",
+             coef_map = c(emigration_lagged_1 = "Emigration (1 year lag)",
+                          emigration_lagged_3 = "Emigration (3 year lag)",
+                          emigration_lagged_5 = "Emigration (5 year lag)"),
+             gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,
-             statistic = NULL)
+             statistic = NULL,
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region")
+
+model_table %>%
+  kable_styling(font_size = 8)
 ```
 
-**Romania**
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ro_schools_lm <- ro_schools %>% dplyr::rename(school_population = population)
 
@@ -130,21 +133,26 @@ fe_lm_9 <- feols(third_places_diff ~
                  data = ro_emigration_service_cuts)
 ```
 
-```{r ro-emigration-service-cuts, echo=FALSE, message=FALSE, warning=FALSE}
-modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
+```{r ro-emigration-service-cuts, results='asis', echo=FALSE, message=FALSE, warning=FALSE}
+model_table <- modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
                   "Hospitals" = fe_lm_2, fe_lm_5, fe_lm_8,
                   "Third Places" = fe_lm_3, fe_lm_6, fe_lm_9),
-             title = "DV: Change in Number of Institutions in Romania",
-             coef_map = c(emigration_lagged_1 = "Emigration lagged by 1 year",
-                          emigration_lagged_3 = "Emigration lagged by 3 year",
-                          emigration_lagged_5 = "Emigration lagged by 5 years"),
+             title = "DV: Yearly Change in Number of Institutions in Romania",
+             coef_map = c(emigration_lagged_1 = "Emigration (1 year lag)",
+                          emigration_lagged_3 = "Emigration (3 year lag)",
+                          emigration_lagged_5 = "Emigration (5 year lag)"),
+             gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,
-             statistic = NULL)
+             statistic = NULL,
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region")
+
+model_table %>%
+  kable_styling(font_size = 8)
 ```
 
 - I model lagged emigration on the change in institutions seperately for Poland and Romania. I use a fixed effects OLS model, as I am using panel data over time while examining subnational regions within a country.
 - The dependent variable is the change in the number of institutions for each consecutive year. I model each institution (schools, hospitals, third places) in three separate models.
 - The independent variable is the lagged emigration rate. I model three different lags as a robustness check.
 - Table \@ref(tab:pl-emigration-service-cuts) displays results for Poland. We can observe negative coefficient almost throughout. This indicates that a higher emigration rate is associated with a decrease in the number of institutions, apart from the number of schools when emigration is lagged by one year. Statistically significant results are only observable when modelling lagged emigration on third places closings. Shorter lag times display a stronger effect. This could be due to the effect of emigration, and thus less customers, has a more immediate impact on a bar and can force it to shut down in the short turn.
-- Table \@ref(tab: ro-emigration-service-cuts) displays results for Romania.
+- Table \@ref(tab:ro-emigration-service-cuts) displays results for Romania.
 - Most coefficients are not statistically significant at conventional levels, however some are borderline statistically significant (Number of schools and emigration lagged by 5 year: $p = 0.132$, number of hospitals and emigration lagged by 5 year: $p = 0.24$), indicating that further research is merited.
