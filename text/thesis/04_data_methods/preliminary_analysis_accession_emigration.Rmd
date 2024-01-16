@@ -56,9 +56,11 @@ results <- pl %>%
 p_values <- sapply(results$chow_test, function(x) x$p.value)
 p_values <- as.data.frame(p_values)
 
+p_values_significant <- p_values %>% dplyr::filter(p_values <= 0.05)
+
 p_values_pl <- ggplot(p_values, aes(x = p_values)) +
   geom_boxplot() +
-  xlim(0, 0.01) +
+  xlim(0, 0.05) +
   theme_minimal()
 
 # Applying the function to each NUTS3 region in Romania
@@ -70,9 +72,11 @@ results <- ro %>%
 p_values <- sapply(results$chow_test, function(x) x$p.value)
 p_values <- as.data.frame(p_values)
 
+p_values_significant <- p_values %>% dplyr::filter(p_values <= 0.05)
+
 p_values_ro <- ggplot(p_values, aes(x = p_values)) +
   geom_boxplot() +
-  xlim(0, 0.1) +
+  xlim(0, 0.05) +
   theme_minimal()
 ```
 
@@ -80,12 +84,10 @@ p_values_ro <- ggplot(p_values, aes(x = p_values)) +
 grid.arrange(pl_emigration_plot, ro_emigration_plot, p_values_pl, p_values_ro, ncol = 2)
 ```
 
-Gaining EU membership grants member states access to the EU’s Freedom of Movement (FoM), facilitating migration between member states. Thus we can assume that becoming a member will result in higher levels of emigration from CEE EU member states. I examine this assumption in two steps. In a first step, I plot external emigration from Poland and Romania over time. If the assumption holds, we should observe an increase in emigration rates after a country’s accession. Figure X displays each country’s emigration rate over time, with the vertical dashed line marking the year of accession to EU membership. In both Poland and Romania we can observe a constant emigration rate up until accession. Once a country joins the EU, emigration rates pick up. However, the increase is lagged by two years in Poland and four years in Romania. The two countries also display different developments of emigration after the increase. Poland’s emigration rate decreases constantly after a peak is reached in 2006, with another small increase around 2013 and 2014. On the other hand, Romania displays a constant increase in emigration after 2010. These two distinctive developments hint at other factors influencing emigration rates along with access to FoM.
+Gaining EU membership grants member states access to the EU’s Freedom of Movement (FoM), facilitating migration between member states. Thus we can assume that becoming a member will result in higher levels of emigration from CEE EU member states. I examine this assumption in two steps. In a first step, I plot external emigration from Poland and Romania over time. If the assumption holds, we should observe an increase in emigration rates after a country’s accession. Figure X displays each country’s emigration rate over time, with the vertical dashed line marking the year of accession to the EU. In both Poland and Romania we can observe a constant emigration rate until joining the EU. Once a country joins and gains access to the FoM, emigration rates pick up. However, the increase is lagged by two years in Poland and four years in Romania. The two countries also display different developments of emigration after the initial increase. Poland’s emigration rate decreases constantly after a peak is reached in 2006, with another small increase around 2013 and 2014. Romania displays a constant increase in emigration after 2010. These two distinctive developments hint at other factors influencing emigration rates along with access to FoM.
 
-In a second step, I perform a Chow-Test [@chowTestsEqualitySets1960] for each NUTS region in Poland and Romania to examine if EU accession creates a break in the rate of emigration over time. A country’s year of accession is set as the break point. The Chow-Test returns a p-value, with which we can determine if the emigration rate displays a significant difference before and after accession.
+In a second step, I perform a Chow-Test [@chowTestsEqualitySets1960] for each NUTS region in Poland and Romania to examine if EU accession creates a break in the rate of emigration over time. A country’s year of accession is set as the break point. The Chow-Test returns a p-value, with which we can determine if the emigration rate displays a significant difference before and after accession. In this specific case, we receive a p-value for every NUTS region in Poland and Romania.
 
+In Poland, 15 of the 17 NUTS2 regions, or around $88\%$, return p-values below conventional statistical significance ($p < 0.05$), while in Romania 38 of the 42 NUTS3 regions, about $90\%$, do. Figure X displays the distribution of every region’s p-value in a boxplot. In these we can observe that in both countries, the p-values are well below conventional levels. This means that in Poland and in Romania, an overwhelming majority of regions display a change in external emigration when the country joins the EU. 
 
-The results show that, apart from the Czech Republic, EU accession does create a break in the time series with conventional significance ($p < 0.05$). Because of these breaks in the emigration rates, I assume that there is a link between a country’s accession to the EU and a change in emigration rate. This is because a country’s membership in the EU makes emigration easier, due to the EU’s FoM.
-
-
-In sum, accession may not be the only cause, but it certainly brings a new dynamic into the emigration rate over time.
+Based on the plots and the Chow Test, I assume that there is a link between a country’s accession to the EU and a change in emigration rate. This is because a country’s membership in the EU facilitates emigration, due to the EU’s FoM. However, as the diverging emigration rates between Poland and Romania after joining the EU show, accession is not the only factor that influences external emigration.
