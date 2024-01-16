@@ -1,0 +1,45 @@
+#### Does emigration affect incumbent vote share?
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Poland
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(country == "Poland") %>%
+  dplyr::filter(prev_incumbent == T) %>%
+  left_join(dplyr::select(pl, year, NUTS_ID, emigration_election_year_per_1000), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
+  left_join(dplyr::select(pl_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
+  left_join(dplyr::select(pl_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(dplyr::select(pl_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID"))
+
+fe_lm_pl <- feols(vote_change ~ emigration_election_year_per_1000 | nuts2016 + year, data = anti_incumbent_vote)
+
+# Romania
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(country == "Romania") %>%
+  dplyr::filter(prev_incumbent == T) %>%
+  left_join(dplyr::select(ro, year, NUTS_ID, emigration_election_year_per_1000), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
+  left_join(dplyr::select(ro_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
+  left_join(dplyr::select(ro_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(dplyr::select(ro_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID"))
+
+fe_lm_ro <- feols(vote_change ~ emigration_election_year_per_1000 | nuts2016 + year, data = anti_incumbent_vote)
+```
+
+```{r emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE}
+model_table <- modelsummary(list("Poland" = fe_lm_pl,
+                                 "Romania" = fe_lm_ro),
+             title = "DV: Change in Incumbent Vote Share",
+             coef_map = c(emigration_election_year_per_1000 = "Emigration since last election"),
+             gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
+             stars = T,
+             statistic = NULL,
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region.")
+
+model_table %>%
+  kable_styling(font_size = 10)
+```
+
+I examine if there is an association between emigration rates and anti-incumbent voting. Following the theory, emigration cause grievances, which in turn can manifest as a vote against the incumbent party. Thus I expect that higher emigration to be associated with a decrease in incumbent vote share.
+
+As the dependent variable I use the incumbent vote change between national parliamentary elections. The model uses the total emigration rate from a region between two elections as the independent variable. The precise operationalisation of these variables are described in XXX (TO DO). I model Poland and Romania seperately, using a fixed effects OLS estimation. Results for both models are displayed in Table \@ref(tab:emigration-incumbent-vote-share).
+
+Emigration does not have a significant effect on incumbent voting in Poland. Also, the coefficient is positive, which indicates that an increase in emigration is associated with an increase in incumbent vote share. Romania displays a result that aligns better with my theory. Here, higher emigration rates between elections are associated with a relatively strong decrease in incumbent vote share. An increase of one emigration per thousand inhabitants of a region is associated with a decrease of incumbent vote share of about $6.5\%$. The coefficient displays statistical significance at conventional levels. Furthermore, the Romanian model displays relatively high $R^2$ levels, indicating that the model explains a large part of the dependent’s variable overall variance.

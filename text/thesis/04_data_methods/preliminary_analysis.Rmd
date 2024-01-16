@@ -1,8 +1,14 @@
 ### Preliminary Analysis
-- Does EU accession affect emigration?
+
+```{r, child = 'accession_emigration.Rmd'}
+```
 
 ```{r, child = 'emigration_service_cuts.Rmd'}
 ```
 
-- Does emigration cause grievances?
-- Does emigration affect incumbent vote share?
+<!-- ```{r, child = 'xxx.Rmd'} -->
+<!-- # Does emigration cause grievances? -->
+<!-- ``` -->
+
+```{r, child = 'emigration_incumbent_vote_share.Rmd'}
+```

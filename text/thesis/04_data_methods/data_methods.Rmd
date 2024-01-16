@@ -3,15 +3,18 @@
 ```{r, child = 'overview.Rmd'}
 ```
 
-```{r, child = 'preliminary_analysis.Rmd'}
-```
-
 ### Operationalising DV and IV
 - Service Cuts: Ratio of target audience to institutions, e.g., number of school children per school, and its average change between two elections
 - Incumbent vote change between national parliamentary elections
+- Emigration rate (based on Dancygier et al., 2022, 17)
 
 ### Selecting Poland and Romania as typical CEE EU member states with high emigration rates
+- prototypical countries for emigration?
+- migration from these countries in the media
+
+```{r, child = 'preliminary_analysis.Rmd'}
+```
 
 ### Models: Mediation analysis, interactions and fixed effects
 - Empirical specification based on operationalised variables
-- Control variables: Emigration rate (based on Dancygier et al., 2022, 17), electoral volatility, GDP, grievances
+- Control variables: Emigration rate, electoral volatility, GDP, grievances
