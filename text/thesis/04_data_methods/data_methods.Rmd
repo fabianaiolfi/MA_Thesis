@@ -15,6 +15,5 @@
 ```{r, child = 'preliminary_analysis.Rmd'}
 ```
 
-### Models: Mediation analysis, interactions and fixed effects
-- Empirical specification based on operationalised variables
-- Control variables: Emigration rate, electoral volatility, GDP, grievances
+```{r, child = 'models.Rmd'}
+```
