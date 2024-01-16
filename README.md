@@ -9,6 +9,7 @@
 - [ ] Create summary stats of data used: Elections, etc.
 - [ ] Address decrease in number of Romanian schools in early 2000s
 - [ ] Maybe use a table to explain how I calculate average change in ratio or emigration, by using a simple example
+- [ ] Check for contractions and remove them
 
 ----
 
