@@ -5,6 +5,7 @@
 
 ### Operationalising DV and IV
 - Service Cuts: Ratio of target audience to institutions, e.g., number of school children per school, and its average change between two elections
+	- I use ratios because it is an innovative approach to operationalising service cuts. It focuses on the changing ratio of the target audience to the number of institutions. This is insighful because it reflects the impact of service cuts in the region. I use the ratio as a way to measure the effect of less institutions on the well-being of citizens. I assume that a region’s inhabitants do not know the region’s overall trend of number of institutions, but they will feel an increase in the number of people in an institution, e.g. a fuller school or a fuller hospital. As discussed in the theory, this will manifest in grievances, which I argue will 
 - Incumbent vote change between national parliamentary elections
 - Emigration rate (based on Dancygier et al., 2022, 17)
 

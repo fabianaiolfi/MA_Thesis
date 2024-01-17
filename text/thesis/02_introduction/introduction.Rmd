@@ -1,5 +1,6 @@
 ## Introduction
 - Thesis overview
+	- Add explanation what NUTS regions are
 - Thesis relevance and motivation
 	- EU’s Freedom of Movement, a foundational aspect of the EU, and its impact on emigration in Europe, especially new EU member states in Central and Eastern Europe (CEE)
 	- Effects of emigration on sending countries as a blind spot in political science research
