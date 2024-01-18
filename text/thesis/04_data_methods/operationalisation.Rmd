@@ -3,7 +3,9 @@
 #### Dependent Variable: Incumbent Vote Share Change
 In my analysis, the dependent variable is the change in incumbent vote share. To operationalize this, I pick two consecutive national parliamentary elections, referred to as E0 and E1. Following the incumbent definition provided in paragraph X (TO DO), I categorize each party as either incumbent or non-incumbent. Next, I calculate the change in the party's vote share from E0 to E1. If this change is a positive value, the incumbent party has gained vote share. Conversely, a negative value signifies a loss in vote share for the incumbent party.
 
-#### Independent Variable: Emigration Rate
+#### Independent Variables
+
+Emigration Rate
 - In operationalising emigration rate, I follow @dancygierEmigrationRadicalRight2022 [17]. I only take the number of departures from a NUTS region into account, because I want to examine the effect of people leaving, and not, say, net migration which calculates the difference between emigration and immigration.
 - I only take external emigration into account, i.e., migration abroad, and discard internal emigration from one region into another. I focus on this because I aim to capture the effect of country’s accession into the EU and with it, its gain to the EU’s Freedom of Movement.
 - I operationalise emigration rate as the sum of emigrants in a region between two elections, divided by the average population in that region between the elections. I then multiply this value by 1000 in order to get the value per 1000 inhabitants. 

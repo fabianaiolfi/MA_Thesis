@@ -1,5 +1,13 @@
 ### Preliminary Analysis
 
+- in order to test the hypotheses, three assumptions have to hold
+- one, does a country’s accession to the EU affect external emigration?
+- two, does external emigration affect service cuts?
+- three, does external emigration affect incumbent vote share?
+- i examine these three assumptions by setting up two-way fixed effects linear regression models using the data described above
+- I apply Two-way fixed effects models as this helps model data that varies across both regions and years
+- the Polish model use NUTS2 and Romanian models NUTS3 regions as well as years as fixed effects, allowing me to remove any potentially confounding unobserved region- or time-specific factors.
+
 ```{r, child = 'preliminary_analysis_accession_emigration.Rmd'}
 ```
 
