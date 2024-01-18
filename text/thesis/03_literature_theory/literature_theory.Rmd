@@ -8,6 +8,11 @@
 	- Third places closures, based on Bolet (2021)
 - Causal chain of events based on research question: Emigration → Service Cuts → Grievances → Anti-Incumbent Vote
 - Hypotheses
-	- H1: Service cuts to schools lead to an increase in the region’s anti-incumbent vote.
-	- H2: Service cuts to hospitals lead to an increase in the region’s anti-incumbent vote.
-	- H3: Service cuts to “third places” lead to an increase in the region’s anti-incumbent vote.
+	- H1: Service cuts to schools lead to a decrease in the region’s incumbent vote share.
+	- H2: Service cuts to hospitals lead to a decrease in the region’s incumbent vote share.
+	- H3: Service cuts to “third places” lead to a decrease in the region’s incumbent vote share.
+	
+### Case Study Selection
+- Selecting Poland and Romania as typical CEE EU member states with high emigration rates
+- prototypical countries for emigration?
+- migration from these countries in the media

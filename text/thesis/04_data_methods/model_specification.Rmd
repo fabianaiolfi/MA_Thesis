@@ -1,0 +1,23 @@
+### Model Specification
+- Empirical specification based on operationalised variables
+
+- in the preliminary analysis we have established that there is a negative correlation between emigration and incumbent vote share in romania
+
+- i use two different approaches to answer my hypotheses:
+
+1. do service cuts affect incumbent vote share when controlling for emigration? i control for emigration in order to isolate the effect of service cuts
+	- what is the direct impact of service cuts on incumbent vote share? i try to isolate the effect
+	- “Without controlling for emigration, it would be challenging to determine if changes in incumbent vote share are due to service cuts or the existing emigration trends.”
+
+2. is emigration conditioned on emigration level when examining its effect on incumbent vote share?
+	- is the effect of emigration on incumbent vote share conditioned by service cuts?
+	- this provides insight into the interaction between these two variables
+	- “It allows you to understand if and how the impact of emigration on voting patterns is modified in the context of service cuts.”
+	- “This is important because it's possible that service cuts amplify or mitigate the negative effects of emigration on incumbent support, … thus further decreasing support for the incumbent”
+
+- i do both approaches because it provides a more comprehensive and robust exploration of how service cuts and emigration individually and interctively influence incumbnet vote share. 
+
+
+
+
+2. is there a service cut that acts as a conditioning factor that influences this relationship? → Interactions between emigration and service cuts

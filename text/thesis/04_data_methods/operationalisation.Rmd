@@ -1,7 +1,20 @@
 ### Operationalising DV and IV
 
-Service Cuts
+#### Dependent Variable: Incumbent Vote Share Change
+In my analysis, the dependent variable is the change in incumbent vote share. To operationalize this, I pick two consecutive national parliamentary elections, referred to as E0 and E1. Following the incumbent definition provided in paragraph X (TO DO), I categorize each party as either incumbent or non-incumbent. Next, I calculate the change in the party's vote share from E0 to E1. If this change is a positive value, the incumbent party has gained vote share. Conversely, a negative value signifies a loss in vote share for the incumbent party.
 
+#### Independent Variable: Emigration Rate
+- In operationalising emigration rate, I follow @dancygierEmigrationRadicalRight2022 [17]. I only take the number of departures from a NUTS region into account, because I want to examine the effect of people leaving, and not, say, net migration which calculates the difference between emigration and immigration.
+- I only take external emigration into account, i.e., migration abroad, and discard internal emigration from one region into another. I focus on this because I aim to capture the effect of country’s accession into the EU and with it, its gain to the EU’s Freedom of Movement.
+- I operationalise emigration rate as the sum of emigrants in a region between two elections, divided by the average population in that region between the elections. I then multiply this value by 1000 in order to get the value per 1000 inhabitants. 
+- Table X displays this calculation with an example (TO DO add table)
+- This operationalisation aims at capturing the outflow of people and its impact on the remaining inhabitants. 
+- I use the sum of all emigrants from a region between two elections in order to capture the extent of the effect of emigration that a voter could feel when they cast their ballot.
+- Averaging the population is a means to find a middle value in the same time period, i.e., between two elections
+- Finally, I divide by the population and times by 1000 in order to make the rate comparable between regions.
+
+
+Service Cuts
 I operationalise service cuts based on the assumption that a person's experience of a service is influenced by the user density per service point (e.g., schools, hospitals). As more people use a single service point, individual experiences tend to deteriorate. This is due to factors like diminished individual attention, overstretched personnel and longer waiting times. A service cut, such as the closure of a hospital, typically results in an increased number of users at remaining facilities, leading to a perceived decrease in service quality. By using the ratio of people per institution, I aim to capture the perceived quality of a service. This offers a more nuanced understanding than merely counting the number of institutions. This approach acknowledges that the development of grievances, influenced by service quality, can eventually impact voting behavior.
 
 Service cuts are operationalized by examining the average changing ratio of institutions to their respective target audiences between two elections. This can be best understood through an example. The number of primary-aged children per school in a specific NUTS region in a given year equals the ratio. This ratio varies annually and is recorded in the “yearly change” column. To calculate the average change between two elections, I average all the “yearly change” values starting from the year of the last election and ending one year before the next election.
@@ -12,13 +25,7 @@ As described in the Theory section, the three service cuts under examination are
 
 My focus on primary schools is based on the assumption that their closures have a stronger impact compared to the closure of vocational or high schools, for the following reasons. Primary schools act as community centers for young families. Their closure affects not just the pupils but also their families and the wider community, disrupting established community networks. The closure of a local primary school can lead to longer commute times for school children and their accompanying parents, as they are compelled to send their children to more distant schools as local schools have closed. This increase in travel time can foster negative sentiments towards the closure and contribute to the development of grievances.
 
+#### Control Variables
+volatility
+gdp
 
-- Service Cuts: Ratio of target audience to institutions, e.g., number of school children per school, and its average change between two elections
-	- I use ratios because it is an innovative approach to operationalising service cuts. It focuses on the changing ratio of the target audience to the number of institutions. This is insighful because it reflects the impact of service cuts in the region. I use the ratio as a way to measure the effect of less institutions on the well-being of citizens. I assume that a region’s inhabitants do not know the region’s overall trend of number of institutions, but they will feel an increase in the number of people in an institution, e.g. a fuller school or a fuller hospital. As discussed in the theory, this will manifest in grievances, which I argue will 
-
-
-- Incumbent vote change between national parliamentary elections
-- Emigration rate (based on Dancygier et al., 2022, 17)
-	- only external emigraiton, because of FoM
-	- only counting emigrants, because i want to examine the effect of people leaving
-	- how i calculate the average between elections
