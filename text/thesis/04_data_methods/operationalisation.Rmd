@@ -26,6 +26,5 @@ As described in the Theory section, the three service cuts under examination are
 My focus on primary schools is based on the assumption that their closures have a stronger impact compared to the closure of vocational or high schools, for the following reasons. Primary schools act as community centers for young families. Their closure affects not just the pupils but also their families and the wider community, disrupting established community networks. The closure of a local primary school can lead to longer commute times for school children and their accompanying parents, as they are compelled to send their children to more distant schools as local schools have closed. This increase in travel time can foster negative sentiments towards the closure and contribute to the development of grievances.
 
 #### Control Variables
-volatility
-gdp
-
+- operationalisation of volatility using pedersen index
+- operationalisation of gdp using source
