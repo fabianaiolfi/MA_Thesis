@@ -19,7 +19,7 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
 ```
 
-## Ratios
+### Ratios
 **Just using Service Cuts (no control variables)**
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}

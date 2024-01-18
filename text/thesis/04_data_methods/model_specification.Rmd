@@ -2,45 +2,49 @@
 <!-- Empirical specification based on operationalised variables -->
 
 <!-- Intro -->
-In the preliminary analysis, I establish a negative correlation between emigration and the change in incumbent vote share in Romania. Building upon this  finding, I develop two model specifications to test the hypotheses.
+In the preliminary analysis, I establish a negative correlation between emigration and the change in incumbent vote share in Romania. Building upon this  finding, I develop two model specifications to test the hypotheses that service cuts decrease incumbent support. I choose this approach as it provides a more comprehensive and robust exploration of how service cuts and emigration may individually and interctively affect incumbnet vote share.
 
 <!-- model specification 1 -->
 The aim of the first model specification is to analyse the isolated effect of service cuts on incumbent vote share. Thus service cuts form the independent variable in this model specification. To ensure that the effect of service cuts is isolated, I control for emigration, as emigration rates vary across NUTS3 regions within Romania and, as previously established, influence incumbent vote share. 
 
 Additionally, to further isolate the effect of service cuts on incumbent vote share, the model will control for factors such as electoral volatility and GDP, as both of there factors influence incumbent vote share, as explained in the Theory section.
 
-- Using this model specification, I set up a two-way fixed effects linear regression model (https://theeffectbook.net/ch-FixedEffects.html#multiple-sets-of-fixed-effects), using NUTS3 regions and years as fixed effects.
-- This accounts for region- and time-specific factors that may confound results.
+Using this model specification, I set up a two-way fixed effects linear regression model^[https://theeffectbook.net/ch-FixedEffects.html#multiple-sets-of-fixed-effects], using NUTS3 regions and years as fixed effects. By using fixed effects, I can account for region- and time-specific factors that may confound results.
 
-- This leads to the first model specification:
+This leads to the first model specification:
 
-Incumbent Vote Share Change[n][y] =
-β[n] +
-β[y] +
-β1 * Emigration Rate[n][y] +
-β2 * Service Cuts[n][y] +
-ε[n][y]
+<!-- \begin{equation} -->
+<!-- \begin{aligned} -->
 
-- Where the subscript n symbolises a Romanian NUTS3 region and subscript y indicates an election year.
-- The operationalisation of Emigration Rate and Service Cuts are described in X
-- ε denotes the error term
+<!-- Incumbent \; Vote \; Share \; Change_{n, y} = \beta_n & + \beta_y & \\ -->
+<!--       & + \beta_1Emigration \; Rate_{n, y} \\ -->
+<!--       & + \beta_2Service \; Cuts_{n, y} \\ -->
+<!--       & + \beta_3Electoral \; Volatility_{n, y} \\ -->
+<!--       & + \beta_4GDP_{n, y} \\ -->
+<!--       & + \varepsilon -->
 
-- The aim of the second model specification is to examine if the effect of emigration on incumbent vote share is conditioned by service cuts.
-- this allows to examine if and how the impact of emigration on incumbent voting is modified in the context of service cuts.
-- thus the second model specification builds on the first specification and adds an interaction term between emigration and service cuts, providing an insight into the interaction between these two variables
-- Examining this interaction can help us understand if the two variables have a significant interaction at all and if an increase in service cuts amplifies the negative effect of emigration on incumbent support.
-- This leads to the second model speficication:
+<!-- \end{aligned} -->
+<!-- \end{equation} -->
 
-Incumbent Vote Share Change[n][y] =
-β[n] +
-β[y] +
-β1 * Emigration Rate[n][y] +
-β2 * Service Cuts[n][y] +
-β3 * (Emigration Rate[n][y] * Service Cuts[n][y]) +
-ε[n][y]
+The subscript n symbolises a Romanian NUTS3 region and subscript y indicates an election year. The operationalisation of Emigration Rate and Service Cuts are described in X (TO DO). ε denotes the error term.
 
+<!-- model specification 2 -->
+The second model specification is designed to examine if the impact of emigration on incumbent vote share is conditioned by service cuts. This examination focuses on two aspects. First, it determines whether a significant interaction exists between emigration and service cuts. Second, it assesses how changes in service cuts modify the negative effect of emigration on incumbent support. By analysing the interaction between emigration and service cuts, the model can reveal if service cuts increase or decrease the effects of emigration on incumbent support, thus testing the hypotheses.
 
-- both models will separately model the three discussed service cuts individually (school closings, hospital closings, third places closings)
+This second model specification builds upon the first by adding an interaction term between emigration and service cuts.
 
+<!-- \begin{equation} -->
+<!-- \begin{aligned} -->
 
-- i do both approaches because it provides a more comprehensive and robust exploration of how service cuts and emigration individually and interctively influence incumbnet vote share. 
+<!-- Incumbent \; Vote \; Share \; Change_{n, y} = \beta_n & + \beta_y & \\ -->
+<!--       & + \beta_1Emigration \; Rate_{n, y} \\ -->
+<!--       & + \beta_2Service \; Cuts_{n, y} \\ -->
+<!--       & + \beta_2 (Emigration \; Rate_{n, y} \times Service \; Cuts_{n, y}) \\ -->
+<!--       & + \beta_3Electoral \; Volatility_{n, y} \\ -->
+<!--       & + \beta_4GDP_{n, y} \\ -->
+<!--       & + \varepsilon -->
+
+<!-- \end{aligned} -->
+<!-- \end{equation} -->
+
+In both model specifications, each service cut, i.e. school closings, hospital closings, third places closings, will be modelled seperately. 

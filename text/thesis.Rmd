@@ -4,8 +4,8 @@ output:
   bookdown::pdf_document2:
     latex_engine: xelatex
     extra_dependencies: "microtype"
-    toc: false
-    toc_depth: 2
+    toc: true
+    toc_depth: 4
     number_sections: false
 mainfont: Times New Roman
 fontsize: 12pt
