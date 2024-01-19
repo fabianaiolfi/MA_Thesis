@@ -16,7 +16,46 @@ One concrete example why this is important is shown by @barsbaiEffectLaborMigrat
 
 A further reason why the effects of emigration on voting behaviour is important is its implications on voting for populist and radical right parties [@dancygierEmigrationRadicalRight2022 34; @limElectoralConsequencesInternational2023 56; @heroldSchrumpfendeRegionenFrustrierte2020 19]. 
 
-@dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of PRR parties. The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. These grievances then affect voting behaviour. Finally, voters turn against incumbents and cast a ballot for PRR parties.
+@dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of PRR parties. The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. …
+
+
+- however, there are several reasons why a vote for prr can be questioned
+- grievances caused by emigration does not necessarily have to lead to a vote for prr. it can also just change the voting behaviour of the voter.
+- this is how i argue my case
+- the grievaces described by dancygier are less intimate and of family nature than the ones described by ivlevs
+- dancygier’s grievances are more economic nature, because they are caused by service cuts
+
+- when examining the impact of emigration on the sending country, it is important to take into account the reason for emigration (kapur)
+- Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810]
+- thus i aruge that the grievances of the people left behind is linked to economic factors and less to family matters
+
+- because they are less intimate, i assume that dancygier’s grievances are voiced more in public, e.g., at the ballot box
+- thus these grievances affect primarily voting behaviour, and don’t necessarily  have to lead to a prr vote
+
+
+
+
+a reason for someone’s emigration helps explain the impact on the sending country
+
+if a person leaves due to economical reasons, the grievances back home will be caused by economical reasons too
+
+
+- i argue that these grievances are different to the ones decribed by ivlevs.
+- ivlevs: very intimate grievances, caused by family matters
+- dancygier: grievances are more general and economic nature, because they are caused by service cuts
+- because they are less intimate, i assume that dancygier’s grievances are voiced more in public, e.g., at the ballot box
+- thus these grievances affect voting behaviour
+- dancygier goes on to say that voting behaviour is changed in such a way that voters turn against incumbents and cast a ballot for PRR parties.
+
+
+- kapur: why someone emigrates is important to understand its impact
+
+
+… who creates a link between *why* someone leaves a country with the sort of impact it has on the departed country
+
+- i want to examine this causal chain of events and zoom in on the grievances and on voting for PRR parties
+
+
 
 - focus on the grievances
 - Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810]
