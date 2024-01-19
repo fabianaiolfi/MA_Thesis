@@ -1,7 +1,6 @@
 ## Literature Review and Theory
 
 <!-- Emigration affects voting behaviour and electoral outcomes. It changes the electoral composition and influences the people left behind. -->
-
 The impact of emigration on voting behaviour and electoral outcomes varies by time and location. A variety of studies have explored this phenomenon, ranging from 19th-century Sweden [@karadjaExitVoicePolitical2019 2] to early 21st-century Mexico [@pfutzeClientelismSocialLearning2014a 295].
 
 Emigration can affect electoral outcomes in two ways. First, emigration can change the composition of the electorate. @limElectoralConsequencesInternational2023 [39] shows that emigrants from CEE are disproportionately younger, cosmopolitan and politically progressive, resulting in a remaining population that is older and more conservative. As a result, electoral results are more likely to be conservative.
@@ -63,23 +62,24 @@ To underline the importance of school and hospital closings, @dancygierEmigratio
 <!-- third places -->
 Schools and hospital closings are services made available by the state. In contrast, “third places” are supplied by the private sector. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021 1653].
 
-#### Control variables
+### Hypotheses
+As a general relation between dependent and independent variables, I assume an increase in service cuts leads to a decrease in incumbent support. I define the following three hypotheses:
+
+- H1: Service cuts to schools lead to a decrease in the region’s incumbent support.
+- H2: Service cuts to hospitals lead to a decrease in the region’s incumbent support.
+- H3: Service cuts to “third places” lead to a decrease in the region’s incumbent support.
+
+### Case Study Selection
+- @dancygierEmigrationRadicalRight2022 look at emigration and its effects in Sweden
+- I argue that this mechanism of emigration causing grievances can also apply to other states because [fill in gap here]
+- I set my focus on CEE EU member states, because these countries have experienced a large increase in emigration since joining the EU in the 2000s, thanks to gaining access to the EU’s Freedom of Movement
+- Specifically, I set out to examine Poland and Romania as these two CEE EU member states continuously show the highest number of yearly emigrants compared to the other CEE EU member states.^[Eurostat Variable migr_emi1ctz: Total number of long-term emigrants leaving from the reporting country during the reference year (https://ec.europa.eu/eurostat/databrowser/view/tps00177__custom_9431582/default/table?lang=en, retrieved 19 January 2024)]
+- By selecting these two countries with high emigration rates, I assume it to be easier to measure the effect of emigration induced service cuts on incumbent support.
+
+<!-- Control variables -->
 - in order to islolate the effect of emigration and service cuts on incumbent support, i control for the following factors that also have an effect on incumbent vote share
 - I control for general electoral volatility. CEE states show higher levels of electoral volatility than states in Western Europe, Latin America or the United States [@epperlyInstitutionsLegaciesElectoral2011 831]. This volatility most often hits incumbent parties [@bochslerThreeStagesIncumbency2019 1].
-
-	- economic performance
-
-
-
-- Hypotheses
-	- H1: Service cuts to schools lead to a decrease in the region’s incumbent vote share.
-	- H2: Service cuts to hospitals lead to a decrease in the region’s incumbent vote share.
-	- H3: Service cuts to “third places” lead to a decrease in the region’s incumbent vote share.
-	
-### Case Study Selection
--  I argue that this also applies to CEE EU member states. I also argue that if voters cast their ballots retrospectively, it is not only populist parties that may benefit. Rather, emigration could also lead to an increase in anti-incumbent voting.
-- Selecting Poland and Romania as typical CEE EU member states with high emigration rates
-- prototypical countries for emigration?
-- migration from these countries in the media
+- I also control for the region’s economic performance. incumbent parties are often judged by their economic performance, thus it makes sense to control for this factor in order to further isolate the effect of emigration and service cuts on incumbent support
+	- TO DO: find literature here!
 
 
