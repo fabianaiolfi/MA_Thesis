@@ -1,3 +1,8 @@
+### Research Design
+- I differentiate between internal and external migration and focus on the latter, as I want to examine the effect of the EU’s FoM on emigration and voting behaviour.
+- I will measure the effect of service cuts on a subnational, NUTS3 level, data permitting. I do this for the following two reasons. First, measuring subnational regions instead of countries will increase sample size and thus provide more accurate results. Second, regions within countries have different levels of emigration (see Figure TO DO: line chart of PL and RO NUTS emigration), allowing for differentiated measurements.
+
+
 ### Overview of available data, how it was collected and transformed
 
 <!-- Incumbent Party -->

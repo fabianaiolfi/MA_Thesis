@@ -52,3 +52,7 @@ Note: The NUTS3 region ROxx has a Pedersen Index of xx in the year 2012.
 - i use the GDP per capita as a general indicator for a region’s economic performance under the assumption that this value captures the overall economic performance in a way that is comparable across different regions within a country
 - the second is a region’s unemployment rate, provided by the romanian statistical agency^[Variable SOM103A: Unemployment rate by gender, macroregions, development regions and counties (http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table, retrieved 19 January 2024)]
 - I use the unemployment rate as an indicator for the overall economic mood in a region. The unemployment rate is a common indicator to judge the incumbent party’s economic performance by. It is widely recognised and used by voters and the media alike.
+
+<!-- incorporate this, but rewrite for it to fit into “economic performance” -->
+- @powellRevisitingElectoralVolatility2014 [139, 143] show that economic downturns, specifically shifts in GDP since the fall of Communism, lead to a higher likelihood of the electorate switching to a new party. 
+- This observation aligns with @bertusGeographyElectoralVolatility2022 [77]’s study, highlighting that in smaller Hungarian settlements, socioeconomic dynamics and labour market conditions explain electoral shifts.

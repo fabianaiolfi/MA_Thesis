@@ -73,6 +73,10 @@ As a general relation between dependent and independent variables, I assume an i
 - @dancygierEmigrationRadicalRight2022 look at emigration and its effects in Sweden
 - I argue that this mechanism of emigration causing grievances can also apply to other states because [fill in gap here]
 - I set my focus on CEE EU member states, because these countries have experienced a large increase in emigration since joining the EU in the 2000s, thanks to gaining access to the EU’s Freedom of Movement
+
+<!-- rewrite this to fit into here better -->
+- I will examine CEE EU member states because emigration in this region has not been studied in detail and I see an opportunity to measure the political impact of FoM on the region. In order to measure an effect of a country joining the EU, I will focus on a time span around the country’s accession, e.g., ten years before and after joining, if data are available for the time span. The time span will only go up to and include the year 2019, because I assume the COVID-19 pandemic to have a strong influence on emigration in 2020 and beyond.
+
 - Specifically, I set out to examine Poland and Romania as these two CEE EU member states continuously show the highest number of yearly emigrants compared to the other CEE EU member states.^[Eurostat Variable migr_emi1ctz: Total number of long-term emigrants leaving from the reporting country during the reference year (https://ec.europa.eu/eurostat/databrowser/view/tps00177__custom_9431582/default/table?lang=en, retrieved 19 January 2024)]
 - By selecting these two countries with high emigration rates, I assume it to be easier to measure the effect of emigration induced service cuts on incumbent support.
 
