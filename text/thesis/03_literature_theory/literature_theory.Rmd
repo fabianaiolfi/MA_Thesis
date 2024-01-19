@@ -21,4 +21,4 @@
 - what else has an effect on incumbent vote share?
 - while trying to isolate the effect of emigration and service cuts on incumbent vote share, i add to control variables in order to isolate the effects of service cuts and emigration
 	- electoral volatility
-	- gdp
+	- economic performance

@@ -92,6 +92,7 @@ load(here("data", "03_service_cuts", "ro", "ro_third_places.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_remittances.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_gdp.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_volatility.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_unemployment.Rda"))
 
 # Plot Compontents
 pl_plots_components <- list(

@@ -4,6 +4,7 @@
 - Discussion of Polish and Romanian service cut models and their respective differences
 	- Stronger effect of emigration on incumbent vote share in Romania
 	- Generally stronger effects of service cuts in Romania than Poland
+- discussion if control variables align with theoretical expectations?
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -16,7 +17,8 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
   left_join(dplyr::select(ro_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(dplyr::select(ro_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
   left_join(ro_volatility, by = c("year", "nuts2016")) %>% 
-  left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID"))
+  left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(ro_unemployment, by = c("year", "nuts2016"))
 ```
 
 ### Ratios
@@ -59,36 +61,38 @@ fe_lm_4 <- feols(vote_change ~
 # Using average ratio between elections
 fe_lm_0 <- feols(vote_change ~
                    emigration_election_year_per_1000 +
-                   volatility + gdp |
+                   volatility + gdp + unemployment |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 #this is the one
 fe_lm_1 <- feols(vote_change ~
                    emigration_election_year_per_1000 *
                    average_ratio_schools_election_year +
-                   volatility + gdp |
+                   volatility + gdp + unemployment |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
 fe_lm_2 <- feols(vote_change ~
                    emigration_election_year_per_1000 *
                    average_ratio_classrooms_election_year +
-                   volatility + gdp |
+                   volatility + gdp + unemployment |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
 fe_lm_3 <- feols(vote_change ~
                    emigration_election_year_per_1000 *
                    average_ratio_hospitals_election_year +
-                   volatility + gdp |
+                   volatility + gdp + unemployment |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 
 fe_lm_4 <- feols(vote_change ~
                    emigration_election_year_per_1000 *
                    average_ratio_third_places_election_year +
-                   volatility + gdp |
+                   volatility + gdp + unemployment |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
 ```
+
+
 

@@ -28,5 +28,27 @@ As described in the Theory section, the three service cuts under examination are
 My focus on primary schools is based on the assumption that their closures have a stronger impact compared to the closure of vocational or high schools, for the following reasons. Primary schools act as community centers for young families. Their closure affects not just the pupils but also their families and the wider community, disrupting established community networks. The closure of a local primary school can lead to longer commute times for school children and their accompanying parents, as they are compelled to send their children to more distant schools as local schools have closed. This increase in travel time can foster negative sentiments towards the closure and contribute to the development of grievances.
 
 #### Control Variables
-- operationalisation of volatility using pedersen index
-- operationalisation of gdp using source
+<!-- operationalisation of volatility using pedersen index -->
+- i operationalise electoral volatility by calculating the pedersen index [@pedersenElectoralVolatilityWestern] for each nuts region for every election
+- the pedersen index provides a value between 0 and 100 that represents the electoral volatility from one election to the next. A value of 0 means there is no change in party vote share between elections. A value of 100 means the opposite, that all parties from the previous election lose all vote share in the next election.
+- using the data from @schraffEuropeanNUTSlevelElection2023, i calculate the pedersen index in R using the politicsR package [@denissonsilvaSilvadenissonPoliticsRV02023]
+- table x shows electoral volatility in an examplary NUTS region
+
+TO DO: Table
+
+Title: Displaying how electoral volatiltiy is calculated using the Pedersen Index on an examplary Romanian NUTS3 region.
+NUTS | Election Year | Party | Vote Share
+ROxx | 2008          | A     | 50%
+ROxx | 2008          | B     | 50%
+ROxx | 2012          | A     | 51%
+ROxx | 2012          | B     | 49%
+Note: The NUTS3 region ROxx has a Pedersen Index of xx in the year 2012.
+
+
+<!-- operationalisation of economic performance -->
+- i operationalise a region’s economic performance using two variables
+- the first is a region’s yearly gross domestic product at current markets prices in Euros per inhabitant
+- these data are provided by eurostat^[https://ec.europa.eu/eurostat/databrowser/view/nama_10r_3gdp__custom_9030433/default/table?lang=en (retrieved 16 December 2023)]
+- i use the GDP per capita as a general indicator for a region’s economic performance under the assumption that this value captures the overall economic performance in a way that is comparable across different regions within a country
+- the second is a region’s unemployment rate, provided by the romanian statistical agency^[Variable SOM103A: Unemployment rate by gender, macroregions, development regions and counties (http://statistici.insse.ro:8077/tempo-online/#/pages/tables/insse-table, retrieved 19 January 2024)]
+- I use the unemployment rate as an indicator for the overall economic mood in a region. The unemployment rate is a common indicator to judge the incumbent party’s economic performance by. It is widely recognised and used by voters and the media alike.

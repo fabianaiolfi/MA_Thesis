@@ -2,12 +2,12 @@
 <!-- Empirical specification based on operationalised variables -->
 
 <!-- Intro -->
-In the preliminary analysis, I establish a negative correlation between emigration and the change in incumbent vote share in Romania. Building upon this  finding, I develop two model specifications to test the hypotheses that service cuts decrease incumbent support. I choose this approach as it provides a more comprehensive and robust exploration of how service cuts and emigration may individually and interctively affect incumbnet vote share.
+In the preliminary analysis, I establish a negative correlation between emigration and the change in incumbent vote share in Romania. Building upon this  finding, I develop two model specifications to test the hypotheses that service cuts decrease incumbent support. Using two model specifications has the advantage of providing a more comprehensive and robust exploration of how service cuts and emigration may individually and interctively affect incumbnet vote share.
 
 <!-- model specification 1 -->
 The aim of the first model specification is to analyse the isolated effect of service cuts on incumbent vote share. Thus service cuts form the independent variable in this model specification. To ensure that the effect of service cuts is isolated, I control for emigration, as emigration rates vary across NUTS3 regions within Romania and, as previously established, influence incumbent vote share. 
 
-Additionally, to further isolate the effect of service cuts on incumbent vote share, the model will control for factors such as electoral volatility and GDP, as both of there factors influence incumbent vote share, as explained in the Theory section.
+Additionally, to further isolate the effect of service cuts on incumbent vote share, the model will control for electoral volatility and GDP, as both of these factors influence incumbent vote share, as explained in the Theory section.
 
 Using this model specification, I set up a two-way fixed effects linear regression model^[https://theeffectbook.net/ch-FixedEffects.html#multiple-sets-of-fixed-effects], using NUTS3 regions and years as fixed effects. By using fixed effects, I can account for region- and time-specific factors that may confound results.
 
@@ -26,7 +26,7 @@ This leads to the first model specification:
 <!-- \end{aligned} -->
 <!-- \end{equation} -->
 
-The subscript n symbolises a Romanian NUTS3 region and subscript y indicates an election year. The operationalisation of Emigration Rate and Service Cuts are described in X (TO DO). ε denotes the error term.
+The subscript n symbolises a Romanian NUTS3 region and subscript y indicates an election year. ε denotes the error term.
 
 <!-- model specification 2 -->
 The second model specification is designed to examine if the impact of emigration on incumbent vote share is conditioned by service cuts. This examination focuses on two aspects. First, it determines whether a significant interaction exists between emigration and service cuts. Second, it assesses how changes in service cuts modify the negative effect of emigration on incumbent support. By analysing the interaction between emigration and service cuts, the model can reveal if service cuts increase or decrease the effects of emigration on incumbent support, thus testing the hypotheses.
