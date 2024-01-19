@@ -16,7 +16,19 @@ One concrete example why this is important is shown by @barsbaiEffectLaborMigrat
 
 A further reason why the effects of emigration on voting behaviour is important is its implications on voting for populist and radical right parties [@dancygierEmigrationRadicalRight2022 34; @limElectoralConsequencesInternational2023 56; @heroldSchrumpfendeRegionenFrustrierte2020 19]. 
 
-@dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of PRR parties. The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. These grievances then affect voting behaviour. Voters turn against incumbents and cast a ballot for PRR parties.
+@dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of PRR parties. The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. These grievances then affect voting behaviour. Finally, voters turn against incumbents and cast a ballot for PRR parties.
+
+- focus on the grievances
+- Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810]
+- i assume the grievances that affect voting behaviour to be closely linked to economic factors that made people close to them leave at all
+- this focus is important because @kapurPoliticalEffectsInternational2014a [488]: it is important to understand the reason behind a person’s emigration when examining its impact on the sending country.
+
+- these economically derived grievances differ to the ones described by @ivlevsEmigrationRemittancesSubjective2019 [135], who’s grievances are personal and intimate, caused by family matters
+- @dancygierEmigrationRadicalRight2022’s grievances are less intimate and of more general and economic nature. 
+- Because they are less intimate, I argue that a person is more likely to voice them in public, e.g., by changing their voting behaviour.
+
+- This assumption is supported by @kapurPoliticalEffectsInternational2014a [488], who underlines the importance of understanding the reason behind a person’s emigration when examining the impact of emigration in the sending country. Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810], thus I assume the grievances of the people left behind to be closely linked to economic factors and less to family matters.
+
 
 - however, in taking a more general approach in understanding the effect of emigration on voting behaviour, it can be advantegous to take a step back and examine the point at which voters turn against incumbents
 - there are several reasons why examining the previous step before voting for PRR has its advantages
@@ -24,14 +36,14 @@ A further reason why the effects of emigration on voting behaviour is important 
 - First, @vorlanderMIDEM2021Emigration2021 [36] shows that far-right parties only profit from emigration in economically weak regions. 
 - by just looking at a vote for PRR, we would not examine the effect of emigration on economically stronger regions
 
-- Second, a non-extreme parties, e.g., a mainstream opposition party, may also benefit from emigration. There are three possible reasons for this. One, a voter does not necessarily have to cast a ballot for an extreme party. Instead, they can simply critique the incumbent government or status quo parties if emigration becomes politicised [@vorlanderMIDEM2021Emigration2021 91]. Two, voters receive remittances which realigns their party preferences closer to their personal ideological preferences [@pfutzeDoesMigrationPromote2012a 161]. This realignment does not necessarily have to lead to voting for an extreme party. Three, voters cannot cast a vote for an extreme party if there is no such party on the ballot. 
+- Second, non-extreme parties, e.g., a mainstream opposition party, may also benefit from emigration. There are three possible reasons for this. One, a voter does not necessarily have to cast a ballot for an extreme party. Instead, they can simply critique the incumbent government or status quo parties if emigration becomes politicised [@vorlanderMIDEM2021Emigration2021 91]. Two, voters receive remittances which realigns their party preferences closer to their personal ideological preferences [@pfutzeDoesMigrationPromote2012a 161]. This realignment does not necessarily have to lead to voting for an extreme party. Three, voters cannot cast a vote for an extreme party if there is no such party on the ballot. 
 
 
 look beyond voting for PRR parties and also take general effects into account, e.g. voting for a mainstream opposition party
 - also, there are two reasons why this link between emigration and radical parties can be questioned.
 
 
-I argue that @dancygierEmigrationRadicalRight2022’s grievances are different to the ones described by @ivlevsEmigrationRemittancesSubjective2019 [135], who’s grievances are more personal and intimate, caused by family matters. @dancygierEmigrationRadicalRight2022’s grievances are less intimate and of more general and economic nature. Because they are less intimate, I argue that a person is more likely to voice them in public, e.g., by changing their voting behaviour. This claim is supported by @kapurPoliticalEffectsInternational2014a [488], who underlines the importance of understanding the reason behind a person’s emigration when examining the impact of emigration in the sending country. Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810], thus I assume the grievances of the people left behind to be closely linked to economic factors and less to family matters.
+
 
 
 
