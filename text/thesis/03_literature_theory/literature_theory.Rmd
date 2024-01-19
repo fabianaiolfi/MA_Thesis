@@ -1,5 +1,7 @@
 ## Literature Review and Theory
 
+<!-- Emigration affects voting behaviour and electoral outcomes. It changes the electoral composition and influences the people left behind. -->
+
 The impact of emigration on voting behaviour and electoral outcomes varies by time and location. A variety of studies have explored this phenomenon, ranging from 19th-century Sweden [@karadjaExitVoicePolitical2019 2] to early 21st-century Mexico [@pfutzeClientelismSocialLearning2014a 295].
 
 Emigration can affect electoral outcomes in two ways. First, emigration can change the composition of the electorate. @limElectoralConsequencesInternational2023 [39] shows that emigrants from CEE are disproportionately younger, cosmopolitan and politically progressive, resulting in a remaining population that is older and more conservative. As a result, electoral results are more likely to be conservative.
@@ -14,98 +16,70 @@ Despite this decrease in political interest, some of the remaining electorate st
 
 One concrete example why this is important is shown by @barsbaiEffectLaborMigration2017a [36], who reveal a negative effect between emigration and votes for the Communist Party in the Moldovan elections of 2009 and 2010. Elections during those years brought significant political change to the ex-soviet country [@barsbaiEffectLaborMigration2017a 41], because voters cast a ballot against the Communist Party, who had gained electoral power in previous elections. Voters turned against the Communist Party because returning emigrants brought western social norms and political preferences to Moldova [@barsbaiEffectLaborMigration2017a 66]. These preferences then diffused amongst the electorate.
 
+<!-- Emigration benefits populist and radical right parties in Sweden (Dancygier et al., 2022) -->
 A further reason why the effects of emigration on voting behaviour is important is its implications on voting for populist and radical right parties [@dancygierEmigrationRadicalRight2022 34; @limElectoralConsequencesInternational2023 56; @heroldSchrumpfendeRegionenFrustrierte2020 19]. 
 
-@dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of PRR parties. The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. …
+@dancygierEmigrationRadicalRight2022 [35] uncover a correlation between emigration and the rise of PRR parties. The authors suggest that emigration decreases an area’s quality of life, e.g., through cuts in public services. These service cuts create grievances amongst voters. These grievances then affect voting behaviour. Voters turn against incumbents and cast a ballot for PRR parties.
 
-
-- however, there are several reasons why a vote for prr can be questioned
-- grievances caused by emigration does not necessarily have to lead to a vote for prr. it can also just change the voting behaviour of the voter.
+- however, there are several reasons why a vote for prr can be questioned in @dancygierEmigrationRadicalRight2022’s chain of events
+- grievances caused by emigration do not necessarily have to lead to a vote for prr. it can also just change the voting behaviour of the voter.
 - this is how i argue my case
-- the grievaces described by dancygier are less intimate and of family nature than the ones described by ivlevs
-- dancygier’s grievances are more economic nature, because they are caused by service cuts
+- the grievaces described by @dancygierEmigrationRadicalRight2022 are less intimate and of family nature than the ones described by @ivlevsEmigrationRemittancesSubjective2019 [135]
+- @dancygierEmigrationRadicalRight2022’s grievances are more economic nature
+- the assumption that these grievances are of economic nature is underlined by the following
+	- Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810]
+	- this is important to know because understanding the reason why people emigrate helps understand the impact on the sending country [@kapurPoliticalEffectsInternational2014a 488]
+	- if one of the impacts caused by economic emigration are grievances, then these will be linked to economic factors and less to family matters
+- because they are less intimate and of more economic nature, i argue that dancygier’s grievances are more likely to be voiced in public, e.g., at the ballot box or by changing their voting behaviour
+- thus these grievances primarily affect voting behaviour in general, and don’t necessarily have to specifically lead to a prr vote
 
-- when examining the impact of emigration on the sending country, it is important to take into account the reason for emigration (kapur)
-- Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810]
-- thus i aruge that the grievances of the people left behind is linked to economic factors and less to family matters
-
-- because they are less intimate, i assume that dancygier’s grievances are voiced more in public, e.g., at the ballot box
-- thus these grievances affect primarily voting behaviour, and don’t necessarily  have to lead to a prr vote
-
-
-
-
-a reason for someone’s emigration helps explain the impact on the sending country
-
-if a person leaves due to economical reasons, the grievances back home will be caused by economical reasons too
-
-
-- i argue that these grievances are different to the ones decribed by ivlevs.
-- ivlevs: very intimate grievances, caused by family matters
-- dancygier: grievances are more general and economic nature, because they are caused by service cuts
-- because they are less intimate, i assume that dancygier’s grievances are voiced more in public, e.g., at the ballot box
-- thus these grievances affect voting behaviour
-- dancygier goes on to say that voting behaviour is changed in such a way that voters turn against incumbents and cast a ballot for PRR parties.
-
-
-- kapur: why someone emigrates is important to understand its impact
-
-
-… who creates a link between *why* someone leaves a country with the sort of impact it has on the departed country
-
-- i want to examine this causal chain of events and zoom in on the grievances and on voting for PRR parties
-
-
-
-- focus on the grievances
-- Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810]
-- i assume the grievances that affect voting behaviour to be closely linked to economic factors that made people close to them leave at all
-- this focus is important because @kapurPoliticalEffectsInternational2014a [488]: it is important to understand the reason behind a person’s emigration when examining its impact on the sending country.
-
-- these economically derived grievances differ to the ones described by @ivlevsEmigrationRemittancesSubjective2019 [135], who’s grievances are personal and intimate, caused by family matters
-- @dancygierEmigrationRadicalRight2022’s grievances are less intimate and of more general and economic nature. 
-- Because they are less intimate, I argue that a person is more likely to voice them in public, e.g., by changing their voting behaviour.
-
-- This assumption is supported by @kapurPoliticalEffectsInternational2014a [488], who underlines the importance of understanding the reason behind a person’s emigration when examining the impact of emigration in the sending country. Emigration from CEE EU member states is primarily due to economic reasons [@vasilopoulouOpportunityThreatPublic2019a 810], thus I assume the grievances of the people left behind to be closely linked to economic factors and less to family matters.
-
-
-- however, in taking a more general approach in understanding the effect of emigration on voting behaviour, it can be advantegous to take a step back and examine the point at which voters turn against incumbents
-- there are several reasons why examining the previous step before voting for PRR has its advantages
+- there are further reasons why @dancygierEmigrationRadicalRight2022’s vote for prr parties can be questioned and replaced with a more general assumption that e.g. a voter might just switch to a mainstream opposition party
 
 - First, @vorlanderMIDEM2021Emigration2021 [36] shows that far-right parties only profit from emigration in economically weak regions. 
 - by just looking at a vote for PRR, we would not examine the effect of emigration on economically stronger regions
 
 - Second, non-extreme parties, e.g., a mainstream opposition party, may also benefit from emigration. There are three possible reasons for this. One, a voter does not necessarily have to cast a ballot for an extreme party. Instead, they can simply critique the incumbent government or status quo parties if emigration becomes politicised [@vorlanderMIDEM2021Emigration2021 91]. Two, voters receive remittances which realigns their party preferences closer to their personal ideological preferences [@pfutzeDoesMigrationPromote2012a 161]. This realignment does not necessarily have to lead to voting for an extreme party. Three, voters cannot cast a vote for an extreme party if there is no such party on the ballot. 
 
+<!-- my contribution, see also michele’s notes; correct placement here? -->
+- It remains unclear which service cuts cause grievances that in turn change voting behaviour [@dancygierEmigrationRadicalRight2022 35]. The authors leave this aspect open for future research. My thesis sets out to detect which emigration induced service cuts cause grievances and thus decrease incumbent support.
 
-look beyond voting for PRR parties and also take general effects into account, e.g. voting for a mainstream opposition party
-- also, there are two reasons why this link between emigration and radical parties can be questioned.
+<!-- theory: what would we expect to happen based on theory? -->
+- @keyResponsibleElectorateRationality1966a states that voters evaluate a government’s past performance and their policy outcomes [@keyResponsibleElectorateRationality1966a 35, 58–59, 61]. They vote retrospectively and their voting behaviour is influenced by salient issues [@keyResponsibleElectorateRationality1966a 73], such as the described service cuts. These cuts affect citizens’ daily lives and cause grievances. Such grievances will give the incumbent party a poor performance record. Grieving voters that are dissatisfied with the incumbent party will not support them in the next election [@bowlerStrategicProtestVoting1992, 489].
+
+<!-- Research question following Dancygier et al. (2022) -->
+- Based on @dancygierEmigrationRadicalRight2022’s assumption that service cuts lead to grievances which then lead to a change in voting behaviour, this thesis asks the following question: Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share?
+
+<!-- service cuts to be examined -->
+@dancygierEmigrationRadicalRight2022 [2] state that emigration is linked to service cuts such as schools and business closures. Also, emigration strains the healthcare system. Based on this, I assume that emigration has a negative effect on the number of schools, the number of hospitals and the number of “third places”, i.e., local "informal public gathering places" such as cafés, bars and restaurants that foster community building [@oldenburgGreatGoodPlace1999 16]. Following @dancygierEmigrationRadicalRight2022’s theory, a decrease in the number of these institutions will cause grievances amongst the remaining population for the following reasons.
+
+<!-- schools -->
+Schools contribute towards community feeling [@sagemanSchoolClosuresRural2022 964]. Closing a school will reduce a community's cohesion and negatively impact the lives of families with school-aged children. They must either travel further to reach the next school or must put up with classes that have increased in size due to the consolidation of schools.
+
+<!-- hospitals -->
+Hospitals are important for the population who do not emigrate. Because emigrants tend to be younger [@limElectoralConsequencesInternational2023 39], the remaining population is likely to be older. The elderly are more reliant on hospitals, thus I argue that a hospital closure can cause distress and thus grievances amongst the remaining population. Hospital closures in CEE are spurred on by the emigration of medical professionals [@vorlanderMIDEM2021Emigration2021 13; @walkerRomanianHospitalsCrisis2019]. 
+
+To underline the importance of school and hospital closings, @dancygierEmigrationRadicalRight2022 [32] show how newspapers report on such closings in Swedish emigration-heavy regions. This indicates that there may exist a link between these closures and grievances.
+
+<!-- third places -->
+Schools and hospital closings are services made available by the state. In contrast, “third places” are supplied by the private sector. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021 1653].
+
+#### Control variables
+- in order to islolate the effect of emigration and service cuts on incumbent support, i control for the following factors that also have an effect on incumbent vote share
+- I control for general electoral volatility. CEE states show higher levels of electoral volatility than states in Western Europe, Latin America or the United States [@epperlyInstitutionsLegaciesElectoral2011 831]. This volatility most often hits incumbent parties [@bochslerThreeStagesIncumbency2019 1].
+
+	- economic performance
 
 
 
-
-
-
-- Emigration affects voting behaviour and electoral outcomes. It changes the electoral composition and influences the people left behind.
-- Emigration benefits populist and radical right parties in Sweden (Dancygier et al., 2022). I argue that this also applies to CEE EU member states. I also argue that if voters cast their ballots retrospectively, it is not only populist parties that may benefit. Rather, emigration could also lead to an increase in anti-incumbent voting.
-- Research question following Dancygier et al. (2022): Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share?
-- Service cuts to be examined:
-	- School closures, based on Sageman (2022); Focus on primary schools, because their closures are more cumbersome than closing high schools or vocational schools
-	- Hospital closures, based on ageing population (Lim 2023)
-	- Third places closures, based on Bolet (2021)
-- Causal chain of events based on research question: Emigration → Service Cuts → Grievances → Anti-Incumbent Vote
 - Hypotheses
 	- H1: Service cuts to schools lead to a decrease in the region’s incumbent vote share.
 	- H2: Service cuts to hospitals lead to a decrease in the region’s incumbent vote share.
 	- H3: Service cuts to “third places” lead to a decrease in the region’s incumbent vote share.
 	
 ### Case Study Selection
+-  I argue that this also applies to CEE EU member states. I also argue that if voters cast their ballots retrospectively, it is not only populist parties that may benefit. Rather, emigration could also lead to an increase in anti-incumbent voting.
 - Selecting Poland and Romania as typical CEE EU member states with high emigration rates
 - prototypical countries for emigration?
 - migration from these countries in the media
 
-### Control variables
-- what else has an effect on incumbent vote share?
-- while trying to isolate the effect of emigration and service cuts on incumbent vote share, i add to control variables in order to isolate the effects of service cuts and emigration
-	- electoral volatility
-	- economic performance
+
