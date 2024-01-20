@@ -81,7 +81,4 @@ As a general relation between dependent and independent variables, I assume an i
 <!-- Control variables -->
 - in order to islolate the effect of emigration and service cuts on incumbent support, i control for the following factors that also have an effect on incumbent vote share
 - I control for general electoral volatility. CEE states show higher levels of electoral volatility than states in Western Europe, Latin America or the United States [@epperlyInstitutionsLegaciesElectoral2011 831]. This volatility most often hits incumbent parties [@bochslerThreeStagesIncumbency2019 1].
-- I also control for the region’s economic performance. incumbent parties are often judged by their economic performance, thus it makes sense to control for this factor in order to further isolate the effect of emigration and service cuts on incumbent support
-	- TO DO: find literature here!
-
-
+- I also control for the region’s economic performance. i do this under the assumption that voters punish or reward incumbent parties based on the economic conditions that voters find themselves in. good economic performance leads to incumbent support, bad performance leads to voters punishing incumbent parties [@lewis-beckEconomicDeterminantsElectoral2000 183].
