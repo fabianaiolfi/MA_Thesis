@@ -70,16 +70,14 @@ As a general relation between dependent and independent variables, I assume an i
 - H3: Service cuts to “third places” lead to a decrease in the region’s incumbent support.
 
 ### Case Study Selection
-- @dancygierEmigrationRadicalRight2022 look at emigration and its effects in Sweden, due to the availability of detailed data in Sweden [@dancygierEmigrationRadicalRight2022 34]
-- I argue that this mechanism of emigration causing grievances can also apply to other states because 
-	- dancygier p. 34
-- I set my general focus on CEE EU member states, because these countries have experienced a large increase in emigration since joining the EU in the 2000s, thanks to gaining access to the EU’s Freedom of Movement
-	- emigration in this region has not been studied in detail and here is an opportunity to measure the political impact of FoM on sending countries, an understudied aspect of FoM, as normally the focus lies on the impact of FoM on *receiving* countries
-
+- @dancygierEmigrationRadicalRight2022 focus on the swedish case of emigration and its effect on voting behaviour, due to the availability of detailed data in Sweden [@dancygierEmigrationRadicalRight2022 34]
+- they also show that emigration has a significant effect on the increased share of radical right parties [@dancygierEmigrationRadicalRight2022 34], hinting at a possibility that their mechanism of emigration induced grievances and service cuts and its impact on voting behaviour can also be applied to other European states.
+- For this reason, I set my general focus on CEE EU member states, because these countries have experienced a large increase in emigration since joining the EU in the 2000s, thanks to gaining access to the EU’s Freedom of Movement
+- emigration in this region has not been studied in detail and here is an opportunity to measure the political impact of FoM on sending countries, an understudied aspect of FoM, as normally the focus lies on the impact of FoM on *receiving* countries
 - Specifically, I set out to examine Poland and Romania as these two CEE EU member states continuously show the highest number of yearly emigrants compared to the other CEE EU member states.^[Eurostat Variable migr_emi1ctz: Total number of long-term emigrants leaving from the reporting country during the reference year (https://ec.europa.eu/eurostat/databrowser/view/tps00177__custom_9431582/default/table?lang=en, retrieved 19 January 2024)]
 - By selecting these two countries with high emigration rates, I assume it to be easier to measure the effect of emigration induced service cuts on incumbent support.
 
-<!-- Control variables -->
+### Control variables
 - in order to islolate the effect of emigration and service cuts on incumbent support, i control for the following factors that also have an effect on incumbent vote share
 - I control for general electoral volatility. CEE states show higher levels of electoral volatility than states in Western Europe, Latin America or the United States [@epperlyInstitutionsLegaciesElectoral2011 831]. This volatility most often hits incumbent parties [@bochslerThreeStagesIncumbency2019 1].
 - I also control for the region’s economic performance. i do this under the assumption that voters punish or reward incumbent parties based on the economic conditions that voters find themselves in. good economic performance leads to incumbent support, bad performance leads to voters punishing incumbent parties [@lewis-beckEconomicDeterminantsElectoral2000 183].

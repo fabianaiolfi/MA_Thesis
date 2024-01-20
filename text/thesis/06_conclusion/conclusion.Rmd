@@ -5,6 +5,7 @@
 - Thesis limits
 	- Effects seem country specific, no broad generalisations possible
 	- many influences on incumbent support, service cuts won’t cover them all
+	- i dont look at *who* is leaving, e.g. high or low-income residents [@dancygierEmigrationRadicalRight2022 11], as this could have an influence on the impact of emigration, incumbent support and grievances
 - Interpreting results in the broader context of further European integration
 - Future research
 	- state that causality is not that simple, there might me a mediating factor in the whole thing, which should be looked at in future research
