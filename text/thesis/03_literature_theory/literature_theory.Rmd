@@ -70,8 +70,9 @@ As a general relation between dependent and independent variables, I assume an i
 - H3: Service cuts to “third places” lead to a decrease in the region’s incumbent support.
 
 ### Case Study Selection
-- @dancygierEmigrationRadicalRight2022 look at emigration and its effects in Sweden
-- I argue that this mechanism of emigration causing grievances can also apply to other states because [fill in gap here]
+- @dancygierEmigrationRadicalRight2022 look at emigration and its effects in Sweden, due to the availability of detailed data in Sweden [@dancygierEmigrationRadicalRight2022 34]
+- I argue that this mechanism of emigration causing grievances can also apply to other states because 
+	- dancygier p. 34
 - I set my general focus on CEE EU member states, because these countries have experienced a large increase in emigration since joining the EU in the 2000s, thanks to gaining access to the EU’s Freedom of Movement
 	- emigration in this region has not been studied in detail and here is an opportunity to measure the political impact of FoM on sending countries, an understudied aspect of FoM, as normally the focus lies on the impact of FoM on *receiving* countries
 

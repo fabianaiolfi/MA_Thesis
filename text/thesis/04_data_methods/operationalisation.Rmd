@@ -6,9 +6,10 @@ In my analysis, the dependent variable is the change in incumbent vote share. To
 #### Independent Variables
 
 Emigration Rate
-- In operationalising emigration rate, I follow @dancygierEmigrationRadicalRight2022 [17]. I only take the number of departures from a NUTS region into account, because I want to examine the effect of people leaving, and not, say, net migration which calculates the difference between emigration and immigration.
+- In operationalising emigration rate, I base my approch on @dancygierEmigrationRadicalRight2022
+- I only take the number of departures from a NUTS region into account, in order to isolate the effect of emigration from other demographic factors that may influence the association between population decline and incumbent support [@dancygierEmigrationRadicalRight2022 5]
 - I only take external emigration into account, i.e., migration abroad, and discard internal emigration from one region into another. I focus on this because I aim to capture the effect of country’s accession into the EU and with it, its gain to the EU’s Freedom of Movement.
-- I operationalise emigration rate as the sum of emigrants in a region between two elections, divided by the average population in that region between the elections. I then multiply this value by 1000 in order to get the value per 1000 inhabitants. 
+- I operationalise emigration rate as the sum of emigrants in a region between two elections [@dancygierEmigrationRadicalRight2022 17], divided by the average population in that region between the elections. I then multiply this value by 1000 in order to get the value per 1000 inhabitants. 
 - Table X displays this calculation with an example (TO DO add table)
 - This operationalisation aims at capturing the outflow of people and its impact on the remaining inhabitants. 
 - I use the sum of all emigrants from a region between two elections in order to capture the extent of the effect of emigration that a voter could feel when they cast their ballot.
