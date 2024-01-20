@@ -28,6 +28,8 @@ As described in the Theory section, the three service cuts under examination are
 My focus on primary schools is based on the assumption that their closures have a stronger impact compared to the closure of vocational or high schools, for the following reasons. Primary schools act as community centers for young families. Their closure affects not just the pupils but also their families and the wider community, disrupting established community networks. The closure of a local primary school can lead to longer commute times for school children and their accompanying parents, as they are compelled to send their children to more distant schools as local schools have closed. This increase in travel time can foster negative sentiments towards the closure and contribute to the development of grievances.
 
 #### Control Variables
+- in order to islolate the effect of emigration and service cuts on incumbent support, i control for electoral volatility and economic performance within a NUTS region
+
 <!-- operationalisation of volatility using pedersen index -->
 - i operationalise electoral volatility by calculating the pedersen index [@pedersenElectoralVolatilityWestern] for each nuts region for every election
 - the pedersen index provides a value between 0 and 100 that represents the electoral volatility from one election to the next. A value of 0 means there is no change in party vote share between elections. A value of 100 means the opposite, that all parties from the previous election lose all vote share in the next election.

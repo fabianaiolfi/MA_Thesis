@@ -1,12 +1,16 @@
 ### Research Design
 - I differentiate between internal and external migration and focus on the latter, as I want to examine the effect of the EU’s FoM on emigration and voting behaviour.
-- I will measure the effect of service cuts on a subnational, NUTS3 level, data permitting. I do this for the following two reasons. First, measuring subnational regions instead of countries will increase sample size and thus provide more accurate results. Second, regions within countries have different levels of emigration (see Figure TO DO: line chart of PL and RO NUTS emigration), allowing for differentiated measurements.
+- I will measure the effect of service cuts and emigration on the lowest subnational NUTS level that data is available for. I do this for the following two reasons. First, measuring subnational regions instead of countries will increase sample size and thus provide more accurate results. Second, regions within countries have different levels of emigration (see Figure TO DO: line chart of PL and RO NUTS emigration), allowing for differentiated measurements.
 
 ### Overview of available data, how it was collected and transformed
 
 <!-- Ideal Data Situation -->
 - In order to measure an effect of a country joining the EU, it would be ideal to have longitudinal data that starts before a country’s accession into the EU and continues up until 2019, after which the COVID-19 pandemic interferes with the possibility of emigration.
 - however, these data are not fully available, as displaayed in Table X (TO DO: data availability table)
+
+<!-- Add somewhere? -->
+- Polish data is only available at NUTS2 level
+- Romanian data is available at the NUTS3 level, the lowest level
 
 <!-- Incumbent Party -->
 The V-Party Dataset [@staffan.i.lindbergVPartyDatasetV22022] provides information on which parties are in or support the government.^[Variable “v2pagovsup”: Does this party support the government formed immediately after this election? (Codebook p. 24)]. I manually add further elections and parties to the data in order to minimise missing values and obtain a more complete picture of anti-incumbent voting. I retrieve data on whether a party is incumbent or not based on the documented electoral history on their Wikipedia page.^[E.g., https://en.wikipedia.org/wiki/Greater_Romania_Party#Electoral_history (retrieved 15 January 2024)] Furthermore, I adjust the V-Party Dataset and categorise parties that show government support leading up to an election as incumbent, even if they are outside of government. I do this because I assume a citizen who wants to cast an anti-incumbent vote will vote against any party that supports or sypmathises with incumbent parties.
