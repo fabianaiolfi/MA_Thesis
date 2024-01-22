@@ -7,18 +7,21 @@
 - discussion if control variables align with theoretical expectations?
 
 <!-- description of results -->
-- Table \@ref(tab:results-emigration-incumbent-vote-share) displays the results of modelling average change of number of people per institution seperately on incumbent support
-- Model 0 only includes the emigration rate as an independent variable and is added in Table \@ref(tab:results-emigration-incumbent-vote-share) as a reference model
+- Table \@ref(tab:results-emigration-incumbent-vote-share) displays the results of modelling average change of number of people per institution seperately on incumbent support, while controlling for emigration, volatility, GDP und unemployment
+- Model 0 does not include any service cuts variables and is included in Table \@ref(tab:results-emigration-incumbent-vote-share) as a reference model
 - The service cuts by themselves show mixed results. 
-- Service cuts to schools (school buildings and the classroom proxy) display negative coefficients
-- The change in number of hospitals has no effect, and the change in number of third places shows a positive effect. This indicates that less third places is associated with an increase in incumbent vote share
+- Service cuts to schools (school buildings or classrooms) display negative coefficients, meaning that an increase of children per school or classroom is associated with a decrease in incumbent support
+- The change in number of hospitals has no effect, and the change in number of third places shows a positive effect. This indicates that an increase in the number of third places is associated with an increase in incumbent vote share
 - None of these results are statistically significant at conventional level. However, the the service cuts to schools displays borderline statistical significance ($p = 0.103$)
 - Models 5 and 6 combine all service cuts together, with Model 5 using the number of schools and Model 6 using the classroom proxy
-- The results from models 5 and 6 do not differ much to models 1 through 4. Again, only school service cuts show negative associations, and no results are statistically significant
+- The results from models 5 and 6 are not much different to the models 1 through 4. Again, only school service cuts show negative associations, but these results are not statistically significant
+
+- I move on to report on the control variable coefficient results
 
 - TO DO: discuss control variable coefficient results
 - TO DO: Expain the change in emigration effect but also that is stay relatively large and significant!
-- TO DO: discuss $R2$ values!
+- TO DO: discuss $R^2$ values!
+- TO DO: “contorlling for the other variables in the model, a one-unit change in X is linearly associated with a i-unit change in Y”
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Romania
@@ -103,11 +106,11 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  "Model 5" = fe_lm_5,
                                  "Model 6" = fe_lm_6),
              title = "DV: Change in Incumbent Vote Share",
-             coef_map = c(emigration_election_year_per_1000 = "Emigration since last election",
-                          `average_ratio_schools_election_year` = "Avg. Children per School",
+             coef_map = c(`average_ratio_schools_election_year` = "Avg. Children per School",
                           `average_ratio_classrooms_election_year` = "Avg. Children per Classroom",
                           `average_ratio_hospitals_election_year` = "Avg. People per Hospital",
                           `average_ratio_third_places_election_year` = "Avg. People per Third Place",
+                          emigration_election_year_per_1000 = "Emigration since last election",
                           volatility = "Volatility",
                           gdp = "GDP per capita",
                           unemployment = "Unemployment"),
@@ -118,74 +121,7 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
              notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region. p-values shown in parentheses.")
 
 model_table %>%
-  kable_styling(font_size = 8)
-```
-
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-# Interactions just using Service Cuts (no control variables)
-# Using average ratio between elections
-fe_lm_0 <- feols(vote_change ~
-                   emigration_election_year_per_1000 |
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_1 <- feols(vote_change ~
-                   emigration_election_year_per_1000 *
-                   average_ratio_schools_election_year |
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_2 <- feols(vote_change ~
-                   emigration_election_year_per_1000 *
-                   average_ratio_classrooms_election_year |
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_3 <- feols(vote_change ~
-                   emigration_election_year_per_1000 *
-                   average_ratio_hospitals_election_year |
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_4 <- feols(vote_change ~
-                   emigration_election_year_per_1000 *
-                   average_ratio_third_places_election_year |
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-
-fe_lm_5 <- feols(vote_change ~
-                   emigration_election_year_per_1000 *
-                   average_ratio_schools_election_year +
-                   
-                   emigration_election_year_per_1000 *
-                   average_ratio_hospitals_election_year +
-                   
-                   emigration_election_year_per_1000 *
-                   average_ratio_third_places_election_year |
-                   nuts2016 + year,
-                 data = anti_incumbent_vote)
-```
-
-```{r results-emigration-incumbent-vote-share-interaction, eval=FALSE, fig.cap="Emigration…", message=FALSE, warning=FALSE, include=FALSE}
-model_table <- modelsummary(list("Model 0" = fe_lm_0,
-                                 "Model 1" = fe_lm_1,
-                                 "Model 2" = fe_lm_2,
-                                 "Model 3" = fe_lm_3,
-                                 "Model 4" = fe_lm_4,
-                                 "Model 5" = fe_lm_5),
-             title = "DV: Change in Incumbent Vote Share",
-             coef_map = c(emigration_election_year_per_1000 = "Emigration since last election",
-                          `emigration_election_year_per_1000:average_ratio_schools_election_year` = "Emigration since last election × Avg. Children per School",
-                          `emigration_election_year_per_1000:average_ratio_classrooms_election_year` = "Emigration since last election × Avg. Children per Classroom",
-                          `emigration_election_year_per_1000:average_ratio_hospitals_election_year` = "Emigration since last election × Avg. People per Hospital",
-                          `emigration_election_year_per_1000:average_ratio_third_places_election_year` = "Emigration since last election × Avg. People per Third Place"),
-             gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
-             stars = T,
-             statistic = NULL,
-             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region.")
-
-model_table %>%
-  kable_styling(font_size = 8)
+  kable_styling(font_size = 7)
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -238,6 +174,20 @@ fe_lm_5 <- feols(vote_change ~
                    volatility + gdp + unemployment |
                    nuts2016 + year,
                  data = anti_incumbent_vote)
+
+fe_lm_6 <- feols(vote_change ~
+                   emigration_election_year_per_1000 *
+                   average_ratio_classrooms_election_year +
+                   
+                   emigration_election_year_per_1000 *
+                   average_ratio_hospitals_election_year +
+                   
+                   emigration_election_year_per_1000 *
+                   average_ratio_third_places_election_year +
+                   
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
 ```
 
 ```{r results-emigration-incumbent-vote-share-control-interaction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Emigration interacted with Service Cuts on Incumbent Vote Share with Control Variables"}
@@ -246,13 +196,14 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  "Model 2" = fe_lm_2,
                                  "Model 3" = fe_lm_3,
                                  "Model 4" = fe_lm_4,
-                                 "Model 5" = fe_lm_5),
+                                 "Model 5" = fe_lm_5,
+                                 "Model 6" = fe_lm_6),
              title = "DV: Change in Incumbent Vote Share",
-             coef_map = c(emigration_election_year_per_1000 = "Emigration since last election",
-                          `emigration_election_year_per_1000:average_ratio_schools_election_year` = "Emigration since last election × Avg. Children per School",
+             coef_map = c(`emigration_election_year_per_1000:average_ratio_schools_election_year` = "Emigration since last election × Avg. Children per School",
                           `emigration_election_year_per_1000:average_ratio_classrooms_election_year` = "Emigration since last election × Avg. Children per Classroom",
                           `emigration_election_year_per_1000:average_ratio_hospitals_election_year` = "Emigration since last election × Avg. People per Hospital",
                           `emigration_election_year_per_1000:average_ratio_third_places_election_year` = "Emigration since last election × Avg. People per Third Place",
+                          emigration_election_year_per_1000 = "Emigration since last election",
                           volatility = "Volatility",
                           gdp = "GDP per capita",
                           unemployment = "Unemployment"),
@@ -262,5 +213,5 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
              notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region. p-values shown in parentheses.")
 
 model_table %>%
-  kable_styling(font_size = 8)
+  kable_styling(font_size = 7)
 ```

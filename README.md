@@ -12,6 +12,7 @@
 - [ ] Check for contractions and remove them
 - [ ] number of decimal places in regression tables
 - [ ] place group subtitle to group control variables in regression table?
+- [ ] replace p-values with standard errors in regression tables
 
 ----
 
