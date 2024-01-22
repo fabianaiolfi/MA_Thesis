@@ -31,6 +31,10 @@ The subscript n symbolises a Romanian NUTS3 region and subscript y indicates an 
 <!-- model specification 2 -->
 The second model specification is designed to examine if the impact of service cuts on incumbent vote share is conditioned by emigration. This examination focuses on two aspects. First, it determines whether a significant interaction exists between service cuts and emigration. Second, it assesses how different levels in emigration modify the effect of service cuts on incumbent support. By analysing the interaction between the two variables, the model can reveal if emigration increase or decrease the effects of service cuts on incumbent support, thus futher testing the hypotheses.
 
+TO DO: justify this interaction! something along the lines of: 
+- service cuts can be higher in regions with more emigration
+- service cuts may be felt more strongly by the electorate in regions hit hard by emigration; or there the electorate may feel emigration more strongly, thus developing more grievanes and thus more anti-incumbent sentiment
+
 This second model specification builds upon the first by adding an interaction term between emigration and service cuts. The second model specification is otherwise identical to the first, and will also control for the same variables as the first model specification.
 
 This leads to the Model Specification B:

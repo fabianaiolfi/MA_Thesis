@@ -8,6 +8,7 @@
 	- i dont look at *who* is leaving, e.g. high or low-income residents [@dancygierEmigrationRadicalRight2022 11], as this could have an influence on the impact of emigration, incumbent support and grievances; also there should be a difference between low- and high-skilled emigrants, which will also make a difference
 	- emigration flows: limits of only looking at external emigration; however, there are different flows of emigration, e.g., from rural to urban areas within a country and then abroad [@kingMindGapIntegrating2010 1623]
 	- was volatility operationalised correctly? always shows a positive coefficient, meaning that higher levels of volatiltiy are associated with higher levels of incumbent support, which does not intuitively make sense and may require more digging into
+	- add grievances to model; this data is hard to come by, should be integrated somewhere
 - Interpreting results in the broader context of further European integration
 - Future research
 	- state that causality is not that simple, there might me a mediating factor in the whole thing, which should be looked at in future research
