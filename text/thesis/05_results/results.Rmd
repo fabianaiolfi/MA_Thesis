@@ -16,10 +16,15 @@
 - Models 5 and 6 combine all service cuts together, with Model 5 using the number of schools and Model 6 using the classroom proxy
 - The results from models 5 and 6 are not much different to the models 1 through 4. Again, only school service cuts show negative associations, but these results are not statistically significant
 
-- I move on to report on the control variable coefficient results
+- I move on to report on the control variable coefficient results. I aknowledge that control variables are not in the primary interest, however they can contribute to evidence of effects on incumbent vote support [@hunermundNuisanceControlVariables2023 4]
+- Three of the four control variables display coefficients that align with the theoretical assumptions and are statistically significant across all models. 
+- We can observe that an increase in emigration is associated with a decrease in incumbent vote share. This fits into the causal mechanism of emigration causing grievances, which in turn decreases incumbent support
+- Both economic variables, GDP per capital and unemployment, show coefficients that align with theoretical expectations. An increase in per capita GDP is associated with an increase in incumbent support, which can be interpreted that incumbent parties are rewarded for a good state of the economy. On the other hand, we see that an increase in unemployment is associated with a decrease in incumbent support. This suggests that voters punish incumbent parties for poor economic performance
+- The Volatility coefficient shows a positive coefficient throughout all models, indicating an increase in volatility is associated with an increase in incumbent support. This does not make intuitive sense, as we would expect high levels of volatility to be associated with a decrease in incumbent support, as incumbent parties would be voted out of office more often than not.
 
-- TO DO: discuss control variable coefficient results
-- TO DO: Expain the change in emigration effect but also that is stay relatively large and significant!
+
+- TO DO: Expain the change in emigration effect but also that is stay relatively large and significant! → maybe i’m fixing omitted variable bias here? not including school service cuts shows a stronger effect of emigration. this decreases when school service cuts are added, which indicates that Model 0 was underspecified and suffered from omittied variables bias, whereby the emigration variable overstates its effect on incumbent support, whereby this is corrected when school service cuts are added to the model.
+
 - TO DO: discuss $R^2$ values!
 - TO DO: “contorlling for the other variables in the model, a one-unit change in X is linearly associated with a i-unit change in Y”
 
@@ -92,7 +97,7 @@ fe_lm_6 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 ```
 
-```{r results-emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Emigration interacted with Service Cuts on Incumbent Vote Share"}
+```{r results-emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Emigration interacted with Service Cuts on Incumbent Vote Share; DV: Change in Incumbent Vote Share; Model Specification A"}
 
 # groups_list <- list(
 #   "Main Variables" = c("Emigration since last election", "Avg. Children per School", "Avg. Children per Classroom", "Avg. People per Hospital", "Avg. People per Third Place"),
@@ -105,7 +110,7 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  "Model 4" = fe_lm_4,
                                  "Model 5" = fe_lm_5,
                                  "Model 6" = fe_lm_6),
-             title = "DV: Change in Incumbent Vote Share",
+             title = "migration interacted with Service Cuts on Incumbent Vote Share; DV: Change in Incumbent Vote Share; Model Specification A",
              coef_map = c(`average_ratio_schools_election_year` = "Avg. Children per School",
                           `average_ratio_classrooms_election_year` = "Avg. Children per Classroom",
                           `average_ratio_hospitals_election_year` = "Avg. People per Hospital",
@@ -190,7 +195,7 @@ fe_lm_6 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 ```
 
-```{r results-emigration-incumbent-vote-share-control-interaction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Emigration interacted with Service Cuts on Incumbent Vote Share with Control Variables"}
+```{r results-emigration-incumbent-vote-share-control-interaction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Emigration interacted with Service Cuts on Incumbent Vote Share with Control Variables; DV: Change in Incumbent Vote Share; Model Specification B"}
 model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  "Model 1" = fe_lm_1,
                                  "Model 2" = fe_lm_2,
@@ -198,7 +203,7 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  "Model 4" = fe_lm_4,
                                  "Model 5" = fe_lm_5,
                                  "Model 6" = fe_lm_6),
-             title = "DV: Change in Incumbent Vote Share",
+              title = "Emigration interacted with Service Cuts on Incumbent Vote Share with Control Variables; DV: Change in Incumbent Vote Share; Model Specification B",
              coef_map = c(`emigration_election_year_per_1000:average_ratio_schools_election_year` = "Emigration since last election × Avg. Children per School",
                           `emigration_election_year_per_1000:average_ratio_classrooms_election_year` = "Emigration since last election × Avg. Children per Classroom",
                           `emigration_election_year_per_1000:average_ratio_hospitals_election_year` = "Emigration since last election × Avg. People per Hospital",
