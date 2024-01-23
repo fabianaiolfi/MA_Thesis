@@ -34,6 +34,7 @@ The second model specification is designed to examine if the impact of service c
 TO DO: justify this interaction! something along the lines of: 
 - service cuts can be higher in regions with more emigration
 - service cuts may be felt more strongly by the electorate in regions hit hard by emigration; or there the electorate may feel emigration more strongly, thus developing more grievanes and thus more anti-incumbent sentiment
+- “For example, it might be hypothesized that in areas with higher emigration rates, the impact of infrastructure (like schools or hospitals) on voting pattern changes might be different than in areas with lower emigration rates.”
 
 This second model specification builds upon the first by adding an interaction term between emigration and service cuts. The second model specification is otherwise identical to the first, and will also control for the same variables as the first model specification.
 
