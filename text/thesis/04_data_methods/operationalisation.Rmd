@@ -34,7 +34,7 @@ My focus on primary schools is based on the assumption that their closures have 
 - in order to islolate the effect of emigration and service cuts on incumbent support, i control for electoral volatility and economic performance within a NUTS region
 
 <!-- operationalisation of volatility using pedersen index -->
-- i operationalise electoral volatility by calculating the pedersen index [@pedersenElectoralVolatilityWestern] for each nuts region for every election
+- i operationalise electoral volatility by calculating the pedersen index [@pedersenElectoralVolatilityWestern1979] for each nuts region for every election
 - the pedersen index provides a value between 0 and 100 that represents the electoral volatility from one election to the next. A value of 0 means there is no change in party vote share between elections. A value of 100 means the opposite, that all parties from the previous election lose all vote share in the next election.
 - using the data from @schraffEuropeanNUTSlevelElection2023, i calculate the pedersen index in R using the politicsR package [@denissonsilvaSilvadenissonPoliticsRV02023]
 - table x shows electoral volatility in an examplary NUTS region

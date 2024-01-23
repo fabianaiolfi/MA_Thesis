@@ -1,0 +1,162 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\hypertarget{model-specification}{%
+\subsubsection{Model Specification}\label{model-specification}}
+
+In the preliminary analysis, I establish a negative correlation between
+emigration and the change in incumbent vote share in Romania. Building
+upon this finding, I develop two model specifications to test the
+hypotheses that service cuts decrease incumbent support. Using two model
+specifications has the advantage of providing a more comprehensive and
+robust exploration of how service cuts and emigration may individually
+and interctively affect incumbnet vote share.
+
+The aim of the first model specification is to analyse the isolated
+effect of service cuts on incumbent vote share. Thus service cuts form
+the independent variable in this model specification. To ensure that the
+effect of service cuts is isolated, I control for emigration, as
+emigration rates vary across NUTS3 regions within Romania and, as
+previously established, influence incumbent vote share.
+
+\begin{itemize}
+\tightlist
+\item
+  to further isloate the effect of service cuts and emigration on
+  incumbent vote share, i add electoral volatility, gdp and unemployment
+  rate as control variables
+\end{itemize}
+
+Using this model specification, I set up a two-way fixed effects linear
+regression model\footnote{\url{https://theeffectbook.net/ch-FixedEffects.html\#multiple-sets-of-fixed-effects}},
+using NUTS3 regions and years as fixed effects. By using fixed effects,
+I can account for region- and time-specific factors that may confound
+results.
+
+This leads to the Model Specification A:
+
+\begin{equation*}
+\begin{aligned}
+Incumbent \; Vote \; Share \; Change_{n,y} = \beta_n & + \beta_y & \\
+& + \beta_1Emigration \; Rate_{n, y} \\
+& + \beta_2Service \; Cuts_{n, y} \\
+& + \beta_3Electoral \; Volatility_{n, y} \\
+& + \beta_4GDP_{n, y} \\
+& + \varepsilon
+\end{aligned}
+\end{equation*}
+
+The subscript \(n\) symbolises a Romanian NUTS3 region and subscript
+\(y\) indicates an election year. \(ε\) denotes the error term.
+
+The second model specification is designed to examine if the impact of
+service cuts on incumbent vote share is conditioned by emigration. This
+examination focuses on two aspects. First, it determines whether a
+significant interaction exists between service cuts and emigration.
+Second, it assesses how different levels in emigration modify the effect
+of service cuts on incumbent support. By analysing the interaction
+between the two variables, the model can reveal if emigration increase
+or decrease the effects of service cuts on incumbent support, thus
+futher testing the hypotheses.
+
+TO DO: justify this interaction! something along the lines of: - service
+cuts can be higher in regions with more emigration - service cuts may be
+felt more strongly by the electorate in regions hit hard by emigration;
+or there the electorate may feel emigration more strongly, thus
+developing more grievanes and thus more anti-incumbent sentiment - ``For
+example, it might be hypothesized that in areas with higher emigration
+rates, the impact of infrastructure (like schools or hospitals) on
+voting pattern changes might be different than in areas with lower
+emigration rates.''
+
+This second model specification builds upon the first by adding an
+interaction term between emigration and service cuts. The second model
+specification is otherwise identical to the first, and will also control
+for the same variables as the first model specification.
+
+This leads to the Model Specification B:
+
+\begin{equation*}
+\begin{aligned}
+Incumbent \; Vote \; Share \; Change_{n, y} = \beta_n & + \beta_y & \\
+      & + \beta_1Emigration \; Rate_{n, y} \\
+      & + \beta_2Service \; Cuts_{n, y} \\
+      & + \beta_2 (Emigration \; Rate_{n, y} \times Service \; Cuts_{n, y}) \\
+      & + \beta_3Electoral \; Volatility_{n, y} \\
+      & + \beta_4GDP_{n, y} \\
+      & + \varepsilon
+\end{aligned}
+\end{equation*}
+
+In both model specifications, each service cut, i.e.~school closings,
+hospital closings, third places closings, will be modelled seperately.
+
+\end{document}

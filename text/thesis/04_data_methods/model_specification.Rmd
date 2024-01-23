@@ -4,7 +4,7 @@
 <!-- Intro -->
 In the preliminary analysis, I establish a negative correlation between emigration and the change in incumbent vote share in Romania. Building upon this  finding, I develop two model specifications to test the hypotheses that service cuts decrease incumbent support. Using two model specifications has the advantage of providing a more comprehensive and robust exploration of how service cuts and emigration may individually and interctively affect incumbnet vote share.
 
-<!-- model specification 1 -->
+<!-- Model Specification A -->
 The aim of the first model specification is to analyse the isolated effect of service cuts on incumbent vote share. Thus service cuts form the independent variable in this model specification. To ensure that the effect of service cuts is isolated, I control for emigration, as emigration rates vary across NUTS3 regions within Romania and, as previously established, influence incumbent vote share. 
 
 - to further isloate the effect of service cuts and emigration on incumbent vote share, i add electoral volatility, gdp and unemployment rate as control variables
@@ -13,22 +13,21 @@ Using this model specification, I set up a two-way fixed effects linear regressi
 
 This leads to the Model Specification A:
 
-<!-- \begin{equation} -->
-<!-- \begin{aligned} -->
+\begin{equation*}
+\begin{aligned}
+Incumbent \; Vote \; Share \; Change_{n,y} = \beta_n & + \beta_y & \\
+& + \beta_1Emigration \; Rate_{n, y} \\
+& + \beta_2Service \; Cuts_{n, y} \\
+& + \beta_3Electoral \; Volatility_{n, y} \\
+& + \beta_4GDP_{n, y} \\
+& + \beta_5Unemployment_{n, y} \\
+& + \varepsilon
+\end{aligned}
+\end{equation*}
 
-<!-- Incumbent \; Vote \; Share \; Change_{n, y} = \beta_n & + \beta_y & \\ -->
-<!--       & + \beta_1Emigration \; Rate_{n, y} \\ -->
-<!--       & + \beta_2Service \; Cuts_{n, y} \\ -->
-<!--       & + \beta_3Electoral \; Volatility_{n, y} \\ -->
-<!--       & + \beta_4GDP_{n, y} \\ -->
-<!--       & + \varepsilon -->
+The subscript $n$ symbolises a Romanian NUTS3 region and subscript $y$ indicates an election year. $ε$ denotes the error term.
 
-<!-- \end{aligned} -->
-<!-- \end{equation} -->
-
-The subscript n symbolises a Romanian NUTS3 region and subscript y indicates an election year. ε denotes the error term.
-
-<!-- model specification 2 -->
+<!-- Model Specification B -->
 The second model specification is designed to examine if the impact of service cuts on incumbent vote share is conditioned by emigration. This examination focuses on two aspects. First, it determines whether a significant interaction exists between service cuts and emigration. Second, it assesses how different levels in emigration modify the effect of service cuts on incumbent support. By analysing the interaction between the two variables, the model can reveal if emigration increase or decrease the effects of service cuts on incumbent support, thus futher testing the hypotheses.
 
 TO DO: justify this interaction! something along the lines of: 
@@ -40,18 +39,17 @@ This second model specification builds upon the first by adding an interaction t
 
 This leads to the Model Specification B:
 
-<!-- \begin{equation} -->
-<!-- \begin{aligned} -->
-
-<!-- Incumbent \; Vote \; Share \; Change_{n, y} = \beta_n & + \beta_y & \\ -->
-<!--       & + \beta_1Emigration \; Rate_{n, y} \\ -->
-<!--       & + \beta_2Service \; Cuts_{n, y} \\ -->
-<!--       & + \beta_2 (Emigration \; Rate_{n, y} \times Service \; Cuts_{n, y}) \\ -->
-<!--       & + \beta_3Electoral \; Volatility_{n, y} \\ -->
-<!--       & + \beta_4GDP_{n, y} \\ -->
-<!--       & + \varepsilon -->
-
-<!-- \end{aligned} -->
-<!-- \end{equation} -->
+\begin{equation*}
+\begin{aligned}
+Incumbent \; Vote \; Share \; Change_{n, y} = \beta_n & + \beta_y & \\
+      & + \beta_1Emigration \; Rate_{n, y} \\
+      & + \beta_2Service \; Cuts_{n, y} \\
+      & + \beta_3 (Emigration \; Rate_{n, y} \times Service \; Cuts_{n, y}) \\
+      & + \beta_4Electoral \; Volatility_{n, y} \\
+      & + \beta_5GDP_{n, y} \\
+      & + \beta_6Unemployment_{n, y} \\
+      & + \varepsilon
+\end{aligned}
+\end{equation*}
 
 In both model specifications, each service cut, i.e. school closings, hospital closings, third places closings, will be modelled seperately. 

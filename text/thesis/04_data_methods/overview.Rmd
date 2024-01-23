@@ -22,6 +22,33 @@ Using unique party IDs, I can combine the V-Party Dataset with the European NUTS
 
 (TO DO: Show snippet of n_v_dem_cee)
 
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Show snippet of n_v_dem_cee"}
+df <- ned_v_dem_cee %>%
+  mutate(vote_share = round(vote_share, 2)) %>% 
+  mutate(vote_change = round(vote_change, 2)) %>% 
+  mutate(vote_change_sign = case_when(vote_change < 0 ~ "⁠",
+                                      vote_change > 0 ~ "+",
+                                      T ~ "")) %>%
+  dplyr::select(year, country, regionname, nuts2016, unique_party_id, vote_share, vote_change_sign, vote_change, prev_incumbent) %>%
+  mutate(vote_change = paste0(vote_change_sign, vote_change)) %>% 
+  dplyr::rename(Year = year,
+                Country = country,
+                `Region Name` = regionname,
+                `NUTS ID` = nuts2016,
+                `Party ID` = unique_party_id,
+                `Vote Share %` = vote_share,
+                `Vote Change` = vote_change,
+                `Incumbent?` = prev_incumbent,
+                ) %>% 
+  dplyr::select(-vote_change_sign) %>% 
+  sample_n(8) %>% 
+  arrange(Year)
+
+kable(df, caption = "Random Sample of NED V-DEM CEE", format = "latex", booktabs = TRUE) %>% 
+  kable_styling(font_size = 9)
+```
+
+
 - Anti-incumbent vote: NED and V DEM
 
 <!-- Election years -->
