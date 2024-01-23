@@ -5,3 +5,15 @@
 - However, two results do exhibit borderline significance. The service cuts to schools in Model Specification A (Models 1 and 2 in Table \@ref(tab:results-emigration-incumbent-vote-share)) and in Model Specification B (Model 1 in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction)), hinting at a potential trend of emigration induced school closures and their effect on incumbent support.
 - But in order to confirm the validity and robustness of this finding and thus to be fail to reject Hypothesis 1, more data is needed. 
 - In short, the lack of a clear statistical significance in the current results underscore the necessity for further investigation and data collection. This would help build a model that could more clearly fail to reject the hypotheses.
+
+<!-- further discussion of results -->
+
+- hospital showing practically no effect: most romanian NUTS3 regions only have few hospitals and their numbers don’t flucuate that much (see graph in appendix TO DO).
+- thus there isn’t much variation in the data, which is perhaps why there’s no effect
+
+- third places showing positive effect
+	- may be a more complex mechanism behind it. 
+	- more people per third place may result in a stronger feeling of community, from which an incumbent party could profit again
+	- however, this is pure speculation and needs more looking into
+
+- was volatility operationalised correctly? always shows a positive coefficient, meaning that higher levels of volatiltiy are associated with higher levels of incumbent support, which does not intuitively make sense and may require more digging into

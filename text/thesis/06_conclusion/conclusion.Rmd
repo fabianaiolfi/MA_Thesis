@@ -1,19 +1,22 @@
 ## Conclusion
-- Summary of thesis and findings
-  - Difference between PL and RO: maybe because emigration picks up in RO and decreases in PL? see "Does EU accession affect emigration?" 
-  - third places showing no effect: maybe closings aren’t associated with incumbents?
+<!-- Summary of thesis -->
+- in this thesis i set to measure the effect of emigration in incumbent support in Poland and Romania
+- …
+- Results hint at an effect of emigration caused school closures and loss of incumbent support in Romania
+- However, results are not statistically significant enough to clearly fail to reject the hypotheses set up, thus further research is needed
+
 - Thesis limits
 	- Effects seem country specific, no broad generalisations possible
 	- many influences on incumbent support, service cuts won’t cover them all
 	- i dont look at *who* is leaving, e.g. high or low-income residents [@dancygierEmigrationRadicalRight2022 11], as this could have an influence on the impact of emigration, incumbent support and grievances; also there should be a difference between low- and high-skilled emigrants, which will also make a difference
 	- emigration flows: limits of only looking at external emigration; however, there are different flows of emigration, e.g., from rural to urban areas within a country and then abroad [@kingMindGapIntegrating2010 1623]
-	- was volatility operationalised correctly? always shows a positive coefficient, meaning that higher levels of volatiltiy are associated with higher levels of incumbent support, which does not intuitively make sense and may require more digging into
 	- add grievances to model; this data is hard to come by, should be integrated somewhere
 	- interaction coefficients may not have enough statistical power because many more observations are needed when using interactions due to noise [@gelmanYouNeed162018]
 
-
 - Interpreting results in the broader context of further European integration
+
 - Future research
+	- get service cut data on more CEE countries, in order to get a bigger picture of the effects of FoM on sending countries
 	- state that causality is not that simple, there might me a mediating factor in the whole thing, which should be looked at in future research
 	- Uncovering country specific service cuts
 	- Effect of incumbent party on emigration

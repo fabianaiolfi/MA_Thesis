@@ -184,8 +184,17 @@ model_table %>%
 ```
 
 
-I examine if there is an association between emigration and service cuts in Poland and Romania. I operationalise service cuts as the yearly change in the number of three institutions in a NUTS region, namely schools, hospitals and third places. Because I want to examine a direct effect between emigration and service cuts, I look at the actual number of institutions. A negative change, i.e., a decrease in the number of institutions, indicates service cuts. This yearly change is thus the model’s dependent variable. I use lagged emigration as the model’s independent variable, using three different lags (one, three and five years) as a robustness check.
- 
+- I examine if there is an association between emigration and service cuts in Poland and Romania.
+
+TO DO:
+- Guiding this preliminary examination of a possible association is Figure X
+- It compares three different population metrics for Poland and Romania, namely the number of primary school aged children, the number of seniors and the entire population
+- We can observe that both in Poland and Romania, the entire population TO DO. The number of children decreases and the number of seniors increases.
+- The decrease in children hints at a possible effect on school closures, however the direction of the effect remains unclear at this point (if less children cause school closings or school closing cause families with children to move away)
+- The increase in seniors implies that health care institutions, such as hospitals, would become more important, as seniors are more reliant on these types of institutions
+
+- In order to measure an association between emigration and service cuts, I operationalise service cuts as the yearly change in the number of three institutions in a NUTS region, namely schools, hospitals and third places. Because I want to examine a direct effect between emigration and service cuts, I look at the actual number of institutions. A negative change, i.e., a decrease in the number of institutions, indicates service cuts. This yearly change is thus the model’s dependent variable. I use lagged emigration as the model’s independent variable, using three different lags (one, three and five years) as robustness checks.
+
 Modelling three institutions seperately and applying three different independent variables results in nine models for each country under examination (see Tables \@ref(tab:pl-emigration-service-cuts) and \@ref(tab:ro-emigration-service-cuts)). The OLS model uses NUTS regions and years as fixed effects, as it uses panel data over time while examining subnational regions within a country.
 
 Table \@ref(tab:pl-emigration-service-cuts) displays results for Poland. We can observe negative coefficients in almost all models. This indicates that a higher emigration rate is associated with a decrease in the number of institutions, apart from the number of schools when emigration is lagged by one year. Statistically significant results are only observable when modelling lagged emigration on the change in number of third places. Here we see that shorter lag periods display stronger effects. This may be due to the immediate effect of emigration on third places, as a lack of customers can lead a bar of café to close down quickly.

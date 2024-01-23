@@ -118,11 +118,20 @@ model_table %>%
 
 <!-- Interpreting interaction terms https://theeffectbook.net/ch-StatisticalAdjustment.html#interaction-terms -->
 - What does Model 1’s negative interaction coefficient mean? We take a closer look
-- The base effect of school service cuts on incumbent vote share change, without taking the emigration into account, equals $0.045$ (not shown in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction)). This means in a year where the average rate of children per school is one child higher that it typically is for that region, incumbent vote share change increases by $0.045$ more than is typical for that region, holding all other variables constant
+- The base effect of school service cuts on incumbent vote share change, without taking the emigration into account, equals $0.045$ (not shown in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction); TO DO: add full table to appendix). This means in a year where the average rate of children per school is one child higher that it typically is for that region, incumbent vote share change increases by $0.045$ more than is typical for that region, holding all other variables constant
 - The interaction term modifies this effect based on the emigration rate. For each one-unit increase in emigration, the effect of school service cuts on incumbent vote share change decreases by $0.058$
 - In order to calculate the total effect of a one child per school increase when emigration also increases by one person per 1000, I add the base effect of service cuts and the interaction effect together: $0.045 - 0.058 = -0.013$.
 - This means that when emigration is added as an interaction term, the effect of school service cuts on incumbent vote share change shifts from a positive effect of $0.045$ to a negative effect of $0.013$.
 - In other words, in NUTS3 regions where the emigration rate is higher by one unit, an increase in children per school is associated with a decrease in incumbent vote share change, rather than an increase.
+
+- when we look at the interaction term between the school service cuts operationalised with children per classroom together with emigration, we see despite the positive coefficient in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction) a similar result
+- the base effect of average children per classroom (not shown in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction); TO DO: add full table to appendix) is $-4.753$
+- the interaction term equals $1.124$
+- We calculate the sum of the base effect and interaction term together
+- $-4.753 + 1.124 = -3.629$
+- Again, as in Model 1, we see that when emigration is added as an intercation term, the effect of school service cuts increases slightly but still stays below zero, indicating a negative effect on incumbent support.
+- However, this interaction is not statistically significant, thus these results should be interpreted with caution.
+
 - In sum, “the negative effect of service cuts on the change in incumbent vote share becomes more pronounced as the emigration rate increases. In other words, in Romanian NUTS3 regions with higher emigration rates, the impact of less schools on reducing incumbent vote share is stronger."
 - Models 2, 3 and 4 do not display statistially significant effects. Also, their effects are very small or do not align with my theoretical expectations
 
