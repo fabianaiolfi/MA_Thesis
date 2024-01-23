@@ -1,2 +1,7 @@
 
 <!-- Do emigration induced service cuts effect incumbent vote share in Romania?: Hypotheses acceptance or rejection -->
+- Based on the results from model specifications A and B, I turn to the hypotheses set up earlier and assess if they can be rejected or if I fail to reject them.
+- It is evident that all three hypotheses put forward must be rejected. I draw this conclusion from the fact that none of the model outcomes demonstrate statistical significance beyond the normal threshold of $p = 0.1$.
+- However, two results do exhibit borderline significance. The service cuts to schools in Model Specification A (Models 1 and 2 in Table \@ref(tab:results-emigration-incumbent-vote-share)) and in Model Specification B (Model 1 in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction)), hinting at a potential trend of emigration induced school closures and their effect on incumbent support.
+- But in order to confirm the validity and robustness of this finding and thus to be fail to reject Hypothesis 1, more data is needed. 
+- In short, the lack of a clear statistical significance in the current results underscore the necessity for further investigation and data collection. This would help build a model that could more clearly fail to reject the hypotheses.
