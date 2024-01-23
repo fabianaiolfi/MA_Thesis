@@ -138,16 +138,5 @@ model_table %>%
 
 <!-- control variable coefficient results: do control variables align with theoretical expectations? -->
 - When looking at the control variables in the models in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction), we see similar coefficients as in Table \@ref(tab:results-emigration-incumbent-vote-share).
-- 
-
-```
-- I move on to report on the control variable coefficient results. I aknowledge that control variables are not in the primary interest, however they can contribute to evidence of effects on incumbent vote support [@hunermundNuisanceControlVariables2023 4]
-- Three of the four control variables display coefficients that align with the theoretical assumptions and are statistically significant across all models. 
-- We can observe that an increase in emigration is associated with a decrease in incumbent vote share. This fits into the causal mechanism of emigration causing grievances, which in turn decreases incumbent support
-- Both economic variables, GDP per capital and unemployment, show coefficients that align with theoretical expectations. An increase in per capita GDP is associated with an increase in incumbent support, which can be interpreted that incumbent parties are rewarded for a good state of the economy. On the other hand, we see that an increase in unemployment is associated with a decrease in incumbent support. This suggests that voters punish incumbent parties for poor economic performance
-- The Volatility coefficient shows a positive coefficient throughout all models, indicating an increase in volatility is associated with an increase in incumbent support. This does not make intuitive sense, as we would expect high levels of volatility to be associated with a decrease in incumbent support, as incumbent parties would be voted out of office more often than not.
-```
-
-
-
-- TO DO: discuss implications of interaction term
+- Again, three of the four control variables display coefficients that align with the theoretical assumptions and are statistically significant across all models. 
+- The one control variable that does not align with the theoretical expectations is again the Volatility coefficient, as is shows a positive value across all models. This indicates that an increase in volatility is associated with an increase in incumbent vote share change, an assumption that does not make sense intuitively.

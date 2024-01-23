@@ -98,8 +98,14 @@ model_table %>%
 
 - The change in number of hospitals has no effect, and the change in number of third places shows a positive effect. This indicates that an increase in the number of third places is associated with an increase in incumbent vote share
 - The results in Models 3 and 4 are not statistically significant at conventional levels.
-- Models 5 and 6 combine all service cuts together, with Model 5 using the number of schools and Model 6 using the classroom proxy
-- The results from Models 5 and 6 are not much different to the Models 1 through 4. Again, only school service cuts show negative associations, but these results are not statistically significant
+
+<!-- one vs all independent variables -->
+- Models 5 and 6 combine all service cuts together, with Model 5 using the number of schools and Model 6 using the classroom proxy to operationalise service cuts to schools
+- By combining the different service cuts in Models 5 and 6, we can examine what the unique contributions are of each service cut on incumbent vote change.
+- The results from Models 5 and 6 are not much different to the Models 1 through 4. Again, only school service cuts show negative associations, but these results are not statistically significant and their coefficient strengths change only marginally.
+- However, this stability can be interpreted positively.
+- This stability of coefficient indicates that the effect of each service cut on incumbent vote share change is relatively independent of each other. In other words, the different service cuts capture distinct aspects of the variance of incumbent vote share change without overlapping with each other.
+- This coefficient stability can also be interpreted that the model is robust and that overfitting is unlikely.
 
 <!-- emigration change in coefficient strength over models: omitted variable bias -->
 - I move on to discuss varying coefficient strength of the control variable emigration.
@@ -120,5 +126,3 @@ model_table %>%
 - Both economic variables, GDP per capital and unemployment, show coefficients that align with theoretical expectations. An increase in per capita GDP is associated with an increase in incumbent support, which can be interpreted that incumbent parties are rewarded for a good state of the economy. On the other hand, we see that an increase in unemployment is associated with a decrease in incumbent support. This suggests that voters punish incumbent parties for poor economic performance
 - The Volatility coefficient shows a positive coefficient throughout all models, indicating an increase in volatility is associated with an increase in incumbent support. This does not make intuitive sense, as we would expect high levels of volatility to be associated with a decrease in incumbent support, as incumbent parties would be voted out of office more often than not.
 
-
-- TO DO: different interpretation of results when one service cuts and several service cuts!
