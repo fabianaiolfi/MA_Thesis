@@ -15,6 +15,10 @@
 - [ ] replace p-values with standard errors in regression tables
 - [ ] Reference Github repo
 - [ ] Reference help from LLMs
+- [ ] Clean up references
+- [ ] Add appendix
+  - [ ] Graphs from `240111_data_analysis`
+  - [ ] Complete regression tables
 
 ----
 
