@@ -1,5 +1,3 @@
-## Results
-
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Using average ratio between elections
 fe_lm_0 <- feols(vote_change ~
@@ -95,13 +93,20 @@ model_table %>%
 - Service cuts to schools (school buildings or classrooms) display negative coefficients, meaning that an increase of children per school or classroom is associated with a decrease in incumbent support.
 - While the coefficient for Model 2 is not statistically significant, the average number of children per school (Model 1) displays borderline statistical significance ($p = 0.103$).
 - What does Model 1’s negative coefficient mean?
-- we can interpret this coefficient to mean that while controlling for emigration, electoral volatility, GDP per capita and unemployment, for a given Romanian NUTS3 region, in a year where the average rate of children per school is one child higher that it typically is for that region, we would expect the incumbent vote share to decrease by $0.093\%$ more than is typical for that region.
-- The coefficient value can also be reformulated so: If a school grows by eleven children, then this is associated with an incumbent vote share decrease of around $1\%$, taking the above mentioned caveats into account.
+- we can interpret this coefficient to mean that while controlling for emigration, electoral volatility, GDP per capita and unemployment, for a given Romanian NUTS3 region, in a year where the average rate of children per school is one child higher that it typically is for that region, we would expect the incumbent vote share to decrease by $0.093$ more than is typical for that region.
+- The coefficient value can also be reformulated so: If a school grows by eleven children, then this is associated with an incumbent vote share decrease of around $1\%$, taking the above mentioned caveats and control variables into account.
 
 - The change in number of hospitals has no effect, and the change in number of third places shows a positive effect. This indicates that an increase in the number of third places is associated with an increase in incumbent vote share
 - The results in Models 3 and 4 are not statistically significant at conventional levels.
 - Models 5 and 6 combine all service cuts together, with Model 5 using the number of schools and Model 6 using the classroom proxy
 - The results from Models 5 and 6 are not much different to the Models 1 through 4. Again, only school service cuts show negative associations, but these results are not statistically significant
+
+<!-- emigration change in coefficient strength over models: omitted variable bias -->
+- I move on to discuss varying coefficient strength of the control variable emigration.
+- Depending which service cut is added to the model, the coefficient varies in strength. 
+- This hints at omitted variable bias in Model 0.
+- We observe the biggest change in strength when school service cuts are added using the children per school operationalisation (Model 1). Here the emigration coefficient increases by $0.339$, from $-5.5$ to $-5.161$. This indicates that Model 0 was underspecified and suffered from omittied variables bias, whereby the effect of emigration on incumbent support is overstated. This is then corrected when school service cuts are added to the model.
+- Same goes for Models 2, 4 and 6, as these models also see a decrease in coefficient size, however in smaller amounts compared to Model 1.
 
 <!-- R2 values; https://stats.stackexchange.com/a/401331 -->
 - One difference between the variable combining Models 5 and 6 with Models 1 through 4 are the increased Adjusted Within R-Squared values.
@@ -115,11 +120,5 @@ model_table %>%
 - Both economic variables, GDP per capital and unemployment, show coefficients that align with theoretical expectations. An increase in per capita GDP is associated with an increase in incumbent support, which can be interpreted that incumbent parties are rewarded for a good state of the economy. On the other hand, we see that an increase in unemployment is associated with a decrease in incumbent support. This suggests that voters punish incumbent parties for poor economic performance
 - The Volatility coefficient shows a positive coefficient throughout all models, indicating an increase in volatility is associated with an increase in incumbent support. This does not make intuitive sense, as we would expect high levels of volatility to be associated with a decrease in incumbent support, as incumbent parties would be voted out of office more often than not.
 
-<!-- emigration change in coefficient strength over models: omitted variable bias -->
-- I move on to discuss varying coefficient strength of the control variable emigration.
-- Depending which service cut is added to the model, the coefficient varies in strength. 
-- This hints at omitted variable bias in Model 0.
-- We observe the biggest change in strength when school service cuts are added using the children per school operationalisation (Model 1). Here the emigration coefficient increases by $0.339$, from $-5.5$ to $-5.161$. This indicates that Model 0 was underspecified and suffered from omittied variables bias, whereby the effect of emigration on incumbent support is overstated. This is then corrected when school service cuts are added to the model.
-- Same goes for Models 2, 4 and 6, as these models also see a decrease in coefficient size, however in smaller amounts compared to Model 1.
 
 - TO DO: different interpretation of results when one service cuts and several service cuts!
