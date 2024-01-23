@@ -11,8 +11,6 @@ The aim of the first model specification is to analyse the isolated effect of se
 
 Using this model specification, I set up a two-way fixed effects linear regression model^[https://theeffectbook.net/ch-FixedEffects.html#multiple-sets-of-fixed-effects], using NUTS3 regions and years as fixed effects. By using fixed effects, I can account for region- and time-specific factors that may confound results.
 
-<!-- maybe explain here that this is my attempt  -->
-
 This leads to the Model Specification A:
 
 <!-- \begin{equation} -->

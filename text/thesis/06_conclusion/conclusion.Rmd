@@ -21,12 +21,15 @@
 	- a governing party in a candidate member state should thus take this into account when proceeding with their own EU membership
 	- I assume that candidate countries will consider joining the EU as an overall benefit despite the aspect of emigration and its impact
 	- a candidate country could prepare for an outflux once their country joins, e.g. by preparing policies to incentivise staying at home or making a return worth while
+	- however, if the incumbent are voted out of power due to FoM induced emigration, there’s a chance that e.g. Eurosceptic parties gain power. Thus FoM will have a negative effect on the EU in the long term, not only for receiving countries, which have seen an increase in anti-migrant political rhetoric, but also in sending countries, that suffer from the economic and social issues that come out of emigration
 - second, despite hypothesis rejection, let us assume that school closures 
-
-
-
+	- negative impact on education system
+	- dire long term consequences, as this will lead to a generation of citizens who indirectly suffer from FoM and may feel hard done by, developing grievances and thus fuel Euroscepticism
+- thus it is in the EU’s own interest to counter these negative, anti-EU tendencies that the EU brings upon itself through its own implementation of FoM.
+- so next to the (candidate) member states, the EU should develop policies that dampen the effect of emigration and create incentives to return to the sending country.
 
 <!-- Future research -->
+- does party orientation have an effect in any of this?
 - why is there such a difference in effect of emigration on incumbents in poland and in romania?
 - what is the mid and long term effect of school closures on the education system and how does this impact future generations of citizens?
 - get service cut data on more CEE countries, in order to get a bigger picture of the effects of FoM on sending countries
