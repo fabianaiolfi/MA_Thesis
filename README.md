@@ -16,6 +16,7 @@
 - [ ] Reference Github repo
 - [ ] Reference help from LLMs
 - [ ] Clean up references
+- [ ] Add subtitle/proper thesis title (to abstract page?)
 - [ ] Add appendix
   - [ ] Graphs from `240111_data_analysis`
   - [ ] Complete regression tables
