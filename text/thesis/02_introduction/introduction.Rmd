@@ -1,10 +1,28 @@
 ## Introduction
-- Thesis overview
-- Add explanation what NUTS regions are
+<!-- Central problem / puzzle that thesis will address -->
+Central and Eastern European (CEE) European Union (EU) member states^[Bulgaria, Croatia, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia, Slovenia] have shown high levels of emigration in the past 20 years (see Figure \ref{fig:net_migration_map}). Their accession to the EU has spurred on emigration, facilitated by the EU’s Freedom of Movement (FoM). How does emigration affect political behaviour in sending countries? Theory tells us that emigration leads to service cuts, which in turn create grievances amongst the remaining population [@dancygierEmigrationRadicalRight2022]. They then turn against the incumbent party [@bowlerStrategicProtestVoting1992]. So which emigration-induced service cuts lead to an anti-incumbent vote?
 
-- Thesis relevance and motivation
-	- EU’s Freedom of Movement, a foundational aspect of the EU, and its impact on emigration in Europe, especially new EU member states in Central and Eastern Europe (CEE)
-	- Effects of emigration on sending countries as a blind spot in political science research
+This question is relevant for three reasons. First, emigration has a profound impact on sending countries (e.g., see @thautEUIntegrationEmigration2009a). Second, emigration is a salient issue amongst the remaining population [@rice-oxleyEuropeSouthEast2019]. Third, the effects of emigration on CEE EU member states is a blind spot in political science research [@kyriaziPoliticsEmigrationEurope2023a].
+
+The United Nations estimated a population decline of 18 million people in Eastern Europe between the early 1990s and 2015, with emigration being the main reason for the decline [@romeiEasternEuropeHas2016]. In one concrete example, Lithuania has lost a quarter of its population, with certain regions losing over 50% of residents [@ubarevicienePopulationDeclineLithuania2017a 58]. Intra-EU migration is driven by economic and labour market factors, as people emigrate to look for better job opportunities [@vasilopoulouOpportunityThreatPublic2019a 810].
+
+Emigration has profound impacts on sending countries, e.g., population decline, lack of labour [@thautEUIntegrationEmigration2009a 220; @roosCompensatingEffectsEmigration2023a 187] or a change in the population’s ethnic profile [@vorlanderMIDEM2021Emigration2021 51]. Emigration affects individuals through a sense of loss or by causing anger, distress and depression [@marchetti-mercerThoseEasilyForgotten2012a 388; @ivlevsEmigrationRemittancesSubjective2019 135].
+
+Does emigration change the voting behaviour of the people left behind? Theory tells us that emigration creates grievances amongst the remaining voters [@dancygierEmigrationRadicalRight2022, 2]. I follow @flindersPartyPoliticsVs2022 [673]’s definition of grievances, who see them to be negative emotions built around fear or anger against a specific “other”.
+
+@dancygierEmigrationRadicalRight2022 show how these grievances lead to voting for populist and radical right (PRR) parties. I argue that these grievances can also cause a less radical shift in voting behaviour, e.g., an anti-incumbent vote. This argument is underlined by @bowlerStrategicProtestVoting1992, who tells us that grieving, dissatisfied voters are prone to casting a ballot against the incumbent [@bowlerStrategicProtestVoting1992, 489]. Furthermore, @dancygierEmigrationRadicalRight2022 focuses on Sweden. I argue that the phenomenon of emigration and vote behaviour change can also be applied to CEE EU member states. This is because the typical impacts of emigration, e.g., population decline or labour shortages, are not bound to a specific country.
+
+Therefore, this thesis asks the following research question: Which emigration-induced service cuts have a negative impact on the sending country’s incumbent vote share?
+
+<!-- Describe causal mechanism -->
+@dancygierEmigrationRadicalRight2022 describe how emigration leads to voting for PRR parties. Regions with high emigration rates are prone to service cuts. These cuts cause grievances amongst the people left behind, who react by voting for PRR parties [@dancygierEmigrationRadicalRight2022, 2]. However, the authors do not show what exactly causes a change in voting behaviour and suggest that future research should look into what type of service cuts eventually lead to PRR voting [@dancygierEmigrationRadicalRight2022, 35].
+
+This thesis will examine three types of emigration induced service cuts that can cause grievances. These cuts are school closures, hospital closures and closures of places that foster community building, such as cafés, bars and restaurants. I put forward the idea that these service cuts cause grievances that in turn lead to an anti-incumbent vote.
+
+<!-- Why is it worth studying? -->
+There is a research gap when it comes to understanding the political repercussions of emigration on sending regions [@kyriaziPoliticsEmigrationEurope2023a 564]. This despite the fact that, globally seen, the people who do *not* emigrate outnumber the people who do [@marchetti-mercerThoseEasilyForgotten2012a 378]. In the specific case of the EU, the FoM should be studied not only from the view of a right to enter, but also as a right to exit [@bruzeliusTakingEmigrationSeriously2021a 35].
+
+FoM, a foundational aspect of the EU, affects voting behaviour in all member states, regardless if they are sending or receiving migrants. Understanding how FoM alters voting behaviour in emigration-hit regions will help understand the effects FoM on relatively new members, such as Croatia and other CEE countries, and will also help understand the impact of future European integration, e.g., when further Balkan states or the Ukraine join the EU.^[2023 State of Union address by EU Commission President Ursula von der Leyen at 1h 5min 41sec (https://www.youtube.com/live/3CodB7iohUI?si=xe06mS4q8qjeJYpi&t=3941, retrieved 6 October 2023)]
 
 
 - this thesis is setup as follows:
@@ -12,6 +30,7 @@
 - based on this, i lay out my theoretical argument and hypotheses, showing what i suspect to see when building the mdoels.
 - next, i test three assumptions that must hold in order for my hypotheses to work in the first place
 - in a next step, i explain which data i use, and how i operationalise stuff and how i build models that help test my hypotheses
+	- i work with subnational NUTS^[The NUTS classification (_Nomenclature des unités territoriales statistiques_) is a geographic classification standard established by Eurostat, the EU’s statistical office. It is hierarchical system based on three levels of detail, with level NUTS3 being the lowest level, i.e., the level with the smallest geographic regions (https://ec.europa.eu/eurostat/web/nuts/overview, retrieved 23 January 2024)] level data, in order to gain more variation as different regions within countries have different levels of emigration and service cuts. this allows for more differentiated measurements.
 - finally, i present the model results and bring them in relation to the hypotheses
 - finally, i conclude with
 	- implications for european integration
