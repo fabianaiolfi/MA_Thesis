@@ -1,6 +1,30 @@
 ### Research Design
 - I differentiate between internal and external migration and focus on the latter, as I want to examine the effect of the EU’s FoM on emigration and voting behaviour.
-- I will measure the effect of service cuts and emigration on the lowest subnational NUTS level that data is available for. I do this for the following two reasons. First, measuring subnational regions instead of countries will increase sample size and thus provide more accurate results. Second, regions within countries have different levels of emigration (see Figure TO DO: line chart of PL and RO NUTS emigration), allowing for differentiated measurements.
+- I will measure the effect of service cuts and emigration on the lowest subnational NUTS level that data is available for. I do this for the following two reasons. First, measuring subnational regions instead of countries will increase sample size and thus provide more accurate results. Second, regions within countries have different levels of emigration (see Figure \@ref(fig:pl-ro-emigration-rate)), allowing for differentiated measurements.
+
+
+```{r pl-ro-emigration-rate, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Yearly Emigration Rate per 1000 Population"}
+
+df <- cee_crude_emigration %>%
+  dplyr::filter(country == c("RO", "PL")) %>% 
+  dplyr::filter(year < 2020) %>% 
+  mutate(country = case_when(country == "PL" ~ "Polish NUTS2 Regions",
+                             country == "RO" ~ "Romanian NUTS3 Regions"))
+
+ggplot(df, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
+  geom_line(color = "black") +
+  geom_point(shape = 21, fill = "white", color = "black", size = 1) +
+  facet_wrap(~ country,
+             scales = "free_x",
+             ncol = 2) +
+  ylab(" ") +
+  xlab(" ") +
+  theme_minimal() +
+  theme(
+    text = element_text(family = "serif"),
+        strip.text = element_text(hjust = 0) # Left aligns the facet titles
+  )
+```
 
 ### Overview of available data, how it was collected and transformed
 
@@ -18,19 +42,18 @@ The V-Party Dataset [@staffan.i.lindbergVPartyDatasetV22022] provides informatio
 <!-- Election results -->
 Subnational election results are provided by the European NUTS-level election dataset [@schraffEuropeanNUTSlevelElection2023]. I remove EU parliament elections from the data, leaving only national parliament election results. I also remove votes cast from abroad, parties named “Other” and elections before the year 1994 and after 2020. I calculate a party’s vote share by dividing the number of received votes by the total number of votes cast in the region, then multiply this by 100 to receive the regional vote share in percent. In a next step, I calculate a party’s regional vote change between two consecutive elections.
 
-Using unique party IDs, I can combine the V-Party Dataset with the European NUTS-level election dataset. This combined dataset shows the regional vote change of incumbent parties.
+Using unique party IDs, I can combine the V-Party Dataset with the European NUTS-level election dataset. This combined dataset shows the regional vote change of incumbent parties and is displayedt in Table \@ref(tab:ned-vdem-sample).
 
-(TO DO: Show snippet of n_v_dem_cee)
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Show snippet of n_v_dem_cee"}
+```{r ned-vdem-sample, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Show snippet of n_v_dem_cee"}
 df <- ned_v_dem_cee %>%
+  drop_na(prev_incumbent) %>% 
   mutate(vote_share = round(vote_share, 2)) %>% 
   mutate(vote_change = round(vote_change, 2)) %>% 
-  mutate(vote_change_sign = case_when(vote_change < 0 ~ "⁠",
-                                      vote_change > 0 ~ "+",
+  mutate(vote_change_sign = case_when(vote_change > 0 ~ "+",
                                       T ~ "")) %>%
   dplyr::select(year, country, regionname, nuts2016, unique_party_id, vote_share, vote_change_sign, vote_change, prev_incumbent) %>%
   mutate(vote_change = paste0(vote_change_sign, vote_change)) %>% 
+  mutate(vote_change = gsub("-", "–", vote_change)) %>% 
   dplyr::rename(Year = year,
                 Country = country,
                 `Region Name` = regionname,
@@ -41,7 +64,7 @@ df <- ned_v_dem_cee %>%
                 `Incumbent?` = prev_incumbent,
                 ) %>% 
   dplyr::select(-vote_change_sign) %>% 
-  sample_n(8) %>% 
+  sample_n(5) %>% 
   arrange(Year)
 
 kable(df, caption = "Random Sample of NED V-DEM CEE", format = "latex", booktabs = TRUE) %>% 
