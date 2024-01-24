@@ -1,5 +1,7 @@
 ## Results
 
+add somewhere: “the associations we document are small in magnitude”
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Romania
 anti_incumbent_vote <- ned_v_dem_cee %>% 
