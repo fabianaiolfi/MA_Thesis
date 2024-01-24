@@ -63,7 +63,7 @@ To underline the importance of school and hospital closings, @dancygierEmigratio
 Schools and hospital closings are services made available by the state. In contrast, “third places” are supplied by the private sector. Their closure can erode a communal sense of belonging and push people towards populist parties [@boletDrinkingAloneLocal2021 1653].
 
 ### Hypotheses
-As a general relation between dependent and independent variables, I assume an increase in service cuts leads to a decrease in incumbent support. I define the following three hypotheses:
+As a general relation between dependent and independent variables, I assume an increase in service cuts leads to a decrease in incumbent support. This leads to the following three hypotheses:
 
 - H1: Service cuts to schools lead to a decrease in the region’s incumbent support.
 - H2: Service cuts to hospitals lead to a decrease in the region’s incumbent support.
