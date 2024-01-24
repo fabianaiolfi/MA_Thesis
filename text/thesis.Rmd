@@ -55,6 +55,7 @@ library(fixest)
 library(modelsummary)
 library(bookdown)
 library(gridExtra)
+library(politicsR)
 
 options(scipen = 0) # Enable scientific notation
 ```
@@ -92,6 +93,7 @@ load(here("data", "03_service_cuts", "ro", "ro_third_places.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_remittances.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_gdp.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_volatility.Rda"))
+load(here("data", "03_service_cuts", "ro", "ro_volatility_table.rda"))
 load(here("data", "03_service_cuts", "ro", "ro_unemployment.Rda"))
 
 # Plot Compontents

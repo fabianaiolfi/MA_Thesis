@@ -37,7 +37,7 @@ My focus on primary schools is based on the assumption that their closures have 
 - i operationalise electoral volatility by calculating the pedersen index [@pedersenElectoralVolatilityWestern1979] for each nuts region for every election
 - the pedersen index provides a value between 0 and 100 that represents the electoral volatility from one election to the next. A value of 0 means there is no change in party vote share between elections. A value of 100 means the opposite, that all parties from the previous election lose all vote share in the next election.
 - using the data from @schraffEuropeanNUTSlevelElection2023, i calculate the pedersen index in R using the politicsR package [@denissonsilvaSilvadenissonPoliticsRV02023]
-- table x shows electoral volatility in an examplary NUTS region
+- Table \@ref(tab:ro-pedersen-example) shows electoral volatility in an examplary romanian NUTS region
 
 TO DO: Table
 
@@ -49,6 +49,29 @@ ROxx | 2012          | A     | 51%
 ROxx | 2012          | B     | 49%
 Note: The NUTS3 region ROxx has a Pedersen Index of xx in the year 2012.
 
+```{r ro-pedersen-example, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="ro pedersen example"}
+ro_volatility_2012 <- ro_volatility_table %>% 
+  dplyr::select(-y_2004, -y_2016) %>% 
+  group_by(nuts2016) %>% 
+  dplyr::filter(!is.na(y_2008) | !is.na(y_2012)) %>% 
+  mutate(y_2008 = case_when(is.na(y_2008) == T ~ 0,
+                            T ~ y_2008)) %>% 
+  mutate(y_2012 = case_when(is.na(y_2012) == T ~ 0,
+                            T ~ y_2012)) %>% 
+  mutate(volatility_2012 = volatility(y_2008, y_2012)) %>% 
+  dplyr::filter(nuts2016 == "RO111") %>% 
+  ungroup(nuts2016) %>% 
+  dplyr::select(partyfacts_id, y_2008, y_2012) %>% 
+  mutate(y_2008 = round(y_2008, 2)) %>% 
+  mutate(y_2012 = round(y_2012, 2)) %>% 
+  arrange(-y_2008)
+
+kable(ro_volatility_2012,
+      caption = "Displaying how electoral volatiltiy is calculated using the Pedersen Index in Bihor County, Romania (RO111)",
+      format = "latex", booktabs = TRUE) %>% 
+  kable_styling(font_size = 9) %>% 
+  add_footnote("RO111 has a Pedersen Index of 73.5 in the year 2012. Full party name can be accessed through partyfacts.herokuapp.com/data/partycodes/Party ID/", notation="alphabet")
+```
 
 <!-- operationalisation of economic performance -->
 - i operationalise a region’s economic performance using two variables

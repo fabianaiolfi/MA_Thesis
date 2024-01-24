@@ -42,7 +42,7 @@ The V-Party Dataset [@staffan.i.lindbergVPartyDatasetV22022] provides informatio
 <!-- Election results -->
 Subnational election results are provided by the European NUTS-level election dataset [@schraffEuropeanNUTSlevelElection2023]. I remove EU parliament elections from the data, leaving only national parliament election results. I also remove votes cast from abroad, parties named “Other” and elections before the year 1994 and after 2020. I calculate a party’s vote share by dividing the number of received votes by the total number of votes cast in the region, then multiply this by 100 to receive the regional vote share in percent. In a next step, I calculate a party’s regional vote change between two consecutive elections.
 
-Using unique party IDs, I can combine the V-Party Dataset with the European NUTS-level election dataset. This combined dataset shows the regional vote change of incumbent parties and is displayedt in Table \@ref(tab:ned-vdem-sample).
+Using unique party IDs, I can combine the V-Party Dataset with the European NUTS-level election dataset. This combined dataset shows the regional vote change of incumbent parties and is displayed in Table \@ref(tab:ned-vdem-sample).
 
 ```{r ned-vdem-sample, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Show snippet of n_v_dem_cee"}
 df <- ned_v_dem_cee %>%
@@ -68,7 +68,8 @@ df <- ned_v_dem_cee %>%
   arrange(Year)
 
 kable(df, caption = "Random Sample of NED V-DEM CEE", format = "latex", booktabs = TRUE) %>% 
-  kable_styling(font_size = 9)
+  kable_styling(font_size = 9) %>% 
+  add_footnote("Full party name can be accessed through partyfacts.herokuapp.com/data/partycodes/Party ID/", notation="alphabet")
 ```
 
 
