@@ -70,7 +70,10 @@ folder_path <- "text/thesis"
 total_words <- count_words_in_rmd(folder_path)
 cat("Total words in all Rmd files:", total_words)
 
-# 240123: 9625 | 7773
+# remove tables, e.g. in overview.Rmd?
+
+# 240124: 9914
+# 240123: 9735
 # 240122: 7091
 # 240119: 5811
 # 240118: 3764
