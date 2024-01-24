@@ -13,6 +13,7 @@ Using this model specification, I set up a two-way fixed effects linear regressi
 
 This leads to the Model Specification A:
 
+
 \begin{equation*}
 \begin{aligned}
 Incumbent \; Vote \; Share \; Change_{n,y} = \beta_n & + \beta_y & \\
@@ -24,6 +25,7 @@ Incumbent \; Vote \; Share \; Change_{n,y} = \beta_n & + \beta_y & \\
 & + \varepsilon
 \end{aligned}
 \end{equation*}
+
 
 The subscript $n$ symbolises a Romanian NUTS3 region and subscript $y$ indicates an election year. $ε$ denotes the error term.
 
