@@ -31,11 +31,8 @@ The subscript $n$ symbolises a Romanian NUTS3 region and subscript $y$ indicates
 - Model Specification B serves as an extension/variation to Model Specification A
 - it is designed to examine if the impact of service cuts on incumbent vote share is *conditioned by emigration*.
 - in other words: if, for example, the emigration rate increases, does this influence the impact of service cuts on incumbent support? And if so, how?
-- Based on the causal chain of events presented by @dancygierEmigrationRadicalRight2022 [35], we would assume that the inhabitants of a region that is hit harder by emigration to develop more grievances than the inhabitants of a region with less emigration.
-- this will be because a higher emigration rate will lead to more service cuts, thus creating more grievances
-- thus we would assume a higher emigration rate to magnify the negative effect of service cuts on incumbent vote share, as emigration may be more on voters mind, effect can be more traceable for the electorate
-
-- Model Specification B focuses on two aspects. First, it determines whether a significant interaction exists between service cuts and emigration. Second, it assesses how different levels in emigration modify the effect of service cuts on incumbent support.
+- Based on the causal chain of events presented by @dancygierEmigrationRadicalRight2022 [35], we would assume that the inhabitants of a region that is hit harder by emigration lead to more service cuts, which in turn will lead to more grievances compared to a region with less emigration
+- thus Model Specification B aims to examine two aspects. First, it determines whether a significant interaction exists between service cuts and emigration. Second, it assesses how different levels in emigration modify the effect of service cuts on incumbent support.
 - By analysing the interaction between the two variables, the model can reveal if emigration increase or decrease the effects of service cuts on incumbent support, thus futher testing the hypotheses.
 
 TO DO: justify this interaction! something along the lines of: 
