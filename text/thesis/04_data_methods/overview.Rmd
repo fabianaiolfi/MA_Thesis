@@ -27,29 +27,33 @@ ggplot(df, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
 ### Overview of available data, how it was collected and transformed
 
 <!-- Ideal Data Situation -->
-
 In order to measure the effect of a country’s EU accession on emigration, ideal emigration data would be longitudinal, beginning several years before a country’s accession and would continue up until 2019, presumably after which the COVID-19 pandemic would interfere with emigration rates. Furthermore, the data would be available for the smallest subnational region (NUTS3), would explicitly differentiate between internal and external emigration and would be provided in the form of a rate per 1000 population.
 
 Analogue to the emigration data, election results would ideally be available for each party within a NUTS3 region and for elections in the same time period that emigration data is available for. Furthermore, the data would ideally explicitly state if a party is in government, supports government or is in opposition. This makes it possible to differentiate between pro- and anti-incumbent support within a region.
 
-However, the available data is not this extensives, as displayed in Table X (TO DO: data availability table, must state that PL data is only available at NUTS2 level, and RO data is available at NUTS3 level).
+However, the available data is not this extensives, as displayed in Table X (TO DO: data availability table).
 
 ```
 Data Availability Table (example data)
 
-Country | Emigration | Election Results     | NUTS              | … ???
+Country | Emigration Data (Source) | Election Results (Source)    | NUTS              | … ???
 PL      | 1998-2019  | 2004, 2008, …        | NUTS2: 17 regions
 RO      | 1998-2019  | 2004, 2008, …        | NUTS3: 42 regions
 
 ```
 
-<!-- Incumbent Party -->
-The V-Party Dataset [@staffan.i.lindbergVPartyDatasetV22022] provides information on which parties are in or support the government.^[Variable “v2pagovsup”: Does this party support the government formed immediately after this election? (Codebook p. 24)]. I manually add further elections and parties to the data in order to minimise missing values and obtain a more complete picture of anti-incumbent voting. I retrieve data on whether a party is incumbent or not based on the documented electoral history on their Wikipedia page.^[E.g., https://en.wikipedia.org/wiki/Greater_Romania_Party#Electoral_history (retrieved 15 January 2024)] Furthermore, I adjust the V-Party Dataset and categorise parties that show government support leading up to an election as incumbent, even if they are outside of government. I do this because I assume a citizen who wants to cast an anti-incumbent vote will vote against any party that supports or sypmathises with incumbent parties.
+<!-- Incumbent Party Data -->
+The V-Party Dataset [@staffan.i.lindbergVPartyDatasetV22022] provides information on which parties are in or support the government.^[Variable “v2pagovsup”: Does this party support the government formed immediately after this election? (Codebook p. 24)]. I manually add further elections and parties to the data^[See https://github.com/fabianaiolfi/MA_Thesis/blob/main/scripts/01_anti_incumbent_vote/02_1_manual_adjustment.R for details] in order to match it to the emigration data time span and to minimise the number of missing values. Data on whether a party is incumbent or is based on the documented electoral history on their Wikipedia page.^[E.g., https://en.wikipedia.org/wiki/Greater_Romania_Party#Electoral_history (retrieved 15 January 2024)] This manual extension results in a more complete picture of anti-incumbent voting. However, I only manually add missing values of parties with a vote share equal to or larger than 4\% and a vote change between elections equal to or larger than 1\%. I do this in order to keep the scope of this thesis manageable.
 
-<!-- Election results -->
+In a next step, I adjust the V-Party Dataset and categorise parties that show government support leading up to an election as incumbent, even if they are outside of government. I do this because I assume a citizen who wants to cast an anti-incumbent vote will vote against any party that supports or sypmathises with incumbent parties.
+
+<!-- Election Results Data -->
 Subnational election results are provided by the European NUTS-level election dataset [@schraffEuropeanNUTSlevelElection2023]. I remove EU parliament elections from the data, leaving only national parliament election results. I also remove votes cast from abroad, parties named “Other” and elections before the year 1994 and after 2020. I calculate a party’s vote share by dividing the number of received votes by the total number of votes cast in the region, then multiply this by 100 to receive the regional vote share in percent. In a next step, I calculate a party’s regional vote change between two consecutive elections.
 
-Using unique party IDs, I can combine the V-Party Dataset with the European NUTS-level election dataset. This combined dataset shows the regional vote change of incumbent parties and is displayed in Table \@ref(tab:ned-vdem-sample).
+Using unique party IDs, I can combine the V-Party Dataset with the European NUTS-level election dataset. This combined dataset shows the regional vote change of incumbent parties. A random sample from this dataset is displayed in Table \@ref(tab:ned-vdem-sample).
+
+<!-- Election Years -->
+The years in which national parliamentary elections were held can be retrieved from the European NUTS-level election dataset. I manually add election years in order for the dataset to align with the emigration data. These missing years are retrieved from Wikipedia.^[E.g., https://en.wikipedia.org/wiki/2019_Polish_parliamentary_election or https://en.wikipedia.org/wiki/2016_Romanian_parliamentary_election (both retrieved 15 January 2024)]
 
 ```{r ned-vdem-sample, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Show snippet of n_v_dem_cee"}
 df <- ned_v_dem_cee %>%
@@ -79,14 +83,8 @@ kable(df, caption = "Random Sample of NED V-DEM CEE", format = "latex", booktabs
   add_footnote("Full party name can be accessed through partyfacts.herokuapp.com/data/partycodes/Party ID/", notation="alphabet")
 ```
 
-
-- Anti-incumbent vote: NED and V DEM
-
-<!-- Election years -->
-The years in which national parliamentary elections were held are retrieved from Wikipedia^[E.g., https://en.wikipedia.org/wiki/2019_Polish_parliamentary_election or https://en.wikipedia.org/wiki/2016_Romanian_parliamentary_election (both retrieved 15 January 2024)]
-
-- External emigration for all CEE
-Data on external emigration are provided by national statistical offices. I use the sum of people moving abroad from a NUTS region in a year. I choose this crude value because it carries more validity when it comes to measuring the impact of emigration than, e.g., net migration, which uses the difference between immigration and emigraiton.
+<!-- External emigration for all CEE -->
+Data on external emigration are provided by national statistical offices. I define external emigration as the sum of people moving abroad from a NUTS region in a single year. I pick this absolute value because it carries more validity when it comes to measuring the impact of emigration than, e.g., net migration, a popular metric when measuring migration. Net migration has the disadvantage of including *immigration* in its calculation, thus hiding the number of people emigrating from a region.
 
 <!-- Service Cuts -->
 Data on service cuts at regional levels are provided by national statistical offices.
