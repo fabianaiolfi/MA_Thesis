@@ -15,7 +15,7 @@
 - [ ] number of decimal places in regression tables
 - [ ] place group subtitle to group control variables in regression table?
 - [ ] replace p-values with standard errors in regression tables
-- [ ] Reference Github repo
+- [ ] Reference Github repo and make it public
 - [ ] Reference help from LLMs
 - [ ] Clean up references
 - [ ] Add subtitle/proper thesis title (to abstract page?)
