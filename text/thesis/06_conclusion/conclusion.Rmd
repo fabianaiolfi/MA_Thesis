@@ -8,6 +8,7 @@
 - However, results are not statistically significant enough to clearly fail to reject the hypotheses set up, thus further research is needed
 
 - Thesis limits
+	- this thesis does not take internal emigration into account. does the effect of people leaving really make a difference if emigration is internal or external?
 	- when comparing the large differences between poland and romania: Effects seem country specific, no broad generalisations possible; also, emigration patterns seems to be heterogeneous across different CEE EU member states (reference to figure TO DO). this indicates that there is not a single mechanism that works universally across all CEE EU member states
 	- many influences on incumbent support, service cuts won’t cover them all
 	- i dont look at *who* is leaving, e.g. high or low-income residents [@dancygierEmigrationRadicalRight2022 11], as this could have an influence on the impact of emigration, incumbent support and grievances; also there should be a difference between low- and high-skilled emigrants, which will also make a difference
