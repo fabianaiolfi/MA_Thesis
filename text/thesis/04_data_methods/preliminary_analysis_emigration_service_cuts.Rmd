@@ -183,11 +183,59 @@ model_table %>%
   kable_styling(font_size = 8)
 ```
 
+```{r pl-ro-population, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="pl-ro-population"}
+# NUTS0
+df <- demo_r_pjanaggr3_linear %>% 
+  dplyr::select(sex, age, geo, TIME_PERIOD, OBS_VALUE) %>% 
+  dplyr::filter(geo %in% c("PL", "RO")) %>% 
+  dplyr::filter(sex == "T") %>% 
+  dplyr::select(-sex) %>% 
+  mutate(OBS_VALUE = OBS_VALUE / 1000000)
+
+# # Less than 15 years [Y_LT15]
+# demo_r_pjanaggr3_linear_young <- demo_r_pjanaggr3_linear %>% 
+#   dplyr::filter(age == "Y_LT15")
+# 
+# # 65 years or over [Y_GE65]
+# demo_r_pjanaggr3_linear_old <- demo_r_pjanaggr3_linear %>% 
+#   dplyr::filter(age == "Y_GE65")
+# 
+# # Total Population
+# demo_r_pjanaggr3_linear_total <- demo_r_pjanaggr3_linear %>% 
+#   dplyr::filter(age == "TOTAL")
+
+df_plot <- df %>% 
+  dplyr::filter(TIME_PERIOD <= 2019) %>% 
+  dplyr::filter(age == "Y_LT15" | age == "Y_GE65" | age == "TOTAL") %>% 
+  mutate(age = case_when(age == "Y_LT15" ~ "Less than 15 years",
+                         age == "Y_GE65" ~ "65 years or over",
+                         age == "TOTAL" ~ "Entire Population")) %>% 
+  dplyr::rename(Year = TIME_PERIOD,
+         `Population Size` = OBS_VALUE,
+         Age = age)
+
+# Adjust the factor levels for the 'Age' variable
+df_plot$age <- factor(df_plot$age, levels = c("Entire Population", "desired_level2", "desired_level3"))  # Replace with your actual level names
+
+
+ggplot(df_plot) +
+  geom_line(aes(x = Year, y = `Population Size`, linetype = Age)) +
+  facet_wrap(~ geo, scales = "free_y") +
+  scale_y_continuous(labels = comma) +
+  xlab(" ") +
+  ylab(" ") +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_blank()
+  )
+```
+
 
 - I examine if there is an association between emigration and service cuts in Poland and Romania.
 
 TO DO:
-- Guiding this preliminary examination of a possible association is Figure X
+- Guiding this preliminary examination of a possible association is Figure \@ref(fig:pl-ro-population)
 - It compares three different population metrics for Poland and Romania, namely the number of primary school aged children, the number of seniors and the entire population
 - We can observe that both in Poland and Romania, the entire population TO DO. The number of children decreases and the number of seniors increases.
 - The decrease in children hints at a possible effect on school closures, however the direction of the effect remains unclear at this point (if less children cause school closings or school closing cause families with children to move away)
