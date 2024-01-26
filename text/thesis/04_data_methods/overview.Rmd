@@ -20,7 +20,7 @@ ggplot(df, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
   theme_minimal() +
   theme(
     text = element_text(family = "serif"),
-        strip.text = element_text(hjust = 0) # Left aligns the facet titles
+    strip.text = element_text(hjust = 0) # Left aligns the facet titles
   )
 ```
 
