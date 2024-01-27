@@ -26,8 +26,17 @@ When operationalising emigration rate, I base my approch on @dancygierEmigration
 I operationalise electoral volatility by calculating the Pedersen Index [@pedersenElectoralVolatilityWestern1979] for each NUTS region in every election that data are available for. The Pedersen Index provides a value between 0 and 100 representing the electoral volatility from one election to the next. A value of 0 means there is no change in party vote share between elections. A value of 100 means the opposite, that all parties from the previous election lose all vote share in the next election and are replaced with new parties. Using data from @schraffEuropeanNUTSlevelElection2023, I calculate the Pedersen Index in R using the politicsR package [@denissonsilvaSilvadenissonPoliticsRV02023]. Table \@ref(tab:ro-pedersen-example) shows electoral volatility between the 2008 and 2012 parliamentary elections in an examplary Romanian NUTS region.
 
 - an important note about the @schraffEuropeanNUTSlevelElection2023 data
-- Parties receive a unique ID based on 
-- this results in a relatively high Pedersen Index
+- Parties receive a unique ID based on @doringPartyFactsDatabase2019
+- Defining a single party over time has its own caveats [@doringPartyFactsDatabase2019 101]
+- Within the scope of this thesis, I deem it sensible to follow the party coding provided by @schraffEuropeanNUTSlevelElection2023.
+- This results in, e.g., two seperate parties having their own unique ID at election E0. If these two parties then span together to form a coalition government after the next election (E1), this results in a third, new ID that is not linked to the first two IDs.
+
+- This can be best explained with an example in Table \@ref(tab:ro-pedersen-example).
+- The National Liberal Party (ID: 481) reached 23.83\% of the vote in the 2008 election in Bihor County, the Alliance PSD+PC (ID: 6153) got 17.72\% of the vote.
+- These parties formed the Social Liberal Union (ID: 5941) in 2011^[Source: https://en.wikipedia.org/wiki/National_Liberal_Party_(Romania)#Transition_from_USL_to_ACL_and_third_governing_experiences_(2010%E2%80%932020), retrieved 27 January 2024], the name under which they competed in the 2012 election.
+- Due to this merge, the National Liberal Party and the Alliance PSD+PC have an election result for the 2008 election and zero percent vote share for the 2012 election. On the other hand, the Social Liberal Union has zero percent vote share in the 2008 election and 49.25\% vote share in the 2012 election.
+- Treating party merges this way will result in a Pedersen Index that is too high, as parties that merge do not truly lose their entire electoral share
+- It may be debateable that voters could consider a new alliance of existing parties to be a novel party of sorts. However, a more compelling argument in the context of this thesis is that manually coding party merges and separation would go beyond the scope of this paper. Thus using the unique party IDs provided by @schraffEuropeanNUTSlevelElection2023 seems the most sensible approach for the time being.
 
 ```{r ro-pedersen-example, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="ro pedersen example"}
 ro_volatility_2012 <- ro_volatility_table %>% 
