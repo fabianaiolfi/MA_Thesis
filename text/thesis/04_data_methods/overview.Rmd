@@ -4,7 +4,7 @@ In this thesis I explicitly differentiate between internal emigration, i.e., emi
 ```{r pl-ro-emigration-rate, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Yearly Emigration Rate per 1000 Population"}
 
 df <- cee_crude_emigration %>%
-  dplyr::filter(country == c("RO", "PL")) %>% 
+  dplyr::filter(country %in% c("RO", "PL")) %>% 
   dplyr::filter(year < 2020) %>% 
   mutate(country = case_when(country == "PL" ~ "Polish NUTS2 Regions",
                              country == "RO" ~ "Romanian NUTS3 Regions"))
@@ -19,6 +19,7 @@ ggplot(df, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
   xlab(" ") +
   theme_minimal() +
   theme(
+    panel.grid.minor = element_blank(),
     text = element_text(family = "serif"),
     strip.text = element_text(hjust = 0) # Left aligns the facet titles
   )
