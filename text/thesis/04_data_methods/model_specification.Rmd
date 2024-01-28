@@ -1,20 +1,15 @@
 ### Model Specification
 <!-- Empirical specification based on operationalised variables -->
 
-<!-- explain somewhere here that this is my attempt at preventing reverse causality, ie. that emigration cause service cuts and NOT service cuts cause emigration; i can argue because I'm using the time element, as in I'm calculating the difference from one time point to the next -->
-
 <!-- Intro -->
 In the preliminary analysis, I establish a negative correlation between emigration and the change in incumbent vote share in Romania. Building upon this  finding, I develop two model specifications to test the hypotheses that service cuts decrease incumbent support. Using two model specifications has the advantage of providing a more comprehensive and robust exploration of how service cuts and emigration may individually and interctively affect incumbnet vote share.
 
 <!-- Model Specification A -->
-The aim of the first model specification is to analyse the isolated effect of service cuts on incumbent vote share. Thus service cuts form the independent variable in this model specification. To ensure that the effect of service cuts is isolated, I control for emigration, as emigration rates vary across NUTS3 regions within Romania and, as previously established, influence incumbent vote share. 
+The aim of the first model specification is to analyse the isolated effect of service cuts on incumbent vote share. Thus service cuts form the independent variable in this model specification. To ensure that the effect of service cuts is isolated, I control for emigration, as emigration rates vary across NUTS3 regions within Romania and, as previously established, influence incumbent vote share. To further isloate the effect of service cuts on incumbent vote share, I also add electoral volatility, GDP and the unemployment rate as control variables.
 
-- to further isloate the effect of service cuts and emigration on incumbent vote share, i add electoral volatility, gdp and unemployment rate as control variables
-
-Using this model specification, I set up a two-way fixed effects linear regression model^[https://theeffectbook.net/ch-FixedEffects.html#multiple-sets-of-fixed-effects], using NUTS3 regions and years as fixed effects. By using fixed effects, I can account for region- and time-specific factors that may confound results.
+Using this model specification, I set up a two-way fixed effects linear regression model [@huntington-kleinEffectIntroductionResearch2021 395], using NUTS3 regions and years as fixed effects. Using fixed effects aims to decrease the risk of reverse causality. In this case, the possibility that emigration leads to service cuts rather than service cuts resulting in emigration. I take changes over time into account, which is important for distinguishing the direction of the relationship.
 
 This leads to the Model Specification A:
-
 
 \begin{equation*}
 \begin{aligned}
@@ -28,25 +23,16 @@ Incumbent \; Vote \; Share \; Change_{n,y} = \beta_n & + \beta_y & \\
 \end{aligned}
 \end{equation*}
 
-
 The subscript $n$ symbolises a Romanian NUTS3 region and subscript $y$ indicates an election year. $ε$ denotes the error term.
 
 <!-- Model Specification B -->
-- Model Specification B serves as an extension/variation to Model Specification A
-- it is designed to examine if the impact of service cuts on incumbent vote share is *conditioned by emigration*.
-- in other words: if, for example, the emigration rate increases, does this influence the impact of service cuts on incumbent support? And if so, how?
-- Based on the causal chain of events presented by @dancygierEmigrationRadicalRight2022 [35], we would assume that the inhabitants of a region that is hit harder by emigration lead to more service cuts, which in turn will lead to more grievances compared to a region with less emigration
-- thus Model Specification B aims to examine two aspects. First, it determines whether a significant interaction exists between service cuts and emigration. Second, it assesses how different levels in emigration modify the effect of service cuts on incumbent support.
-- By analysing the interaction between the two variables, the model can reveal if emigration increase or decrease the effects of service cuts on incumbent support, thus futher testing the hypotheses.
+In a next step, I examine if the impact of service cuts on incumbent vote share is *conditioned by emigration*. If, e.g., the emigration rate increases, does this influence the impact of service cuts on incumbent support? And if so, how? Based on the causal chain of events presented by @dancygierEmigrationRadicalRight2022 [35], we would assume a region that is hit harder by emigration to experience more service cuts compared to a region with less emigration. This in turn leads to more grievances amongst its inhabitants, ending with a stronger decrease in incumbent support.
 
-TO DO: justify this interaction! something along the lines of: 
-- service cuts can be higher in regions with more emigration
-- service cuts may be felt more strongly by the electorate in regions hit hard by emigration; or there the electorate may feel emigration more strongly, thus developing more grievanes and thus more anti-incumbent sentiment
-- “For example, it might be hypothesized that in areas with higher emigration rates, the impact of infrastructure (like schools or hospitals) on voting pattern changes might be different than in areas with lower emigration rates.”
+Thus Model Specification B aims to examine two aspects. First, it determines whether a significant interaction exists between service cuts and emigration. Second, it assesses how different levels in emigration modify the effect of service cuts on incumbent support. By analysing the interaction between the two variables, the model can reveal if emigration increases or decreases the effects of service cuts on incumbent support, thus futher testing the hypotheses.
 
-This second model specification builds upon the first by adding an interaction term between emigration and service cuts. The second model specification is otherwise identical to the first, and will also control for the same variables as the first model specification.
+Model Specification B builds upon Model Specification A by adding an interaction term between emigration and service cuts. Apart from the interaction term, both model specifications are identical.
 
-This leads to the Model Specification B:
+Model Specification B:
 
 \begin{equation*}
 \begin{aligned}
@@ -61,4 +47,4 @@ Incumbent \; Vote \; Share \; Change_{n, y} = \beta_n & + \beta_y & \\
 \end{aligned}
 \end{equation*}
 
-In both model specifications, each service cut, i.e. school closings, hospital closings, third places closings, will be modelled seperately. 
+In both model specifications, each service cut, i.e. school closings, hospital closings, third places closings, are modelled seperately. 
