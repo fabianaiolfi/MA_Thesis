@@ -7,15 +7,24 @@
 - Results hint at an effect of emigration caused school closures and loss of incumbent support in Romania
 - However, results are not statistically significant enough to clearly fail to reject the hypotheses set up, thus further research is needed
 
-- Thesis limits
-	- this thesis does not take internal emigration into account. does the effect of people leaving really make a difference if emigration is internal or external?
-	- when comparing the large differences between poland and romania: Effects seem country specific, no broad generalisations possible; also, emigration patterns seems to be heterogeneous across different CEE EU member states (reference to figure TO DO). this indicates that there is not a single mechanism that works universally across all CEE EU member states
-	- many influences on incumbent support, service cuts won’t cover them all
-	- i dont look at *who* is leaving, e.g. high or low-income residents [@dancygierEmigrationRadicalRight2022 11], as this could have an influence on the impact of emigration, incumbent support and grievances; also there should be a difference between low- and high-skilled emigrants, which will also make a difference
-	- emigration flows: limits of only looking at external emigration; however, there are different flows of emigration, e.g., from rural to urban areas within a country and then abroad [@kingMindGapIntegrating2010 1623]
-	- add grievances to model; this data is hard to come by, should be integrated somewhere
-	- interaction coefficients may not have enough statistical power because many more observations are needed when using interactions due to noise [@gelmanYouNeed162018]
-	- as discussed in paragraph X (TO DO: reference to end of model_spec_b.Rmd): was volatility operationalised correctly? always shows a positive coefficient, meaning that higher levels of volatiltiy are associated with higher levels of incumbent support, which does not intuitively make sense and may require more digging into
+
+<!-- Thesis Limits -->
+
+This thesis contains several limitations. 
+
+First and foremost the fact that many factors influence incumbent support. The service cuts described in this thesis do not cover them all.
+
+Second, this thesis does not take internal emigration into account, e.g. first from rural to urban areas and then abroad [@kingMindGapIntegrating2010 1623]. Focusing on external emigration was a conscious design decision in order to measure the impact of FoM, however there is an argument to be made that the effect on people left behind is no different between internal and external emigration – they are, in both cases, left behind. 
+
+Third, in the preliminary analysis, we observed large differences in the results between Poland and Romania. Thus the effects may be specific to a country, hinting that no broad, pan-CEE EU member state generalisation is possible or perhaps even sensible. This hints that no single mechanism works universally across all CEE EU member states, which was an assumption I made at the start of this thesis.
+
+Fourth, this thesis’s setup does not consider *who* is leaving. I do not consider an emigrant’s level of income [@dancygierEmigrationRadicalRight2022 11] or their level of education. Both these factors can influence the entire causal chain of service cuts, grievances and finally incumbent support.
+
+Fifth, the models to not contain data on grievances in a region. This would make the model more complete when following @dancygierEmigrationRadicalRight2022, however  NUTS-level panel data on grievances in CEE are hard to come by and thus not added.
+
+Sixth, the interaction coefficient results in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction) may lack statistical power because many more observations are needed due to noise when using interactions [@gelmanYouNeed162018]. In order to counter this problem, more data is needed, e.g., over a larger time period.
+
+Finally, as mentioned in paragraph X (TO DO: reference to end of model_spec_b.Rmd), volatility may have been operationalised incorrectly. All results show a positive coefficient, indicating that higher levels of volatiltiy are associated with higher levels of incumbent support. This is not intuitive and may be due to the simplified method of dealing with party changes when calculating the Pedersen Index. E.g., how to deal with party mergers, as described in paragraph X (TO DO: reference to Electoral Volatility in operationalisation.Rmd).
 
 <!-- Interpreting results in the broader context of further European integration -->
 - this thesis shows two things
