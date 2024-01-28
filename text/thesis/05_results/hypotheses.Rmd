@@ -1,19 +1,10 @@
 
 <!-- Do emigration induced service cuts effect incumbent vote share in Romania?: Hypotheses acceptance or rejection -->
-- Based on the results from model specifications A and B, I turn to the hypotheses set up earlier and assess if they can be rejected or if I fail to reject them.
-- It is evident that all three hypotheses put forward must be rejected. I draw this conclusion from the fact that none of the model outcomes demonstrate statistical significance beyond the normal threshold of $p = 0.1$.
-- However, two results do exhibit borderline significance. The service cuts to schools in Model Specification A (Models 1 and 2 in Table \@ref(tab:results-emigration-incumbent-vote-share)) and in Model Specification B (Model 1 in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction)), hinting at a potential trend of emigration induced school closures and their effect on incumbent support.
-- But in order to confirm the validity and robustness of this finding and thus to be fail to reject Hypothesis 1, more data is needed. 
-- In short, the lack of a clear statistical significance in the current results underscore the necessity for further investigation and data collection. This would help build a model that could more clearly fail to reject the hypotheses.
+Based on the results of Model Specifications A and B, I turn to the hypotheses set up earlier and assess if they can be rejected or if I fail to reject them. It is evident that in the case of Romania all three hypotheses put forward must be rejected. I draw this conclusion from the fact that none of the model outcomes demonstrate statistical significance below the conventional threshold of $p = 0.1$. However, two results do exhibit borderline significance. The service cuts to schools in Model Specification A (Models 1 and 2 in Table \@ref(tab:results-emigration-incumbent-vote-share)) and in Model Specification B (Model 1 in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction)). This hints at a potential trend of emigration induced school closures and their effect on incumbent support. But in order to confirm the validity and robustness of this finding and thus to be able to not reject Hypothesis 1, more data is needed.
 
-<!-- further discussion of results -->
+In short, the lack of a clear statistical significance in the current results underscore the necessity for further investigation and data collection. This would help build a model that can clearly fail to reject the hypotheses put forward.
 
-- hospital showing practically no effect: most romanian NUTS3 regions only have few hospitals and their numbers don’t flucuate that much (see graph in appendix TO DO).
-- thus there isn’t much variation in the data, which is perhaps why there’s no effect
+<!-- Discussion of further results -->
+After looking at school closures as service cuts, I turn to hospital closures. We can observe practically no effect of less hospitals on incumbent vote share change. This may be due to the fact that most Romanian NUTS3 regions only contain a few hospitals and their numbers are steady over time (TO DO see Figure in Appendix; take note of the values on the y-axis and that this variation is relatively small). This lack of variation over time could explain why this service cut displays no effect.
 
-- third places showing positive effect
-	- may be a more complex mechanism behind it. 
-	- more people per third place may result in a stronger feeling of community, from which an incumbent party could profit again
-	- however, this is pure speculation and needs more looking into
-
-- was volatility operationalised correctly? always shows a positive coefficient, meaning that higher levels of volatiltiy are associated with higher levels of incumbent support, which does not intuitively make sense and may require more digging into
+Finally, I look at the closures of third places having being positively associated with incumbent vote share change. These results may hint at a more complex mechanism. E.g., if there are more people per third place, this may result in a stronger feeling of community, from which incumbents could profit again. However, this is speculative and merits more examination.

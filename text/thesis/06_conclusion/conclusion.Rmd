@@ -15,6 +15,7 @@
 	- emigration flows: limits of only looking at external emigration; however, there are different flows of emigration, e.g., from rural to urban areas within a country and then abroad [@kingMindGapIntegrating2010 1623]
 	- add grievances to model; this data is hard to come by, should be integrated somewhere
 	- interaction coefficients may not have enough statistical power because many more observations are needed when using interactions due to noise [@gelmanYouNeed162018]
+	- as discussed in paragraph X (TO DO: reference to end of model_spec_b.Rmd): was volatility operationalised correctly? always shows a positive coefficient, meaning that higher levels of volatiltiy are associated with higher levels of incumbent support, which does not intuitively make sense and may require more digging into
 
 <!-- Interpreting results in the broader context of further European integration -->
 - this thesis shows two things
@@ -39,3 +40,4 @@
 - Uncovering country specific service cuts
 - Effect of incumbent party on emigration
 - Other effects of emigration on sending countries, e.g. impact on democratic institutions
+- third places showing positive effect
