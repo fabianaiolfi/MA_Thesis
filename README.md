@@ -5,6 +5,7 @@
 **To Do**
 - [ ] Add somewhere: when defining incumbent parties, party morphing isn't (fully?) taken into account? maybe also add this to thesis weakness/future research; should perhaps also be discussed in the context of table `ro-pedersen-example`: Why are there so many parties that go from 0 to a vote share?
 - [ ] Summary statistics table for ned-vdem dataset?
+- [ ] How to describing change in percentage points? "-1\%" or "-1 percentage points" ?
 - [ ] Controlling for volatility
   - [ ] Is Pedersen Index correctly used?
   - [ ] Describe in theory and explain in methods
