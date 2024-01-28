@@ -7,16 +7,17 @@
 - Results hint at an effect of emigration caused school closures and loss of incumbent support in Romania
 - However, results are not statistically significant enough to clearly fail to reject the hypotheses set up, thus further research is needed
 
+<!-- Interpreting results in the broader context of further European integration -->
+Despite the hypotheses rejections, we observe that emigration can have a negative effect on incumbent support. Thus incumbent parties in an EU member state candidate should take this into account when applying for EU membership. Assuming that a candidate country considers joining the EU as an overall benefit, its government could prepare for the FoM-induced outflux, e.g., by incentivising a return after having studied or gathered work experience abroad.
+
+Furthermore, focusing on school closures and assuming that this service cuts is associated with external emigration, this can have a negative impact on the education system. A decrease in the number of schools can have dire long term consequences, potentially leading to a generation of citizens with subpar education, caused by FoM-induced emigration. These citizens can develop grievances that fuel Euroscepticism. Thus it is in the EU’s own interest to counter negative and anti-EU sentiments at the source, that the EU brings upon itself through its own Freedom of Movement. Thus it would be advisable that the EU also develops policies that dampen the impact of emigration to ensure that emigration-hit regions and their citizens are not left behind.
 
 <!-- Thesis Limits -->
-
-This thesis contains several limitations. 
-
-First and foremost the fact that many factors influence incumbent support. The service cuts described in this thesis do not cover them all.
+This thesis contains several limitations that can be addressed in future research. First and foremost is the fact that many factors influence incumbent support. The service cuts described in this thesis can not cover all factors that have an impact on incumbent support. Causality is never this simple and there may be a mediating factor in the causal mechanisms, which can be further explored in future research.
 
 Second, this thesis does not take internal emigration into account, e.g. first from rural to urban areas and then abroad [@kingMindGapIntegrating2010 1623]. Focusing on external emigration was a conscious design decision in order to measure the impact of FoM, however there is an argument to be made that the effect on people left behind is no different between internal and external emigration – they are, in both cases, left behind. 
 
-Third, in the preliminary analysis, we observed large differences in the results between Poland and Romania. Thus the effects may be specific to a country, hinting that no broad, pan-CEE EU member state generalisation is possible or perhaps even sensible. This hints that no single mechanism works universally across all CEE EU member states, which was an assumption I made at the start of this thesis.
+Third, in the preliminary analysis, we observed large differences in the results between Poland and Romania. Thus the effects may be specific to a country, hinting that no broad, pan-CEE EU member state generalisation is possible or perhaps even sensible. This hints that no single mechanism works universally across all CEE EU member states, which was an assumption I made at the start of this thesis. Future research could attempt to collect further forms of service cuts, potentially uncovering country specific service cuts.
 
 Fourth, this thesis’s setup does not consider *who* is leaving. I do not consider an emigrant’s level of income [@dancygierEmigrationRadicalRight2022 11] or their level of education. Both these factors can influence the entire causal chain of service cuts, grievances and finally incumbent support.
 
@@ -24,29 +25,17 @@ Fifth, the models to not contain data on grievances in a region. This would make
 
 Sixth, the interaction coefficient results in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction) may lack statistical power because many more observations are needed due to noise when using interactions [@gelmanYouNeed162018]. In order to counter this problem, more data is needed, e.g., over a larger time period.
 
-Finally, as mentioned in paragraph X (TO DO: reference to end of model_spec_b.Rmd), volatility may have been operationalised incorrectly. All results show a positive coefficient, indicating that higher levels of volatiltiy are associated with higher levels of incumbent support. This is not intuitive and may be due to the simplified method of dealing with party changes when calculating the Pedersen Index. E.g., how to deal with party mergers, as described in paragraph X (TO DO: reference to Electoral Volatility in operationalisation.Rmd).
-
-<!-- Interpreting results in the broader context of further European integration -->
-- this thesis shows two things
-- first, that emigration can have a negative effect on incumbent support
-	- a governing party in a candidate member state should thus take this into account when proceeding with their own EU membership
-	- I assume that candidate countries will consider joining the EU as an overall benefit despite the aspect of emigration and its impact
-	- a candidate country could prepare for an outflux once their country joins, e.g. by preparing policies to incentivise staying at home or making a return worth while
-	- however, if the incumbent are voted out of power due to FoM induced emigration, there’s a chance that e.g. Eurosceptic parties gain power. Thus FoM will have a negative effect on the EU in the long term, not only for receiving countries, which have seen an increase in anti-migrant political rhetoric, but also in sending countries, that suffer from the economic and social issues that come out of emigration
-- second, despite hypothesis rejection, let us assume that school closures 
-	- negative impact on education system
-	- dire long term consequences, as this will lead to a generation of citizens who indirectly suffer from FoM and may feel hard done by, developing grievances and thus fuel Euroscepticism
-- thus it is in the EU’s own interest to counter these negative, anti-EU tendencies that the EU brings upon itself through its own implementation of FoM.
-- so next to the (candidate) member states, the EU should develop policies that dampen the effect of emigration and create incentives to return to the sending country.
+Finally, as mentioned in paragraph X (TO DO: reference to end of model_spec_b.Rmd), volatility may have been operationalised incorrectly. All results show a positive coefficient, indicating that higher levels of volatiltiy are associated with higher levels of incumbent support. This is not an intuitive result and may be due to the simplified method of how party changes are dealt with when calculating the Pedersen Index (see paragraph X (TO DO: reference to Electoral Volatility in operationalisation.Rmd)). Future research could implement an approach that takes these changes better into account.
 
 <!-- Future research -->
-- does party orientation have an effect in any of this?
-- take detailed party mergers/party landscape changes in general more into account → more generally this links back to taking more country specific factors into account
-- why is there such a difference in effect of emigration on incumbents in poland and in romania?
-- what is the mid and long term effect of school closures on the education system and how does this impact future generations of citizens?
-- get service cut data on more CEE countries, in order to get a bigger picture of the effects of FoM on sending countries
-- state that causality is not that simple, there might me a mediating factor in the whole thing, which should be looked at in future research
-- Uncovering country specific service cuts
-- Effect of incumbent party on emigration
-- Other effects of emigration on sending countries, e.g. impact on democratic institutions
-- third places showing positive effect
+There are also further avenues of possible research based on the findings from this thesis.
+
+Does incumbent party orientation play a role in the context of emigration induced service cuts? I assume that party orientation has an influence on how much and which services are cut back, thus having different impacts on the electorate. Also, does incumbent party orientation have an effect on emigration? Do more people emigrate if PRR parties are in power, e.g., as in Hungary?
+
+What is the long term effect of emigration induced school closures on the population? These panel data probably do not exist yet, but could be of interest once school aged children from the 2010s become of voting age in the 2020s.
+
+Finally, further effects of emigration on sending countries should be examined. Does emigration impact democratic institutions, social cohesion or other factors? Answering these questions can help obtain a bigger picture of the extent of the EU’s Freedom of Movement on sending countries.
+
+<!-- - why is there such a difference in effect of emigration on incumbents in poland and in romania? -->
+
+<!-- - third places showing positive effect -->
