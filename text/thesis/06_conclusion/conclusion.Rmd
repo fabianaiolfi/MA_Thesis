@@ -25,7 +25,7 @@ Fifth, the models to not contain data on grievances in a region. This would make
 
 Sixth, the interaction coefficient results in Table \@ref(tab:results-emigration-incumbent-vote-share-control-interaction) may lack statistical power because many more observations are needed due to noise when using interactions [@gelmanYouNeed162018]. In order to counter this problem, more data is needed, e.g., over a larger time period.
 
-Finally, as mentioned in paragraph X (TO DO: reference to end of model_spec_b.Rmd), volatility may have been operationalised incorrectly. All results show a positive coefficient, indicating that higher levels of volatiltiy are associated with higher levels of incumbent support. This is not an intuitive result and may be due to the simplified method of how party changes are dealt with when calculating the Pedersen Index (see paragraph X (TO DO: reference to Electoral Volatility in operationalisation.Rmd)). Future research could implement an approach that takes these changes better into account.
+Finally, as mentioned on p. \pageref{passage:volatility-issue}, volatility may have been operationalised incorrectly. All results show a positive coefficient, indicating that higher levels of volatiltiy are associated with higher levels of incumbent support. This is not an intuitive result and may be due to the simplified method of how party changes are dealt with when calculating the Pedersen Index (see p. \pageref{passage:electoral-volatility}). Future research could implement an approach that takes these changes better into account.
 
 <!-- Future research -->
 There are also further avenues of possible research based on the findings from this thesis.

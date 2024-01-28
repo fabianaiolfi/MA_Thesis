@@ -22,6 +22,9 @@ header-includes:
    - \usepackage{caption}
    - \pagenumbering{gobble} # Suppress page numbers
    - \usepackage{times}
+   - \widowpenalty10000
+   - \clubpenalty10000
+
 ---
 
 \onehalfspacing
