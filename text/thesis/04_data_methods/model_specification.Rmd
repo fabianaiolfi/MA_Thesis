@@ -1,6 +1,8 @@
 ### Model Specification
 <!-- Empirical specification based on operationalised variables -->
 
+<!-- explain somewhere here that this is my attempt at preventing reverse causality, ie. that emigration cause service cuts and NOT service cuts cause emigration; i can argue because I'm using the time element, as in I'm calculating the difference from one time point to the next -->
+
 <!-- Intro -->
 In the preliminary analysis, I establish a negative correlation between emigration and the change in incumbent vote share in Romania. Building upon this  finding, I develop two model specifications to test the hypotheses that service cuts decrease incumbent support. Using two model specifications has the advantage of providing a more comprehensive and robust exploration of how service cuts and emigration may individually and interctively affect incumbnet vote share.
 

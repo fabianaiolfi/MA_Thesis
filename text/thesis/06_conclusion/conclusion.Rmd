@@ -31,6 +31,7 @@
 
 <!-- Future research -->
 - does party orientation have an effect in any of this?
+- take detailed party mergers/party landscape changes in general more into account → more generally this links back to taking more country specific factors into account
 - why is there such a difference in effect of emigration on incumbents in poland and in romania?
 - what is the mid and long term effect of school closures on the education system and how does this impact future generations of citizens?
 - get service cut data on more CEE countries, in order to get a bigger picture of the effects of FoM on sending countries
