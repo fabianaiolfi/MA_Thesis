@@ -131,7 +131,7 @@ ro_plots_components <- list(
 
 worm_span <- 0.3
 
-worms_explainer <- "_Curves apply smoothing to enhance readability. Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the right. The growth rate is also indicated by the curve's colour._"
+worms_explainer <- "_Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the right._"
 
 set.seed(42)
 ```
@@ -166,6 +166,11 @@ set.seed(42)
 ```
 
 ```{r, child = 'thesis/06_conclusion/conclusion.Rmd'}
+```
+
+\newpage
+
+```{r, child = 'thesis/appendix.Rmd'}
 ```
 
 \newpage
