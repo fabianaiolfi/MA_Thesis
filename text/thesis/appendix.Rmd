@@ -1,0 +1,207 @@
+## Appendix
+
+### External Emigration: Crude Emigration per 1000 Population at NUTS3 Level in all CEE EU Member States
+
+This is an overview of the available external emigration data at NUTS3 level (Poland: NUTS2; Slovenia: NUTS1). Please note that the y-axis varies by country, the x-axis however is the same for all countries. This makes a comparison of available data across different countries easier. Of the eleven CEE EU member states, only ten are displayed as Czechia does not provide data solely on external emigration. Each grey line represents a NUTS region. The black line, which applies smoothing to enhance readability, displays the overall trend over all available years and regions within a country.
+
+```{r external-emigration, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="external-emigration"}
+ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
+  geom_line(color = "light grey") +
+  geom_smooth(aes(group = 1), method = "loess", span = worm_span, color = "black", se = FALSE, size = 0.5) + 
+  facet_wrap(~ country,
+             scales = "free_y",
+             ncol = 2) +
+  ylab(" ") +
+  xlab(" ") +
+  theme_minimal() 
+```
+
+\pagebreak
+
+`r worms_explainer`
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Population in Millions in Poland at NUTS2 Level"}
+pl_avg_population_change <- pl %>% 
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  mutate(population_change = population - dplyr::lag(population),
+         # Calculate the year-on-year percent increase. Multiplying by 100 gives the percent change.
+         percent_change = (population_change / dplyr::lag(population)) * 100
+         ) %>%
+  summarise(
+    avg_population_change = mean(population_change, na.rm = TRUE), # Average change in actual numbers
+    avg_percent_change = mean(percent_change, na.rm = TRUE) # Average percent change
+  )
+
+pl %>% 
+  left_join(pl_avg_population_change, by = "NUTS_ID") %>%
+  mutate(population = population / 1000000) %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = population)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1995, 2022)) +
+  pl_plots_components
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Primary Age Population in 1000s in Poland at NUTS2 Level"}
+pl_schools_avg_population_change <- pl_schools %>% 
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(population_change = population - dplyr::lag(population),
+         percent_change = (population_change / dplyr::lag(population)) * 100) %>% # Calculate year-on-year increase
+  summarise(avg_population_change = mean(population_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE)) # Calculate average increase
+
+pl_schools %>% 
+  left_join(pl_schools_avg_population_change, by = "NUTS_ID") %>% 
+  mutate(population = population / 1000) %>% 
+  # mutate(avg_population_change = avg_population_change / 1000) %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = population)) +
+  geom_line() +
+	scale_x_continuous(breaks = c(1998, 2022)) +
+  pl_plots_components
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="External Emigration per 1000 Population from Poland at NUTS2 Level"}
+pl_avg_emigration_change <- pl %>% 
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(emigration_change = emigration_yearly_per_1000 - dplyr::lag(emigration_yearly_per_1000),
+         percent_change = (emigration_change / dplyr::lag(emigration_yearly_per_1000)) * 100) %>% 
+  summarise(avg_emigration_change = mean(emigration_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE)) # Calculate average increase
+
+pl %>% 
+  left_join(pl_avg_emigration_change, by = "NUTS_ID") %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = emigration_yearly_per_1000)) +
+  geom_line() +
+	scale_x_continuous(breaks = c(1995, 2022)) +
+  pl_plots_components
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of Schools in Poland at NUTS2 Level"}
+pl_schools_avg_change <- pl_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(school_change = schools - dplyr::lag(schools),
+         percent_change = (school_change / dplyr::lag(schools)) * 100) %>% 
+  summarise(avg_school_change = mean(school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+pl_schools %>% 
+  left_join(pl_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = schools)) +
+  geom_line() +
+	scale_x_continuous(breaks = c(1998, 2022)) +
+  pl_plots_components
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of Hospitals in Poland at NUTS2 LevelDO"}
+pl_hospitals_avg_change <- pl_hospitals %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(hospital_change = hospitals - dplyr::lag(hospitals),
+         percent_change = (hospital_change / dplyr::lag(hospitals)) * 100) %>% 
+  summarise(avg_hospital_change = mean(hospital_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+pl_hospitals %>% 
+  drop_na(hospitals) %>% 
+  left_join(pl_hospitals_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = hospitals)) +
+  geom_line() +
+	scale_x_continuous(breaks = c(2004, 2020)) +
+  pl_plots_components
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of Third Places in Poland at NUTS2 Level"}
+pl_third_places_avg_change <- pl_third_places %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(third_places_change = third_places - dplyr::lag(third_places),
+         percent_change = (third_places_change / dplyr::lag(third_places)) * 100) %>% 
+  summarise(avg_third_places_change = mean(third_places_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+pl_third_places %>% 
+  left_join(pl_third_places_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = third_places)) +
+  geom_line() +
+	scale_x_continuous(breaks = c(2005, 2022)) +
+  pl_plots_components
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of Primary School Children per School in Poland at NUTS2 Level"}
+pl_ratio_schools_avg_change <- pl_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_school_change = ratio_schools - dplyr::lag(ratio_schools),
+         percent_change = (ratio_school_change / dplyr::lag(ratio_schools)) * 100) %>% 
+  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+pl_schools %>% 
+  left_join(pl_ratio_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_schools)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1998, 2022)) +
+  pl_plots_components
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of People per Hospital in Poland at NUTS2 Level"}
+pl_ratio_hospitals_avg_change <- pl_hospitals %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_hospital_change = ratio_hospitals_all_population - dplyr::lag(ratio_hospitals_all_population),
+         percent_change = (ratio_hospital_change / dplyr::lag(ratio_hospitals_all_population)) * 100) %>% 
+  summarise(avg_ratio_hospital_change = mean(ratio_hospital_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+pl_hospitals %>% 
+  drop_na(hospitals) %>% 
+  left_join(pl_ratio_hospitals_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_hospitals_all_population)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(2004, 2020)) +
+  pl_plots_components
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of People per Third Place in Poland at NUTS2 Level"}
+pl_ratio_third_places_avg_change <- pl_third_places %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_third_places_change = ratio_third_places - dplyr::lag(ratio_third_places),
+         percent_change = (ratio_third_places_change / dplyr::lag(ratio_third_places)) * 100) %>% 
+  summarise(avg_ratio_third_places_change = mean(ratio_third_places_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+pl_third_places %>% 
+  left_join(pl_ratio_third_places_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_third_places)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(2005, 2022)) +
+  pl_plots_components
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Elecotral Volatility in Poland at NUTS2 Level"}
+ggplot(pl_volatility, aes(x = year, y = volatility, line = nuts2016)) +
+  geom_line() +
+  geom_point(shape = 21, fill = "white") +
+  scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="GDP at Current Market Prices in Poland at NUTS2 Level (Euros per Inhabitant)"}
+ggplot(pl_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
+  geom_line() +
+  geom_point(shape = 21, fill = "white") +
+  scale_y_continuous(limits = c(0, 35000), labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
+```
