@@ -168,11 +168,12 @@ set.seed(42)
 ```{r, child = 'thesis/06_conclusion/conclusion.Rmd'}
 ```
 
-\newpage
+\pagebreak
 
 ```{r, child = 'thesis/appendix.Rmd'}
 ```
 
-\newpage
+\pagebreak
 
-## References
+```{r, child = 'thesis/references.Rmd'}
+```

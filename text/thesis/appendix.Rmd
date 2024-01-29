@@ -1,10 +1,8 @@
 ## Appendix
 
-### External Emigration: Crude Emigration per 1000 Population at NUTS3 Level in all CEE EU Member States
-
 This is an overview of the available external emigration data at NUTS3 level (Poland: NUTS2; Slovenia: NUTS1). Please note that the y-axis varies by country, the x-axis however is the same for all countries. This makes a comparison of available data across different countries easier. Of the eleven CEE EU member states, only ten are displayed as Czechia does not provide data solely on external emigration. Each grey line represents a NUTS region. The black line, which applies smoothing to enhance readability, displays the overall trend over all available years and regions within a country.
 
-```{r external-emigration, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="external-emigration"}
+```{r external-emigration, fig.height = 8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Crude Emigration per 1000 Population at NUTS3 Level in all CEE EU Member States"}
 ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
   geom_line(color = "light grey") +
   geom_smooth(aes(group = 1), method = "loess", span = worm_span, color = "black", se = FALSE, size = 0.5) + 
@@ -150,7 +148,7 @@ ggplot(pl_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
   scale_y_continuous(limits = c(0, 35000), labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Population in Millions in Romania at NUTS3 Level"}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Population in Millions in Romania at NUTS3 Level"}
 ro_avg_population_change <- ro %>% 
   arrange(NUTS_ID, year) %>%
   group_by(NUTS_ID) %>%
@@ -173,7 +171,7 @@ ro %>%
   ro_plots_components
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Primary Age Population in 1000s in Romania at NUTS3 Level"}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Primary Age Population in 1000s in Romania at NUTS3 Level"}
 ro_schools_avg_population_change <- ro_schools %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -193,7 +191,7 @@ ro_schools %>%
   ro_plots_components
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="External Emigration per 1000 Population from Romania at NUTS3 Level"}"}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="External Emigration per 1000 Population from Romania at NUTS3 Level"}
 ro_avg_emigration_change <- ro %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -211,7 +209,43 @@ ro %>%
   ro_plots_components
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of Primary School Children per School in Romania at NUTS3 Level"}
+```{r ro-schools, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of Primary Schools in Romania at NUTS3 Level"}
+ro_ratio_schools_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_school_change = schools - dplyr::lag(schools),
+         percent_change = (ratio_school_change / dplyr::lag(schools)) * 100) %>% 
+  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_ratio_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = schools)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1998, 2019)) +
+  ro_plots_components
+```
+
+```{r ro-classrooms, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of Primary Classrooms in Romania at NUTS3 Level"}
+ro_ratio_schools_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_school_change = classrooms - dplyr::lag(classrooms),
+         percent_change = (ratio_school_change / dplyr::lag(classrooms)) * 100) %>% 
+  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_ratio_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = classrooms)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1998, 2019)) +
+  ro_plots_components
+```
+
+```{r ro-school-ratio, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of Primary School Children per School in Romania at NUTS3 Level"}
 ro_ratio_schools_avg_change <- ro_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -229,12 +263,30 @@ ro_schools %>%
   ro_plots_components
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of People per Hospital in Romania at NUTS3 Level"}
+```{r ro-classroom-ratio, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of Primary School Children per Classroom in Romania at NUTS3 Level"}
+ro_ratio_schools_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_school_change = ratio_classrooms - dplyr::lag(ratio_classrooms),
+         percent_change = (ratio_school_change / dplyr::lag(ratio_classrooms)) * 100) %>% 
+  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_ratio_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_classrooms)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1998, 2019)) +
+  ro_plots_components
+```
+
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of People per Hospital in Romania at NUTS3 Level"}
 ro_ratio_hospitals_avg_change <- ro_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
-  mutate(ratio_hospital_change = ratio_hospitals_all_population - dplyr::lag(ratio_hospitals_all_population),
-         percent_change = (ratio_hospital_change / dplyr::lag(ratio_hospitals_all_population)) * 100) %>% 
+  mutate(ratio_hospital_change = ratio_hospitals - dplyr::lag(ratio_hospitals),
+         percent_change = (ratio_hospital_change / dplyr::lag(ratio_hospitals)) * 100) %>% 
   summarise(avg_ratio_hospital_change = mean(ratio_hospital_change, na.rm = TRUE),
             avg_percent_change = mean(percent_change, na.rm = TRUE))
 
@@ -242,13 +294,13 @@ ro_hospitals %>%
   drop_na(hospitals) %>% 
   left_join(ro_ratio_hospitals_avg_change, by = "NUTS_ID") %>%
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
-  ggplot(aes(x = year, y = ratio_hospitals_all_population)) +
+  ggplot(aes(x = year, y = ratio_hospitals)) +
   geom_line() +
   scale_x_continuous(breaks = c(2004, 2019)) +
   ro_plots_components
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of People per Third Place in Romania at NUTS3 Level"}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of People per Third Place in Romania at NUTS3 Level"}
 ro_ratio_third_places_avg_change <- ro_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -273,7 +325,7 @@ ggplot(ro_volatility, aes(x = year, y = volatility, line = nuts2016)) +
   scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="GDP at Current Market Prices in Romania at NUTS3 Level"} (Euros per Inhabitant)"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="GDP at Current Market Prices in Romania at NUTS3 Level (Euros per Inhabitant)"}
 ggplot(ro_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
   geom_line() +
   geom_point(shape = 21, fill = "white") +
