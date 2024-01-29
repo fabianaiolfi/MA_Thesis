@@ -39,16 +39,20 @@ Ideally, longitudinal data on the number of schools, hospitals and third places 
 
 Ideal emigration data would also be longitudinal, beginning several years before a country’s accession and would continue up to and include the year 2019. Emigration rates for the year 2020 and later should be disregarded, as I assume the COVID-19 pandemic to interfere with international migration rates. Furthermore, the data would ideally be available for the lowest subnational region, i.e., NUTS3, and would explicitly differentiate between internal and external emigration. Finally, the data would be provided in the form of a rate per 1000 population, in order to make the data comparable across different NUTS3 regions.
 
-However, the available data are not as extensive as prefered, as displayed in Table X (TO DO: data availability table). TO DO: add description of table.
+However, the available data are not as extensive as prefered, as displayed in Table \@ref(tab:data-availability). TO DO: add description of table.
 
+```{r data-availability, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="data_availability"}
+data_availability <- data_availability %>% dplyr::rename(` ` = X)
+
+kable(data_availability,
+      caption = "Overview of Available Data",
+      format = "latex",
+      booktabs = TRUE
+      )
+  # kable_styling(font_size = 9) %>% 
+  # add_footnote("Full party names can be looked up at partyfacts.herokuapp.com/data/partycodes/*Party ID*/", notation = "none")
 ```
-Data Availability Table (example data)
 
-Country | Emigration Data (Source) | Election Results (Source)    | NUTS              | Service Cuts | Control Variables? … ???
-PL      | 1998-2019 (2015 missing)  | 2004, 2008, …        | NUTS2: 17 regions
-RO      | 1998-2019  | 2004, 2008, …        | NUTS3: 42 regions
-
-```
 
 <!-- Election Results Data -->
 Subnational election results are provided by the European NUTS-level election dataset [@schraffEuropeanNUTSlevelElection2023]. I remove EU parliament elections from the data, leaving only national parliament election results. I also remove votes cast from abroad, parties with less than one percent of the national vote share (classified as “Other” [@schraffEuropeanNUTSlevelElection2023 571]) and elections before the year 1994 and after 2020. I calculate a party’s vote share by dividing the number of received votes by the total number of votes cast in the region, then multiply this by 100 to receive a party’s regional vote share in percent. In a next step, I calculate a party’s regional vote change between two consecutive elections.

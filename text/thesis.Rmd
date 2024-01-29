@@ -66,6 +66,7 @@ options(scipen = 0) # Enable scientific notation
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 load(here("data", "demo_r_pjanaggr3_linear.rda"))
+data_availability <- read.delim(here("data", "data_availability.tsv"))
 
 load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
 load(here("data", "02_external_emigration", "nuts3_population.Rda"))

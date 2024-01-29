@@ -19,6 +19,7 @@
 - [ ] Reference Github repo and make it public
 - [ ] Reference help from LLMs
 - [ ] Clean up references
+- [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
 - [ ] Add appendix
   - [ ] Graphs from `240111_data_analysis`

@@ -13,6 +13,9 @@ Despite the hypotheses rejections, we observe that emigration can have a negativ
 Furthermore, focusing on school closures and assuming that this service cuts is associated with external emigration, this can have a negative impact on the education system. A decrease in the number of schools can have dire long term consequences, potentially leading to a generation of citizens with subpar education, caused by FoM-induced emigration. These citizens can develop grievances that fuel Euroscepticism. Thus it is in the EU’s own interest to counter negative and anti-EU sentiments at the source, that the EU brings upon itself through its own Freedom of Movement. Thus it would be advisable that the EU also develops policies that dampen the impact of emigration to ensure that emigration-hit regions and their citizens are not left behind.
 
 <!-- Thesis Limits -->
+
+TO DO: collect more electoral data, as PL and RO electoral data only covers post eu accession. comparison to pre-eu would be good.
+
 This thesis contains several limitations that can be addressed in future research. First and foremost is the fact that many factors influence incumbent support. The service cuts described in this thesis can not cover all factors that have an impact on incumbent support. Causality is never this simple and there may be a mediating factor in the causal mechanisms, which can be further explored in future research.
 
 Second, this thesis does not take internal emigration into account, e.g. first from rural to urban areas and then abroad [@kingMindGapIntegrating2010 1623]. Focusing on external emigration was a conscious design decision in order to measure the impact of FoM, however there is an argument to be made that the effect on people left behind is no different between internal and external emigration – they are, in both cases, left behind. 
