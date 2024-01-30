@@ -72,6 +72,7 @@ cat("Total words in all Rmd files:", total_words)
 
 # remove tables, e.g. in overview.Rmd?
 
+# 240130: 10'850
 # 240129: 10'395
 # 240128: 10'172
 # 240124: 10'239

@@ -12,3 +12,5 @@ In short, the lack of a clear statistical significance in the current results un
 School closings aside, I briefly discuss the results around hospital and third places closures. We can observe practically no effect of service cuts to hospitals on incumbent support. This may be due to the fact that there are few hospitals in most Romanian NUTS3 regions and their numbers remain steady over time (TO DO see Figure in Appendix; take note of the values on the y-axis and that this variation is relatively small). This lack of variation over time could explain why hospital service cuts display no effect.
 
 Finally, I look at the closures of third places being positively associated with incumbent vote share change. These results may hint at a more complex mechanism. E.g., if there are more people per third place, this may result in a stronger feeling of community, from which incumbents could profit. However, this is speculative and merits more examination.
+
+TO DO: explain why hypotheses are rejected, ie why lack of statistical power; there are many factors that influence incumbent support

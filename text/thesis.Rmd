@@ -25,7 +25,6 @@ header-includes:
    # Prevent orphans and widows
    - \widowpenalty10000
    - \clubpenalty10000
-
 ---
 
 \onehalfspacing
@@ -129,7 +128,7 @@ ro_plots_components <- list(
         axis.title = element_text(size = 8))
 )
 
-worm_span <- 0.3
+# worm_span <- 0.3
 
 worms_explainer <- "_Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the right._"
 
@@ -151,7 +150,7 @@ set.seed(42)
 ```{r, child = 'thesis/01_abstract/abstract.Rmd'}
 ```
 
-\pagebreak
+\newpage
 
 ```{r, child = 'thesis/02_introduction/introduction.Rmd'}
 ```
@@ -168,12 +167,14 @@ set.seed(42)
 ```{r, child = 'thesis/06_conclusion/conclusion.Rmd'}
 ```
 
-\pagebreak
+\newpage
 
 ```{r, child = 'thesis/appendix.Rmd'}
 ```
 
-\pagebreak
+\newpage
 
-```{r, child = 'thesis/references.Rmd'}
-```
+## References
+
+<!-- ```{r, child = 'thesis/references.Rmd'} -->
+<!-- ``` -->

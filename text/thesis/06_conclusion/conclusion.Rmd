@@ -1,11 +1,17 @@
 ## Conclusion
 <!-- Summary of thesis -->
-- in this thesis i set to measure the effect of emigration in incumbent support in Poland and Romania
-- …
-- emigration decreases incumbent support in romania, not in poland
-- because of this, hypotheses are only tested in romania
-- Results hint at an effect of emigration caused school closures and loss of incumbent support in Romania
-- However, results are not statistically significant enough to clearly fail to reject the hypotheses set up, thus further research is needed
+- This thesis sets out to identify emigration-induced service cuts that decrease incumbent support in Poland and Romania.
+- I build upon findings by @dancygierEmigrationRadicalRight2022 who identify a causal chain between emigration and support for populist and radical right (PRR) parties in Sweden.
+- The authors put forward the idea that emigration causes service cuts, which in turn causes grievances amongst the electorate that finally leads to an increase in PRR support. The authors leave open which specific service cuts fit into their causal chain, suggesting this identification for future research.
+- I apply this causal chain to Poland and Romania. Both states experienced an increase in external emigration after joining the European Union and thus gaining access to the EU’s Freedom of Movement.
+- Instead of examining support for PRR parties, I broaden the approach and look into a decrease of incumbent support associated with service cuts.
+- I identify three service cuts that have the potential to decrease incumbent support. These are primary school closures, hospital closures and the closure of third places, i.e., bars and cafés.
+- I measure service cuts as the average change of people per institution between two national parliamentary elections. E.g, the change in number of children per primary school. I argue that service cuts lead to an increase of people per institution, which impedes service quality, creating grievances and thus contributing to a decrease in incumbent support.
+- Using data provided by Eurostat and the statistical offices of Poland and Romania, I first examine possible associations between external emigration, incumbent support and service cuts.
+- Results from these preliminary explorations provide promising results for Romania. 
+- In a next step, I build two-way fixed effects linear regression models to  test an association between incumbent support and service cuts in Romania.
+- The overall results are mixed, not showing a clear trend. The hypotheses, that put forward an association between service cuts and incumbent support, are rejected.
+- However, the results hint at a possible association between emigration induced school closures and loss of incumbent support. In order to verify this finding, further research is needed.
 
 <!-- Interpreting results in the broader context of further European integration -->
 This thesis shows that access to FoM is associated with higher emigration, which in turn is associated with a change in voting behaviour. This highlights that migration within the EU, one its fundamental freedoms, has an impact on receiving *and* on sending countries. This impact on sending countries influences who’s in power and thus shapes politics on a national and supranational level.
