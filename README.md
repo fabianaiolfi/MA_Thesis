@@ -19,7 +19,7 @@
 - [ ] Reference Github repo and make it public
 - [ ] Reference help from LLMs
 - [ ] Clean up references
-- [ ] Discuss weird graphs: pl population has weird jumps
+- [ ] Discuss weird graphs: pl population has weird jumps; generally discuss the raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios)
 - [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
 - [ ] Add appendix
