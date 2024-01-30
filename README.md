@@ -21,6 +21,7 @@
 - [ ] Clean up references
 - [ ] Discuss weird graphs: pl population has weird jumps; generally discuss the raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios)
 - [ ] Mention somewhere that I use population data to calculate ratios?
+- [ ] add more to hypotheses.Rmd?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
 - [ ] Add appendix
   - [ ] Graphs from `240111_data_analysis`
