@@ -1,5 +1,10 @@
 ## Appendix
 
+- Link to Github: https://github.com/fabianaiolfi/MA_Thesis
+- Declare use of LLMs.
+
+\pagebreak
+
 This is an overview of the available external emigration data at NUTS3 level (Poland: NUTS2; Slovenia: NUTS1). Please note that the y-axis varies by country, the x-axis however is the same for all countries. This makes a comparison of available data across different countries easier. Of the eleven CEE EU member states, only ten are displayed as Czechia does not provide data solely on external emigration. Each grey line represents a NUTS region. The black line, which applies smoothing to enhance readability, displays the overall trend over all available years and regions within a country.
 
 ```{r external-emigration, fig.height = 8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Crude Emigration per 1000 Population at NUTS3 Level in all CEE EU Member States"}
