@@ -24,13 +24,14 @@ There is a research gap when it comes to understanding the political repercussio
 
 FoM, a foundational aspect of the EU, affects voting behaviour in all member states, regardless if they are sending or receiving migrants. Understanding how FoM alters voting behaviour in emigration-hit regions will help understand the effects FoM on relatively new members, such as Croatia and other CEE countries, and will also help understand the impact of future European integration, e.g., when further Balkan states or the Ukraine join the EU.^[2023 State of Union address by EU Commission President Ursula von der Leyen at 1h 5min 41sec (https://www.youtube.com/live/3CodB7iohUI?si=xe06mS4q8qjeJYpi&t=3941, retrieved 6 October 2023)]
 
+<!-- Thesis Setup -->
+This thesis is set up as follows. I begin with a literature review, looking into existing findings and theory behind the effects of emigration on voting behaviour. Next, following @dancygierEmigrationRadicalRight2022’s approach, I put forward hypotheses that posit an association between emigration induced service cuts and incumbent support. The service cuts are school closures, hospital closures and third places closures, e.g., bars and cafés. Based on the theory, I expect service cuts to reduce incumbent support.
 
-- this thesis is setup as follows:
-- i begin with a literature review, looking into existing findings of the effect of emigration on voting behaviour
-- based on this, i lay out my theoretical argument and hypotheses, showing what i suspect to see when building the mdoels.
-- next, i test three assumptions that must hold in order for my hypotheses to work in the first place
+In order to test the hypotheses, three assumptions must hold. 
+
 - in a next step, i explain which data i use, and how i operationalise stuff and how i build models that help test my hypotheses
 	- i work with subnational NUTS^[The NUTS classification (_Nomenclature des unités territoriales statistiques_) is a geographic classification standard established by Eurostat, the EU’s statistical office. It is hierarchical system based on three levels of detail, with level NUTS3 being the lowest level, i.e., the level with the smallest geographic regions (https://ec.europa.eu/eurostat/web/nuts/overview, retrieved 23 January 2024)] level data, in order to gain more variation as different regions within countries have different levels of emigration and service cuts. this allows for more differentiated measurements.
+- next, i test three assumptions that must hold in order for my hypotheses to work in the first place
 - preliminary analysis: romania passes all “tests”, poland fails association between emigration and incumbent vote share, and is thus discarded from further analysis
 - finally, i present the model results and bring them in relation to the hypotheses
 - finally, i conclude with
