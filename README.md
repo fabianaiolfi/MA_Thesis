@@ -3,29 +3,29 @@
 ## Research Proposal
 
 **To Do**
-- [ ] Add somewhere: when defining incumbent parties, party morphing isn't (fully?) taken into account? maybe also add this to thesis weakness/future research; should perhaps also be discussed in the context of table `ro-pedersen-example`: Why are there so many parties that go from 0 to a vote share?
-- [ ] Summary statistics table for ned-vdem dataset?
-- [x] How to describing change in percentage points? "-1\%" or "-1 percentage points" ?
-- [ ] Controlling for volatility
-  - [ ] Is Pedersen Index correctly used?
-  - [ ] Describe in theory and explain in methods
-- [ ] Create summary stats of data used: Elections, etc.
-- [ ] Address decrease in number of Romanian schools in early 2000s
-- [ ] Maybe use a table to explain how I calculate average change in ratio or emigration, by using a simple example
-- [ ] Check for contractions and remove them
-- [ ] number of decimal places in regression tables
-- [ ] place group subtitle to group control variables in regression table?
-- [ ] replace p-values with standard errors in regression tables
-- [ ] Reference Github repo and make it public
-- [ ] Reference help from LLMs
-- [ ] Clean up references
-- [ ] Discuss weird graphs: pl population has weird jumps; generally discuss the raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios)
+- [ ] Discuss weird graphs: pl population has weird jumps; generally discuss the raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps as the first preliminary analysis?
 - [ ] Mention somewhere that I use population data to calculate ratios?
-- [ ] add more to hypotheses.Rmd?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
 - [ ] Add appendix
   - [ ] Graphs from `240111_data_analysis`
   - [ ] Complete regression tables
+- [ ] Summary statistics table for ned-vdem dataset?
+- [x] Add somewhere: when defining incumbent parties, party morphing isn't (fully?) taken into account? maybe also add this to thesis weakness/future research; should perhaps also be discussed in the context of table `ro-pedersen-example`: Why are there so many parties that go from 0 to a vote share?
+- [x] How to describing change in percentage points? "-1\%" or "-1 percentage points" ?
+- [x] Controlling for volatility
+  - [x] Is Pedersen Index correctly used?
+  - [x] Describe in theory and explain in methods
+- [x] Create summary stats of data used: Elections, etc.
+- [x] Address decrease in number of Romanian schools in early 2000s
+- [x] Maybe use a table to explain how I calculate average change in ratio or emigration, by using a simple example
+- [ ] Check for contractions and remove them
+- [ ] adjust all decimals in table to have 3 digits
+- [ ] place group subtitle to group control variables in regression table?
+- [ ] replace p-values with standard errors in regression tables
+- [ ] Make Github repo public
+- [ ] Reference help from LLMs
+- [ ] Clean up references
+- [x] add more to hypotheses.Rmd?
 
 ----
 
