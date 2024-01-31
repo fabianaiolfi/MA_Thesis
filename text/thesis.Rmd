@@ -128,7 +128,7 @@ ro_plots_components <- list(
         axis.title = element_text(size = 8))
 )
 
-# worm_span <- 0.3
+worm_span <- 0.3
 
 worms_explainer <- "_Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the right._"
 

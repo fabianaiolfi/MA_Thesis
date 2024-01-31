@@ -298,10 +298,11 @@ ro_ratio_hospitals_avg_change <- ro_hospitals %>%
 ro_hospitals %>% 
   drop_na(hospitals) %>% 
   left_join(ro_ratio_hospitals_avg_change, by = "NUTS_ID") %>%
+  dplyr::filter(year >= 2000 & year <= 2019) %>% 
   mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
   ggplot(aes(x = year, y = ratio_hospitals)) +
   geom_line() +
-  scale_x_continuous(breaks = c(2004, 2019)) +
+  scale_x_continuous(breaks = c(2000, 2019)) +
   ro_plots_components
 ```
 
