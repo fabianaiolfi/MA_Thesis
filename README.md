@@ -3,7 +3,12 @@
 ## Research Proposal
 
 **To Do**
-- [ ] Discuss weird graphs: pl population has weird jumps; generally discuss the raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps as the first preliminary analysis?
+- [ ] Clarify what you want to show in the appendix
+  - Nr of institutions
+  - Populations (all, primary school aged)
+  - Service Cuts (ratios)
+  - Control Variables: Unemployment, GDP, 
+- [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
 - [ ] Add appendix
