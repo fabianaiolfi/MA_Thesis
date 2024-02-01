@@ -3,7 +3,8 @@
 ## Research Proposal
 
 **To Do**
-- [x] Clarify what you want to show in the appendix
+- [ ] Editing: Continue at "Model Specification"
+
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
@@ -19,6 +20,7 @@
 - [x] Create summary stats of data used: Elections, etc.
 - [x] Address decrease in number of Romanian schools in early 2000s
 - [x] Maybe use a table to explain how I calculate average change in ratio or emigration, by using a simple example
+- [x] Clarify what you want to show in the appendix
 - [ ] Check for contractions and remove them
 - [ ] adjust all decimals in table to have 3 digits
 - [ ] place group subtitle to group control variables in regression table?
