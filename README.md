@@ -12,6 +12,13 @@
   - [ ] Graphs from `240111_data_analysis`
   - [ ] Complete regression tables
 - [ ] Summary statistics table for ned-vdem dataset?
+- [ ] Check for contractions and remove them
+- [ ] adjust all decimals in table to have 3 digits
+- [ ] place group subtitle to group control variables in regression table?
+- [ ] replace p-values with standard errors in regression tables
+- [ ] Make Github repo public
+- [ ] Reference help from LLMs
+- [ ] Clean up references
 - [x] Add somewhere: when defining incumbent parties, party morphing isn't (fully?) taken into account? maybe also add this to thesis weakness/future research; should perhaps also be discussed in the context of table `ro-pedersen-example`: Why are there so many parties that go from 0 to a vote share?
 - [x] How to describing change in percentage points? "-1\%" or "-1 percentage points" ?
 - [x] Controlling for volatility
@@ -21,13 +28,6 @@
 - [x] Address decrease in number of Romanian schools in early 2000s
 - [x] Maybe use a table to explain how I calculate average change in ratio or emigration, by using a simple example
 - [x] Clarify what you want to show in the appendix
-- [ ] Check for contractions and remove them
-- [ ] adjust all decimals in table to have 3 digits
-- [ ] place group subtitle to group control variables in regression table?
-- [ ] replace p-values with standard errors in regression tables
-- [ ] Make Github repo public
-- [ ] Reference help from LLMs
-- [ ] Clean up references
 - [x] add more to hypotheses.Rmd?
 
 ----

@@ -45,12 +45,13 @@ When constructing comparable models, data availability is limited by the dataset
 data_availability <- data_availability %>% dplyr::rename(` ` = X)
 
 kable(data_availability,
-      caption = "Overview of Available Data; TO DO: Add sources",
+      caption = "Overview of Available Data",
       format = "latex",
       booktabs = TRUE
-      )
-  # kable_styling(font_size = 9) %>% 
-  # add_footnote("Full party names can be looked up at partyfacts.herokuapp.com/data/partycodes/*Party ID*/", notation = "none")
+      ) %>% 
+  kable_styling(font_size = 9) %>%
+  add_footnote("Sources: (1) Schraff et al. 2023; (2) Statistics Poland; (3) Romanian National Institute of Statistics; (4) Eurostat", notation = "none")
+
 ```
 
 
