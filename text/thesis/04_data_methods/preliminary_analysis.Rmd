@@ -1,6 +1,5 @@
 ### Preliminary Analysis
-
-In order to test the three hypotheses, three assumptions must hold first. One, does a country’s accession to the EU affect external emigration? Two, does external emigration affect service cuts? And finally three, does external emigration affect incumbent vote share?
+The hypotheses put forward by this thesis are based on three assumptions. One, does a country’s accession to the EU affect external emigration? Two, does external emigration affect service cuts? And finally three, does external emigration affect incumbent vote share? In order to correctly test the hypotheses, these assumptions must be true for Poland and Romania.
 
 ```{r, child = 'preliminary_analysis_accession_emigration.Rmd'}
 ```
@@ -11,4 +10,4 @@ In order to test the three hypotheses, three assumptions must hold first. One, d
 ```{r, child = 'preliminary_analysis_emigration_incumbent_vote_share.Rmd'}
 ```
 
-Based on these preliminary results, I proceed by testing the hypotheses on Romania, as these data all point toward supporting the theoretical assumptions. I discard Poland from this point onwards, as external emigration displays no effect on incumbent support.
+The preliminary results show that the three assumptions hold for Romania, but do not hold for Poland. Thus I proceed by testing the hypotheses on Romania and discard the case of Poland from this point onwards, as external emigration displays no effect on Polish incumbent support.
