@@ -3,11 +3,7 @@
 ## Research Proposal
 
 **To Do**
-- [ ] Clarify what you want to show in the appendix
-  - Populations (all, primary school aged)
-  - Nr of institutions
-  - Service Cuts (ratios)
-  - Control Variables: Unemployment, GDP, 
+- [x] Clarify what you want to show in the appendix
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
