@@ -59,6 +59,7 @@ library(modelsummary)
 library(bookdown)
 library(gridExtra)
 library(politicsR)
+library(scales)
 
 options(scipen = 0) # Enable scientific notation
 ```

@@ -14,17 +14,34 @@ By operationalising service cuts in this manner, I aim at capturing the electora
 
 ```{r ratio-example, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="ratio example"}
 
-df <- ro_schools %>% 
-  dplyr::filter(NUTS_ID == "RO111") %>% 
+# bug preventing latex compiling somewhere here
+
+df <- ro_schools %>%
+  dplyr::filter(NUTS_ID == "RO111") %>%
   dplyr::filter(year >=2004 & year <= 2008) %>%
-  dplyr::select(year, schools, population, ratio_schools, ratio_schools_diff, average_ratio_schools_election_year) %>% 
-  mutate(ratio_schools = round(ratio_schools, 2)) %>% 
-  mutate(ratio_schools_diff = round(ratio_schools_diff, 2)) %>% 
-  mutate(average_ratio_schools_election_year = round(average_ratio_schools_election_year, 2)) %>% 
-  arrange(year) %>% 
-  mutate(average_ratio_schools_election_year = as.character(average_ratio_schools_election_year)) %>% 
-  mutate(average_ratio_schools_election_year = case_when(is.na(average_ratio_schools_election_year) == T ~ "",
-                                                         T ~ average_ratio_schools_election_year)) %>% 
+  dplyr::select(year, schools, population, ratio_schools, ratio_schools_diff, average_ratio_schools_election_year) %>%
+  mutate(ratio_schools = round(ratio_schools, 3)) %>%
+  mutate(ratio_schools_diff = round(ratio_schools_diff, 3)) %>%
+  mutate(average_ratio_schools_election_year = round(average_ratio_schools_election_year, 3)) %>%
+
+  mutate(change_sign = case_when(ratio_schools_diff > 0 ~ "+",
+                                 T ~ "")) %>%
+  mutate(ratio_schools_diff = paste0(change_sign, ratio_schools_diff)) %>%
+  mutate(ratio_schools_diff = gsub("-", "–", ratio_schools_diff)) %>%
+
+  mutate(change_sign = case_when(average_ratio_schools_election_year > 0 ~ "+",
+                                 T ~ "")) %>%
+
+  mutate(average_ratio_schools_election_year = paste0(change_sign, average_ratio_schools_election_year)) %>%
+  mutate(average_ratio_schools_election_year = gsub("-", "–", average_ratio_schools_election_year)) %>%
+
+  mutate(average_ratio_schools_election_year = as.character(average_ratio_schools_election_year)) %>%
+  mutate(average_ratio_schools_election_year = case_when(average_ratio_schools_election_year == "NA" ~ "",
+                                                         T ~ average_ratio_schools_election_year)) %>%
+  
+  mutate(population = scales::number(population, big.mark = " ", decimal.mark = ".", accuracy = 1)) %>% # Add a space as the thousands separator
+  dplyr::select(-change_sign) %>% 
+  arrange(year) %>%
   dplyr::rename(Year = year,
                 `Number of Schools` = schools,
                 `Primary School Aged Population` = population,
@@ -34,11 +51,11 @@ df <- ro_schools %>%
 
 kable(df,
       caption = "Service Cut Operationalisation Example in Bihor County, Romania (RO111)",
-      format = "latex", booktabs = TRUE, escape = FALSE) %>% 
-  kable_styling(font_size = 9) %>% 
-  column_spec(column = 1, width = "1cm") %>% 
-  column_spec(column = c(2,4), width = "1.8cm") %>% 
-  column_spec(column = c(3,5,6), width = "3cm") %>% 
+      format = "latex", booktabs = TRUE, escape = FALSE) %>%
+  kable_styling(font_size = 9) %>%
+  column_spec(column = 1, width = "1cm") %>%
+  column_spec(column = c(2,4), width = "1.8cm") %>%
+  column_spec(column = c(3,5,6), width = "3cm") %>%
   add_footnote("Romanian national parliamentary elections took place in 2004 and in 2008.", notation = "none")
 
 ```
