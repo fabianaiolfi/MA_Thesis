@@ -8,11 +8,7 @@ In order to test the three hypotheses, three assumptions must hold first. One, d
 ```{r, child = 'preliminary_analysis_emigration_service_cuts.Rmd'}
 ```
 
-<!-- ```{r, child = 'xxx.Rmd'} -->
-<!-- # Does emigration cause grievances? -->
-<!-- ``` -->
-
 ```{r, child = 'preliminary_analysis_emigration_incumbent_vote_share.Rmd'}
 ```
 
-Based on these preliminary results, I proceed by testing the hypotheses on Romania, as these data have all pointed in the right direction, supporting the theoretical assumptions. I discard Poland from this point onwards, as external emigration displays no effect on incumbent support.
+Based on these preliminary results, I proceed by testing the hypotheses on Romania, as these data all point toward supporting the theoretical assumptions. I discard Poland from this point onwards, as external emigration displays no effect on incumbent support.
