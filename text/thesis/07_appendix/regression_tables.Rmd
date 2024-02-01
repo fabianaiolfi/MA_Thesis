@@ -1,0 +1,208 @@
+### Regression Results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Romania
+anti_incumbent_vote <- ned_v_dem_cee %>% 
+  dplyr::filter(country == "Romania") %>%
+  dplyr::filter(prev_incumbent == T) %>%
+  left_join(dplyr::select(ro, year, NUTS_ID, emigration_election_year_per_1000), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
+  left_join(dplyr::select(ro_schools, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>%
+  left_join(dplyr::select(ro_hospitals, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(dplyr::select(ro_third_places, -population), by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(ro_volatility, by = c("year", "nuts2016")) %>% 
+  left_join(ro_gdp, by = c("year" = "year", "nuts2016" = "NUTS_ID")) %>% 
+  left_join(ro_unemployment, by = c("year", "nuts2016"))
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Using average ratio between elections
+fe_lm_0 <- feols(vote_change ~
+                   emigration_election_year_per_1000 +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_1 <- feols(vote_change ~
+                   emigration_election_year_per_1000 +
+                   average_ratio_schools_election_year +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_2 <- feols(vote_change ~
+                   emigration_election_year_per_1000 +
+                   average_ratio_classrooms_election_year +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_3 <- feols(vote_change ~
+                   emigration_election_year_per_1000 +
+                   average_ratio_hospitals_election_year +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_4 <- feols(vote_change ~
+                   emigration_election_year_per_1000 +
+                   average_ratio_third_places_election_year +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_5 <- feols(vote_change ~
+                   emigration_election_year_per_1000 +
+                   average_ratio_schools_election_year +
+                   average_ratio_hospitals_election_year +
+                   average_ratio_third_places_election_year +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_6 <- feols(vote_change ~
+                   emigration_election_year_per_1000 +
+                   average_ratio_classrooms_election_year +
+                   average_ratio_hospitals_election_year +
+                   average_ratio_third_places_election_year +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+```
+
+```{r all-results-emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Emigration interacted with Service Cuts on Incumbent Vote Share; DV: Change in Incumbent Vote Share; Model Specification A"}
+
+# groups_list <- list(
+#   "Main Variables" = c("Emigration since last election", "Avg. Children per School", "Avg. Children per Classroom", "Avg. People per Hospital", "Avg. People per Third Place"),
+#   "Control Variables" = c("Volatility", "GDP per capita", "Unemployment"))
+
+model_table <- modelsummary(list("Model 0" = fe_lm_0,
+                                 "Model 1" = fe_lm_1,
+                                 "Model 2" = fe_lm_2,
+                                 "Model 3" = fe_lm_3,
+                                 "Model 4" = fe_lm_4,
+                                 "Model 5" = fe_lm_5,
+                                 "Model 6" = fe_lm_6),
+             title = "migration interacted with Service Cuts on Incumbent Vote Share; DV: Change in Incumbent Vote Share; Model Specification A",
+             # coef_map = c(`average_ratio_schools_election_year` = "Avg. Children per School",
+             #              `average_ratio_classrooms_election_year` = "Avg. Children per Classroom",
+             #              `average_ratio_hospitals_election_year` = "Avg. People per Hospital",
+             #              `average_ratio_third_places_election_year` = "Avg. People per Third Place",
+             #              emigration_election_year_per_1000 = "Emigration since last election",
+             #              volatility = "Volatility",
+             #              gdp = "GDP per capita",
+             #              unemployment = "Unemployment"),
+             # groups = groups_list,
+             # statistic = "p.value",
+             # gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
+             stars = T,
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region.")
+
+model_table# %>%
+  # kable_styling(font_size = 7)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# With control variables
+# Using average ratio between elections
+fe_lm_0 <- feols(vote_change ~
+                   emigration_election_year_per_1000 +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+#this is the one
+fe_lm_1 <- feols(vote_change ~
+                   average_ratio_schools_election_year *
+                   emigration_election_year_per_1000 +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_2 <- feols(vote_change ~
+                   average_ratio_classrooms_election_year *
+                   emigration_election_year_per_1000 +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_3 <- feols(vote_change ~
+                   average_ratio_hospitals_election_year *
+                   emigration_election_year_per_1000 +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_4 <- feols(vote_change ~
+                   average_ratio_third_places_election_year *
+                   emigration_election_year_per_1000 +
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_5 <- feols(vote_change ~
+                   average_ratio_schools_election_year *
+                   emigration_election_year_per_1000 +
+                   
+                   average_ratio_hospitals_election_year *
+                   emigration_election_year_per_1000 +
+
+                   average_ratio_third_places_election_year *
+                   emigration_election_year_per_1000 +
+                   
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+
+fe_lm_6 <- feols(vote_change ~
+                   average_ratio_classrooms_election_year *
+                   emigration_election_year_per_1000 +
+                   
+                   average_ratio_hospitals_election_year *
+                   emigration_election_year_per_1000 +
+                   
+                   average_ratio_third_places_election_year *
+                   emigration_election_year_per_1000 +
+                   
+                   volatility + gdp + unemployment |
+                   nuts2016 + year,
+                 data = anti_incumbent_vote)
+```
+
+```{r all-results-emigration-incumbent-vote-share-control-interaction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Emigration interacted with Service Cuts on Incumbent Vote Share with Control Variables; DV: Change in Incumbent Vote Share; Model Specification B"}
+# new_names <- c(
+#   "average_ratio_classrooms_election_year:emigration_election_year_per_1000" = "Classrooms-Emigration Interaction",
+#   "emigration_election_year_per_1000:average_ratio_hospitals_election_year" = "Hospitals-Emigration Interaction",
+#   "emigration_election_year_per_1000:average_ratio_third_places_election_year" = "Third Places-Emigration Interaction",
+#   "volatility" = "Economic Volatility",
+#   "gdp" = "Gross Domestic Product",
+#   "unemployment" = "Unemployment Rate"
+# )
+# 
+# modelsummary(fe_lm_6, coef_map = new_names)
+
+model_table <- modelsummary(list("Model 0" = fe_lm_0,
+                                 "Model 1" = fe_lm_1,
+                                 "Model 2" = fe_lm_2,
+                                 "Model 3" = fe_lm_3,
+                                 "Model 4" = fe_lm_4
+                                 #"Model 5" = fe_lm_5,
+                                 #"Model 6" = fe_lm_6
+                                 ),
+              title = "Emigration interacted with Service Cuts on Incumbent Vote Share with Control Variables; DV: Change in Incumbent Vote Share; Model Specification B",
+             # coef_map = c("average_ratio_schools_election_year:emigration_election_year_per_1000" = "Avg. Children per School × Emigration since last election",
+             #              "average_ratio_classrooms_election_year:emigration_election_year_per_1000" = "Avg. Children per Classroom × Emigration since last election",
+             #              "emigration_election_year_per_1000:average_ratio_hospitals_election_year" = "Avg. People per Hospital × Emigration since last election",
+             #              "average_ratio_hospitals_election_year:emigration_election_year_per_1000" = "Avg. People per Hospital × Emigration since last election",
+             #              "emigration_election_year_per_1000:average_ratio_third_places_election_year" = "Avg. People per Third Place × Emigration since last election",
+             #              "average_ratio_third_places_election_year:emigration_election_year_per_1000" = "Avg. People per Third Place × Emigration since last election",
+             #              "emigration_election_year_per_1000" = "Emigration since last election",
+             #              "volatility" = "Volatility",
+             #              "gdp" = "GDP per capita",
+             #              "unemployment" = "Unemployment"),
+             # gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
+             # statistic = "p.value",
+             stars = T,
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region.")
+
+model_table# %>%
+  # kable_styling(font_size = 7)
+```

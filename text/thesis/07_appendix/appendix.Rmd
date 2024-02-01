@@ -1,0 +1,16 @@
+## Appendix
+
+```{r, child = 'links.Rmd'}
+```
+
+```{r, child = 'regression_tables.Rmd'}
+```
+
+```{r, child = 'cee.Rmd'}
+```
+
+```{r, child = 'pl.Rmd'}
+```
+
+```{r, child = 'ro.Rmd'}
+```

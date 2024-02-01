@@ -1,0 +1,4 @@
+### Links
+
+- Link to Github: https://github.com/fabianaiolfi/MA_Thesis
+- Declare use of LLMs.

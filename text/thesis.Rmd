@@ -169,7 +169,7 @@ set.seed(42)
 
 \newpage
 
-```{r, child = 'thesis/appendix.Rmd'}
+```{r, child = 'thesis/07_appendix/appendix.Rmd'}
 ```
 
 \newpage

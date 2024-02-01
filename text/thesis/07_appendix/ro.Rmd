@@ -1,0 +1,248 @@
+### Raw Data: Romania
+
+`r worms_explainer`
+
+<!-- Entire Population -->
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Population in Millions in Romania at NUTS3 Level"}
+ro_avg_population_change <- ro %>% 
+  arrange(NUTS_ID, year) %>%
+  group_by(NUTS_ID) %>%
+  mutate(population_change = population - dplyr::lag(population),
+         # Calculate the year-on-year percent increase. Multiplying by 100 gives the percent change.
+         percent_change = (population_change / dplyr::lag(population)) * 100
+         ) %>%
+  summarise(
+    avg_population_change = mean(population_change, na.rm = TRUE), # Average change in actual numbers
+    avg_percent_change = mean(percent_change, na.rm = TRUE) # Average percent change
+  )
+
+ro %>% 
+  left_join(ro_avg_population_change, by = "NUTS_ID") %>%
+  mutate(population = population / 1000000) %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = population)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(2000, 2019)) +
+  ro_plots_components
+```
+
+<!-- Primary School Aged Population -->
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Primary Age Population in 1000s in Romania at NUTS3 Level"}
+ro_schools_avg_population_change <- ro_schools %>% 
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(population_change = population - dplyr::lag(population),
+         percent_change = (population_change / dplyr::lag(population)) * 100) %>% # Calculate year-on-year increase
+  summarise(avg_population_change = mean(population_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE)) # Calculate average increase
+
+ro_schools %>% 
+  left_join(ro_schools_avg_population_change, by = "NUTS_ID") %>% 
+  mutate(population = population / 1000) %>% 
+  # mutate(avg_population_change = avg_population_change / 1000) %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = population)) +
+  geom_line() +
+	scale_x_continuous(breaks = c(1998, 2019)) +
+  ro_plots_components
+```
+
+<!-- Emigration Rate -->
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="External Emigration per 1000 Population from Romania at NUTS3 Level"}
+ro_avg_emigration_change <- ro %>% 
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(emigration_change = emigration_yearly_per_1000 - dplyr::lag(emigration_yearly_per_1000),
+         percent_change = (emigration_change / dplyr::lag(emigration_yearly_per_1000)) * 100) %>% 
+  summarise(avg_emigration_change = mean(emigration_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE)) # Calculate average increase
+
+ro %>% 
+  left_join(ro_avg_emigration_change, by = "NUTS_ID") %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>% 
+  ggplot(aes(x = year, y = emigration_yearly_per_1000)) +
+  geom_line() +
+	scale_x_continuous(breaks = c(1995, 2019)) +
+  ro_plots_components
+```
+
+<!-- Number of Schools -->
+```{r ro-primary-schools, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of Primary Schools in Romania at NUTS3 Level"}
+ro_schools_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(school_change = schools - dplyr::lag(schools),
+         percent_change = (school_change / dplyr::lag(schools)) * 100) %>% 
+  summarise(avg_school_change = mean(school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = schools)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1990, 2019)) +
+  ro_plots_components
+```
+
+<!-- Number of Classrooms -->
+```{r ro-classrooms, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of Classrooms in Primary Schools in Romania at NUTS3 Level"}
+ro_classrooms_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(classroom_change = classrooms - dplyr::lag(classrooms),
+         percent_change = (classroom_change / dplyr::lag(classrooms)) * 100) %>% 
+  summarise(avg_classroom_change = mean(classroom_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_classrooms_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = classrooms)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1990, 2019)) +
+  ro_plots_components
+```
+
+<!-- Number of Hospitals -->
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_hospitals_avg_change <- ro_hospitals %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(hospital_change = hospitals - dplyr::lag(hospitals),
+         percent_change = (hospital_change / dplyr::lag(hospitals)) * 100) %>% 
+  summarise(avg_hospital_change = mean(hospital_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_hospitals %>% 
+  left_join(ro_hospitals_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = hospitals)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1990, 2019)) +
+  ro_plots_components
+```
+
+<!-- Number of Third Places -->
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+ro_third_places_avg_change <- ro_third_places %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(third_places_change = third_places - dplyr::lag(third_places),
+         percent_change = (third_places_change / dplyr::lag(third_places)) * 100) %>% 
+  summarise(avg_third_places_change = mean(third_places_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_third_places %>% 
+  left_join(ro_third_places_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  drop_na(NUTS_ID) %>% 
+  ggplot(aes(x = year, y = third_places)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(2008, 2019)) +
+  ro_plots_components
+```
+
+<!-- Service Cuts to Schools: School Buildings -->
+```{r ro-school-ratio, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of Primary School Children per School in Romania at NUTS3 Level"}
+ro_ratio_schools_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_school_change = ratio_schools - dplyr::lag(ratio_schools),
+         percent_change = (ratio_school_change / dplyr::lag(ratio_schools)) * 100) %>% 
+  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_ratio_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_schools)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1998, 2019)) +
+  ro_plots_components
+```
+
+<!-- Service Cuts to Schools: Classrooms -->
+```{r ro-classroom-ratio, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of Primary School Children per Classroom in Romania at NUTS3 Level"}
+ro_ratio_schools_avg_change <- ro_schools %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_school_change = ratio_classrooms - dplyr::lag(ratio_classrooms),
+         percent_change = (ratio_school_change / dplyr::lag(ratio_classrooms)) * 100) %>% 
+  summarise(avg_ratio_school_change = mean(ratio_school_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_schools %>% 
+  left_join(ro_ratio_schools_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_classrooms)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(1998, 2019)) +
+  ro_plots_components
+```
+
+<!-- Service Cuts to Hospitals -->
+```{r ro-hospital-ratio, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of People per Hospital in Romania at NUTS3 Level"}
+ro_ratio_hospitals_avg_change <- ro_hospitals %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_hospital_change = ratio_hospitals - dplyr::lag(ratio_hospitals),
+         percent_change = (ratio_hospital_change / dplyr::lag(ratio_hospitals)) * 100) %>% 
+  summarise(avg_ratio_hospital_change = mean(ratio_hospital_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_hospitals %>% 
+  drop_na(hospitals) %>% 
+  left_join(ro_ratio_hospitals_avg_change, by = "NUTS_ID") %>%
+  dplyr::filter(year >= 2000 & year <= 2019) %>% 
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_hospitals)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(2000, 2019)) +
+  ro_plots_components
+```
+
+<!-- Service Cuts to Third Places -->
+```{r ro-third-places-ratio, echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of People per Third Place in Romania at NUTS3 Level"}
+ro_ratio_third_places_avg_change <- ro_third_places %>%
+  arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
+  group_by(NUTS_ID) %>% # Group data by region
+  mutate(ratio_third_places_change = ratio_third_places - dplyr::lag(ratio_third_places),
+         percent_change = (ratio_third_places_change / dplyr::lag(ratio_third_places)) * 100) %>% 
+  summarise(avg_ratio_third_places_change = mean(ratio_third_places_change, na.rm = TRUE),
+            avg_percent_change = mean(percent_change, na.rm = TRUE))
+
+ro_third_places %>% 
+  left_join(ro_ratio_third_places_avg_change, by = "NUTS_ID") %>%
+  mutate(NUTS_ID = reorder(NUTS_ID, -avg_percent_change)) %>%
+  ggplot(aes(x = year, y = ratio_third_places)) +
+  geom_line() +
+  scale_x_continuous(breaks = c(2005, 2019)) +
+  ro_plots_components
+```
+
+<!-- Electoral Volatility -->
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Elecotral Volatility in Romania at NUTS3 Level"}
+ggplot(ro_volatility, aes(x = year, y = volatility, line = nuts2016)) +
+  geom_line() +
+  geom_point(shape = 21, fill = "white") +
+  scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
+```
+
+<!-- GDP -->
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="GDP at Current Market Prices in Romania at NUTS3 Level (Euros per Inhabitant)"}
+ggplot(ro_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
+  geom_line() +
+  geom_point(shape = 21, fill = "white") +
+  scale_x_continuous(limits = c(2000, 2019)) +
+  scale_y_continuous(limits = c(0, 35000), labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
+```
+
+<!-- Unemployment -->
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Unemployment Rate in Romania at NUTS3 Level"}
+ggplot(ro_unemployment, aes(x = year, y = unemployment, line = nuts2016)) +
+  geom_line() +
+  geom_point(shape = 21, fill = "white") +
+  scale_x_continuous(limits = c(1991, 2019)) +
+  scale_y_continuous(labels = label_comma()) + ylab("") + xlab("") + theme_minimal()
+```
