@@ -130,7 +130,7 @@ ro_plots_components <- list(
 
 worm_span <- 0.3
 
-worms_explainer <- "_Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the right._"
+worms_explainer <- "_Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the bottom right._"
 
 set.seed(42)
 ```
