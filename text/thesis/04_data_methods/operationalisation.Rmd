@@ -45,7 +45,7 @@ df <- ro_schools %>%
                 `Primary School Aged Population` = population,
                 `Children per School` = ratio_schools,
                 `Yearly Change in Children per School` = ratio_schools_diff,
-                `Average Change in Children per School between Elections` = average_ratio_schools_election_year)
+                `Average Change in Children per School at E1` = average_ratio_schools_election_year)
 
 kable(df,
       caption = "Service Cut Operationalisation Example in Bihor County, Romania (RO111)",
@@ -63,7 +63,7 @@ As described in the Theory section on p. \pageref{passage:theory-service-cuts}, 
 #### Control Variables
 In order to isolate the effect of service cuts on incumbent support, I control for external emigration, electoral volatility and economic performance within a NUTS region.
 
-##### Emigration Rate
+#### Emigration Rate
 \label{passage:emigration-rate} When operationalising emigration rate, I base my approach on @dancygierEmigrationRadicalRight2022. I only take the number of departures from a NUTS region into account, in order to isolate the effect of emigration from other demographic factors that may influence the association between population decline and incumbent support [@dancygierEmigrationRadicalRight2022 5]. Also, I only take *external* emigration into account, i.e., migration abroad, and discard internal emigration between subnational regions. I focus on this because I aim to capture the effect of FoM on an EU member state.
 
 I operationalise emigration rate as the sum of emigrants in a NUTS region [@dancygierEmigrationRadicalRight2022 17], divided by the average population in the same NUTS region between two consecutive national parliamentary elections. I then multiply this value by 1000 in order to retrieve the value per 1000 inhabitants. Table \@ref(tab:emigration-rate-example) displays this operationalisation with an example. 
@@ -87,7 +87,7 @@ df <- ro %>%
                 `Number of Emigrants` = emigration,
                 `Population Size` = population,
                 `Yearly Emigration Rate` = emigration_yearly_per_1000,
-                `Average Emigration Rate between Elections` = emigration_election_year_per_1000)
+                `Emigration Rate at E1` = emigration_election_year_per_1000)
 
 kable(df,
       caption = "Emigration Rate Operationalisation Example in Bihor County, Romania (RO111)",
