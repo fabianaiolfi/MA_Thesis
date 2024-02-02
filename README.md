@@ -5,7 +5,10 @@
 **To Do**
 - [ ] Editing
   - [x] Model Specification
-  - [ ] Results
+  - [x] Results
+    - [x] a
+    - [x] b
+    - [x] hypotheses
   - [ ] Conclusion
 
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
