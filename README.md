@@ -3,6 +3,7 @@
 ## Research Proposal
 
 **To Do**
+- [ ] Table 5 (Volatility)
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)

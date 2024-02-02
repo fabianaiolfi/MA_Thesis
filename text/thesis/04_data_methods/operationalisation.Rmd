@@ -114,22 +114,24 @@ ro_volatility_2012 <- ro_volatility_table %>%
   dplyr::select(-y_2004, -y_2016) %>% 
   group_by(nuts2016) %>% 
   dplyr::filter(!is.na(y_2008) | !is.na(y_2012)) %>% 
-  mutate(diff = abs(y_2012 - y_2008)) %>% 
   mutate(y_2008 = case_when(is.na(y_2008) == T ~ 0,
                             T ~ y_2008)) %>% 
   mutate(y_2012 = case_when(is.na(y_2012) == T ~ 0,
                             T ~ y_2012)) %>% 
+  mutate(diff = abs(y_2012 - y_2008)) %>% 
   mutate(volatility_2012 = volatility(y_2008, y_2012)) %>% 
   dplyr::filter(nuts2016 == "RO111") %>% 
   ungroup(nuts2016) %>% 
   dplyr::select(partyfacts_id, y_2008, y_2012, diff) %>% 
   mutate(y_2008 = round(y_2008, 3)) %>% 
   mutate(y_2012 = round(y_2012, 3)) %>% 
+  mutate(diff = round(diff, 3)) %>% 
   arrange(-y_2008) %>% 
   mutate(partyfacts_id = as.character(partyfacts_id)) %>% 
   mutate(partyfacts_id = case_when(is.na(partyfacts_id) == T ~ "(Party ID missing)",
                                    T ~ partyfacts_id)) %>%
   dplyr::rename(`Party ID` = partyfacts_id,
+                `Absolute Difference between E0 and E1` = diff,
                 `Vote Share 2008 Election (E0) in %` = y_2008,
                 `Vote Share 2012 Election (E1) in %` = y_2012)
 
