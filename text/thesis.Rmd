@@ -22,6 +22,7 @@ header-includes:
    - \usepackage{caption}
    - \pagenumbering{gobble} # Suppress page numbers
    - \usepackage{times}
+   - \usepackage{pdflscape}
    # Prevent orphans and widows
    - \widowpenalty10000
    - \clubpenalty10000

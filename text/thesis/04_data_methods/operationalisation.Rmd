@@ -1,7 +1,7 @@
 ### Operationalisation
 
 #### Dependent Variable: Incumbent Vote Share Change
-\label{passage:incumbent-vote-share-change} In my analysis, the dependent variable is the change in incumbent vote share. To operationalise this, I pick two consecutive national parliamentary elections, referred to as $E_0$ and $E_1$. Following the data provided by @staffan.i.lindbergetal.VPartyDatasetV22022 and manual adjustments (see p. \pageref{passage:incumbent-party}), I label each party as either incumbent or non-incumbent at $E_0$. Next, I calculate the change in the party's vote share between $E_0$ and $E_1$. A positive value indicates an increase in support, a negative value signifies a loss in vote share and thus less support.
+\label{passage:incumbent-vote-share-change} In my analysis, the dependent variable is the change in incumbent vote share. To operationalise this, I pick two consecutive national parliamentary elections, referred to as $E_0$ and $E_1$. Following the data provided by @staffani.lindbergetal.VPartyDatasetV22022 and manual adjustments (see p. \pageref{passage:incumbent-party}), I label each party as either incumbent or non-incumbent at $E_0$. Next, I calculate the change in the party's vote share between $E_0$ and $E_1$. A positive value indicates an increase in support, a negative value signifies a loss in vote share and thus less support.
 
 #### Independent Variable: Service Cuts
 I operationalise service cuts based on the assumption that a person's experience of a service is influenced by the number of people per institution, e.g., per school or hospital. When one institution closes down, more people use the remaining institutions, whereby an individual’s experience of the services provided by the remaining institutions deteriorates. This is due to factors such as diminished individual attention, overstretched personnel and longer waiting times.
@@ -13,8 +13,6 @@ Service cuts are operationalised by examining the average change of people per i
 By operationalising service cuts in this manner, I aim at capturing the electorate’s retrospective vote, as voters judge the incumbent parties on past performances (see p. \pageref{passage:retrospective-vote}). When casting a ballot, I assume that they take into account the development of service quality since the last election. Service cuts lead to a decrease in service quality, which in turn can lead to a decrease in incumbent support.
 
 ```{r ratio-example, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="ratio example"}
-
-# bug preventing latex compiling somewhere here
 
 df <- ro_schools %>%
   dplyr::filter(NUTS_ID == "RO111") %>%
@@ -84,6 +82,7 @@ df <- ro %>%
   mutate(emigration_election_year_per_1000 = as.character(emigration_election_year_per_1000)) %>% 
   mutate(emigration_election_year_per_1000 = case_when(is.na(emigration_election_year_per_1000) == T ~ "",
                                                          T ~ emigration_election_year_per_1000)) %>% 
+  mutate(population = scales::number(population, big.mark = " ", decimal.mark = ".", accuracy = 1)) %>% # Add a space as the thousands separator
   dplyr::rename(Year = year,
                 `Number of Emigrants` = emigration,
                 `Population Size` = population,
@@ -115,6 +114,7 @@ ro_volatility_2012 <- ro_volatility_table %>%
   dplyr::select(-y_2004, -y_2016) %>% 
   group_by(nuts2016) %>% 
   dplyr::filter(!is.na(y_2008) | !is.na(y_2012)) %>% 
+  mutate(diff = abs(y_2012 - y_2008)) %>% 
   mutate(y_2008 = case_when(is.na(y_2008) == T ~ 0,
                             T ~ y_2008)) %>% 
   mutate(y_2012 = case_when(is.na(y_2012) == T ~ 0,
@@ -122,16 +122,22 @@ ro_volatility_2012 <- ro_volatility_table %>%
   mutate(volatility_2012 = volatility(y_2008, y_2012)) %>% 
   dplyr::filter(nuts2016 == "RO111") %>% 
   ungroup(nuts2016) %>% 
-  dplyr::select(partyfacts_id, y_2008, y_2012) %>% 
-  mutate(y_2008 = round(y_2008, 2)) %>% 
-  mutate(y_2012 = round(y_2012, 2)) %>% 
-  arrange(-y_2008)
+  dplyr::select(partyfacts_id, y_2008, y_2012, diff) %>% 
+  mutate(y_2008 = round(y_2008, 3)) %>% 
+  mutate(y_2012 = round(y_2012, 3)) %>% 
+  arrange(-y_2008) %>% 
+  mutate(partyfacts_id = as.character(partyfacts_id)) %>% 
+  mutate(partyfacts_id = case_when(is.na(partyfacts_id) == T ~ "(Party ID missing)",
+                                   T ~ partyfacts_id)) %>%
+  dplyr::rename(`Party ID` = partyfacts_id,
+                `Vote Share 2008 Election (E0) in %` = y_2008,
+                `Vote Share 2012 Election (E1) in %` = y_2012)
 
 kable(ro_volatility_2012,
       caption = "Displaying how electoral volatility is calculated using the Pedersen Index in Bihor County, Romania (RO111)",
-      format = "latex", booktabs = TRUE) %>% 
+      format = "latex", booktabs = TRUE, linesep = "") %>% 
   kable_styling(font_size = 9) %>% 
-  add_footnote("RO111 has a Pedersen Index of 73.5 in the year 2012. Some party identifiers are missing because they are deemed irrelevant by @bederkePartyFactsVersion2020 [@schraffEuropeanNUTSlevelElection2023 572]. Full party name can be accessed through partyfacts.herokuapp.com/data/partycodes/Party ID/", notation="none")
+  add_footnote("RO111 has a Pedersen Index of 73.5 in the year 2012. Some party identifiers are missing because they are deemed irrelevant by  \\cite{bederkePartyFactsVersion2020} \\citep{schraffEuropeanNUTSlevelElection2023, p. 572}. Full party name can be accessed at partyfacts.herokuapp.com/data/partycodes/Party ID/", notation="none")
 ```
 
 #### Economic Performance

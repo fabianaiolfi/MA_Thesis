@@ -96,10 +96,16 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
              # gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,
              notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region.")
-
-model_table# %>%
-  # kable_styling(font_size = 7)
 ```
+
+\begin{landscape}
+
+```{r, results='asis', echo=FALSE}
+model_table %>%
+  kable_styling(font_size = 9)
+```
+
+\end{landscape}
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # With control variables
@@ -202,7 +208,13 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
              # statistic = "p.value",
              stars = T,
              notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region.")
-
-model_table# %>%
-  # kable_styling(font_size = 7)
 ```
+
+\begin{landscape}
+
+```{r, results='asis', echo=FALSE}
+model_table %>%
+  kable_styling(font_size = 9)
+```
+
+\end{landscape}

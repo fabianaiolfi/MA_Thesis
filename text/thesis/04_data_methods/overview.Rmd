@@ -47,7 +47,7 @@ data_availability <- data_availability %>% dplyr::rename(` ` = X)
 kable(data_availability,
       caption = "Overview of Available Data",
       format = "latex",
-      booktabs = TRUE
+      booktabs = TRUE, linesep = ""
       ) %>% 
   kable_styling(font_size = 9) %>%
   add_footnote("Sources: (1) Schraff et al. 2023; (2) Statistics Poland; (3) Romanian National Institute of Statistics; (4) Eurostat", notation = "none")
@@ -59,7 +59,7 @@ kable(data_availability,
 The European NUTS-level election dataset [@schraffEuropeanNUTSlevelElection2023] provides subnational, NUTS-level election results and the years in which national parliamentary elections were held. I remove EU parliament elections from the data, leaving only national parliament election results. I also remove votes cast from abroad, parties with less than one percent of the national vote share (classified as “Other” [@schraffEuropeanNUTSlevelElection2023 571]) and elections before the year 1994 and after 2020. I calculate a party’s vote share by dividing the number of received votes by the total number of votes cast in a region, then multiply this by 100 to receive a party’s regional vote share in percent. In the next step, I calculate a party’s regional vote change between two consecutive elections.
 
 <!-- Incumbent Party Data -->
-\label{passage:incumbent-party} The V-Party Dataset [@staffan.i.lindbergetal.VPartyDatasetV22022] provides information on which parties are in or support the government.^[Variable *v2pagovsup*: “Does this party support the government formed immediately after this election?” I categorise the responses “Yes, as senior partner”, “Yes, as junior partner” and “Yes, but the party is not officially represented in government” as being an incumbent party [@vpartyCodebook, 24]] I manually add further elections and parties to the data^[See https://github.com/fabianaiolfi/MA_Thesis/blob/main/scripts/01_anti_incumbent_vote/02_1_manual_adjustment.R for details] in order to match the existing observations to the emigration data time span. This manual extension results in a more complete picture of anti-incumbent voting. Manually added data on whether a party is incumbent or in opposition is based on the party’s documented electoral history on their respective Wikipedia page.^[E.g., https://en.wikipedia.org/wiki/Greater_Romania_Party#Electoral_history (retrieved 15 January 2024)] I only manually add missing values of parties with a vote share equal to or larger than $4\%$ and a vote change between elections equal to or larger than $1\%$. I do this in order to keep the scope of this thesis manageable. I categorise parties that show government support leading up to an election as incumbent, even if they are outside of government. I do this because the V-Party Dataset defines incumbents the same way and I make the assumption that a voter who wants to cast a ballot *against* incumbents will vote against *any* party that supports or sympathises with incumbent parties.
+\label{passage:incumbent-party} The V-Party Dataset [@staffani.lindbergetal.VPartyDatasetV22022] provides information on which parties are in or support the government.^[Variable *v2pagovsup*: “Does this party support the government formed immediately after this election?” I categorise the responses “Yes, as senior partner”, “Yes, as junior partner” and “Yes, but the party is not officially represented in government” as being an incumbent party [@vpartyCodebook, 24]] I manually add further elections and parties to the data^[See https://github.com/fabianaiolfi/MA_Thesis/blob/main/scripts/01_anti_incumbent_vote/02_1_manual_adjustment.R for details] in order to match the existing observations to the emigration data time span. This manual extension results in a more complete picture of anti-incumbent voting. Manually added data on whether a party is incumbent or in opposition is based on the party’s documented electoral history on their respective Wikipedia page.^[E.g., https://en.wikipedia.org/wiki/Greater_Romania_Party#Electoral_history (retrieved 15 January 2024)] I only manually add missing values of parties with a vote share equal to or larger than $4\%$ and a vote change between elections equal to or larger than $1\%$. I do this in order to keep the scope of this thesis manageable. I categorise parties that show government support leading up to an election as incumbent, even if they are outside of government. I do this because the V-Party Dataset defines incumbents the same way and I make the assumption that a voter who wants to cast a ballot *against* incumbents will vote against *any* party that supports or sympathises with incumbent parties.
 
 Using unique party IDs, I combine the European NUTS-level election dataset with the V-Party Dataset. This combined dataset shows the regional vote change of incumbent parties. A random sample from this dataset is displayed in Table \@ref(tab:ned-vdem-sample) in order to provide an impression of the data structure.
 
@@ -81,30 +81,30 @@ Statistics Poland provides their data in the form of comma separated value ($\te
 ```{r ned-vdem-sample, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Show snippet of n_v_dem_cee"}
 df <- ned_v_dem_cee %>%
   drop_na(prev_incumbent) %>% 
-  mutate(vote_share = round(vote_share, 2)) %>% 
-  mutate(vote_change = round(vote_change, 2)) %>% 
+  mutate(vote_share = round(vote_share, 3)) %>% 
+  mutate(vote_change = round(vote_change, 3)) %>% 
   mutate(vote_change_sign = case_when(vote_change > 0 ~ "+",
                                       T ~ "")) %>%
   dplyr::select(year, country, regionname, nuts2016, unique_party_id, vote_share, vote_change_sign, vote_change, prev_incumbent) %>%
   mutate(vote_change = paste0(vote_change_sign, vote_change)) %>% 
   mutate(vote_change = gsub("-", "–", vote_change)) %>% 
-  dplyr::rename(Year = year,
+  dplyr::rename(`Election Year (E1)` = year,
                 Country = country,
                 `Region Name` = regionname,
                 `NUTS ID` = nuts2016,
                 `Party ID` = unique_party_id,
                 `Vote Share %` = vote_share,
                 `Vote Change` = vote_change,
-                `Incumbent?` = prev_incumbent,
+                `Incumbent at E0` = prev_incumbent,
                 ) %>% 
   dplyr::select(-vote_change_sign) %>% 
   sample_n(10) %>% 
-  arrange(Year)
+  arrange(`Election Year (E1)`)
 
 kable(df,
       caption = "Random Selection of Rows from the Combined European NUTS-Level Election Dataset and the V-Party Dataset",
       format = "latex",
-      booktabs = TRUE
+      booktabs = TRUE, linesep = ""
       ) %>%
   kable_styling(font_size = 9) %>% 
   add_footnote("Full party names can be looked up at partyfacts.herokuapp.com/data/partycodes/Party ID/", notation = "none")
