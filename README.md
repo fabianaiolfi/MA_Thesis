@@ -3,7 +3,10 @@
 ## Research Proposal
 
 **To Do**
-- [ ] Editing: Continue at "Model Specification"
+- [ ] Editing
+  - [x] Model Specification
+  - [ ] Results
+  - [ ] Conclusion
 
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
