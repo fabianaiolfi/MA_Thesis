@@ -3,14 +3,6 @@
 ## Research Proposal
 
 **To Do**
-- [ ] Editing
-  - [x] Model Specification
-  - [x] Results
-    - [x] a
-    - [x] b
-    - [x] hypotheses
-  - [ ] Conclusion
-
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
