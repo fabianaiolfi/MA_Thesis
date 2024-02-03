@@ -8,5 +8,5 @@
 - Which emigration-induced service cuts decrease incumbent support?
 
 - This thesis examines the impact of service cuts to primary schools, hospitals and “third places”, such as bars and cafés, on incumbent support in subnational NUTS regions in Poland and Romania between 2005 and 2019.
-- Using two-way fixed effects linear regression models, I examine a possible association between a change in number of people per service and incumbent vote change.
+- Using two-way fixed effects linear regression models, I examine a possible association between a change in number of people per service, e.g., children per school, and incumbent vote change.
 - Results do not display a clear association between the two, but hint at a possible effect of emigration-induced service cuts on primary school and a decrease in incumbent support in Romanian subnational NUTS3 regions.
