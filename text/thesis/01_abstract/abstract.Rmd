@@ -1,2 +1,12 @@
 ## Abstract
-…
+
+- Central and Eastern European EU member states experience high levels of emigration
+- The EU’s Freedom of Movement spurrs on emigration.
+- An abundance of research looks at the impact of FoM on migrant-receiving countries. But what are the effects of migration on *sending* countries?
+- Research shows that emigration leads to service cuts in affected regions. This in turn leads to inhabitants developing grievances and subsequently a change in voting behaviour.
+- This thesis aims at identifying specific service cuts that are caused by emigration and subsequently change voting behaviour in a way that alters incumbent support.
+- Which emigration-induced service cuts decrease incumbent support?
+
+- This thesis examines the impact of service cuts to primary schools, hospitals and “third places”, such as bars and cafés, on incumbent support in subnational NUTS regions in Poland and Romania between 2005 and 2019.
+- Using two-way fixed effects linear regression models, I examine a possible association between a change in number of people per service and incumbent vote change.
+- Results do not display a clear association between the two, but hint at a possible effect of emigration-induced service cuts on primary school and a decrease in incumbent support in Romanian subnational NUTS3 regions.
