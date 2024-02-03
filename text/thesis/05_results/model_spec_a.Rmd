@@ -53,7 +53,7 @@ fe_lm_6 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 ```
 
-```{r results-emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Emigration interacted with Service Cuts on Incumbent Vote Share; DV: Change in Incumbent Vote Share; Model Specification A"}
+```{r results-emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of Model Specification A; Dependent Variable: Change in incumbent vote share"}
 
 # groups_list <- list(
 #   "Main Variables" = c("Emigration since last election", "Avg. Children per School", "Avg. Children per Classroom", "Avg. People per Hospital", "Avg. People per Third Place"),
@@ -66,7 +66,7 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  "Model 4" = fe_lm_4,
                                  "Model 5" = fe_lm_5,
                                  "Model 6" = fe_lm_6),
-             title = "migration interacted with Service Cuts on Incumbent Vote Share; DV: Change in Incumbent Vote Share; Model Specification A",
+             title = "Results of Model Specification A; Dependent Variable: Change in incumbent vote share",
              coef_map = c(`average_ratio_schools_election_year` = "Avg. Children per School",
                           `average_ratio_classrooms_election_year` = "Avg. Children per Classroom",
                           `average_ratio_hospitals_election_year` = "Avg. People per Hospital",

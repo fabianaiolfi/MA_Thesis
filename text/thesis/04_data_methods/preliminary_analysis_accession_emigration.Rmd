@@ -110,7 +110,7 @@ In Poland, 15 of the 17 NUTS2 regions, or around $88\%$, return p-values below c
 
 Based on the visual interpretation of the bar plots and results from the Chow Test, I assume an association to exist between a country’s accession to the EU and a change in emigration rate. I assume this association to be positive, whereby accession increases emigration. This is likely due to a country’s access to FoM through EU membership. However, as the diverging emigration rates between Poland and Romania after joining the EU show, accession is not the only factor that influences external emigration.
 
-```{r accession-emigration-bar, echo=FALSE, fig.height=2, message=FALSE, warning=FALSE, fig.cap="External Emigration over Time. Dashed Line: Year of Accession"}
+```{r accession-emigration-bar, echo=FALSE, fig.height=2, message=FALSE, warning=FALSE, fig.cap="External emigration over time. Dashed line: Year of EU accession"}
 grid.arrange(pl_emigration_plot, ro_emigration_plot, ncol = 2)
 ```
 

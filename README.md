@@ -3,13 +3,10 @@
 ## Research Proposal
 
 **To Do**
-- [ ] Table 5 (Volatility)
+- [ ] Mention that all raw data available in appendix
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
-- [ ] Add appendix
-  - [ ] Graphs from `240111_data_analysis`
-  - [ ] Complete regression tables
 - [ ] Summary statistics table for ned-vdem dataset?
 - [ ] Check for contractions and remove them
 - [ ] adjust all decimals in table to have 3 digits
@@ -18,6 +15,9 @@
 - [ ] Make Github repo public
 - [ ] Reference help from LLMs
 - [ ] Clean up references
+- [x] Add appendix
+  - [x] Graphs from `240111_data_analysis`
+  - [x] Complete regression tables
 - [x] Add somewhere: when defining incumbent parties, party morphing isn't (fully?) taken into account? maybe also add this to thesis weakness/future research; should perhaps also be discussed in the context of table `ro-pedersen-example`: Why are there so many parties that go from 0 to a vote share?
 - [x] How to describing change in percentage points? "-1\%" or "-1 percentage points" ?
 - [x] Controlling for volatility

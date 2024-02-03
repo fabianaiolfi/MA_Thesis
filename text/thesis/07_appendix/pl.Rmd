@@ -1,9 +1,7 @@
 ### Raw Data: Poland
 
-`r worms_explainer`
-
 <!-- Entire Population -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Population in Millions in Poland at NUTS2 Level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Population in millions in Poland at NUTS2 level"}
 pl_avg_population_change <- pl %>% 
   arrange(NUTS_ID, year) %>%
   group_by(NUTS_ID) %>%
@@ -26,8 +24,10 @@ pl %>%
   pl_plots_components
 ```
 
+\newpage
+
 <!-- Primary School Aged Population -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Primary Age Population in 1000s in Poland at NUTS2 Level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Primary school age population in 1000s in Poland at NUTS2 level"}
 pl_schools_avg_population_change <- pl_schools %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -47,8 +47,10 @@ pl_schools %>%
   pl_plots_components
 ```
 
+\newpage
+
 <!-- Emigration Rate -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="External Emigration per 1000 Population from Poland at NUTS2 Level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="External emigration per 1000 inhabitants from Poland at NUTS2 level"}
 pl_avg_emigration_change <- pl %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -65,9 +67,10 @@ pl %>%
 	scale_x_continuous(breaks = c(1995, 2019)) +
   pl_plots_components
 ```
+\newpage
 
 <!-- Number of Schools -->
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of primary schools in Poland at NUTS2 level"}
 pl_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -85,8 +88,10 @@ pl_schools %>%
   pl_plots_components
 ```
 
+\newpage
+
 <!-- Number of Hospitals -->
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of hospitals in Poland at NUTS2 level"}
 pl_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -105,8 +110,10 @@ pl_hospitals %>%
   pl_plots_components
 ```
 
+\newpage
+
 <!-- Number of Third Places -->
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of third places in Poland at NUTS2 level"}
 pl_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -124,8 +131,10 @@ pl_third_places %>%
   pl_plots_components
 ```
 
+\newpage
+
 <!-- Service Cuts to Schools -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of Primary School Children per School in Poland at NUTS2 Level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of primary school children per school in Poland at NUTS2 level"}
 pl_ratio_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -143,8 +152,10 @@ pl_schools %>%
   pl_plots_components
 ```
 
+\newpage
+
 <!-- Service Cuts to Hospitals -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of People per Hospital in Poland at NUTS2 Level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of people per hospital in Poland at NUTS2 level"}
 pl_ratio_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -163,8 +174,10 @@ pl_hospitals %>%
   pl_plots_components
 ```
 
+\newpage
+
 <!-- Service Cuts to Third Places -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Number of People per Third Place in Poland at NUTS2 Level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of people per third place in Poland at NUTS2 level"}
 pl_ratio_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -182,8 +195,10 @@ pl_third_places %>%
   pl_plots_components
 ```
 
+\newpage
+
 <!-- Electoral Volatility -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE, include=FALSE, fig.cap="Elecotral Volatility in Poland at NUTS2 Level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE, include=FALSE, fig.cap="Elecotral volatility in Poland at NUTS2 level"}
 ggplot(pl_volatility, aes(x = year, y = volatility, line = nuts2016)) +
   geom_line() +
   geom_point(shape = 21, fill = "white") +
@@ -191,7 +206,7 @@ ggplot(pl_volatility, aes(x = year, y = volatility, line = nuts2016)) +
 ```
 
 <!-- GDP -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE, include=FALSE, fig.cap="GDP at Current Market Prices in Poland at NUTS2 Level (Euros per Inhabitant)"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE, include=FALSE, fig.cap="GDP at current market prices in Poland at NUTS2 level (Euros per inhabitant)"}
 ggplot(pl_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
   geom_line() +
   geom_point(shape = 21, fill = "white") +

@@ -27,7 +27,7 @@ fe_lm_ro <- feols(vote_change ~ emigration_election_year_per_1000 | nuts2016 + y
 ```{r emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE}
 model_table <- modelsummary(list("Poland" = fe_lm_pl,
                                  "Romania" = fe_lm_ro),
-             title = "DV: Change in Incumbent Vote Share",
+             title = "Dependent Variable: Change in incumbent vote share",
              coef_map = c(emigration_election_year_per_1000 = "Emigration since last election"),
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,

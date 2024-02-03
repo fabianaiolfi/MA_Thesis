@@ -1,12 +1,3 @@
 ## Abstract
 
-- Central and Eastern European EU member states experience high levels of emigration
-- The EU’s Freedom of Movement spurrs on emigration.
-- An abundance of research looks at the impact of FoM on migrant-receiving countries. But what are the effects of migration on *sending* countries?
-- Research shows that emigration leads to service cuts in affected regions. This in turn leads to inhabitants developing grievances and subsequently a change in voting behaviour.
-- This thesis aims at identifying specific service cuts that are caused by emigration and subsequently change voting behaviour in a way that alters incumbent support.
-- Which emigration-induced service cuts decrease incumbent support?
-
-- This thesis examines the impact of service cuts to primary schools, hospitals and “third places”, such as bars and cafés, on incumbent support in subnational NUTS regions in Poland and Romania between 2005 and 2019.
-- Using two-way fixed effects linear regression models, I examine a possible association between a change in number of people per service, e.g., children per school, and incumbent vote change.
-- Results do not display a clear association between the two, but hint at a possible effect of emigration-induced service cuts on primary school and a decrease in incumbent support in Romanian subnational NUTS3 regions.
+This thesis investigates the political consequences of high emigration rates in Central and Eastern European EU countries, where the EU’s Freedom of Movement (FoM) accelerates out-migration. Existing research shows that emigration leads to service cuts in affected regions. This decrease in service quality, in turn, impacts the electorate’s voting behaviour. This thesis aims to identify specific service cuts caused by emigration that subsequently change voting behaviour, specifically incumbent support. The cuts under examination include closures of primary schools, hospitals, and "third places," such as bars and cafés. An association between these service cuts and incumbent support is measured in subnational regions in Poland and Romania between 2005 and 2019. Two-way fixed effects linear regression models aim to assess a relationship between changes in the availability of services per capita and shifts in incumbent support. Results do not display a clear association. However, there is some evidence that emigration-induced primary school closures correlate with a decrease in incumbent support in Romanian subnational NUTS3 regions.

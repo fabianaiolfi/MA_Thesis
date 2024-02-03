@@ -1,9 +1,8 @@
-### Research Design
 I explicitly differentiate between internal emigration, i.e., emigration within a country, and external emigration, i.e., emigration from one country to another. I do this because I aim to examine the impact of the EU’s FoM on voting behaviour in sending countries. Assuming that the EU’s FoM facilitates emigration between member states, I focus on external emigration in order to examine the impact of FoM on voting behaviour in sending countries.
 
 Furthermore, I will measure external emigration and the effects of service cuts on the lowest subnational NUTS level that data are available for. Emigration rates vary across NUTS regions in Poland and Romania (see Figure \@ref(fig:pl-ro-emigration-rate)). Taking these regional differences into account will help develop accurate and robust models when examining the association between service cuts and incumbent support.
 
-```{r pl-ro-emigration-rate, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Yearly Emigration Rate per 1000 Population"}
+```{r pl-ro-emigration-rate, echo=FALSE, message=FALSE, warning=FALSE, fig.height=3, fig.cap="Yearly external emigration per 1000 inhabitants"}
 
 df <- cee_crude_emigration %>%
   dplyr::filter(country %in% c("RO", "PL")) %>% 
@@ -21,13 +20,14 @@ ggplot(df, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
   xlab(" ") +
   theme_minimal() +
   theme(
+    panel.spacing = unit(2, "lines"),
     panel.grid.minor = element_blank(),
     text = element_text(family = "serif"),
     strip.text = element_text(hjust = 0) # Left aligns the facet titles
   )
 ```
 
-### Overview of Available Data
+### Available Data
 <!-- Overview of available data, how it was collected and transformed -->
 
 <!-- Ideal Data Situation -->
@@ -45,7 +45,7 @@ When constructing comparable models, data availability is limited by the dataset
 data_availability <- data_availability %>% dplyr::rename(` ` = X)
 
 kable(data_availability,
-      caption = "Overview of Available Data",
+      caption = "Overview of available data",
       format = "latex",
       booktabs = TRUE, linesep = ""
       ) %>% 
@@ -76,7 +76,7 @@ As Figure \@ref(fig:ro-primary-schools) in the Appendix shows, \label{passage:ro
 Data on external emigration are provided by Statistics Poland and the Romanian National Institute of Statistics. I define external emigration as the sum of people moving abroad from a NUTS region in a single year. I pick this absolute value because it carries more validity when it comes to measuring the impact of emigration than, e.g., net migration, a popular metric when measuring migration. Net migration has the disadvantage of including *immigration* in its calculation, thus not explicitly indicating the number of people emigrating from a region.
 
 <!-- Data Wrangling -->
-Statistics Poland provides their data in the form of comma separated value ($\textsc{.csv}$) files, while the Romanian National Institute of Statistics offer their data as Microsoft Excel ($\textsc{.xls}$) files. I extract the data from all retrieved files using the R programming language. Data from all sources described above can then be easily combined based on all the source’s common use of NUTS region names.
+Statistics Poland provides their data in the form of comma separated value (.csv) files, while the Romanian National Institute of Statistics offer their data as Microsoft Excel (.xls) files. I extract the data from all retrieved files using the R programming language. Data from all sources described above can then be easily combined based on all the source’s common use of NUTS region names.
 
 ```{r ned-vdem-sample, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Show snippet of n_v_dem_cee"}
 df <- ned_v_dem_cee %>%
@@ -95,17 +95,17 @@ df <- ned_v_dem_cee %>%
                 `Party ID` = unique_party_id,
                 `Vote Share %` = vote_share,
                 `Vote Change` = vote_change,
-                `Incumbent at E0` = prev_incumbent,
+                `Incumbent at E0?` = prev_incumbent,
                 ) %>% 
   dplyr::select(-vote_change_sign) %>% 
   sample_n(10) %>% 
   arrange(`Election Year (E1)`)
 
 kable(df,
-      caption = "Random Selection of Rows from the Combined European NUTS-Level Election Dataset and the V-Party Dataset",
+      caption = "Random sample of rows from the combined European NUTS-Level Election Dataset and the V-Party Dataset",
       format = "latex",
       booktabs = TRUE, linesep = ""
       ) %>%
   kable_styling(font_size = 9) %>% 
-  add_footnote("Full party names can be looked up at partyfacts.herokuapp.com/data/partycodes/Party ID/", notation = "none")
+  add_footnote("Full party names can be accessed at partyfacts.herokuapp.com/data/partycodes/Party ID/", notation = "none")
 ```

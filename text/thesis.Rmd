@@ -4,7 +4,7 @@ output:
   bookdown::pdf_document2:
     latex_engine: xelatex
     extra_dependencies: "microtype"
-    toc: true
+    toc: false
     toc_depth: 4
     number_sections: false
 mainfont: Times New Roman
@@ -131,8 +131,6 @@ ro_plots_components <- list(
 )
 
 worm_span <- 0.3
-
-worms_explainer <- "_Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the bottom right._"
 
 set.seed(42)
 ```

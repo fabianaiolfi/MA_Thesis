@@ -62,7 +62,7 @@ fe_lm_9 <- feols(third_places_diff ~
 model_table <- modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
                   "Hospitals" = fe_lm_2, fe_lm_5, fe_lm_8,
                   "Third Places" = fe_lm_3, fe_lm_6, fe_lm_9),
-             title = "DV: Yearly Change in Number of Institutions in Poland",
+             title = "Dependent Variable: Yearly change in number of institutions in Poland",
              coef_map = c(emigration_lagged_1 = "Emigration (1 year lag)",
                           emigration_lagged_3 = "Emigration (3 year lag)",
                           emigration_lagged_5 = "Emigration (5 year lag)"),
@@ -137,7 +137,7 @@ fe_lm_9 <- feols(third_places_diff ~
 model_table <- modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
                   "Hospitals" = fe_lm_2, fe_lm_5, fe_lm_8,
                   "Third Places" = fe_lm_3, fe_lm_6, fe_lm_9),
-             title = "DV: Yearly Change in Number of Institutions in Romania",
+             title = "Dependent Variable: Yearly change in number of institutions in Romania",
              coef_map = c(emigration_lagged_1 = "Emigration (1 year lag)",
                           emigration_lagged_3 = "Emigration (3 year lag)",
                           emigration_lagged_5 = "Emigration (5 year lag)"),
@@ -169,7 +169,7 @@ fe_lm_3 <- feols(classrooms_diff ~
 
 ```{r ro-emigration-classrooms, echo=FALSE, message=FALSE, warning=FALSE}
 model_table <- modelsummary(list("Classrooms" = fe_lm_1, fe_lm_2, fe_lm_3),
-             title = "DV: Yearly Change in Number of Classrooms in Romania",
+             title = "Dependent Variable: Yearly change in number of classrooms in Romania",
              coef_map = c(emigration_lagged_1 = "Emigration (1 year lag)",
                           emigration_lagged_3 = "Emigration (3 year lag)",
                           emigration_lagged_5 = "Emigration (5 year lag)"),
@@ -182,7 +182,7 @@ model_table %>%
   kable_styling(font_size = 8)
 ```
 
-```{r pl-ro-population, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Population Development 1990–2020 (in Millions)"}
+```{r pl-ro-population, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Population development 1990–2020 in millions"}
 
 df <- demo_r_pjanaggr3_linear %>% 
   dplyr::select(sex, age, geo, TIME_PERIOD, OBS_VALUE) %>% 
