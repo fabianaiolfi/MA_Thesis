@@ -10,11 +10,11 @@
 - [ ] Add subtitle/proper thesis title (to abstract page?)
 - [ ] Summary statistics table for ned-vdem dataset?
 - [ ] Check for contractions and remove them
-- [ ] adjust all decimals in table to have 3 digits
-- [ ] place group subtitle to group control variables in regression table?
-- [ ] replace p-values with standard errors in regression tables
 - [ ] Reference help from LLMs
 - [ ] Clean up references
+- [x] adjust all decimals in table to have 3 digits
+- [x] place group subtitle to group control variables in regression table?
+- [x] replace p-values with standard errors in regression tables
 - [x] Make Github repo public
 - [x] Simon COVID comment, p. 9
 - [x] Add appendix
