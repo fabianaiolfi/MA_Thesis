@@ -3,8 +3,8 @@
 ## Research Proposal
 
 **To Do**
-- [ ] Simon COVID comment, p. 9
 - [ ] Mention that all raw data available in appendix
+- [ ] References before Appendix?
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
@@ -13,9 +13,10 @@
 - [ ] adjust all decimals in table to have 3 digits
 - [ ] place group subtitle to group control variables in regression table?
 - [ ] replace p-values with standard errors in regression tables
-- [ ] Make Github repo public
 - [ ] Reference help from LLMs
 - [ ] Clean up references
+- [x] Make Github repo public
+- [x] Simon COVID comment, p. 9
 - [x] Add appendix
   - [x] Graphs from `240111_data_analysis`
   - [x] Complete regression tables
