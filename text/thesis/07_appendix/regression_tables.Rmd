@@ -176,10 +176,10 @@ fe_lm_6 <- feols(vote_change ~
 
 ```{r all-results-emigration-incumbent-vote-share-control-interaction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="All coefficient results of Model Specification B; Dependent Variable: Change in incumbent vote share"}
 
-control_variable_title <- tribble(~c1, ~c2, ~c3, ~c4, ~c5, ~c6
+control_variable_title <- tribble(~c1, ~c2, ~c3, ~c4, ~c5, ~c6,
                                   "Control Variables", " ", " ", " ", " ", " ")
 
-attr(control_variable_title, 'position') <- c(8, 9)
+attr(control_variable_title, 'position') <- c(17, 9)
 
 model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  "Model 1" = fe_lm_1,
@@ -190,12 +190,18 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  #"Model 6" = fe_lm_6
                                  ),
               title = "All coefficient results of Model Specification B; Dependent Variable: Change in incumbent vote share",
-             coef_map = c("average_ratio_schools_election_year:emigration_election_year_per_1000" = "Avg. Children per School × Emigration since last election",
+             coef_map = c("average_ratio_schools_election_year" = "Avg. Children per School",
+                          "average_ratio_schools_election_year:emigration_election_year_per_1000" = "Avg. Children per School × Emigration since last election",
+                          
+                          "average_ratio_classrooms_election_year" = "Avg. Children per Classroom",
                           "average_ratio_classrooms_election_year:emigration_election_year_per_1000" = "Avg. Children per Classroom × Emigration since last election",
-                          "emigration_election_year_per_1000:average_ratio_hospitals_election_year" = "Avg. People per Hospital × Emigration since last election",
+                          
+                          "average_ratio_hospitals_election_year" = "Avg. People per Hospital",
                           "average_ratio_hospitals_election_year:emigration_election_year_per_1000" = "Avg. People per Hospital × Emigration since last election",
-                          "emigration_election_year_per_1000:average_ratio_third_places_election_year" = "Avg. People per Third Place × Emigration since last election",
+                          
+                          "average_ratio_third_places_election_year" = "Avg. People per Third Place",
                           "average_ratio_third_places_election_year:emigration_election_year_per_1000" = "Avg. People per Third Place × Emigration since last election",
+                          
                           "emigration_election_year_per_1000" = "Emigration since last election",
                           "volatility" = "Volatility",
                           "gdp" = "GDP per capita",
