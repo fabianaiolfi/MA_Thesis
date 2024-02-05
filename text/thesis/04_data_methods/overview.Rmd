@@ -2,7 +2,7 @@ I explicitly differentiate between internal emigration, i.e., emigration within 
 
 Furthermore, I will measure external emigration and the effects of service cuts on the lowest subnational NUTS level that data are available for. Emigration rates vary across NUTS regions in Poland and Romania (see Figure \@ref(fig:pl-ro-emigration-rate)). Taking these regional differences into account will help develop accurate and robust models when examining the association between service cuts and incumbent support.
 
-```{r pl-ro-emigration-rate, echo=FALSE, message=FALSE, warning=FALSE, fig.height=3, fig.cap="Yearly external emigration per 1000 inhabitants"}
+```{r pl-ro-emigration-rate, echo=FALSE, message=FALSE, warning=FALSE, fig.height=3, fig.cap="Yearly external emigration per 1000 inhabitants in a NUTS region"}
 
 df <- cee_crude_emigration %>%
   dplyr::filter(country %in% c("RO", "PL")) %>% 
@@ -81,6 +81,7 @@ Statistics Poland provides their data in the form of comma separated value (.csv
 ```{r ned-vdem-sample, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="Show snippet of n_v_dem_cee"}
 df <- ned_v_dem_cee %>%
   drop_na(prev_incumbent) %>% 
+  dplyr::filter(country == "Poland" | country == "Romania") %>% 
   mutate(vote_share = round(vote_share, 3)) %>% 
   mutate(vote_change = round(vote_change, 3)) %>% 
   mutate(vote_change_sign = case_when(vote_change > 0 ~ "+",
