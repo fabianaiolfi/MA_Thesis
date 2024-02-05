@@ -3,6 +3,7 @@
 ## Research Proposal
 
 **To Do**
+- [ ] Simon COVID comment, p. 9
 - [ ] Mention that all raw data available in appendix
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
