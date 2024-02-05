@@ -55,9 +55,10 @@ fe_lm_6 <- feols(vote_change ~
 
 ```{r results-emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of Model Specification A; Dependent Variable: Change in incumbent vote share"}
 
-# groups_list <- list(
-#   "Main Variables" = c("Emigration since last election", "Avg. Children per School", "Avg. Children per Classroom", "Avg. People per Hospital", "Avg. People per Third Place"),
-#   "Control Variables" = c("Volatility", "GDP per capita", "Unemployment"))
+control_variable_title <- tribble(~c1, ~c2, ~c3, ~c4, ~c5, ~c6, ~c7, ~c8,
+                                  "Control Variables", " ", " ", " ", " ", " ", " ", " ")
+
+attr(control_variable_title, 'position') <- c(9, 9)
 
 model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  "Model 1" = fe_lm_1,
@@ -75,17 +76,10 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
                           volatility = "Volatility",
                           gdp = "GDP per capita",
                           unemployment = "Unemployment"),
-             # groups = groups_list,
-             statistic = "p.value",
+             add_rows = control_variable_title,
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,
-             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region. p-values shown in parentheses.")
-
-control_variable_title <- tribble(~c1, ~c2, ~c3, ~c4, ~c5, ~c6, ~c7, ~c8,
-                                  "Control Variable", " ", " ", " ", " ", " ", " ", " ")
-
-attr(model_table, 'position') <- c(9, 1)
-
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region and are shown in parentheses.")
 
 model_table %>%
   kable_styling(font_size = 7)
