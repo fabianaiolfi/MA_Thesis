@@ -4,7 +4,7 @@ This is an overview of the available external emigration data at NUTS3 level (Po
 
 _Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the bottom right._
 
-```{r external-emigration, fig.height = 6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Crude emigration per 1000 inhabitants at NUTS3 (Poland: NUTS2; Slovenia: NUTS1) level in all CEE EU member states"}
+```{r external-emigration, fig.height = 6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Crude emigration per 1000 inhabitants at NUTS3 (Poland: NUTS2; Slovenia: NUTS1) level in CEE EU member states"}
 ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
   geom_line(color = "light grey") +
   geom_smooth(aes(group = 1), method = "loess", span = worm_span, color = "black", se = FALSE, size = 0.5) + 

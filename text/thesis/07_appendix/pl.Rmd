@@ -67,6 +67,7 @@ pl %>%
 	scale_x_continuous(breaks = c(1995, 2019)) +
   pl_plots_components
 ```
+
 \newpage
 
 <!-- Number of Schools -->

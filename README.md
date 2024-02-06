@@ -4,12 +4,13 @@
 
 **To Do**
 - [ ] Mention that all raw data available in appendix
-- [ ] References before Appendix?
+- [ ] Add sources to figures and tables
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
 - [ ] Mention somewhere that I use population data to calculate ratios?
 - [ ] Add subtitle/proper thesis title (to abstract page?)
 - [ ] Summary statistics table for ned-vdem dataset?
 - [ ] Check for contractions and remove them
+- [x] References before Appendix?
 - [x] Reference help from LLMs
 - [x] Clean up references
 - [x] adjust all decimals in table to have 3 digits

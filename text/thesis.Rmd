@@ -170,12 +170,13 @@ set.seed(42)
 ```{r, child = 'thesis/06_conclusion/conclusion.Rmd'}
 ```
 
-\clearpage
+\newpage
 
-```{r, child = 'thesis/references.Rmd'}
-```
+## References
 
-\clearpage
+<div id="refs"></div>
+
+\newpage
 
 ```{r, child = 'thesis/07_appendix/appendix.Rmd'}
 ```
