@@ -32,7 +32,7 @@ model_table <- modelsummary(list("Poland" = fe_lm_pl,
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,
              statistic = NULL,
-             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region.")
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Data sources: Staffan I. Lindberg et al. 2022, Schraff et al. 2023, Statistics Poland, Romanian National Institute of Statistics")
 
 model_table %>%
   kable_styling(font_size = 10)

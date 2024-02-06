@@ -1,10 +1,8 @@
 ### Raw Data: CEE
 
-This is an overview of the available external emigration data at NUTS3 level (Poland: NUTS2; Slovenia: NUTS1). Please note that the y-axis varies by country, the x-axis however is the same for all countries. This makes a comparison of available data across different countries easier. Of the eleven CEE EU member states, only ten are displayed as Czechia does not provide data solely on external emigration. Each grey line represents a NUTS region. The black line, which applies smoothing to enhance readability, displays the overall trend over all available years and regions within a country.
+This is an overview of the available external emigration data at NUTS3 level (Poland: NUTS2; Slovenia: NUTS1). Please note that the y-axis varies by country, the x-axis however is the same for all countries. This makes a comparison of available data across different countries easier. Of the eleven CEE EU member states, only ten are displayed as Czechia does not provide data solely on external emigration. Each grey line represents a NUTS region. The black line, which applies smoothing to enhance readability, displays the overall trend over all available years and regions within a country. Sources: See Table \@ref(tab:cee-sources).
 
-_Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the bottom right._
-
-```{r external-emigration, fig.height = 6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Crude emigration per 1000 inhabitants at NUTS3 (Poland: NUTS2; Slovenia: NUTS1) level in CEE EU member states"}
+```{r external-emigration, fig.height = 6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Emigration per 1000 inhabitants at NUTS3 (Poland: NUTS2; Slovenia: NUTS1) level in CEE EU member states"}
 ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group = NUTS_ID)) +
   geom_line(color = "light grey") +
   geom_smooth(aes(group = 1), method = "loess", span = worm_span, color = "black", se = FALSE, size = 0.5) + 
@@ -14,6 +12,30 @@ ggplot(cee_crude_emigration, aes(x = year, y = emigration_yearly_per_1000, group
   ylab(" ") +
   xlab(" ") +
   theme_minimal() 
+```
+
+```{r cee-sources, echo=FALSE, message=FALSE, warning=FALSE, results='asis', fig.cap="cee_sources"}
+cee_emigration_sources <- cee_emigration_sources %>%
+  # dplyr::rename(` ` = X) %>% 
+  dplyr::mutate(X.1 = case_when(is.na(X.1) == T ~ " ")) %>% 
+  # dplyr::rename(` ` = X.1)# %>% 
+  dplyr::mutate(across(c(2, 5), ~paste0('\\url{', ., '}')))
+
+kable(cee_emigration_sources,
+      col.names = c(" ",
+                    "Emigration Data",
+                    "Retrieved",
+                    " ",
+                    "Population Data",
+                    "Retrieved"),
+      caption = "Sources of Emigration and Population Data",
+      format = "latex", escape = FALSE,
+      booktabs = TRUE, linesep = ""
+      ) %>% 
+  kable_styling(font_size = 8) %>% 
+  column_spec(column = 4, width = "1cm") %>% 
+  column_spec(column = c(2,5), width = "4cm") %>% 
+  column_spec(column = c(3,6), width = "1.5cm")
 ```
 
 \newpage

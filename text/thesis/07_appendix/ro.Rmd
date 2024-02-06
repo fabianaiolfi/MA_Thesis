@@ -1,7 +1,9 @@
 ### Raw Data: Romania
 
+`r worms_explainer`
+
 <!-- Entire Population -->
-```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Population in millions in Romania at NUTS3 level"}
+```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Population in millions in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_avg_population_change <- ro %>% 
   arrange(NUTS_ID, year) %>%
   group_by(NUTS_ID) %>%
@@ -27,7 +29,7 @@ ro %>%
 \newpage
 
 <!-- Primary School Aged Population -->
-```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Primary school age population in 1000s in Romania at NUTS3 level"}
+```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Primary school age population in 1000s in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_schools_avg_population_change <- ro_schools %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -50,7 +52,7 @@ ro_schools %>%
 \newpage
 
 <!-- Emigration Rate -->
-```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="External emigration per 1000 inhabitants from Romania at NUTS3 level"}
+```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, eval=FALSE, include=FALSE, fig.cap="External emigration per 1000 inhabitants from Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_avg_emigration_change <- ro %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -71,7 +73,7 @@ ro %>%
 \newpage
 
 <!-- Number of Schools -->
-```{r ro-primary-schools, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of primary schools in Romania at NUTS3 level"}
+```{r ro-primary-schools, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of primary schools in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_schools_avg_change <- ro_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -92,7 +94,7 @@ ro_schools %>%
 \newpage
 
 <!-- Number of Classrooms -->
-```{r ro-classrooms, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of classrooms in primary schools in Romania at NUTS3 level"}
+```{r ro-classrooms, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of classrooms in primary schools in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_classrooms_avg_change <- ro_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -113,7 +115,7 @@ ro_schools %>%
 \newpage
 
 <!-- Number of Hospitals -->
-```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of hospitals in Romania at NUTS3 level"}
+```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of hospitals in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_hospitals_avg_change <- ro_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -134,7 +136,7 @@ ro_hospitals %>%
 \newpage
 
 <!-- Number of Third Places -->
-```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of third places in Romania at NUTS3 level"}
+```{r echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of third places in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_third_places_avg_change <- ro_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -156,7 +158,7 @@ ro_third_places %>%
 \newpage
 
 <!-- Service Cuts to Schools: School Buildings -->
-```{r ro-school-ratio, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of primary school children per school in Romania at NUTS3 level"}
+```{r ro-school-ratio, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of primary school children per school in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_ratio_schools_avg_change <- ro_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -177,7 +179,7 @@ ro_schools %>%
 \newpage
 
 <!-- Service Cuts to Schools: Classrooms -->
-```{r ro-classroom-ratio, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of primary school children per classroom in Romania at NUTS3 level"}
+```{r ro-classroom-ratio, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of primary school children per classroom in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_ratio_schools_avg_change <- ro_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -198,7 +200,7 @@ ro_schools %>%
 \newpage
 
 <!-- Service Cuts to Hospitals -->
-```{r ro-hospital-ratio, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of people per hospital in Romania at NUTS3 level"}
+```{r ro-hospital-ratio, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of people per hospital in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_ratio_hospitals_avg_change <- ro_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -221,7 +223,7 @@ ro_hospitals %>%
 \newpage
 
 <!-- Service Cuts to Third Places -->
-```{r ro-third-places-ratio, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of people per third place in Romania at NUTS3 level"}
+```{r ro-third-places-ratio, echo=FALSE, fig.height = 9, message=FALSE, warning=FALSE, fig.cap="Number of people per third place in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ro_ratio_third_places_avg_change <- ro_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -242,7 +244,7 @@ ro_third_places %>%
 \newpage
 
 <!-- Electoral Volatility -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Electoral volatility in Romania at NUTS3 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Electoral volatility in Romania at NUTS3 level (Source: Schraff et al. 2023)"}
 ggplot(ro_volatility, aes(x = year, y = volatility, line = nuts2016)) +
   geom_line() +
   geom_point(shape = 21, fill = "white") +
@@ -252,7 +254,7 @@ ggplot(ro_volatility, aes(x = year, y = volatility, line = nuts2016)) +
 \newpage
 
 <!-- GDP -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="GDP at current market prices in Romania at NUTS3 level (Euros per inhabitant)"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="GDP per capita at current market prices in Romania at NUTS3 level (Source: Eurostat)"}
 ggplot(ro_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
   geom_line() +
   geom_point(shape = 21, fill = "white") +
@@ -263,7 +265,7 @@ ggplot(ro_gdp, aes(x = year, y = gdp, line = NUTS_ID)) +
 \newpage
 
 <!-- Unemployment -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Unemployment rate in Romania at NUTS3 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Unemployment rate in Romania at NUTS3 level (Source: Romanian National Institute of Statistics)"}
 ggplot(ro_unemployment, aes(x = year, y = unemployment, line = nuts2016)) +
   geom_line() +
   geom_point(shape = 21, fill = "white") +

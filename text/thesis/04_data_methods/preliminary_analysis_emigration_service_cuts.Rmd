@@ -2,7 +2,7 @@
 
 I examine a possible association between external emigration and service cuts in Poland and Romania. Guiding this preliminary examination of a possible association is Figure \@ref(fig:pl-ro-population). It displays the development of different population groups between the years 1990 and 2020 in Poland and Romania. The plot differentiates between the number of primary school aged children, the number of seniors and the entire population. We can observe that in Poland, the entire population size remains constant, while in Romania the overall population decreases with time. In both countries the number of children under 15 years decreases and the number of citizens aged 65 and older increases. The decrease in children hints at a possible effect on school closures, however the direction of causality remains unclear at this point. I.e., do less children cause school closings or do school closings cause families with children to move away? The increase in the number of seniors implies that health care institutions, such as hospitals, become more important, as senior citizens are more reliant on these types of institutions than non-senior citizens.
 
-```{r pl-ro-population, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Population development 1990–2020 in millions"}
+```{r pl-ro-population, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Population development 1990–2020 in millions (Sources: Statistics Poland, Romanian National Institute of Statistics)"}
 
 df <- demo_r_pjanaggr3_linear %>% 
   dplyr::select(sex, age, geo, TIME_PERIOD, OBS_VALUE) %>% 
@@ -15,7 +15,7 @@ df_plot <- df %>%
   dplyr::filter(TIME_PERIOD <= 2020) %>% 
   dplyr::filter(age == "Y_LT15" | age == "Y_GE65" | age == "TOTAL") %>% 
   mutate(age = case_when(age == "Y_LT15" ~ "Younger than 15 years",
-                         age == "Y_GE65" ~ "65 years or older",
+                         age == "Y_GE65" ~ "Older than 64 years",
                          age == "TOTAL" ~ "Entire Population")) %>% 
   dplyr::rename(Year = TIME_PERIOD,
          `Population Size` = OBS_VALUE,
@@ -24,7 +24,7 @@ df_plot <- df %>%
                          geo == "RO" ~ "Romania"))
 
 # Adjust the factor levels for the 'Age' variable
-df_plot$Age <- factor(df_plot$Age, levels = c("Entire Population", "Younger than 15 years", "65 years or older"))  # Replace with your actual level names
+df_plot$Age <- factor(df_plot$Age, levels = c("Entire Population", "Younger than 15 years", "Older than 64 years"))  # Replace with your actual level names
 
 ggplot(df_plot) +
   geom_line(aes(x = Year, y = `Population Size`, linetype = Age)) +
@@ -117,7 +117,7 @@ model_table <- modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,
              statistic = NULL,
-             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region.")
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Data source: Statistics Poland")
 
 model_table %>%
   kable_styling(font_size = 8)
@@ -194,7 +194,7 @@ model_table <- modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,
              statistic = NULL,
-             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region.")
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Data source: Romanian National Institute of Statistics")
 
 model_table %>%
   kable_styling(font_size = 8)
@@ -228,7 +228,7 @@ model_table <- modelsummary(list("Classrooms" = fe_lm_1, fe_lm_2, fe_lm_3),
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,
              statistic = NULL,
-             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region.")
+             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Data source: Romanian National Institute of Statistics")
 
 model_table %>%
   kable_styling(font_size = 8)

@@ -4,10 +4,10 @@
 
 **To Do**
 - [ ] Discuss raw data somewhere and how it doesn't fulfil expectations (eg. decreasing ratios); perhaps in results?
-- [ ] Add sources to figures and tables
 - [ ] Add subtitle/proper thesis title (to abstract page?)
 - [ ] Summary statistics table for ned-vdem dataset?
 - [ ] Check for contractions and remove them
+- [x] Add sources to figures and tables
 - [x] Mention somewhere that I use population data to calculate ratios?
 - [x] Mention that all raw data available in appendix
 - [x] References before Appendix?

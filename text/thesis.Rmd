@@ -71,6 +71,7 @@ options(scipen = 0) # Enable scientific notation
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 load(here("data", "demo_r_pjanaggr3_linear.rda"))
 data_availability <- read.delim(here("data", "data_availability.tsv"))
+cee_emigration_sources <- read.csv(here("data", "cee-emigration-sources.csv"))
 
 load(here("data", "01_anti_incumbent_vote", "ned_v_dem_cee.Rda"))
 load(here("data", "02_external_emigration", "nuts3_population.Rda"))
@@ -134,6 +135,7 @@ ro_plots_components <- list(
 )
 
 worm_span <- 0.3
+worms_explainer <- "Plots are ordered by average annual growth rate, with the highest at the top left and decreasing to the bottom right."
 
 set.seed(42)
 ```
