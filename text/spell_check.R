@@ -1,6 +1,8 @@
 
-# Get all file names
+# Spell check Rmd files
+# library(spelling)
 
+# Get all file names
 main_folder_path <- here("text", "thesis")
 
 # Create a vector of all Rmd file names
