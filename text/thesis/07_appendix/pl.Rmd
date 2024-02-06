@@ -1,7 +1,7 @@
 ### Raw Data: Poland
 
 <!-- Entire Population -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Population in millions in Poland at NUTS2 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 7, fig.cap="Population in millions in Poland at NUTS2 level"}
 pl_avg_population_change <- pl %>% 
   arrange(NUTS_ID, year) %>%
   group_by(NUTS_ID) %>%
@@ -27,7 +27,7 @@ pl %>%
 \newpage
 
 <!-- Primary School Aged Population -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Primary school age population in 1000s in Poland at NUTS2 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 7, fig.cap="Primary school age population in 1000s in Poland at NUTS2 level"}
 pl_schools_avg_population_change <- pl_schools %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -50,7 +50,7 @@ pl_schools %>%
 \newpage
 
 <!-- Emigration Rate -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="External emigration per 1000 inhabitants from Poland at NUTS2 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 7, fig.cap="External emigration per 1000 inhabitants from Poland at NUTS2 level"}
 pl_avg_emigration_change <- pl %>% 
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -70,7 +70,7 @@ pl %>%
 \newpage
 
 <!-- Number of Schools -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of primary schools in Poland at NUTS2 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 7, fig.cap="Number of primary schools in Poland at NUTS2 level"}
 pl_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -91,7 +91,7 @@ pl_schools %>%
 \newpage
 
 <!-- Number of Hospitals -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of hospitals in Poland at NUTS2 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 7, fig.cap="Number of hospitals in Poland at NUTS2 level"}
 pl_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -113,7 +113,7 @@ pl_hospitals %>%
 \newpage
 
 <!-- Number of Third Places -->
-```{r echo=FALSE, fig.height = 8, message=FALSE, warning=FALSE, fig.cap="Number of third places in Poland at NUTS2 level"}
+```{r echo=FALSE, fig.height = 7, message=FALSE, warning=FALSE, fig.cap="Number of third places in Poland at NUTS2 level"}
 pl_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -134,7 +134,7 @@ pl_third_places %>%
 \newpage
 
 <!-- Service Cuts to Schools -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of primary school children per school in Poland at NUTS2 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 7, fig.cap="Number of primary school children per school in Poland at NUTS2 level"}
 pl_ratio_schools_avg_change <- pl_schools %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -155,7 +155,7 @@ pl_schools %>%
 \newpage
 
 <!-- Service Cuts to Hospitals -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of people per hospital in Poland at NUTS2 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 7, fig.cap="Number of people per hospital in Poland at NUTS2 level"}
 pl_ratio_hospitals_avg_change <- pl_hospitals %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region
@@ -177,7 +177,7 @@ pl_hospitals %>%
 \newpage
 
 <!-- Service Cuts to Third Places -->
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 8, fig.cap="Number of people per third place in Poland at NUTS2 level"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height = 7, fig.cap="Number of people per third place in Poland at NUTS2 level"}
 pl_ratio_third_places_avg_change <- pl_third_places %>%
   arrange(NUTS_ID, year) %>% # Arrange data by region and then by year
   group_by(NUTS_ID) %>% # Group data by region

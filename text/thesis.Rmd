@@ -3,7 +3,9 @@ title: "Emigration and Voting Behaviour in Central and Eastern European EU Membe
 output: 
   bookdown::pdf_document2:
     latex_engine: xelatex
-    extra_dependencies: "microtype"
+    extra_dependencies:
+      - microtype
+      - float
     toc: false
     toc_depth: 4
     number_sections: false
@@ -19,6 +21,7 @@ header-includes:
    - \onehalfspacing
    - \usepackage{placeins}
    - \usepackage{booktabs}
+   - \usepackage{geometry}
    - \usepackage{caption}
    - \pagenumbering{gobble} # Suppress page numbers
    - \usepackage{times}
@@ -167,14 +170,12 @@ set.seed(42)
 ```{r, child = 'thesis/06_conclusion/conclusion.Rmd'}
 ```
 
-\newpage
+\clearpage
+
+```{r, child = 'thesis/references.Rmd'}
+```
+
+\clearpage
 
 ```{r, child = 'thesis/07_appendix/appendix.Rmd'}
 ```
-
-\newpage
-
-## References
-
-<!-- ```{r, child = 'thesis/references.Rmd'} -->
-<!-- ``` -->

@@ -3,14 +3,22 @@
 ```{r, child = 'links.Rmd'}
 ```
 
+\clearpage
+
 ```{r, child = 'regression_tables.Rmd'}
 ```
+
+\clearpage
 
 ```{r, child = 'cee.Rmd'}
 ```
 
+\clearpage
+
 ```{r, child = 'pl.Rmd'}
 ```
+
+\clearpage
 
 ```{r, child = 'ro.Rmd'}
 ```

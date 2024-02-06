@@ -1,6 +1,12 @@
-### Links
+### Reproducibility
 
-- To reproduce results see Github Repo: https://github.com/fabianaiolfi/MA_Thesis
-- Declare use of LLMs.
+All scripts used to prepare data and build models are available at https://github.com/fabianaiolfi/MA_Thesis.  
+
+Data files are available for download here: https://www.dropbox.com/scl/fi/xc8fuhn17vfjf6h29hltu/ma_thesis_data.zip?rlkey=07u5yjvbe8hecztn68ml1ep12&dl=0
+
+
+### Use of Artificial Intelligence
+
+OpenAI's ChatGPT 4^[https://openai.com/chatgpt, retrieved 6 February 2024] was used in a supporting manner to copy edit text and develop R scripts. Prompts can be made available upon request.
 
 \newpage

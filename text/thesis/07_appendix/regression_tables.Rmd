@@ -1,4 +1,4 @@
-### Regression Results
+<!-- ### Regression Results -->
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Romania
@@ -103,7 +103,8 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
 
 ```{r, results='asis', echo=FALSE, eval=FALSE, include=FALSE}
 model_table %>%
-  kable_styling(font_size = 9)
+  # kable_styling(font_size = 9)
+  kable_styling(font_size = 9, latex_options = c("striped", "hold_position"))
 ```
 
 \end{landscape}
