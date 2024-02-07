@@ -26,7 +26,9 @@ pl_emigration_plot <- ggplot(pl_emigration, aes(x = year, y = emigration_rate)) 
   theme(panel.grid.minor.y = element_blank()) +
   # Remove vertical grid lines
   theme(panel.grid.major.x = element_blank(),
-        panel.grid.minor.x = element_blank())
+        panel.grid.minor.x = element_blank(),
+        plot.caption = element_text(hjust = 0, vjust = 0, size = 8)) +
+  labs(caption = "Dashed line: Year of EU accession. Sources: Statistics Poland, Romanian National Institute of Statistics")
 
 ro_emigration_plot <- ggplot(ro_emigration, aes(x = year, y = emigration_rate)) +
   geom_vline(xintercept = 2007, linetype = "dashed") +
@@ -41,7 +43,9 @@ ro_emigration_plot <- ggplot(ro_emigration, aes(x = year, y = emigration_rate)) 
   scale_y_continuous(breaks = c(0, 0.5, 1, 1.5, 2, 2.5, 3)) +
   # Remove vertical grid lines
   theme(panel.grid.major.x = element_blank(),
-        panel.grid.minor.x = element_blank())
+        panel.grid.minor.x = element_blank(),
+        plot.caption = element_text(hjust = 0, vjust = 0, size = 8)) +
+  labs(caption = " ")
 
 # Chow test
 chow_ro <- sctest(ro_emigration$emigration_rate ~ ro_emigration$year,
@@ -104,7 +108,7 @@ p_values_ro <- ggplot(p_values, aes(x = p_values)) +
 
 Gaining EU membership grants member states access to FoM, facilitating migration between member states. Does emigration from CEE EU member states increase after accession? I examine this question in two steps. In a first step, I plot external emigration from Poland and Romania over time. If the assumption that access to FoM leads to an increase in emigration holds, we should observe higher emigration rates after a country’s accession. Figure \@ref(fig:accession-emigration-bar) displays each country’s emigration rate over time, with the vertical dashed line marking the year of accession to the EU. In both Poland and Romania we can observe a constant emigration rate until joining the EU. Once a country joins, emigration rates increase. However, the increase is lagged by two years in Poland and four years in Romania. The two countries also display different developments of emigration after this initial increase. Poland’s emigration rate decreases constantly after a peak is reached in 2006, with another small increase around 2013 and 2014. Romania displays a constant increase in emigration after 2010. These two varying developments hint at other factors influencing emigration rates alongside access to FoM.
 
-```{r accession-emigration-bar, echo=FALSE, fig.height=2, message=FALSE, warning=FALSE, fig.cap="External emigration over time. Dashed line: Year of EU accession (Sources: Statistics Poland, Romanian National Institute of Statistics)"}
+```{r accession-emigration-bar, echo=FALSE, fig.height=2, message=FALSE, warning=FALSE, fig.cap="External emigration over time"}
 grid.arrange(pl_emigration_plot, ro_emigration_plot, ncol = 2)
 ```
 

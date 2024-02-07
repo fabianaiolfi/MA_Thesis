@@ -1,5 +1,4 @@
-
-```{r net-migration-map, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Average net migration 2000–2021 in subnational regions (NUTS3). Negative net migration means more people leaving than entering, thus more emigration. Source: Eurostat’s CNMIGRATRT variable."}
+```{r net-migration-map, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Average net migration 2000–2021 in subnational regions (NUTS3)"}
 
 # Preprocessing -------------------------------------------------------------
 
@@ -32,7 +31,7 @@ net_migr_nuts3_pp <- net_migr_nuts3_pp %>%
   mutate_at(.vars = year_cols, .funs = list(fct = ~cut(
     .,
     breaks = c(-Inf, -15, -5, 0, 5, 15, Inf),
-    labels = c("Less than 15%", "-15% – -5%", "-5% – 0%", "0% – +5%", "+5 – +15% ", "More than 15%"),
+    labels = c("Less than 15", "-15 - -5", "-5 - 0", "0 - +5", "+5 - +15", "More than 15"),
     include.lowest = TRUE,
     right = FALSE,
     ordered_result = TRUE
@@ -46,20 +45,26 @@ nuts0_shape <- nuts3_shape %>% dplyr::filter(LEVL_CODE == 0)
 merged_data <- left_join(nuts3_shape, net_migr_nuts3_pp, by = c("NUTS_ID" = "nuts3"))
 merged_data_2016 <- left_join(nuts3_shape_2016, net_migr_nuts3_pp, by = c("NUTS_ID" = "nuts3"))
 
+maps_caption <- "Net migration is calculated by subtracting the crude rate of natural change from \nthe crude rate of population change. This means net migration represents the part of \npopulation change that is not caused by births and deaths. A negative net migration \nindicates more emigration than immigration in a region. These data do not differentiate \nbetween internal and external migration. Source: Eurostat's CNMIGRATRT variable."
+
 ggplot() +
-  geom_sf(data = merged_data, aes(fill = avg_fct), color = "#333333", lwd = 0.05) +
-  geom_sf(data = nuts0_shape, fill = NA, color = "black", lwd = 0.1) +  # highlight national borders
+  geom_sf(data = merged_data, aes(fill = avg_fct), color = "#333333", lwd = 0.02) +
+  geom_sf(data = nuts0_shape, fill = NA, color = "black", lwd = 0.05) +  # highlight national borders
   coord_sf(xlim = c(2500000, 7100000), ylim = c(1500000, 5300000)) + # Coordinate reference system:	3035
   scale_fill_brewer(palette = "Spectral") + # Discrete scale
   theme_minimal() +
-  theme(panel.grid = element_blank(), # remove grid
+  labs(caption = maps_caption) +
+  theme(plot.caption = element_text(hjust = 0, vjust = 0, size = 8),
+        plot.caption.position = "plot",
+        panel.grid = element_blank(), # remove grid
         axis.title = element_blank(), # remove axis labels
         axis.text = element_blank(),  # remove axis text
         legend.position = c(0.85, 0.55),  # x, y coordinates for legend. Ranges from 0 to 1.
-        legend.text = element_text(size = 8),  # Increase the font size for legend items
-        legend.title = element_text(size = 10, face = "bold"),  # Increase the font size for the legend title
-        legend.key.size = unit(0.2, "cm")  # Adjust the size of the legend keys
+        legend.text = element_text(size = 7),  # Increase the font size for legend items
+        legend.title = element_text(size = 9),  # Increase the font size for the legend title
+        legend.key.size = unit(0.2, "cm"),  # Adjust the size of the legend keys
+        text = element_text(family = "serif")
   ) +
-  labs(fill = "Net Migration")
+  labs(fill = "Net Migration\nper 1000 inhabitants")
 
 ```

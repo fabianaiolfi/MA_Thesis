@@ -31,11 +31,13 @@ model_table <- modelsummary(list("Poland" = fe_lm_pl,
              coef_map = c(emigration_election_year_per_1000 = "Emigration since last election"),
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T,
-             statistic = NULL,
-             notes = "Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Data sources: Staffan I. Lindberg et al. 2022, Schraff et al. 2023, Statistics Poland, Romanian National Institute of Statistics")
+             statistic = NULL)
 
 model_table %>%
-  kable_styling(font_size = 10)
+  kable_styling(font_size = 8) %>% 
+  column_spec(column = 1, width = "4cm") %>% 
+  column_spec(column = c(2,3), width = "3cm") %>% 
+  add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Sources: Staffan I. Lindberg et al. 2022, Schraff et al. 2023, Statistics Poland, Romanian National Institute of Statistics", notation = "none")
 ```
 
 I examine if there is an association between emigration rates and incumbent support. Following the theory, emigration causes grievances, which in turn can decrease incumbent support. Thus I expect that higher emigration to be associated with a decrease in incumbent vote share.

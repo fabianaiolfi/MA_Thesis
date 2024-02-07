@@ -16,6 +16,9 @@ csl: american-journal-of-political-science.csl
 classoption: a4paper
 lang: en-UK
 header-includes:
+   - \usepackage{float}
+   - \floatstyle{plaintop}
+   - \restylefloat{figure}
    - \usepackage{hyperref}
    - \usepackage{setspace}
    - \onehalfspacing
@@ -26,6 +29,8 @@ header-includes:
    - \pagenumbering{gobble} # Suppress page numbers
    - \usepackage{times}
    - \usepackage{pdflscape}
+   - \usepackage[utf8]{inputenc}
+   - \usepackage[hang,flushmargin]{footmisc}
    # Prevent orphans and widows
    - \widowpenalty10000
    - \clubpenalty10000

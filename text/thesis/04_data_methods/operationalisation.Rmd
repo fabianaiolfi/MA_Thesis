@@ -55,10 +55,10 @@ kable(df,
   kable_styling(font_size = 9) %>%
   column_spec(column = 1, width = "0.8cm") %>%
   column_spec(column = c(2,4), width = "1.8cm") %>%
-  column_spec(column = 3, width = "2.5cm") %>%
+  column_spec(column = 3, width = "2cm") %>%
   column_spec(column = 5, width = "3cm") %>%
   column_spec(column = 6, width = "3.2cm") %>%
-  add_footnote("Romanian national parliamentary elections took place in 2004 and in 2008. Data source: Romanian National Institute of Statistics", notation = "none")
+  add_footnote("Romanian national parliamentary elections took place in 2004 and in 2008. Source: Romanian National Institute of Statistics", notation = "none")
 
 ```
 
@@ -94,13 +94,13 @@ df <- ro %>%
                 `Emigration Rate at E1` = emigration_election_year_per_1000)
 
 kable(df,
-      caption = "Operationalising emigration rate in Bihor County, Romania (NUTS3 ID: RO111",
+      caption = "Operationalising emigration rate in Bihor County, Romania (NUTS3 ID: RO111)",
       format = "latex", booktabs = TRUE, escape = FALSE) %>% 
   kable_styling(font_size = 9) %>% 
   column_spec(column = 1, width = "0.8cm") %>% 
   column_spec(column = c(2,3), width = "1.8cm") %>% 
   # column_spec(column = c(5), width = "3cm") %>% 
-  add_footnote("Romanian national parliamentary elections took place in 2004 and in 2008. Data source: Romanian National Institute of Statistics", notation = "none")
+  add_footnote("Romanian national parliamentary elections took place in 2004 and in 2008. Source: Romanian National Institute of Statistics", notation = "none")
 
 ```
   
@@ -140,12 +140,12 @@ ro_volatility_2012 <- ro_volatility_table %>%
                 `Vote Share 2012 (E1) in %` = y_2012)
 
 kable(ro_volatility_2012,
-      caption = "Calculating electoral volatility using the Pedersen Index in Bihor County, Romania (NUTS3 ID: RO111",
+      caption = "Calculating electoral volatility using the Pedersen Index in Bihor County, Romania (NUTS3 ID: RO111)",
       format = "latex", booktabs = TRUE, linesep = "") %>% 
   kable_styling(font_size = 9) %>% 
-  column_spec(column = c(2,3), width = "2cm") %>%
+  column_spec(column = c(2,3), width = "3cm") %>%
   column_spec(column = 4, width = "3cm") %>%
-  add_footnote("The Pedersen Index equal the sum of the absolute differences divided by 2 (Pedersen 1979). The sum of the absolute differences in Bihor County is 147, thus the Pedersen Index equals 73.5 for the year 2012. Party IDs for parties with very low vote shares are missing (Schraff et al. 2023, 572). Full party names can be accessed at partyfacts.herokuapp.com/data/partycodes/Party ID/. Data source: Schraff et al. 2023", notation="none")
+  add_footnote("The Pedersen Index equal the sum of the absolute differences divided by 2 (Pedersen 1979). The sum of the absolute differences in Bihor County is 147, thus the Pedersen Index equals 73.5 for the year 2012. Party IDs for parties with very low vote shares are missing (Schraff et al. 2023, 572). Full party names can be accessed at partyfacts.herokuapp.com/data/partycodes/Party ID/. Source: Schraff et al. 2023", notation="none")
 ```
 
 #### Economic Performance
