@@ -1,0 +1,65 @@
+
+```{r net-migration-map, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Average net migration 2000–2021 in subnational regions (NUTS3). Negative net migration means more people leaving than entering, thus more emigration. Source: Eurostat’s CNMIGRATRT variable."}
+
+# Preprocessing -------------------------------------------------------------
+
+# Clean DF
+net_migr_nuts3_pp <- net_migr_nuts3 %>% 
+  dplyr::select(-c(`2022`)) %>% # Remove 2022 as it only contains NAs
+  # Clean up column names
+  dplyr::rename(nuts3 = `GEO (Codes)`) %>% 
+  dplyr::rename(nuts3_name = `GEO (Labels)`) %>% 
+  dplyr::rename_with(~ ifelse(. %in% c("nuts3", "nuts3_name"), ., paste0("year_", .))) %>% 
+  dplyr::filter(nuts3 != "") %>% # Remove empty rows
+  dplyr::filter(nchar(nuts3) == 5) %>%  # Only keep NUTS3 regions
+  dplyr::mutate(country = substr(nuts3, start = 1, stop = 2)) # Add country to DF
+
+
+# Create Average -------------------------------------------------------------
+
+# Average from year 2000 to 2021
+net_migr_nuts3_pp <- net_migr_nuts3_pp %>%
+  dplyr::mutate(avg = rowMeans(dplyr::select(., starts_with("year_")), na.rm = TRUE))
+
+
+# Numeric to Factors -------------------------------------------------------------
+
+# Define column names
+year_cols <- paste0("year_", 2000:2021)
+year_cols <- append(year_cols, "avg")
+
+net_migr_nuts3_pp <- net_migr_nuts3_pp %>% 
+  mutate_at(.vars = year_cols, .funs = list(fct = ~cut(
+    .,
+    breaks = c(-Inf, -15, -5, 0, 5, 15, Inf),
+    labels = c("Less than 15%", "-15% – -5%", "-5% – 0%", "0% – +5%", "+5 – +15% ", "More than 15%"),
+    include.lowest = TRUE,
+    right = FALSE,
+    ordered_result = TRUE
+  ))) %>% 
+  rename_at(vars(ends_with("_fct")), ~sub("year_(.*)fct", "fct_year_\\1", .))
+
+# Get country borders
+nuts0_shape <- nuts3_shape %>% dplyr::filter(LEVL_CODE == 0)
+
+# Merge the data
+merged_data <- left_join(nuts3_shape, net_migr_nuts3_pp, by = c("NUTS_ID" = "nuts3"))
+merged_data_2016 <- left_join(nuts3_shape_2016, net_migr_nuts3_pp, by = c("NUTS_ID" = "nuts3"))
+
+ggplot() +
+  geom_sf(data = merged_data, aes(fill = avg_fct), color = "#333333", lwd = 0.05) +
+  geom_sf(data = nuts0_shape, fill = NA, color = "black", lwd = 0.1) +  # highlight national borders
+  coord_sf(xlim = c(2500000, 7100000), ylim = c(1500000, 5300000)) + # Coordinate reference system:	3035
+  scale_fill_brewer(palette = "Spectral") + # Discrete scale
+  theme_minimal() +
+  theme(panel.grid = element_blank(), # remove grid
+        axis.title = element_blank(), # remove axis labels
+        axis.text = element_blank(),  # remove axis text
+        legend.position = c(0.85, 0.55),  # x, y coordinates for legend. Ranges from 0 to 1.
+        legend.text = element_text(size = 8),  # Increase the font size for legend items
+        legend.title = element_text(size = 10, face = "bold"),  # Increase the font size for the legend title
+        legend.key.size = unit(0.2, "cm")  # Adjust the size of the legend keys
+  ) +
+  labs(fill = "Net Migration")
+
+```

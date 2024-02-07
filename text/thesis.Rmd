@@ -68,7 +68,7 @@ library(scales)
 options(scipen = 0) # Enable scientific notation
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 load(here("data", "demo_r_pjanaggr3_linear.rda"))
 data_availability <- read.delim(here("data", "data_availability.tsv"))
 cee_emigration_sources <- read.csv(here("data", "cee-emigration-sources.csv"))
@@ -107,6 +107,20 @@ load(here("data", "03_service_cuts", "ro", "ro_gdp.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_volatility.Rda"))
 load(here("data", "03_service_cuts", "ro", "ro_volatility_table.rda"))
 load(here("data", "03_service_cuts", "ro", "ro_unemployment.Rda"))
+
+# Map
+# Crude rate of net migration plus statistical adjustment [CNMIGRATRT]
+# https://ec.europa.eu/eurostat/databrowser/view/DEMO_R_GIND3__custom_7029377/default/table?lang=en
+# https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_gind3_esms.htm
+# Crude rate of net migration including statistical adjustment is the ratio of the net migration including statistical adjustment during the year to the average population in that year. The value is expressed per 1000 inhabitants. The crude rate of net migration is equal to the difference between the crude rate of population change and the crude rate of natural change (that is, net migration is considered as the part of population change not attributable to births and deaths). It is calculated in this way because immigration or emigration flows are either not available or the figures are not reliable.
+net_migr_nuts3 <- read_csv(here("data", "demo_r_gind3_spreadsheet_sheet_2.csv"),
+                           na = ":",
+                           show_col_types = FALSE)
+
+# Load the shapefile for maps
+# https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts
+nuts3_shape <- st_read(here("data", "NUTS_RG_10M_2021_3035_shp", "NUTS_RG_10M_2021_3035.shp"))
+nuts3_shape_2016 <- st_read(here("data", "NUTS_RG_10M_2016_3035_shp", "NUTS_RG_10M_2016_3035.shp"))
 
 # Plot Compontents
 pl_plots_components <- list(
