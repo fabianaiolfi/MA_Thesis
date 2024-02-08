@@ -1,6 +1,6 @@
 #### Does Emigration Cause Service Cuts?
 
-I examine a possible association between external emigration and service cuts in Poland and Romania. Guiding this preliminary examination of a possible association is Figure \@ref(fig:pl-ro-population). It displays the development of different population groups between the years 1990 and 2020 in Poland and Romania. The plot differentiates between the number of primary school aged children, the number of seniors and the entire population. We can observe that in Poland, the entire population size remains constant, while in Romania the overall population decreases with time. In both countries the number of children under 15 years decreases and the number of citizens aged 65 and older increases. The decrease in children hints at a possible effect on school closures, however the direction of causality remains unclear at this point. I.e., do less children cause school closings or do school closings cause families with children to move away? The increase in the number of seniors implies that health care institutions, such as hospitals, become more important, as senior citizens are more reliant on these types of institutions than non-senior citizens.
+I examine a possible association between external emigration and service cuts in Poland and Romania. Guiding this preliminary examination of a possible association is Figure \@ref(fig:pl-ro-population). It displays the development of different population groups between the years 1990 and 2020 in Poland and Romania. The plot differentiates between the number of primary school aged children, the number of seniors and the entire population. We can observe that in Poland, the entire population size remains constant, while in Romania the overall population decreases over time. In both countries the number of children under 15 years decreases and the number of citizens aged 65 and older increases. The decrease in children hints at a possible effect on school closures, however the direction of causality remains unclear at this point. I.e., do less children cause school closings or do school closings cause families with children to move away? The increase in the number of seniors implies that health care institutions, such as hospitals, become more important, as senior citizens are more reliant on these types of institutions than non-senior citizens.
 
 ```{r pl-ro-population, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Population development 1990–2020 in millions"}
 
@@ -44,9 +44,9 @@ ggplot(df_plot) +
   labs(caption = "Sources: Statistics Poland, Romanian National Institute of Statistics, Eurostat")
 ```
 
-In order to measure an association between emigration and service cuts, I operationalise service cuts as the yearly change in the number of three types of institutions in a NUTS region, specifically schools, hospitals and third places. Because I want to examine a direct effect between emigration and service cuts, I look at the _real_ number of institutions. A negative change, i.e., a decrease in the number of institutions, indicates service cuts. This yearly change is thus the model’s dependent variable. I use the lagged emigration rate (see p. \pageref{passage:emigration-rate} for its operationalisation) as the model’s independent variable, applying three different lags (one, three and five years) as robustness checks. I lag emigration because I assume its impact on closures is not immediate, instead taking one or more years to take effect.
+In order to measure an association between emigration and service cuts, I operationalise service cuts as the yearly change in the number of three types of institutions in a NUTS region, specifically primary schools, hospitals and third places. I look at the _real_ number of institutions, as I want to examine an association between emigration and service cuts. A negative change, i.e., a decrease in the number of institutions, indicates service cuts. This yearly change is thus the model’s dependent variable. I use the lagged emigration rate (see p. \pageref{passage:emigration-rate} for emigration rate operationalisation) as the model’s independent variable, applying three different lags (one, three and five years) as robustness checks. I lag the emigration rate because I assume its impact on closures is not immediate, instead taking one or more years to take effect.
 
-I set up a two-way fixed effect linear regression model [@huntington-kleinEffectIntroductionResearch2021 395], as this can model data that varies across both regions and time. The Polish models use NUTS2 and Romanian models use NUTS3 regions as well as years as fixed effects. Modelling three institutions separately and applying three different independent variables results in nine models for each country under examination (see Table \@ref(tab:pl-emigration-service-cuts) for Poland and Table \@ref(tab:ro-emigration-service-cuts) for Romania).
+I set up a two-way fixed effect linear regression model [@huntington-kleinEffectIntroductionResearch2021 395], as this can model data that varies across both regions and time. The Polish models use NUTS2 and Romanian models use NUTS3 regions as well as years as fixed effects. Modelling three institutions separately and applying three different emigration lags results in nine models for each country under examination (see Table \@ref(tab:pl-emigration-service-cuts) for Poland and Table \@ref(tab:ro-emigration-service-cuts) for Romania).
 
 For Poland (Table \@ref(tab:pl-emigration-service-cuts)), we can observe negative coefficients in almost all models. This indicates that a higher emigration rate is associated with a decrease in the number of institutions, apart from the number of schools when emigration is lagged by one year. Statistically significant results are only observable when modelling lagged emigration on the change in number of third places. Here we see that shorter lag periods display stronger effects. This may be due to the immediate effect of emigration on third places, as a lack of customers can lead a bar or café to rapidly close down.
 
@@ -117,12 +117,12 @@ model_table <- modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
                           emigration_lagged_3 = "Emigration (3 year lag)",
                           emigration_lagged_5 = "Emigration (5 year lag)"),
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
-             stars = T,
-             statistic = NULL)
+             stars = T)
 
 model_table %>%
   kable_styling(font_size = 8) %>% 
-  add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Source: Statistics Poland", notation = "none")
+  column_spec(column = c(2,3,4,5,6,7,8,9,10), width = "0.75cm") %>% 
+  add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS2 region and are shown in parentheses.\nSource: Statistics Poland", notation = "none")
 ```
 
 Table \@ref(tab:ro-emigration-service-cuts) displays results for Romania. Results are mixed, with some (borderline) statistically significant coefficients. When observing the change in the number of schools, we see negative coefficients throughout all three models, indicating higher emigration is associated with a decrease in the number of schools. The five year lag shows borderline statistical significance ($p = 0.132$). Looking at the change in number of hospitals, there is again borderline statistical significance when applying emigration lagged by five years ($p = 0.238$). However, this relatively high p-value and the positive effect of emigration lagged by three years on the number of hospitals indicate that these models are not sufficiently robust. When modelling changes in the number of third places, we cannot observe a statistically significant association between the dependent and independent variables.
@@ -194,12 +194,12 @@ model_table <- modelsummary(list("Schools" = fe_lm_1, fe_lm_4, fe_lm_7,
                           emigration_lagged_3 = "Emigration (3 year lag)",
                           emigration_lagged_5 = "Emigration (5 year lag)"),
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
-             stars = T,
-             statistic = NULL)
+             stars = T)
 
 model_table %>%
   kable_styling(font_size = 8) %>% 
-  add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Source: Romanian National Institute of Statistics", notation = "none")
+  column_spec(column = c(2,3,4,5,6,7,8,9,10), width = "0.75cm") %>% 
+  add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region and are shown in parentheses.\nSource: Romanian National Institute of Statistics", notation = "none")
 ```
 
 As discussed on p. \pageref{passage:ro-school-drop}, data on the number of schools in Romania has its drawbacks. This is why I model the number of classrooms in Romania as a proxy for the number of schools. Table \@ref(tab:ro-emigration-classrooms) displays these results. Both coefficients for emigration lagged by one and five years display strong and statistically significant effects, indicating higher emigration rates are associated with a decrease in the number of classrooms.
@@ -228,12 +228,11 @@ model_table <- modelsummary(list("Classrooms" = fe_lm_1, fe_lm_2, fe_lm_3),
                           emigration_lagged_3 = "Emigration (3 year lag)",
                           emigration_lagged_5 = "Emigration (5 year lag)"),
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
-             stars = T,
-             statistic = NULL)
+             stars = T)
 
 model_table %>%
   kable_styling(font_size = 8) %>% 
-  add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Source: Romanian National Institute of Statistics", notation = "none")
+  add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region and are shown in parentheses. Source: Romanian National Institute of Statistics", notation = "none")
 ```
 
 In sum, there is no general, overarching support for emigration causing service cuts in Poland and Romania. However, specific results hint at an association between emigration and service cuts and thus merit further investigation.
