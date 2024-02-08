@@ -31,7 +31,7 @@ As with the previous preliminary analysis, I create a two-way fixed effect linea
 ```{r emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE}
 model_table <- modelsummary(list("Poland" = fe_lm_pl,
                                  "Romania" = fe_lm_ro),
-             title = "Dependent Variable: Change in incumbent vote share",
+             title = "Dependent variable: Change in incumbent vote share",
              coef_map = c(emigration_election_year_per_1000 = "Emigration since last election"),
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
              stars = T)

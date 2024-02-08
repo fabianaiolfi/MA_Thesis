@@ -64,7 +64,7 @@ fe_lm_6 <- feols(vote_change ~
                  data = anti_incumbent_vote)
 ```
 
-```{r results-emigration-incumbent-vote-share-control-interaction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of Model Specification B; Dependent Variable: Change in incumbent vote share in Romania"}
+```{r results-emigration-incumbent-vote-share-control-interaction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Results of Model Specification B; Dependent variable: Change in incumbent vote share in Romania"}
 
 control_variable_title <- tribble(~c1, ~c2, ~c3, ~c4, ~c5, ~c6,
                                   "Control Variables", " ", " ", " ", " ", " ")
@@ -79,7 +79,7 @@ model_table <- modelsummary(list("Model 0" = fe_lm_0,
                                  #"Model 5" = fe_lm_5,
                                  #"Model 6" = fe_lm_6
                                  ),
-              title = "Results of Model Specification B; Dependent Variable: Change in incumbent vote share",
+              title = "Results of Model Specification B; Dependent variable: Change in incumbent vote share",
              coef_map = c("average_ratio_schools_election_year:emigration_election_year_per_1000" = "Avg. Children per School × Emigration since last election",
                           "average_ratio_classrooms_election_year:emigration_election_year_per_1000" = "Avg. Children per Classroom × Emigration since last election",
                           "emigration_election_year_per_1000:average_ratio_hospitals_election_year" = "Avg. People per Hospital × Emigration since last election",

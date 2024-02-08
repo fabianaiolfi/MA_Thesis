@@ -1,6 +1,6 @@
 ### Reproducibility
 
-All scripts used to prepare data and build models are available in this Github Repo:  
+All scripts used to prepare data and build models are available on Github:  
 \url{https://github.com/fabianaiolfi/MA_Thesis}.  
 
 Data files are available for download here: \url{https://www.dropbox.com/scl/fi/xc8fuhn17vfjf6h29hltu/ma_thesis_data.zip?rlkey=07u5yjvbe8hecztn68ml1ep12&dl=0}
