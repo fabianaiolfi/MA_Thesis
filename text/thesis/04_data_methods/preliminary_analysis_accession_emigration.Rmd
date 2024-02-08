@@ -114,9 +114,9 @@ grid.arrange(pl_emigration_plot, ro_emigration_plot, ncol = 2)
 
 In a second step, I perform a Chow-Test [@chowTestsEqualitySets1960] for each NUTS region in Poland and Romania to examine if EU accession creates a break in the rate of emigration over time. A country’s year of accession is set as the break point. The Chow-Test returns a p-value, with which I can determine if the development of the emigration rate over time displays a significant difference before and after accession. In this specific case, I receive a p-value for every NUTS region in Poland and Romania.
 
-In Poland, 15 of the 17 NUTS2 regions, or around $88\%$, return p-values below conventional statistical significance ($p < 0.05$), while in Romania 38 of the 42 NUTS3 regions, about $90\%$, do. Figure \@ref(fig:accession-emigration-box) displays the distribution of the returned p-values in a box plot. The plots show that almost all regions in Poland and Romania display a significant break in emigration rate around EU accession.
+In Poland, 15 of the 17 NUTS2 regions, or around $88\%$, return p-values with conventional statistical significance ($p < 0.05$), while in Romania 38 of the 42 NUTS3 regions, about $90\%$, do. Figure \@ref(fig:accession-emigration-box) displays the distribution of the returned p-values in a box plot. The plots show that almost all regions in Poland and Romania display a significant break in emigration rate around EU accession.
 
-```{r accession-emigration-box, echo=FALSE, fig.height=2, message=FALSE, warning=FALSE, fig.cap="Distribution of p-values for Chow Test"}
+```{r accession-emigration-box, echo=FALSE, fig.height=2, message=FALSE, warning=FALSE, fig.cap="Distribution of Chow Test p-values"}
 # Define a layout matrix
 layout_matrix <- rbind(c(1, NA, 2))
 
