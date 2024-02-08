@@ -24,24 +24,23 @@ anti_incumbent_vote <- ned_v_dem_cee %>%
 fe_lm_ro <- feols(vote_change ~ emigration_election_year_per_1000 | nuts2016 + year, data = anti_incumbent_vote)
 ```
 
+I examine if there is an association between emigration rates and incumbent support. Following the theory, emigration causes grievances, which in turn can decrease incumbent support. Thus I expect that higher emigration to be associated with a decrease in incumbent vote share.
+
+As with the previous preliminary analysis, I create a two-way fixed effect linear regression model, using NUTS regions and years as fixed effects. For the model’s dependent variable I use the incumbent vote change between national parliamentary elections (see p. \pageref{passage:incumbent-vote-share-change} for incumbent vote change operationalisation). The model uses the total emigration rate from a region between two elections as the independent variable (see p. \pageref{passage:emigration-rate} for emigration rate operationalisation). I model Poland and Romania separately. Results for both models are displayed in Table \@ref(tab:emigration-incumbent-vote-share).
+
 ```{r emigration-incumbent-vote-share, echo=FALSE, message=FALSE, warning=FALSE}
 model_table <- modelsummary(list("Poland" = fe_lm_pl,
                                  "Romania" = fe_lm_ro),
              title = "Dependent Variable: Change in incumbent vote share",
              coef_map = c(emigration_election_year_per_1000 = "Emigration since last election"),
              gof_omit = "AIC|BIC|RMSE|Std.Errors|FE",
-             stars = T,
-             statistic = NULL)
+             stars = T)
 
 model_table %>%
   kable_styling(font_size = 8) %>% 
   column_spec(column = 1, width = "4cm") %>% 
   column_spec(column = c(2,3), width = "3cm") %>% 
-  add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region. Sources: Staffan I. Lindberg et al. 2022, Schraff et al. 2023, Statistics Poland, Romanian National Institute of Statistics", notation = "none")
+  add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS region and are shown in parentheses. Sources: Staffan I. Lindberg et al. 2022, Schraff et al. 2023, Statistics Poland, Romanian National Institute of Statistics", notation = "none")
 ```
-
-I examine if there is an association between emigration rates and incumbent support. Following the theory, emigration causes grievances, which in turn can decrease incumbent support. Thus I expect that higher emigration to be associated with a decrease in incumbent vote share.
-
-As with the previous preliminary analysis, I create a two-way fixed effect linear regression model, using NUTS regions and years as fixed effects. For the model’s dependent variable I use the incumbent vote change between national parliamentary elections (see p. \pageref{passage:incumbent-vote-share-change} for its operationalisation). The model uses the total emigration rate from a region between two elections as the independent variable (see p. \pageref{passage:emigration-rate} for its operationalisation). I model Poland and Romania separately. Results for both models are displayed in Table \@ref(tab:emigration-incumbent-vote-share).
 
 There is no statistically significant association between external emigration and incumbent voting in Poland. Also, the coefficient is positive, which indicates that an increase in emigration is associated with an increase in incumbent vote share. On the other hand, the Romanian model displays a result that aligns with the theoretical expectations. In Romania, higher emigration rates between elections are associated with a relatively strong decrease in incumbent vote share. An increase of one emigrant per thousand inhabitants in a NUTS3 region is associated with a decrease of incumbent vote share of around $6.5\%$. The coefficient displays statistical significance at conventional levels. Furthermore, the Romanian model displays relatively high $R^2$ values, indicating that the model explains a large part of the dependent variable's overall variance.

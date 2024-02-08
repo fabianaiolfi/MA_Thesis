@@ -202,7 +202,7 @@ model_table %>%
   add_footnote("Fixed Effects: NUTS regions and years. Standard errors are grouped by NUTS3 region and are shown in parentheses.\nSource: Romanian National Institute of Statistics", notation = "none")
 ```
 
-As discussed on p. \pageref{passage:ro-school-drop}, data on the number of schools in Romania has its drawbacks. This is why I model the number of classrooms in Romania as a proxy for the number of schools. Table \@ref(tab:ro-emigration-classrooms) displays these results. Both coefficients for emigration lagged by one and five years display strong and statistically significant effects, indicating higher emigration rates are associated with a decrease in the number of classrooms.
+As discussed on p. \pageref{passage:ro-school-drop}, data on the number of schools in Romania has its drawbacks. This is why I model the number of primary classrooms in Romania as a proxy for the number of schools. Table \@ref(tab:ro-emigration-classrooms) displays these results. Both coefficients for emigration lagged by one and five years display strong and statistically significant effects, indicating higher emigration rates are associated with a decrease in the number of classrooms.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 fe_lm_1 <- feols(classrooms_diff ~
