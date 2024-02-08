@@ -41,7 +41,7 @@ ggplot(df_plot) +
     strip.text = element_text(hjust = 0), # Left aligns the facet titles
     plot.caption = element_text(hjust = 0, vjust = 0, size = 8)
   ) +
-  labs(caption = "Sources: Statistics Poland, Romanian National Institute of Statistics")
+  labs(caption = "Sources: Statistics Poland, Romanian National Institute of Statistics, Eurostat")
 ```
 
 In order to measure an association between emigration and service cuts, I operationalise service cuts as the yearly change in the number of three types of institutions in a NUTS region, specifically schools, hospitals and third places. Because I want to examine a direct effect between emigration and service cuts, I look at the _real_ number of institutions. A negative change, i.e., a decrease in the number of institutions, indicates service cuts. This yearly change is thus the model’s dependent variable. I use the lagged emigration rate (see p. \pageref{passage:emigration-rate} for its operationalisation) as the model’s independent variable, applying three different lags (one, three and five years) as robustness checks. I lag emigration because I assume its impact on closures is not immediate, instead taking one or more years to take effect.

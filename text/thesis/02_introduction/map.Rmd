@@ -45,7 +45,7 @@ nuts0_shape <- nuts3_shape %>% dplyr::filter(LEVL_CODE == 0)
 merged_data <- left_join(nuts3_shape, net_migr_nuts3_pp, by = c("NUTS_ID" = "nuts3"))
 merged_data_2016 <- left_join(nuts3_shape_2016, net_migr_nuts3_pp, by = c("NUTS_ID" = "nuts3"))
 
-maps_caption <- "Net migration is calculated by subtracting the crude rate of natural change from \nthe crude rate of population change. This means net migration represents the part of \npopulation change that is not caused by births and deaths. A negative net migration \nindicates more emigration than immigration in a region. These data do not differentiate \nbetween internal and external migration. Source: Eurostat's CNMIGRATRT variable."
+maps_caption <- "Net migration is calculated by subtracting the crude rate of natural change from \nthe crude rate of population change. This means net migration represents the part of \npopulation change that is not caused by births and deaths. A negative net migration \nindicates more emigration than immigration in a region. These data do not differentiate \nbetween internal and external migration. Source: Eurostat variable CNMIGRATRT."
 
 ggplot() +
   geom_sf(data = merged_data, aes(fill = avg_fct), color = "#333333", lwd = 0.02) +
